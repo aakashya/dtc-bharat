@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.w1-root {
+    @apply bg-w1-dark-bg text-white antialiased;
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+.w1-root .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+.w1-glass {
+    @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+}
+
+.w1-neon-text {
+    text-shadow: 0 0 10px rgba(255, 87, 87, 0.5);
+}
+
+@keyframes w1-scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.w1-scanline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 87, 87, 0.2),
+        transparent
+    );
+    animation: w1-scanline 8s linear infinite;
+    pointer-events: none;
+}
