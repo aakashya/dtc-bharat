@@ -23,6 +23,10 @@ export default {
                 'w3-ink': '#1A1A1A',
                 'w3-bg': '#F9F8F3',
                 'w3-surface': '#FFFFFF',
+                'w5-brand': '#FF5757',
+                'w5-brand-dark': '#E04646',
+                'w5-corporate-blue': '#0A192F',
+                'w5-corporate-light': '#F8FAFC',
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
