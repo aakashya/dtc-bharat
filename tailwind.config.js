@@ -18,6 +18,11 @@ export default {
                 'w2-brand': '#FF5757',
                 'w2-ink': '#0F172A',
                 'w2-surface': '#F8FAFC',
+                'w3-brand': '#FF5757',
+                'w3-glow': '#F27D26',
+                'w3-ink': '#1A1A1A',
+                'w3-bg': '#F9F8F3',
+                'w3-surface': '#FFFFFF',
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

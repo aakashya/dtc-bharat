@@ -17,6 +17,7 @@ Route::get('/', function () {
 $websitePages = [
     '1' => 'Websites/Website1/Index',
     '2' => 'Websites/Website2/Index',
+    '3' => 'Websites/Website3/Index',
 ];
 
 foreach ($websitePages as $slug => $page) {
