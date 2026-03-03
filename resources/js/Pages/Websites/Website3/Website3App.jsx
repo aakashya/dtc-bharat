@@ -26,12 +26,19 @@ import { useState } from 'react';
 const Navbar = () => (
     <nav className="fixed left-1/2 top-8 z-50 flex -translate-x-1/2 items-center gap-4 rounded-full px-8 py-3 w3-glass">
         <div className="mr-8 flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-w3-brand shadow-lg shadow-w3-brand/20">
-                <div className="h-3 w-3 rotate-45 rounded-sm border-2 border-white" />
+            <img
+                src="/images/logo/dtc-logo.JPG"
+                alt="Delphinium Travelcorp"
+                className="h-8 w-8 rounded-full object-cover ring-1 ring-w3-ink/10"
+            />
+            <div className="leading-none">
+                <span className="block font-display text-xs font-bold tracking-tight text-w3-ink">
+                    Delphinium Travelcorp
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-w3-brand">
+                    DTC Bharat
+                </span>
             </div>
-            <span className="font-display text-sm font-bold tracking-tighter text-w3-ink">
-                ROYAL<span className="text-w3-brand">.</span>NEXT
-            </span>
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -409,12 +416,19 @@ const Footer = () => (
             <div className="mb-32 grid gap-24 md:grid-cols-2 lg:grid-cols-4">
                 <div className="col-span-1 lg:col-span-2">
                     <div className="mb-10 flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-w3-brand">
-                            <div className="h-4 w-4 rotate-45 rounded-sm border-2 border-white" />
+                        <img
+                            src="/images/logo/dtc-logo.JPG"
+                            alt="Delphinium Travelcorp"
+                            className="h-10 w-10 rounded-full object-cover ring-1 ring-w3-ink/10"
+                        />
+                        <div>
+                            <span className="block font-display text-lg font-bold tracking-tight text-w3-ink">
+                                Delphinium Travelcorp
+                            </span>
+                            <span className="text-[9px] uppercase tracking-[0.2em] text-w3-brand">
+                                DTC Bharat
+                            </span>
                         </div>
-                        <span className="font-display text-2xl font-bold tracking-tighter text-w3-ink">
-                            ROYAL<span className="text-w3-brand">.</span>NEXT
-                        </span>
                     </div>
                     <p className="mb-12 max-w-sm text-lg font-light leading-relaxed text-w3-ink/40">
                         We are orchestrating the future of human mobility. One seamless
@@ -492,7 +506,7 @@ const Footer = () => (
 
             <div className="flex flex-col items-center justify-between gap-8 border-t border-w3-ink/5 pt-16 md:flex-row">
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-w3-ink/20">
-                    © 2026 ROYAL CORPTRAVEL. CRAFTED FOR THE AMBITIOUS.
+                    © 2026 DELPHINIUM TRAVELCORP. CRAFTED FOR THE AMBITIOUS.
                 </p>
                 <div className="flex gap-12 text-[10px] font-bold uppercase tracking-[0.4em] text-w3-ink/20">
                     <a href="#" className="transition-colors hover:text-w3-brand">

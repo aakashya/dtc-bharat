@@ -26,6 +26,8 @@ foreach ($websitePages as $slug => $page) {
     })->name("websites.{$slug}");
 }
 
+Route::view('/4', 'dtc')->name('websites.4');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

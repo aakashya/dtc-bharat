@@ -4,7 +4,6 @@ import {
     ArrowRight,
     BarChart3,
     Box,
-    Car,
     ChevronRight,
     Cpu,
     Globe,
@@ -46,15 +45,17 @@ function Navbar({ currentPage, isMenuOpen, scrolled, setCurrentPage, setIsMenuOp
                         className="group flex items-center"
                         onClick={() => setCurrentPage('home')}
                     >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white transition-transform duration-500 group-hover:rotate-12">
-                            <Car className="h-6 w-6 text-w2-brand" />
-                        </div>
+                        <img
+                            src="/images/logo/dtc-logo.JPG"
+                            alt="Delphinium Travelcorp"
+                            className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/20 transition-transform duration-500 group-hover:rotate-12"
+                        />
                         <div className="ml-4">
-                            <span className="block font-display text-xl font-bold leading-none tracking-tight text-white">
-                                ROYAL
+                            <span className="block font-display text-base font-bold leading-none tracking-tight text-white">
+                                Delphinium Travelcorp
                             </span>
-                            <span className="block font-mono text-[9px] uppercase tracking-[0.3em] text-white/70">
-                                CorpTravel
+                            <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">
+                                DTC Bharat
                             </span>
                         </div>
                     </button>
@@ -135,15 +136,17 @@ function Footer() {
                 <div className="mb-32 grid gap-16 md:grid-cols-4">
                     <div className="col-span-2">
                         <div className="mb-10 flex items-center">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-w2-brand shadow-lg shadow-w2-brand/20">
-                                <Car className="h-6 w-6 text-white" />
-                            </div>
+                            <img
+                                src="/images/logo/dtc-logo.JPG"
+                                alt="Delphinium Travelcorp"
+                                className="h-12 w-12 rounded-2xl object-cover shadow-lg shadow-w2-brand/20 ring-1 ring-w2-ink/10"
+                            />
                             <div className="ml-4">
-                                <span className="block font-display text-2xl font-bold tracking-tight">
-                                    ROYAL
+                                <span className="block font-display text-xl font-bold tracking-tight">
+                                    Delphinium Travelcorp
                                 </span>
-                                <span className="block font-mono text-[10px] uppercase tracking-[0.5em] text-w2-brand">
-                                    CorpTravel
+                                <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-w2-brand">
+                                    DTC Bharat
                                 </span>
                             </div>
                         </div>
@@ -218,7 +221,7 @@ function Footer() {
                 </div>
                 <div className="flex flex-col items-center justify-between border-t border-w2-ink/5 pt-12 md:flex-row">
                     <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.5em] text-w2-ink/30 md:mb-0">
-                        // STATUS: OPERATIONAL // 2026 ROYAL CORPTRAVEL
+                        // STATUS: OPERATIONAL // 2026 DELPHINIUM TRAVELCORP
                     </p>
                     <div className="flex items-center space-x-8">
                         <span className="text-[10px] font-bold uppercase tracking-widest text-w2-ink/20">
@@ -453,9 +456,9 @@ function ProfilePage() {
                             Legacy & Vision
                         </span>
                         <h1 className="mb-12 font-display text-6xl font-bold leading-[0.9] tracking-tighter lg:text-8xl">
-                            Royal
+                            Delphinium
                             <br />
-                            CorpTravel.
+                            Travelcorp.
                         </h1>
                         <p className="mb-12 text-2xl font-medium leading-tight text-w2-ink/60">
                             Incorporated in 2011, evolving from a visionary startup in 2006. We

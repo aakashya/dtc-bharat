@@ -3,7 +3,6 @@ import {
     Activity,
     ArrowRight,
     Box,
-    Car,
     Coffee,
     Cpu,
     Globe,
@@ -39,15 +38,17 @@ function Navbar({ currentPage, isMenuOpen, setCurrentPage, setIsMenuOpen }) {
                     className="group flex cursor-pointer items-center"
                     onClick={() => setCurrentPage('home')}
                 >
-                    <div className="mr-3 rounded-lg bg-w1-brand p-2 shadow-[0_0_15px_rgba(255,87,87,0.5)] transition-transform group-hover:rotate-12">
-                        <Car className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                        <span className="w1-neon-text text-2xl font-black tracking-tighter">
-                            ROYAL
+                    <img
+                        src="/images/logo/dtc-logo.JPG"
+                        alt="Delphinium Travelcorp"
+                        className="mr-3 h-10 w-10 rounded-lg object-cover ring-1 ring-white/10 transition-transform group-hover:rotate-12"
+                    />
+                    <div className="text-left">
+                        <span className="w1-neon-text block text-base font-black tracking-tight">
+                            Delphinium Travelcorp
                         </span>
-                        <div className="-mt-1 text-[10px] font-mono uppercase tracking-[0.4em] text-w1-brand opacity-80">
-                            CorpTravel
+                        <div className="-mt-0.5 text-[10px] font-mono uppercase tracking-[0.25em] text-w1-brand opacity-80">
+                            DTC Bharat
                         </div>
                     </div>
                 </button>
@@ -119,10 +120,19 @@ function Footer({ setCurrentPage }) {
                 <div className="mb-16 grid gap-12 md:grid-cols-4">
                     <div className="col-span-1 md:col-span-1">
                         <div className="mb-6 flex items-center">
-                            <Car className="mr-2 h-6 w-6 text-w1-brand" />
-                            <span className="text-xl font-black tracking-tighter">
-                                ROYAL
-                            </span>
+                            <img
+                                src="/images/logo/dtc-logo.JPG"
+                                alt="Delphinium Travelcorp"
+                                className="mr-3 h-10 w-10 rounded-lg object-cover ring-1 ring-white/10"
+                            />
+                            <div>
+                                <span className="block text-base font-black tracking-tight">
+                                    Delphinium Travelcorp
+                                </span>
+                                <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-w1-brand">
+                                    DTC Bharat
+                                </span>
+                            </div>
                         </div>
                         <p className="text-sm font-light leading-relaxed text-white/40">
                             Established 2006. Pioneering futuristic corporate mobility with
@@ -179,7 +189,7 @@ function Footer({ setCurrentPage }) {
                 </div>
                 <div className="flex flex-col items-center justify-between border-t border-white/5 pt-8 md:flex-row">
                     <p className="mb-4 text-[10px] font-mono uppercase tracking-widest text-white/20 md:mb-0">
-                        // STATUS: OPERATIONAL // 2026 ROYAL CORPTRAVEL
+                        // STATUS: OPERATIONAL // 2026 DELPHINIUM TRAVELCORP
                     </p>
                     <div className="flex space-x-6">
                         <div className="h-2 w-2 animate-pulse rounded-full bg-w1-brand" />
@@ -435,7 +445,8 @@ function ProfilePage() {
                         </div>
                         <div className="space-y-6 font-light leading-relaxed text-white/60">
                             <p>
-                                Royal CorpTravel Pvt. Ltd. (RCPL) was incorporated on 21st April
+                                Delphinium Travelcorp Pvt. Ltd. (DTC) was incorporated on 21st
+                                April
                                 2011, evolving from a startup in 2006. We professionally manage
                                 Corporate Travel with a mission to provide long-term quality
                                 transportation solutions.
