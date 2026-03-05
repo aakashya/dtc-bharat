@@ -71,7 +71,7 @@ function Navbar({ activePage, setActivePage }) {
                     <img
                         src="/images/logo/dtc-logo.JPG"
                         alt="Delphinium Travelcorp"
-                        className="h-14 w-auto rounded-xl object-cover ring-1 ring-white/20"
+                        className="h-16 w-auto rounded-xl object-cover ring-1 ring-white/20"
                     />
                     <div>
                         <h1
@@ -173,11 +173,11 @@ function Footer({ setActivePage }) {
         <footer className="bg-w6-corporate-blue pb-10 pt-20 text-white">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-4">
                 <div className="col-span-1 md:col-span-1">
-                    <div className="mb-6 flex items-center gap-3">
+                    <div className="mb-6 flex flex-col items-start gap-3">
                         <img
                             src="/images/logo/dtc-logo.JPG"
                             alt="Delphinium Travelcorp"
-                            className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/20"
+                            className="h-24 w-auto rounded-xl object-cover ring-1 ring-white/20"
                         />
                         <div>
                             <h2 className="font-display text-lg font-bold leading-none">
