@@ -1056,70 +1056,127 @@ function FleetSection() {
 }
 
 function ServicesSection() {
-    const services = [
-        {
-            title: 'Employee Transportation',
-            desc: 'End-to-end mobility with route optimization, shift scheduling, and real-time monitoring.',
-            icon: <Users size={24} />,
-        },
-        {
-            title: 'Shuttle Services',
-            desc: 'Dedicated fleet for fixed routes and regular corporate shuttle requirements.',
-            icon: <Car size={24} />,
-        },
-        {
-            title: 'Spot Rental',
-            desc: 'On-demand premium vehicles for airport transfers, VIP pickups, and events.',
-            icon: <Calendar size={24} />,
-        },
-        {
-            title: 'Outstation Travel',
-            desc: 'Customized plans for corporate retreats, industrial visits, and long-distance travel.',
-            icon: <MapPin size={24} />,
-        },
-    ];
-
     return (
-        <section className="bg-white py-24">
-            <div className="mx-auto max-w-7xl px-6">
-                <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
-                    <div className="max-w-2xl">
-                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
-                            Our Services
-                        </div>
-                        <h2 className="font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
-                            Comprehensive{' '}
-                            <span className="text-w6-brand">Mobility Solutions</span>
+        <section className="pt-28 pb-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="mb-16 text-center">
+                    <div className="mx-auto max-w-2xl">
+                        <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Services</div>
+                        <h2 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue">
+                            Comprehensive <span className="text-brand">Mobility Solutions</span>
                         </h2>
+                        <p className="mt-4 text-slate-500 text-sm md:text-base">
+                            Tailored transportation services designed to meet the dynamic needs of modern enterprises.
+                        </p>
                     </div>
-                    <p className="max-w-xs text-sm text-slate-500">
-                        Tailored transportation services designed to meet the dynamic needs
-                        of modern enterprises.
-                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {services.map((service) => (
-                        <div
-                            key={service.title}
-                            className="group relative overflow-hidden rounded-3xl border border-slate-100 p-10 transition-all hover:border-w6-brand/20"
-                        >
-                            <div className="absolute right-0 top-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-colors group-hover:bg-w6-brand/5" />
-                            <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand transition-all group-hover:bg-w6-brand group-hover:text-white">
-                                {service.icon}
+                <div className="mb-20">
+                    <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100 overflow-hidden relative">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -mr-32 -mt-32" />
+                        <div className="relative z-10">
+                            <div className="flex flex-col lg:flex-row gap-12">
+                                <div className="lg:w-2/3">
+                                    <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg">
+                                        <Users size={32} />
+                                    </div>
+                                    <h3 className="text-3xl font-display font-bold text-corporate-blue mb-6">Employee Transportation</h3>
+                                    <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                                        RCPL is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Royal CorpTravel (RCPL).
+                                    </p>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                        <div>
+                                            <h4 className="font-bold text-corporate-blue mb-4 flex items-center gap-2">
+                                                <Briefcase className="text-brand" size={20} /> Industries Catered To:
+                                            </h4>
+                                            <ul className="space-y-3">
+                                                {['BPOs & KPOs', 'IT, ITES & Consulting Companies', 'Real Estate', 'Telecom Companies', 'Banking and Financial Services'].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-3 text-slate-600 text-sm">
+                                                        <div className="w-1.5 h-1.5 bg-brand rounded-full" />
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-corporate-blue mb-4 flex items-center gap-2">
+                                                <Award className="text-brand" size={20} /> RCPL Advantage:
+                                            </h4>
+                                            <ul className="space-y-3">
+                                                {[
+                                                    'Complete solutions with Routing, Rostering & Optimization',
+                                                    'Fleet of 300+ vehicles, 36,000+ trips monthly',
+                                                    'Customized MIS & Billing systems',
+                                                    'GPS & GPRS enabled Safety Tracking',
+                                                    '24/7 Dedicated Operational Support',
+                                                    'PAN India Service Capability',
+                                                    'Support for Adhoc transport services'
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-center gap-3 text-slate-600 text-sm">
+                                                        <CheckCircle2 className="text-brand shrink-0" size={16} />
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="lg:w-1/3">
+                                    <div className="h-full rounded-3xl overflow-hidden shadow-2xl">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop"
+                                            alt="Employee Transport"
+                                            className="w-full h-full object-cover"
+                                            referrerPolicy="no-referrer"
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
-                                {service.title}
-                            </h3>
-                            <p className="mb-8 leading-relaxed text-slate-500">
-                                {service.desc}
-                            </p>
-                            <button
-                                type="button"
-                                className="flex items-center gap-2 text-sm font-bold text-w6-brand transition-all group-hover:gap-4"
-                            >
-                                View Details <ArrowRight size={16} />
-                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        {
+                            title: 'Shuttle Services',
+                            desc: 'A Fix cab used as per Company requirement. Ideal for fixed working hours with a minimum running guarantee.',
+                            icon: <RefreshCcw size={24} />,
+                            img: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop'
+                        },
+                        {
+                            title: 'Spot Rental',
+                            desc: 'On-the-spot or unscheduled cab requests entertained with premium vehicles for VIPs and events.',
+                            icon: <Car size={24} />,
+                            img: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=2072&auto=format&fit=crop'
+                        },
+                        {
+                            title: 'Outstation Trip Packages',
+                            desc: 'Professional outstation trip packages beyond Delhi NCR, tailored for corporate and individual needs.',
+                            icon: <MapPin size={24} />,
+                            img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop'
+                        }
+                    ].map((service, i) => (
+                        <div key={i} className="group bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden hover:shadow-xl transition-all">
+                            <div className="h-48 overflow-hidden">
+                                <img
+                                    src={service.img}
+                                    alt={service.title}
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    referrerPolicy="no-referrer"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center text-brand mb-6 group-hover:bg-brand group-hover:text-white transition-all">
+                                    {service.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-corporate-blue mb-4">{service.title}</h3>
+                                <p className="text-slate-500 text-sm leading-relaxed mb-6">{service.desc}</p>
+                                <button type="button" className="flex items-center gap-2 text-brand font-bold text-xs group-hover:gap-4 transition-all">
+                                    Learn More <ArrowRight size={14} />
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>
