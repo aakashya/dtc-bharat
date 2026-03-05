@@ -390,9 +390,9 @@ function Hero({ setActivePage }) {
                     <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
                         {[
                             { label: 'Availability', value: '24/7' },
-                            { label: 'Coverage', value: 'PAN India' },
+                            { label: 'Coverage', value: 'Delhi NCR' },
                             { label: 'Corporate Clients', value: '100+' },
-                            { label: 'Fleet Units', value: '500+' },
+                            { label: 'Fleet Units', value: '300+' },
                         ].map((stat) => (
                             <div key={stat.label}>
                                 <div className="font-display text-3xl font-bold text-white md:text-5xl">
@@ -573,12 +573,7 @@ const DetailedFleetInfo = () => {
         {
             category: 'SUV/MUV',
             models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova'],
-            img: '/images/innova-crysta-9-240.jpg',
-        },
-        {
-            category: 'Bus',
-            models: ['Force Traveller', 'Mini Bus', 'Bus', 'Luxury Bus'],
-            img: '/images/bus.jpg',
+            img: '/images/innova.webp',
         },
     ];
 
@@ -593,7 +588,7 @@ const DetailedFleetInfo = () => {
                         Our Extensive Fleet
                     </h2>
                 </div>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {fleetData.map((fleet, i) => (
                         <div
                             key={`${fleet.category}-${i}`}
@@ -746,14 +741,12 @@ const HappyClientsSection = () => {
                             key={`${client.name}-${i}`}
                             className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
                         >
-                            <div className="flex h-16 min-w-[110px] items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
                                 <img
                                     src={client.logoSrc}
                                     alt={`${client.name} logo`}
                                     className="w-auto max-w-none object-contain"
-                                    style={{ height: '24px' }}
+                                    style={{ height: '36px' }}
                                 />
-                            </div>
                             <span className="font-display text-xl font-bold text-corporate-blue/80 transition-colors group-hover:text-corporate-blue">
                                 {client.name}
                             </span>
@@ -766,7 +759,7 @@ const HappyClientsSection = () => {
                 {[
                     { label: 'Client Retention', value: '98%' },
                     { label: 'Average Partnership', value: '7+ Years' },
-                    { label: 'Monthly Trips', value: '25,000+' },
+                    { label: 'Monthly Trips', value: '36,000+' },
                 ].map((stat, i) => (
                     <div
                         key={`${stat.label}-${i}`}
@@ -949,11 +942,6 @@ function FleetSection() {
             models: 'Ertiga, Enjoy, Xylo, Innova',
             icon: <Car size={32} />,
         },
-        {
-            category: 'Bus',
-            models: 'Traveller, Mini Bus, Luxury Bus',
-            icon: <Users size={32} />,
-        },
     ];
 
     return (
@@ -967,12 +955,12 @@ function FleetSection() {
                         Diverse Fleet for Every Need
                     </h2>
                     <p className="text-lg text-slate-500">
-                        From executive sedans to luxury buses, we maintain a high-quality
-                        fleet equipped with modern safety and comfort features.
+                        From hatchbacks to executive SUVs, we maintain a high-quality fleet
+                        equipped with modern safety and comfort features.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {fleet.map((item) => (
                         <motion.div
                             key={item.category}
@@ -1510,71 +1498,54 @@ function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="w6-glass-card rounded-3xl p-10">
-                        <h3 className="mb-8 text-2xl font-bold text-w6-corporate-blue">
-                            Booking Inquiry
+                    <div className="w6-glass-card relative overflow-hidden rounded-[3rem] p-10">
+                        <div className="absolute right-0 top-0 p-6 text-5xl opacity-10">🚕</div>
+                        <h3 className="font-display mb-8 text-center text-3xl font-bold text-corporate-blue">
+                            Book Your Cab
                         </h3>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                        Full Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
-                                        placeholder="John Doe"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                        Mobile Number
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
-                                        placeholder="+91 00000 00000"
-                                    />
+                        <form className="space-y-10">
+                            <div>
+                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                                    <Users size={18} /> Booked By
+                                </h4>
+                                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
+                                    <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                                    <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
                                 </div>
                             </div>
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                        Company Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
-                                        placeholder="Enterprise Inc."
-                                    />
+                            <div>
+                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                                    <Briefcase size={18} /> Booked For
+                                </h4>
+                                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
+                                    <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
+                                    <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                        Service Type
-                                    </label>
-                                    <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none">
-                                        <option>Employee Transportation</option>
-                                        <option>Shuttle Service</option>
-                                        <option>Spot Rental</option>
-                                        <option>Outstation Travel</option>
+                            </div>
+                            <div>
+                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                                    <Clock size={18} /> Scheduling
+                                </h4>
+                                <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                                    <input type="text" placeholder="DD-MM-YY" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                                </div>
+                                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                                    <input type="text" placeholder="HH:MM AM/PM" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                                    <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                                        <option>Select</option>
+                                        <option>Hatchback</option>
+                                        <option>Sedan</option>
+                                        <option>SUV/MUV</option>
+                                        <option>Bus</option>
                                     </select>
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                    Message / Requirements
-                                </label>
-                                <textarea
-                                    rows={4}
-                                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
-                                    placeholder="Tell us about your requirements..."
-                                />
-                            </div>
-                            <button
-                                type="button"
-                                className="w6-electric-glow w-full rounded-2xl bg-w6-brand py-4 font-bold text-white transition-all hover:bg-w6-brand-dark"
-                            >
-                                Submit Inquiry
+                            <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                            <button type="button" className="electric-glow w-full rounded-2xl bg-brand py-5 text-lg font-bold text-white transition-all hover:bg-brand-dark">
+                                Submit Booking
                             </button>
                         </form>
                     </div>
