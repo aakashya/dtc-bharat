@@ -1322,82 +1322,65 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: 'Dr. Sushil Kumar',
-            role: 'Director Business Development',
-            desc: 'Technology-driven founder with a vision for digital mobility.',
-            img: 'https://i.pravatar.cc/300?u=sushil',
+            name: "Dr. Sushil Kumar",
+            role: "Founder & Director",
+            credentials: "Ph.D., MBA, LL.B., BCA, APDSE (Hons.), MCSE, OCP",
+            desc: "A visionary leader and the founder of Delphinium Corptravel, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Corptravel into a global benchmark for service excellence.",
+            img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop"
         },
     ];
 
     return (
-        <div className="bg-slate-50 pb-24 pt-32">
-            <div className="mx-auto max-w-7xl px-6">
-                <div className="mb-20 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
-                        Our Leadership
-                    </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold text-w6-corporate-blue">
-                        The Minds Behind <span className="text-w6-brand">DTC Bharat</span>
-                    </h1>
-                    <p className="mx-auto max-w-2xl text-slate-500">
-                        Our leadership team brings decades of combined experience in
-                        transportation, technology, and corporate management.
+        <div className="pt-32 pb-24 bg-slate-50">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-20">
+                    <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Leadership</div>
+                    <h1 className="text-5xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
+                    <p className="text-slate-500 max-w-2xl mx-auto">
+                        Leading with academic excellence and a passion for technological innovation in the transportation industry.
                     </p>
                 </div>
 
-                <div className="mb-24 flex justify-center">
-                    {leaders.map((leader) => (
+                <div className="flex justify-center mb-24">
+                    {leaders.map((leader, i) => (
                         <motion.div
-                            key={leader.name}
-                            whileHover={{ y: -10, scale: 1.01 }}
-                            transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                            className="group w-full max-w-md overflow-hidden rounded-[2.25rem] border border-w6-brand/20 bg-gradient-to-b from-white to-slate-50 shadow-xl shadow-slate-200/60"
+                            key={i}
+                            whileHover={{ y: -10 }}
+                            className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-2xl w-full flex flex-col md:flex-row"
                         >
-                            <div className="relative h-72 overflow-hidden">
-                                <img
-                                    src={leader.img}
-                                    alt={leader.name}
-                                    className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                                    referrerPolicy="no-referrer"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                                <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-w6-brand">
-                                    Leadership
-                                </div>
+                            <div className="md:w-2/5 h-80 md:h-auto overflow-hidden">
+                                <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
-                            <div className="space-y-3 p-8 text-center">
-                                <h3 className="mb-1 text-2xl font-bold text-w6-corporate-blue">
-                                    {leader.name}
-                                </h3>
-                                <div className="mb-4 text-xs font-bold uppercase tracking-wider text-w6-brand">
-                                    {leader.role}
+                            <div className="md:w-3/5 p-10 flex flex-col justify-center">
+                                <div className="mb-6">
+                                    <h3 className="text-3xl font-display font-bold text-corporate-blue mb-1">{leader.name}</h3>
+                                    <div className="text-brand text-sm font-bold uppercase tracking-widest mb-2">{leader.role}</div>
+                                    <div className="text-slate-400 text-xs font-medium">{leader.credentials}</div>
                                 </div>
-                                <p className="text-sm leading-relaxed text-slate-600">
-                                    {leader.desc}
+                                <p className="text-slate-600 text-base leading-relaxed italic">
+                                    "{leader.desc}"
                                 </p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
-                <div className="rounded-3xl bg-w6-corporate-blue p-12 text-center text-white">
-                    <h3 className="mb-4 text-2xl font-bold">Our Support Backbone</h3>
-                    <p className="mx-auto mb-8 max-w-2xl text-slate-400">
-                        Beyond our leadership, we are powered by a dedicated 24/7
-                        operations desk, fleet supervisors, and certified professional
-                        drivers who ensure every journey is safe and on time.
+                <div className="bg-corporate-blue rounded-3xl p-12 text-white text-center">
+                    <h3 className="text-2xl font-bold mb-4">Our Support Backbone</h3>
+                    <p className="text-slate-400 max-w-2xl mx-auto mb-8">
+                        Beyond our leadership, we are powered by a dedicated 24/7 operations desk, fleet supervisors, and certified professional drivers who ensure every journey is safe and on time.
                     </p>
                     <div className="flex flex-wrap justify-center gap-8">
                         <div className="flex items-center gap-2">
-                            <Users className="text-w6-brand" />
+                            <Users className="text-brand" />
                             <span className="font-semibold">200+ Professional Drivers</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Shield className="text-w6-brand" />
+                            <Shield className="text-brand" />
                             <span className="font-semibold">50+ Operations Staff</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Clock className="text-w6-brand" />
+                            <Clock className="text-brand" />
                             <span className="font-semibold">24/7 Support Desk</span>
                         </div>
                     </div>
