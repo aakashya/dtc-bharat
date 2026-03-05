@@ -175,9 +175,9 @@ function Footer({ setActivePage }) {
                 <div className="col-span-1 md:col-span-1">
                     <div className="mb-6 flex flex-col items-start gap-3">
                         <img
-                            src="/images/logo/dtc-logo.JPG"
+                            src="/images/logo/logo-footer.svg"
                             alt="Delphinium Travelcorp"
-                            className="h-24 w-auto rounded-xl object-cover ring-1 ring-white/20"
+                            className="h-32 w-auto rounded-xl object-cover ring-1 ring-white/20"
                         />
                         <div>
                             <h2 className="font-display text-lg font-bold leading-none">
