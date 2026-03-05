@@ -69,9 +69,9 @@ function Navbar({ activePage, setActivePage }) {
                     onClick={() => setActivePage('home')}
                 >
                     <img
-                        src="/images/logo/dtc-logo.JPG"
+                        src="/images/logo/full-logo-no-bg-icon.png"
                         alt="Delphinium Travelcorp"
-                        className="h-16 w-auto rounded-xl object-cover ring-1 ring-white/20"
+                        className="h-16 w-auto rounded-xl object-cover"
                     />
                     <div>
                         <h1
