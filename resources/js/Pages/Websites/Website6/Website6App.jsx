@@ -75,18 +75,18 @@ function Navbar({ activePage, setActivePage }) {
                     />
                     <div>
                         <h1
-                            className={`font-display text-xl font-bold leading-none ${
+                            className={`font-display text-3xl font-bold leading-none ${
                                 isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'
                             }`}
                         >
-                            Delphinium <span className="text-w6-brand">Travelcorp</span>
+                            DTC <span className="text-w6-brand">BHARAT</span>
                         </h1>
                         <p
                             className={`text-[10px] font-semibold uppercase tracking-widest ${
                                 isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
                             }`}
                         >
-                            DTC Bharat a unit of Delphinium Travelcorp
+                            A unit of Delphinium Travelcorp
                         </p>
                     </div>
                 </div>
