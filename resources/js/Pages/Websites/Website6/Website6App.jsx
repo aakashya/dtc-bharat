@@ -546,10 +546,9 @@ const TrainingSection = () => {
                     </div>
                     <div className="order-1 lg:order-2">
                         <img
-                            src="https://picsum.photos/seed/training/800/600"
+                            src="/images/training.jpg"
                             className="rounded-3xl shadow-2xl"
                             alt="Training Session"
-                            referrerPolicy="no-referrer"
                         />
                     </div>
                 </div>
@@ -708,7 +707,7 @@ const HappyClientsSection = () => {
     const clients = [
         { name: 'CGN', logoSrc: '/images/client-logos/cgn.jpg' },
         { name: 'DB Schenker', logoSrc: '/images/client-logos/db_schemker.webp' },
-        { name: 'DLF', logoSrc: '/images/client-logos/dlf.webp' },
+        { name: 'DLF', logoSrc: '/images/client-logos/dlf2.png' },
         { name: 'DRG', logoSrc: '/images/client-logos/drg.webp' },
         { name: 'Hines', logoSrc: '/images/client-logos/hines.webp' },
         { name: 'Jaquar', logoSrc: '/images/client-logos/jaguar.png' },
@@ -739,17 +738,14 @@ const HappyClientsSection = () => {
                     {[...clients, ...clients].map((client, i) => (
                         <div
                             key={`${client.name}-${i}`}
-                            className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
+                            className="group inline-flex cursor-default items-center justify-center rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
                         >
-                                <img
-                                    src={client.logoSrc}
-                                    alt={`${client.name} logo`}
-                                    className="w-auto max-w-none object-contain"
-                                    style={{ height: '36px' }}
-                                />
-                            <span className="font-display text-xl font-bold text-corporate-blue/80 transition-colors group-hover:text-corporate-blue">
-                                {client.name}
-                            </span>
+                            <img
+                                src={client.logoSrc}
+                                alt={`${client.name} logo`}
+                                className="w-auto max-w-none object-contain"
+                                style={{ height: '36px' }}
+                            />
                         </div>
                     ))}
                 </div>
