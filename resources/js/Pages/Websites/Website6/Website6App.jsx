@@ -1603,8 +1603,8 @@ function ContactPage() {
     return (
         <div className="pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
-                    <div>
+                <div className="grid grid-cols-1 gap-20 lg:grid-cols-12">
+                    <div className="lg:col-span-4">
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Contact Us
                         </div>
@@ -1670,7 +1670,7 @@ function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="w6-glass-card relative overflow-hidden rounded-[3rem] p-10">
+                    <div className="w6-glass-card relative overflow-hidden rounded-[3rem] p-10 lg:col-span-8">
                         <div className="absolute right-0 top-0 p-6 text-5xl opacity-10">🚕</div>
                         <h3 className="font-display mb-8 text-center text-3xl font-bold text-corporate-blue">
                             Book Your Cab
