@@ -1063,7 +1063,7 @@ function ServicesSection() {
                 <div className="mb-16 text-center">
                     <div className="mx-auto max-w-5xl">
                         <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Services</div>
-                        <h2 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue">
+                        <h2 className="text-5xl md:text-6xl font-display font-bold text-corporate-blue">
                             Comprehensive <span className="text-brand">Mobility Solutions</span>
                         </h2>
                         <p className="mt-4 text-slate-500 text-sm md:text-base">
@@ -1335,7 +1335,7 @@ function TeamPage() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Leadership</div>
-                    <h1 className="text-5xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
+                    <h1 className="text-5xl md:text-6xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
                     <p className="text-slate-500 max-w-2xl mx-auto">
                         Leading with academic excellence and a passion for technological innovation in the transportation industry.
                     </p>
