@@ -15,6 +15,7 @@ import {
     MapPin,
     Menu,
     MessageSquare,
+    Navigation,
     Phone,
     Shield,
     Smartphone,
@@ -285,108 +286,226 @@ function Footer({ setActivePage }) {
 }
 
 function Hero({ setActivePage }) {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        {
+            id: 1,
+            theme: 'light',
+            bg: 'bg-slate-50',
+            accent: 'text-brand',
+            title: 'Premium Executive Mobility',
+            subtitle: 'The Gold Standard in Corporate Travel',
+            desc: 'Experience unmatched comfort and professionalism with our executive fleet, tailored for the modern business leader.',
+            img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop',
+            carName: 'Luxury Executive Sedan',
+            stats: [
+                { label: 'Safety', value: '100%' },
+                { label: 'Comfort', value: 'Premium' },
+            ],
+        },
+        {
+            id: 2,
+            theme: 'dark',
+            bg: 'bg-corporate-blue',
+            accent: 'text-brand',
+            title: 'Technology Driven Logistics',
+            subtitle: 'On Time. Every Time.',
+            desc: 'Our AI-powered routing and real-time GPS tracking ensure your employees reach their destination with surgical precision.',
+            img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop',
+            carName: 'Tech-Enabled Fleet',
+            stats: [
+                { label: 'Tracking', value: 'Real-time' },
+                { label: 'Uptime', value: '99.9%' },
+            ],
+        },
+        {
+            id: 3,
+            theme: 'futuristic',
+            bg: 'bg-black',
+            accent: 'text-brand',
+            title: 'The Future of Fleet Management',
+            subtitle: 'Sustainable & Scalable Solutions',
+            desc: 'From electric vehicles to large-scale shuttle operations, we are defining the next generation of employee mobility.',
+            img: 'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?q=80&w=2131&auto=format&fit=crop',
+            carName: 'Next-Gen EV Fleet',
+            stats: [
+                { label: 'Eco-Friendly', value: 'Active' },
+                { label: 'Scalability', value: 'Unlimited' },
+            ],
+        },
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 8000);
+        return () => clearInterval(timer);
+    }, [slides.length]);
+
     return (
-        <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-20">
-            <div className="w5-hero-gradient pointer-events-none absolute inset-0 z-0" />
-            <div className="pointer-events-none absolute -right-20 top-24 z-0 h-96 w-96 rounded-full bg-orange-300/20 blur-3xl" />
-            <div className="pointer-events-none absolute -left-24 bottom-16 z-0 h-[26rem] w-[26rem] rounded-full bg-rose-300/20 blur-3xl" />
-            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
-
-            <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+        <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+            <AnimatePresence mode="wait">
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
+                    key={currentSlide}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className={`absolute inset-0 -z-10 ${slides[currentSlide].bg}`}
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
-                        <Zap size={14} /> Fleet Command Since 2006
-                    </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold leading-tight text-white md:text-7xl">
-                        Premium SUV Mobility, <br />
-                        <span className="text-orange-200">Built For Corporate Precision.</span>
-                    </h1>
-                    <p className="mb-10 max-w-xl text-lg leading-relaxed text-orange-50/90 md:text-xl">
-                        Experience Innova-class comfort with real-time monitored travel,
-                        disciplined fleet operations, and dependable round-the-clock service.
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <button
-                            type="button"
-                            onClick={() => setActivePage('contact')}
-                            className="group flex items-center gap-2 rounded-2xl bg-w5-brand px-8 py-4 font-bold text-white transition-all hover:bg-w5-brand-dark w5-electric-glow"
-                        >
-                            Book a Cab Now{' '}
-                            <ArrowRight
-                                size={20}
-                                className="transition-transform group-hover:translate-x-1"
-                            />
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setActivePage('services')}
-                            className="rounded-2xl border border-white/25 bg-white/10 px-8 py-4 font-bold text-white backdrop-blur-md transition-all hover:bg-white/20"
-                        >
-                            Explore Services
-                        </button>
-                    </div>
+                    {slides[currentSlide].theme === 'dark' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-corporate-blue via-corporate-blue/80 to-transparent" />
+                    )}
+                    {slides[currentSlide].theme === 'futuristic' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent" />
+                    )}
+                    {slides[currentSlide].theme === 'light' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-50 via-slate-50/60 to-transparent" />
+                    )}
+                </motion.div>
+            </AnimatePresence>
 
-                    <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
-                        {[
-                            { label: 'Availability', value: '24/7' },
-                            { label: 'Coverage', value: 'PAN India' },
-                            { label: 'Corporate Clients', value: '100+' },
-                            { label: 'Fleet Units', value: '500+' },
-                        ].map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 + index * 0.1 }}
+            <div className="relative z-20 mx-auto w-full max-w-7xl px-6">
+                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentSlide}
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 50 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div
+                                className={`mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'bg-brand/10 text-brand'
+                                        : 'bg-white/10 text-brand backdrop-blur-md'
+                                }`}
                             >
-                                <div className="font-display text-2xl font-bold text-white">
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs font-semibold uppercase tracking-wider text-orange-100/70">
-                                    {stat.label}
+                                <Zap size={14} /> {slides[currentSlide].subtitle}
+                            </div>
+                            <h1
+                                className={`font-display mb-6 text-5xl font-bold leading-tight md:text-7xl ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'text-corporate-blue'
+                                        : 'text-white'
+                                }`}
+                            >
+                                {slides[currentSlide].title.split(' ').map((word, i, arr) => (
+                                    <span
+                                        key={`${word}-${i}`}
+                                        className={i === arr.length - 1 ? 'text-brand' : ''}
+                                    >
+                                        {word}{' '}
+                                    </span>
+                                ))}
+                            </h1>
+                            <p
+                                className={`mb-10 max-w-xl text-lg leading-relaxed md:text-xl ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'text-slate-600'
+                                        : 'text-slate-300'
+                                }`}
+                            >
+                                {slides[currentSlide].desc}
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <button
+                                    type="button"
+                                    onClick={() => setActivePage('contact')}
+                                    className="electric-glow group flex items-center gap-2 rounded-2xl bg-brand px-8 py-4 font-bold text-white transition-all hover:bg-brand-dark"
+                                >
+                                    Book a Cab Now{' '}
+                                    <ArrowRight
+                                        size={20}
+                                        className="transition-transform group-hover:translate-x-1"
+                                    />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setActivePage('services')}
+                                    className={`rounded-2xl border px-8 py-4 font-bold transition-all backdrop-blur-md ${
+                                        slides[currentSlide].theme === 'light'
+                                            ? 'border-slate-200 bg-white text-corporate-blue hover:bg-slate-100'
+                                            : 'border-white/10 bg-white/5 text-white hover:bg-white/10'
+                                    }`}
+                                >
+                                    Explore Services
+                                </button>
+                            </div>
+
+                            <div className="mt-16 grid grid-cols-2 gap-8">
+                                {slides[currentSlide].stats.map((stat) => (
+                                    <div key={stat.label}>
+                                        <div className="font-display text-2xl font-bold text-brand">
+                                            {stat.value}
+                                        </div>
+                                        <div
+                                            className={`text-xs font-semibold uppercase tracking-wider ${
+                                                slides[currentSlide].theme === 'light'
+                                                    ? 'text-slate-400'
+                                                    : 'text-slate-500'
+                                            }`}
+                                        >
+                                            {stat.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    <div className="relative hidden h-[500px] lg:block">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
+                                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                exit={{ opacity: 0, scale: 1.1, rotateY: -20 }}
+                                transition={{ duration: 1 }}
+                                className="absolute inset-0"
+                            >
+                                <div className="relative h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
+                                    <img
+                                        src={slides[currentSlide].img}
+                                        alt={slides[currentSlide].carName}
+                                        className="h-full w-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                    />
+                                    <div className="absolute bottom-8 left-8 right-8 rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
+                                                <Navigation size={24} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-white">
+                                                    {slides[currentSlide].carName}
+                                                </h4>
+                                                <p className="text-xs text-white/60">
+                                                    Available for Corporate Bookings
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
-                        ))}
+                        </AnimatePresence>
                     </div>
-                </motion.div>
+                </div>
+            </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    className="relative hidden lg:block"
-                >
-                    <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Toyota_Innova_Crysta.jpg"
-                            alt="Toyota Innova SUV"
-                            className="h-auto w-full"
-                            referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                        <div className="w5-glass-card absolute bottom-6 left-6 right-6 rounded-2xl p-6">
-                            <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-w5-brand text-white">
-                                    <Shield size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-w5-corporate-blue">
-                                        Innova Executive Module
-                                    </h4>
-                                    <p className="text-xs text-slate-500">
-                                        GPS Tracking, Speed Governor, Panic Alert Integrated
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute -right-10 -top-10 h-40 w-40 animate-pulse rounded-full border border-w5-brand/30" />
-                    <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full border border-white/10" />
-                </motion.div>
+            <div className="absolute bottom-10 left-1/2 z-30 flex -translate-x-1/2 items-center gap-4">
+                {slides.map((slide, i) => (
+                    <button
+                        key={slide.id}
+                        type="button"
+                        onClick={() => setCurrentSlide(i)}
+                        className={`h-1.5 rounded-full transition-all duration-500 ${
+                            currentSlide === i ? 'w-12 bg-brand' : 'w-4 bg-slate-400/30'
+                        }`}
+                    />
+                ))}
             </div>
         </section>
     );
@@ -486,10 +605,10 @@ function WhyPreferUsSection() {
         <section className="bg-white py-24">
             <div className="mx-auto max-w-7xl space-y-14 px-6">
                 <div className="max-w-3xl">
-                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-w5-brand">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-w6-brand">
                         Why to prefer us
                     </p>
-                    <h2 className="font-display text-4xl font-bold text-w5-corporate-blue md:text-5xl">
+                    <h2 className="font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
                         Why people choose Royal CorpTravel
                     </h2>
                 </div>
@@ -500,10 +619,10 @@ function WhyPreferUsSection() {
                             key={item.title}
                             className="rounded-3xl border border-slate-100 bg-slate-50 p-7"
                         >
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-w5-brand/10 text-w5-brand">
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-w6-brand/10 text-w6-brand">
                                 {item.icon}
                             </div>
-                            <h3 className="mb-3 text-xl font-bold text-w5-corporate-blue">
+                            <h3 className="mb-3 text-xl font-bold text-w6-corporate-blue">
                                 {item.title}
                             </h3>
                             <p className="text-sm leading-relaxed text-slate-600">
@@ -514,8 +633,8 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                    <div className="rounded-3xl bg-w5-corporate-blue p-8 text-white">
-                        <p className="text-xs uppercase tracking-[0.2em] text-w5-brand">
+                    <div className="rounded-3xl bg-w6-corporate-blue p-8 text-white">
+                        <p className="text-xs uppercase tracking-[0.2em] text-w6-brand">
                             Users who love us
                         </p>
                         <p className="mt-2 font-display text-5xl font-bold">+180000</p>
@@ -525,10 +644,10 @@ function WhyPreferUsSection() {
                         </p>
                     </div>
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 lg:col-span-2">
-                        <p className="mb-2 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                        <p className="mb-2 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Training session
                         </p>
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Training of Staff
                         </h3>
                         <p className="text-slate-600">
@@ -541,19 +660,19 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 md:p-10">
-                    <h3 className="mb-8 text-3xl font-bold text-w5-corporate-blue">
+                    <h3 className="mb-8 text-3xl font-bold text-w6-corporate-blue">
                         Fleet Information
                     </h3>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                         {fleetInfo.map((fleet) => (
                             <div key={fleet.type}>
-                                <p className="mb-4 font-bold uppercase tracking-wider text-w5-brand">
+                                <p className="mb-4 font-bold uppercase tracking-wider text-w6-brand">
                                     {fleet.type}
                                 </p>
                                 <ul className="space-y-2 text-sm text-slate-600">
                                     {fleet.models.map((model) => (
                                         <li key={model} className="flex items-start gap-2">
-                                            <Car size={14} className="mt-0.5 text-w5-brand" />
+                                            <Car size={14} className="mt-0.5 text-w6-brand" />
                                             <span>{model}</span>
                                         </li>
                                     ))}
@@ -564,7 +683,7 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="rounded-3xl border border-slate-100 bg-white p-8 md:p-10">
-                    <h3 className="mb-8 text-3xl font-bold text-w5-corporate-blue">
+                    <h3 className="mb-8 text-3xl font-bold text-w6-corporate-blue">
                         Accessories provided in our vehicles
                     </h3>
                     <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -581,7 +700,7 @@ function WhyPreferUsSection() {
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8">
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Business Profile
                         </h3>
                         <p className="text-sm leading-relaxed text-slate-600">
@@ -594,7 +713,7 @@ function WhyPreferUsSection() {
                         </p>
                     </div>
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8">
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Future Plans
                         </h3>
                         <p className="text-sm leading-relaxed text-slate-600">
@@ -607,7 +726,7 @@ function WhyPreferUsSection() {
                     </div>
                 </div>
 
-                <div className="rounded-3xl border border-slate-100 bg-w5-corporate-blue p-8 text-white">
+                <div className="rounded-3xl border border-slate-100 bg-w6-corporate-blue p-8 text-white">
                     <h3 className="mb-6 text-2xl font-bold">Our Happy Clients</h3>
                     <div className="flex flex-wrap gap-3">
                         {clients.map((client) => (
@@ -623,10 +742,10 @@ function WhyPreferUsSection() {
 
                 <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 md:p-10">
                     <div className="mb-8 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-w5-brand text-white">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-w6-brand text-white">
                             <Car size={20} />
                         </div>
-                        <h3 className="text-3xl font-bold text-w5-corporate-blue">
+                        <h3 className="text-3xl font-bold text-w6-corporate-blue">
                             Book Your Cab
                         </h3>
                     </div>
@@ -643,17 +762,17 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="tel"
                                 placeholder="Contact No."
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                         </div>
 
@@ -666,17 +785,17 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Client Name"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="tel"
                                 placeholder="Client Contact No."
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="email"
                                 placeholder="Client Email"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                         </div>
 
@@ -689,29 +808,29 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Reporting Date (DD-MM-YY)"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="DD-MM-YY"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="Reporting Place"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="Reporting Time (HH:MM AM/PM)"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="HH:MM AM/PM"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
-                            <select className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none">
+                            <select className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none">
                                 <option>Choose Cab Type</option>
                                 <option>Select</option>
                                 <option>Hatchback</option>
@@ -724,12 +843,12 @@ function WhyPreferUsSection() {
                         <textarea
                             rows={4}
                             placeholder="Special Instructions (if any)"
-                            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                         />
 
                         <button
                             type="submit"
-                            className="w5-electric-glow rounded-2xl bg-w5-brand px-8 py-3 font-bold text-white transition-colors hover:bg-w5-brand-dark"
+                            className="w6-electric-glow rounded-2xl bg-w6-brand px-8 py-3 font-bold text-white transition-colors hover:bg-w6-brand-dark"
                         >
                             Submit
                         </button>
@@ -739,6 +858,7 @@ function WhyPreferUsSection() {
         </section>
     );
 }
+
 
 function AboutSection({ setActivePage }) {
     return (
@@ -1615,3 +1735,5 @@ export default function Website5App() {
         </div>
     );
 }
+
+
