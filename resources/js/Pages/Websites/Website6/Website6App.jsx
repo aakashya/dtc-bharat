@@ -37,6 +37,7 @@ import {
 function Navbar({ activePage, setActivePage }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const isHomePage = activePage === 'home';
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -57,7 +58,9 @@ function Navbar({ activePage, setActivePage }) {
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
                 isScrolled
-                    ? 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
+                    ? isHomePage
+                        ? 'bg-[linear-gradient(135deg,#241d1a_0%,#4b2f26_55%,#6e4030_100%)] py-3 shadow-md shadow-black/30 backdrop-blur-lg'
+                        : 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
                     : 'bg-transparent py-6'
             }`}
         >
@@ -72,10 +75,18 @@ function Navbar({ activePage, setActivePage }) {
                         className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/20"
                     />
                     <div>
-                        <h1 className="font-display text-xl font-bold leading-none text-w6-corporate-blue">
+                        <h1
+                            className={`font-display text-xl font-bold leading-none ${
+                                isHomePage ? 'text-white' : 'text-w6-corporate-blue'
+                            }`}
+                        >
                             Delphinium <span className="text-w6-brand">Travelcorp</span>
                         </h1>
-                        <p className="text-[10px] font-semibold uppercase tracking-widest opacity-70">
+                        <p
+                            className={`text-[10px] font-semibold uppercase tracking-widest ${
+                                isHomePage ? 'text-white/70' : 'opacity-70'
+                            }`}
+                        >
                             DTC Bharat
                         </p>
                     </div>
@@ -90,7 +101,9 @@ function Navbar({ activePage, setActivePage }) {
                             className={`text-sm font-semibold transition-colors hover:text-w6-brand ${
                                 activePage === item.value
                                     ? 'text-w6-brand'
-                                    : 'text-w6-corporate-blue/70'
+                                    : isHomePage
+                                        ? 'text-white/80 hover:text-white'
+                                        : 'text-w6-corporate-blue/70'
                             }`}
                         >
                             {item.label}
@@ -107,7 +120,7 @@ function Navbar({ activePage, setActivePage }) {
 
                 <button
                     type="button"
-                    className="text-w6-corporate-blue md:hidden"
+                    className={`${isHomePage ? 'text-white' : 'text-w6-corporate-blue'} md:hidden`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -301,7 +314,8 @@ function Hero({ setActivePage }) {
             <div className="pointer-events-none absolute -left-24 bottom-16 z-0 h-[26rem] w-[26rem] rounded-full bg-rose-300/20 blur-3xl" />
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
 
-            <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -336,29 +350,6 @@ function Hero({ setActivePage }) {
                         >
                             Explore Services
                         </button>
-                    </div>
-
-                    <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
-                        {[
-                            { label: 'Availability', value: '24/7' },
-                            { label: 'Coverage', value: 'PAN India' },
-                            { label: 'Corporate Clients', value: '100+' },
-                            { label: 'Fleet Units', value: '500+' },
-                        ].map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 + index * 0.1 }}
-                            >
-                                <div className="font-display text-2xl font-bold text-white">
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs font-semibold uppercase tracking-wider text-orange-100/70">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
                     </div>
                 </motion.div>
 
@@ -395,6 +386,27 @@ function Hero({ setActivePage }) {
                     <div className="absolute -right-10 -top-10 h-40 w-40 animate-pulse rounded-full border border-w6-brand/30" />
                     <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full border border-white/10" />
                 </motion.div>
+                </div>
+
+                <div className="mt-10 w-full rounded-3xl border border-white/20 bg-white/10 px-6 py-8 backdrop-blur-md">
+                    <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+                        {[
+                            { label: 'Availability', value: '24/7' },
+                            { label: 'Coverage', value: 'PAN India' },
+                            { label: 'Corporate Clients', value: '100+' },
+                            { label: 'Fleet Units', value: '500+' },
+                        ].map((stat) => (
+                            <div key={stat.label}>
+                                <div className="font-display text-3xl font-bold text-white md:text-5xl">
+                                    {stat.value}
+                                </div>
+                                <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-orange-100/80 md:text-sm">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
