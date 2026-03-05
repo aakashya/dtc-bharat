@@ -70,7 +70,7 @@ function Navbar({ activePage, setActivePage }) {
                     <img
                         src="/images/logo/dtc-logo.JPG"
                         alt="Delphinium Travelcorp"
-                        className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/20"
+                        className="h-12 w-auto rounded-xl object-cover ring-1 ring-white/20"
                     />
                     <div>
                         <h1
@@ -746,11 +746,11 @@ const HappyClientsSection = () => {
                             key={`${client.name}-${i}`}
                             className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
                         >
-                            <div className="flex h-12 w-20 items-center justify-center overflow-hidden rounded-xl bg-white p-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
+                            <div className="flex h-14 items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
                                 <img
                                     src={client.logoSrc}
                                     alt={`${client.name} logo`}
-                                    className="max-h-full w-full object-contain"
+                                    className="h-10 w-auto object-contain"
                                     loading="lazy"
                                 />
                             </div>
