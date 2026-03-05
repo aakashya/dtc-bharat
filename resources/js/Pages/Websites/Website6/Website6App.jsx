@@ -58,9 +58,7 @@ function Navbar({ activePage, setActivePage }) {
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
                 isScrolled
-                    ? isHomePage
-                        ? 'bg-[linear-gradient(135deg,#241d1a_0%,#4b2f26_55%,#6e4030_100%)] py-3 shadow-md shadow-black/30 backdrop-blur-lg'
-                        : 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
+                    ? 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
                     : 'bg-transparent py-6'
             }`}
         >
@@ -77,14 +75,14 @@ function Navbar({ activePage, setActivePage }) {
                     <div>
                         <h1
                             className={`font-display text-xl font-bold leading-none ${
-                                isHomePage ? 'text-white' : 'text-w6-corporate-blue'
+                                isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'
                             }`}
                         >
                             Delphinium <span className="text-w6-brand">Travelcorp</span>
                         </h1>
                         <p
                             className={`text-[10px] font-semibold uppercase tracking-widest ${
-                                isHomePage ? 'text-white/70' : 'opacity-70'
+                                isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
                             }`}
                         >
                             DTC Bharat
@@ -101,7 +99,7 @@ function Navbar({ activePage, setActivePage }) {
                             className={`text-sm font-semibold transition-colors hover:text-w6-brand ${
                                 activePage === item.value
                                     ? 'text-w6-brand'
-                                    : isHomePage
+                                    : isHomePage && !isScrolled
                                         ? 'text-white/80 hover:text-white'
                                         : 'text-w6-corporate-blue/70'
                             }`}
@@ -120,7 +118,7 @@ function Navbar({ activePage, setActivePage }) {
 
                 <button
                     type="button"
-                    className={`${isHomePage ? 'text-white' : 'text-w6-corporate-blue'} md:hidden`}
+                    className={`${isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'} md:hidden`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -361,7 +359,7 @@ function Hero({ setActivePage }) {
                 >
                     <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Toyota_Innova_Crysta.jpg"
+                            src="/images/innova-crysta-9-240.jpg"
                             alt="Toyota Innova SUV"
                             className="h-auto w-full"
                             referrerPolicy="no-referrer"
@@ -713,18 +711,19 @@ const BusinessProfileSection = () => {
 
 const HappyClientsSection = () => {
     const clients = [
-        { name: 'DB Schenker', logo: 'DB' },
-        { name: 'Hines', logo: 'HI' },
-        { name: 'DLF', logo: 'DLF' },
-        { name: 'Jaquar', logo: 'JQ' },
-        { name: 'CGN', logo: 'CGN' },
-        { name: 'Kinapse', logo: 'KN' },
-        { name: 'PepperTap', logo: 'PT' },
-        { name: 'USG Boral', logo: 'USG' },
-        { name: 'Wunderman', logo: 'WM' },
-        { name: 'ZS', logo: 'ZS' },
-        { name: 'NuvoEx', logo: 'NX' },
-        { name: 'DRG', logo: 'DRG' },
+        { name: 'CGN', logoSrc: '/images/client-logos/cgn.jpg' },
+        { name: 'DB Schenker', logoSrc: '/images/client-logos/db_schemker.webp' },
+        { name: 'DLF', logoSrc: '/images/client-logos/dlf.webp' },
+        { name: 'DRG', logoSrc: '/images/client-logos/drg.webp' },
+        { name: 'Hines', logoSrc: '/images/client-logos/hines.webp' },
+        { name: 'Jaquar', logoSrc: '/images/client-logos/jaguar.png' },
+        { name: 'Kinapse', logoSrc: '/images/client-logos/kinapse.avif' },
+        { name: 'NuvoEx', logoSrc: '/images/client-logos/nuvoex.png' },
+        { name: 'PepperTap', logoSrc: '/images/client-logos/peppertap.webp' },
+        { name: 'The Retirement Plan Company, LLC', logoSrc: '/images/client-logos/retirement.webp' },
+        { name: 'USG Boral', logoSrc: '/images/client-logos/usgboral.webp' },
+        { name: 'Wunderman', logoSrc: '/images/client-logos/wunderman.webp' },
+        { name: 'ZS', logoSrc: '/images/client-logos/zs.webp' },
     ];
 
     return (
@@ -747,8 +746,13 @@ const HappyClientsSection = () => {
                             key={`${client.name}-${i}`}
                             className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
                         >
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-corporate-blue text-xl font-bold text-white transition-colors group-hover:bg-brand">
-                                {client.logo}
+                            <div className="flex h-12 w-20 items-center justify-center overflow-hidden rounded-xl bg-white p-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
+                                <img
+                                    src={client.logoSrc}
+                                    alt={`${client.name} logo`}
+                                    className="max-h-full w-full object-contain"
+                                    loading="lazy"
+                                />
                             </div>
                             <span className="font-display text-xl font-bold text-corporate-blue/80 transition-colors group-hover:text-corporate-blue">
                                 {client.name}
