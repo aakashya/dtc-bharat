@@ -278,11 +278,11 @@ function Footer({ setActivePage }) {
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li className="flex gap-3">
                             <MapPin size={18} className="shrink-0 text-w6-brand" />
-                            <span>Sector 34, Gurugram, Haryana, India</span>
+                            <span>Unit 705, Business Zone, TOWER-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018</span>
                         </li>
                         <li className="flex gap-3">
                             <Phone size={18} className="shrink-0 text-w6-brand" />
-                            <span>+91 124 444 4444</span>
+                            <span>+91 9899925362</span>
                         </li>
                         <li className="flex gap-3">
                             <Mail size={18} className="shrink-0 text-w6-brand" />
@@ -563,22 +563,22 @@ const DetailedFleetInfo = () => {
         {
             category: 'Hatchback',
             models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva'],
-            img: '/images/maruti-suzuki-wagon-r.avif',
+            img: '/images/new-wagonR.jpg',
         },
         {
             category: 'Sedan',
             models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios'],
-            img: '/images/swift-dezire.jpg',
+            img: '/images/desire-taxi.avif',
         },
         {
             category: 'SUV/MUV',
             models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova'],
-            img: '/images/Inova-Highcross.jpeg',
+            img: '/images/innova-crysta-9-240.jpg',
         },
         {
             category: 'Bus',
             models: ['Force Traveller', 'Mini Bus', 'Bus', 'Luxury Bus'],
-            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop',
+            img: '/images/bus.jpg',
         },
     ];
 
@@ -1466,7 +1466,7 @@ function ContactPage() {
                                         Our Location
                                     </h4>
                                     <p className="text-slate-500">
-                                        Sector 34, Gurugram, Haryana, India
+                                        Unit 705, Business Zone, TOWER-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018
                                     </p>
                                 </div>
                             </div>
@@ -1478,7 +1478,7 @@ function ContactPage() {
                                     <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
                                         Hotline
                                     </h4>
-                                    <p className="text-slate-500">+91 124 444 4444</p>
+                                    <p className="text-slate-500">+91 9899925362</p>
                                 </div>
                             </div>
                             <div className="flex gap-6">
