@@ -19,6 +19,7 @@ $websitePages = [
     '2' => 'Websites/Website2/Index',
     '3' => 'Websites/Website3/Index',
     '5' => 'Websites/Website5/Index',
+    '6' => 'Websites/Website6/Index',
 ];
 
 foreach ($websitePages as $slug => $page) {

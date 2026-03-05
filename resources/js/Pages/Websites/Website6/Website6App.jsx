@@ -3,22 +3,31 @@ import { useEffect, useState } from 'react';
 import {
     Award,
     ArrowRight,
+    Briefcase,
     Calendar,
     Car,
     CheckCircle2,
     Clock,
     Facebook,
     Globe,
+    Heart,
     Instagram,
     Linkedin,
+    Lock,
     Mail,
+    Map,
     MapPin,
     Menu,
     MessageSquare,
+    Navigation,
     Phone,
+    RefreshCcw,
+    Settings,
     Shield,
+    ShieldCheck,
     Smartphone,
     Star,
+    TrendingDown,
     Twitter,
     Users,
     X,
@@ -63,8 +72,8 @@ function Navbar({ activePage, setActivePage }) {
                         className="h-10 w-10 rounded-xl object-cover ring-1 ring-white/20"
                     />
                     <div>
-                        <h1 className="font-display text-xl font-bold leading-none text-w5-corporate-blue">
-                            Delphinium <span className="text-w5-brand">Travelcorp</span>
+                        <h1 className="font-display text-xl font-bold leading-none text-w6-corporate-blue">
+                            Delphinium <span className="text-w6-brand">Travelcorp</span>
                         </h1>
                         <p className="text-[10px] font-semibold uppercase tracking-widest opacity-70">
                             DTC Bharat
@@ -78,10 +87,10 @@ function Navbar({ activePage, setActivePage }) {
                             key={item.value}
                             type="button"
                             onClick={() => setActivePage(item.value)}
-                            className={`text-sm font-semibold transition-colors hover:text-w5-brand ${
+                            className={`text-sm font-semibold transition-colors hover:text-w6-brand ${
                                 activePage === item.value
-                                    ? 'text-w5-brand'
-                                    : 'text-w5-corporate-blue/70'
+                                    ? 'text-w6-brand'
+                                    : 'text-w6-corporate-blue/70'
                             }`}
                         >
                             {item.label}
@@ -90,7 +99,7 @@ function Navbar({ activePage, setActivePage }) {
                     <button
                         type="button"
                         onClick={() => setActivePage('contact')}
-                        className="flex items-center gap-2 rounded-full bg-w5-brand px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-w5-brand-dark w5-electric-glow"
+                        className="flex items-center gap-2 rounded-full bg-w6-brand px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-w6-brand-dark w6-electric-glow"
                     >
                         Book a Cab Now
                     </button>
@@ -98,7 +107,7 @@ function Navbar({ activePage, setActivePage }) {
 
                 <button
                     type="button"
-                    className="text-w5-corporate-blue md:hidden"
+                    className="text-w6-corporate-blue md:hidden"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -123,8 +132,8 @@ function Navbar({ activePage, setActivePage }) {
                                 }}
                                 className={`text-left text-lg font-semibold ${
                                     activePage === item.value
-                                        ? 'text-w5-brand'
-                                        : 'text-w5-corporate-blue'
+                                        ? 'text-w6-brand'
+                                        : 'text-w6-corporate-blue'
                                 }`}
                             >
                                 {item.label}
@@ -136,7 +145,7 @@ function Navbar({ activePage, setActivePage }) {
                                 setActivePage('contact');
                                 setIsMobileMenuOpen(false);
                             }}
-                            className="mt-4 rounded-2xl bg-w5-brand py-4 font-bold text-white"
+                            className="mt-4 rounded-2xl bg-w6-brand py-4 font-bold text-white"
                         >
                             Book a Cab Now
                         </button>
@@ -149,7 +158,7 @@ function Navbar({ activePage, setActivePage }) {
 
 function Footer({ setActivePage }) {
     return (
-        <footer className="bg-w5-corporate-blue pb-10 pt-20 text-white">
+        <footer className="bg-w6-corporate-blue pb-10 pt-20 text-white">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-4">
                 <div className="col-span-1 md:col-span-1">
                     <div className="mb-6 flex items-center gap-3">
@@ -162,7 +171,7 @@ function Footer({ setActivePage }) {
                             <h2 className="font-display text-lg font-bold leading-none">
                                 Delphinium Travelcorp
                             </h2>
-                            <p className="text-[10px] font-semibold uppercase tracking-widest text-w5-brand">
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-w6-brand">
                                 DTC Bharat
                             </p>
                         </div>
@@ -174,19 +183,19 @@ function Footer({ setActivePage }) {
                     <div className="flex gap-4">
                         <Facebook
                             size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w5-brand"
+                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
                         />
                         <Twitter
                             size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w5-brand"
+                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
                         />
                         <Linkedin
                             size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w5-brand"
+                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
                         />
                         <Instagram
                             size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w5-brand"
+                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
                         />
                     </div>
                 </div>
@@ -198,7 +207,7 @@ function Footer({ setActivePage }) {
                             <button
                                 type="button"
                                 onClick={() => setActivePage('home')}
-                                className="transition-colors hover:text-w5-brand"
+                                className="transition-colors hover:text-w6-brand"
                             >
                                 Home
                             </button>
@@ -207,7 +216,7 @@ function Footer({ setActivePage }) {
                             <button
                                 type="button"
                                 onClick={() => setActivePage('profile')}
-                                className="transition-colors hover:text-w5-brand"
+                                className="transition-colors hover:text-w6-brand"
                             >
                                 Our Profile
                             </button>
@@ -216,7 +225,7 @@ function Footer({ setActivePage }) {
                             <button
                                 type="button"
                                 onClick={() => setActivePage('services')}
-                                className="transition-colors hover:text-w5-brand"
+                                className="transition-colors hover:text-w6-brand"
                             >
                                 Services
                             </button>
@@ -225,7 +234,7 @@ function Footer({ setActivePage }) {
                             <button
                                 type="button"
                                 onClick={() => setActivePage('team')}
-                                className="transition-colors hover:text-w5-brand"
+                                className="transition-colors hover:text-w6-brand"
                             >
                                 Our Team
                             </button>
@@ -234,7 +243,7 @@ function Footer({ setActivePage }) {
                             <button
                                 type="button"
                                 onClick={() => setActivePage('tours')}
-                                className="transition-colors hover:text-w5-brand"
+                                className="transition-colors hover:text-w6-brand"
                             >
                                 Tour Packages
                             </button>
@@ -257,15 +266,15 @@ function Footer({ setActivePage }) {
                     <h3 className="mb-6 text-lg font-bold">Contact Us</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li className="flex gap-3">
-                            <MapPin size={18} className="shrink-0 text-w5-brand" />
+                            <MapPin size={18} className="shrink-0 text-w6-brand" />
                             <span>Sector 34, Gurugram, Haryana, India</span>
                         </li>
                         <li className="flex gap-3">
-                            <Phone size={18} className="shrink-0 text-w5-brand" />
+                            <Phone size={18} className="shrink-0 text-w6-brand" />
                             <span>+91 124 444 4444</span>
                         </li>
                         <li className="flex gap-3">
-                            <Mail size={18} className="shrink-0 text-w5-brand" />
+                            <Mail size={18} className="shrink-0 text-w6-brand" />
                             <span>info@royalcorptravel.com</span>
                         </li>
                     </ul>
@@ -285,108 +294,226 @@ function Footer({ setActivePage }) {
 }
 
 function Hero({ setActivePage }) {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        {
+            id: 1,
+            theme: 'light',
+            bg: 'bg-slate-50',
+            accent: 'text-brand',
+            title: 'Premium Executive Mobility',
+            subtitle: 'The Gold Standard in Corporate Travel',
+            desc: 'Experience unmatched comfort and professionalism with our executive fleet, tailored for the modern business leader.',
+            img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop',
+            carName: 'Luxury Executive Sedan',
+            stats: [
+                { label: 'Safety', value: '100%' },
+                { label: 'Comfort', value: 'Premium' },
+            ],
+        },
+        {
+            id: 2,
+            theme: 'dark',
+            bg: 'bg-corporate-blue',
+            accent: 'text-brand',
+            title: 'Technology Driven Logistics',
+            subtitle: 'On Time. Every Time.',
+            desc: 'Our AI-powered routing and real-time GPS tracking ensure your employees reach their destination with surgical precision.',
+            img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop',
+            carName: 'Tech-Enabled Fleet',
+            stats: [
+                { label: 'Tracking', value: 'Real-time' },
+                { label: 'Uptime', value: '99.9%' },
+            ],
+        },
+        {
+            id: 3,
+            theme: 'futuristic',
+            bg: 'bg-black',
+            accent: 'text-brand',
+            title: 'The Future of Fleet Management',
+            subtitle: 'Sustainable & Scalable Solutions',
+            desc: 'From electric vehicles to large-scale shuttle operations, we are defining the next generation of employee mobility.',
+            img: 'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?q=80&w=2131&auto=format&fit=crop',
+            carName: 'Next-Gen EV Fleet',
+            stats: [
+                { label: 'Eco-Friendly', value: 'Active' },
+                { label: 'Scalability', value: 'Unlimited' },
+            ],
+        },
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 8000);
+        return () => clearInterval(timer);
+    }, [slides.length]);
+
     return (
-        <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-20">
-            <div className="w5-hero-gradient pointer-events-none absolute inset-0 z-0" />
-            <div className="pointer-events-none absolute -right-20 top-24 z-0 h-96 w-96 rounded-full bg-orange-300/20 blur-3xl" />
-            <div className="pointer-events-none absolute -left-24 bottom-16 z-0 h-[26rem] w-[26rem] rounded-full bg-rose-300/20 blur-3xl" />
-            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
-
-            <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+        <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+            <AnimatePresence mode="wait">
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
+                    key={currentSlide}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className={`absolute inset-0 -z-10 ${slides[currentSlide].bg}`}
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
-                        <Zap size={14} /> Fleet Command Since 2006
-                    </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold leading-tight text-white md:text-7xl">
-                        Premium SUV Mobility, <br />
-                        <span className="text-orange-200">Built For Corporate Precision.</span>
-                    </h1>
-                    <p className="mb-10 max-w-xl text-lg leading-relaxed text-orange-50/90 md:text-xl">
-                        Experience Innova-class comfort with real-time monitored travel,
-                        disciplined fleet operations, and dependable round-the-clock service.
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <button
-                            type="button"
-                            onClick={() => setActivePage('contact')}
-                            className="group flex items-center gap-2 rounded-2xl bg-w5-brand px-8 py-4 font-bold text-white transition-all hover:bg-w5-brand-dark w5-electric-glow"
-                        >
-                            Book a Cab Now{' '}
-                            <ArrowRight
-                                size={20}
-                                className="transition-transform group-hover:translate-x-1"
-                            />
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setActivePage('services')}
-                            className="rounded-2xl border border-white/25 bg-white/10 px-8 py-4 font-bold text-white backdrop-blur-md transition-all hover:bg-white/20"
-                        >
-                            Explore Services
-                        </button>
-                    </div>
+                    {slides[currentSlide].theme === 'dark' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-corporate-blue via-corporate-blue/80 to-transparent" />
+                    )}
+                    {slides[currentSlide].theme === 'futuristic' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent" />
+                    )}
+                    {slides[currentSlide].theme === 'light' && (
+                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-50 via-slate-50/60 to-transparent" />
+                    )}
+                </motion.div>
+            </AnimatePresence>
 
-                    <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
-                        {[
-                            { label: 'Availability', value: '24/7' },
-                            { label: 'Coverage', value: 'PAN India' },
-                            { label: 'Corporate Clients', value: '100+' },
-                            { label: 'Fleet Units', value: '500+' },
-                        ].map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 + index * 0.1 }}
+            <div className="relative z-20 mx-auto w-full max-w-7xl px-6">
+                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentSlide}
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 50 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div
+                                className={`mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'bg-brand/10 text-brand'
+                                        : 'bg-white/10 text-brand backdrop-blur-md'
+                                }`}
                             >
-                                <div className="font-display text-2xl font-bold text-white">
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs font-semibold uppercase tracking-wider text-orange-100/70">
-                                    {stat.label}
+                                <Zap size={14} /> {slides[currentSlide].subtitle}
+                            </div>
+                            <h1
+                                className={`font-display mb-6 text-5xl font-bold leading-tight md:text-7xl ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'text-corporate-blue'
+                                        : 'text-white'
+                                }`}
+                            >
+                                {slides[currentSlide].title.split(' ').map((word, i, arr) => (
+                                    <span
+                                        key={`${word}-${i}`}
+                                        className={i === arr.length - 1 ? 'text-brand' : ''}
+                                    >
+                                        {word}{' '}
+                                    </span>
+                                ))}
+                            </h1>
+                            <p
+                                className={`mb-10 max-w-xl text-lg leading-relaxed md:text-xl ${
+                                    slides[currentSlide].theme === 'light'
+                                        ? 'text-slate-600'
+                                        : 'text-slate-300'
+                                }`}
+                            >
+                                {slides[currentSlide].desc}
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <button
+                                    type="button"
+                                    onClick={() => setActivePage('contact')}
+                                    className="electric-glow group flex items-center gap-2 rounded-2xl bg-brand px-8 py-4 font-bold text-white transition-all hover:bg-brand-dark"
+                                >
+                                    Book a Cab Now{' '}
+                                    <ArrowRight
+                                        size={20}
+                                        className="transition-transform group-hover:translate-x-1"
+                                    />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setActivePage('services')}
+                                    className={`rounded-2xl border px-8 py-4 font-bold transition-all backdrop-blur-md ${
+                                        slides[currentSlide].theme === 'light'
+                                            ? 'border-slate-200 bg-white text-corporate-blue hover:bg-slate-100'
+                                            : 'border-white/10 bg-white/5 text-white hover:bg-white/10'
+                                    }`}
+                                >
+                                    Explore Services
+                                </button>
+                            </div>
+
+                            <div className="mt-16 grid grid-cols-2 gap-8">
+                                {slides[currentSlide].stats.map((stat) => (
+                                    <div key={stat.label}>
+                                        <div className="font-display text-2xl font-bold text-brand">
+                                            {stat.value}
+                                        </div>
+                                        <div
+                                            className={`text-xs font-semibold uppercase tracking-wider ${
+                                                slides[currentSlide].theme === 'light'
+                                                    ? 'text-slate-400'
+                                                    : 'text-slate-500'
+                                            }`}
+                                        >
+                                            {stat.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    <div className="relative hidden h-[500px] lg:block">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
+                                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                exit={{ opacity: 0, scale: 1.1, rotateY: -20 }}
+                                transition={{ duration: 1 }}
+                                className="absolute inset-0"
+                            >
+                                <div className="relative h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
+                                    <img
+                                        src={slides[currentSlide].img}
+                                        alt={slides[currentSlide].carName}
+                                        className="h-full w-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                    />
+                                    <div className="absolute bottom-8 left-8 right-8 rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
+                                                <Navigation size={24} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-white">
+                                                    {slides[currentSlide].carName}
+                                                </h4>
+                                                <p className="text-xs text-white/60">
+                                                    Available for Corporate Bookings
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
-                        ))}
+                        </AnimatePresence>
                     </div>
-                </motion.div>
+                </div>
+            </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    className="relative hidden lg:block"
-                >
-                    <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Toyota_Innova_Crysta.jpg"
-                            alt="Toyota Innova SUV"
-                            className="h-auto w-full"
-                            referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                        <div className="w5-glass-card absolute bottom-6 left-6 right-6 rounded-2xl p-6">
-                            <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-w5-brand text-white">
-                                    <Shield size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-w5-corporate-blue">
-                                        Innova Executive Module
-                                    </h4>
-                                    <p className="text-xs text-slate-500">
-                                        GPS Tracking, Speed Governor, Panic Alert Integrated
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute -right-10 -top-10 h-40 w-40 animate-pulse rounded-full border border-w5-brand/30" />
-                    <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full border border-white/10" />
-                </motion.div>
+            <div className="absolute bottom-10 left-1/2 z-30 flex -translate-x-1/2 items-center gap-4">
+                {slides.map((slide, i) => (
+                    <button
+                        key={slide.id}
+                        type="button"
+                        onClick={() => setCurrentSlide(i)}
+                        className={`h-1.5 rounded-full transition-all duration-500 ${
+                            currentSlide === i ? 'w-12 bg-brand' : 'w-4 bg-slate-400/30'
+                        }`}
+                    />
+                ))}
             </div>
         </section>
     );
@@ -486,10 +613,10 @@ function WhyPreferUsSection() {
         <section className="bg-white py-24">
             <div className="mx-auto max-w-7xl space-y-14 px-6">
                 <div className="max-w-3xl">
-                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-w5-brand">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-w6-brand">
                         Why to prefer us
                     </p>
-                    <h2 className="font-display text-4xl font-bold text-w5-corporate-blue md:text-5xl">
+                    <h2 className="font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
                         Why people choose Royal CorpTravel
                     </h2>
                 </div>
@@ -500,10 +627,10 @@ function WhyPreferUsSection() {
                             key={item.title}
                             className="rounded-3xl border border-slate-100 bg-slate-50 p-7"
                         >
-                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-w5-brand/10 text-w5-brand">
+                            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-w6-brand/10 text-w6-brand">
                                 {item.icon}
                             </div>
-                            <h3 className="mb-3 text-xl font-bold text-w5-corporate-blue">
+                            <h3 className="mb-3 text-xl font-bold text-w6-corporate-blue">
                                 {item.title}
                             </h3>
                             <p className="text-sm leading-relaxed text-slate-600">
@@ -514,8 +641,8 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                    <div className="rounded-3xl bg-w5-corporate-blue p-8 text-white">
-                        <p className="text-xs uppercase tracking-[0.2em] text-w5-brand">
+                    <div className="rounded-3xl bg-w6-corporate-blue p-8 text-white">
+                        <p className="text-xs uppercase tracking-[0.2em] text-w6-brand">
                             Users who love us
                         </p>
                         <p className="mt-2 font-display text-5xl font-bold">+180000</p>
@@ -525,10 +652,10 @@ function WhyPreferUsSection() {
                         </p>
                     </div>
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 lg:col-span-2">
-                        <p className="mb-2 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                        <p className="mb-2 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Training session
                         </p>
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Training of Staff
                         </h3>
                         <p className="text-slate-600">
@@ -541,19 +668,19 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 md:p-10">
-                    <h3 className="mb-8 text-3xl font-bold text-w5-corporate-blue">
+                    <h3 className="mb-8 text-3xl font-bold text-w6-corporate-blue">
                         Fleet Information
                     </h3>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                         {fleetInfo.map((fleet) => (
                             <div key={fleet.type}>
-                                <p className="mb-4 font-bold uppercase tracking-wider text-w5-brand">
+                                <p className="mb-4 font-bold uppercase tracking-wider text-w6-brand">
                                     {fleet.type}
                                 </p>
                                 <ul className="space-y-2 text-sm text-slate-600">
                                     {fleet.models.map((model) => (
                                         <li key={model} className="flex items-start gap-2">
-                                            <Car size={14} className="mt-0.5 text-w5-brand" />
+                                            <Car size={14} className="mt-0.5 text-w6-brand" />
                                             <span>{model}</span>
                                         </li>
                                     ))}
@@ -564,7 +691,7 @@ function WhyPreferUsSection() {
                 </div>
 
                 <div className="rounded-3xl border border-slate-100 bg-white p-8 md:p-10">
-                    <h3 className="mb-8 text-3xl font-bold text-w5-corporate-blue">
+                    <h3 className="mb-8 text-3xl font-bold text-w6-corporate-blue">
                         Accessories provided in our vehicles
                     </h3>
                     <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -581,7 +708,7 @@ function WhyPreferUsSection() {
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8">
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Business Profile
                         </h3>
                         <p className="text-sm leading-relaxed text-slate-600">
@@ -594,7 +721,7 @@ function WhyPreferUsSection() {
                         </p>
                     </div>
                     <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8">
-                        <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                        <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                             Future Plans
                         </h3>
                         <p className="text-sm leading-relaxed text-slate-600">
@@ -607,7 +734,7 @@ function WhyPreferUsSection() {
                     </div>
                 </div>
 
-                <div className="rounded-3xl border border-slate-100 bg-w5-corporate-blue p-8 text-white">
+                <div className="rounded-3xl border border-slate-100 bg-w6-corporate-blue p-8 text-white">
                     <h3 className="mb-6 text-2xl font-bold">Our Happy Clients</h3>
                     <div className="flex flex-wrap gap-3">
                         {clients.map((client) => (
@@ -623,10 +750,10 @@ function WhyPreferUsSection() {
 
                 <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 md:p-10">
                     <div className="mb-8 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-w5-brand text-white">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-w6-brand text-white">
                             <Car size={20} />
                         </div>
-                        <h3 className="text-3xl font-bold text-w5-corporate-blue">
+                        <h3 className="text-3xl font-bold text-w6-corporate-blue">
                             Book Your Cab
                         </h3>
                     </div>
@@ -643,17 +770,17 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="tel"
                                 placeholder="Contact No."
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                         </div>
 
@@ -666,17 +793,17 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Client Name"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="tel"
                                 placeholder="Client Contact No."
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="email"
                                 placeholder="Client Email"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                         </div>
 
@@ -689,29 +816,29 @@ function WhyPreferUsSection() {
                             <input
                                 type="text"
                                 placeholder="Reporting Date (DD-MM-YY)"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="DD-MM-YY"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="Reporting Place"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="Reporting Time (HH:MM AM/PM)"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
                             <input
                                 type="text"
                                 placeholder="HH:MM AM/PM"
-                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                             />
-                            <select className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none">
+                            <select className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none">
                                 <option>Choose Cab Type</option>
                                 <option>Select</option>
                                 <option>Hatchback</option>
@@ -724,12 +851,12 @@ function WhyPreferUsSection() {
                         <textarea
                             rows={4}
                             placeholder="Special Instructions (if any)"
-                            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w5-brand focus:outline-none"
+                            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-w6-brand focus:outline-none"
                         />
 
                         <button
                             type="submit"
-                            className="w5-electric-glow rounded-2xl bg-w5-brand px-8 py-3 font-bold text-white transition-colors hover:bg-w5-brand-dark"
+                            className="w6-electric-glow rounded-2xl bg-w6-brand px-8 py-3 font-bold text-white transition-colors hover:bg-w6-brand-dark"
                         >
                             Submit
                         </button>
@@ -739,6 +866,440 @@ function WhyPreferUsSection() {
         </section>
     );
 }
+
+const WhyPreferUs = () => {
+    const points = [
+        {
+            title: 'Statutory Compliance',
+            icon: <ShieldCheck size={32} />,
+            desc: 'We ensure 100% Legal compliance relevant to our business which includes compliances related to Our Company, Fleet vehicles, fleet drivers and Employees. This gives us and our Customers “Freedom to Operate” from governmental, Social & other liabilities.',
+        },
+        {
+            title: 'Satisfied Clients',
+            icon: <Heart size={32} />,
+            desc: 'In our journey of 11 years we have created a long list of satisfied Customers & end users who are our Ambassadors and they speak about our services. All our clients have been associated with us for a commendable period which speaks of our ability, stability & capability.',
+        },
+        {
+            title: 'Round the Clock Service',
+            icon: <Clock size={32} />,
+            desc: "Even in the age of e-travel one cannot deny the importance of human touch. We fully understand and comply with customer's anticipation of a prompt response.",
+        },
+        {
+            title: 'Proactive Management',
+            icon: <Settings size={32} />,
+            desc: 'We understand the importance of time and comfort of our customers, hence we proactively do physical inspections of our vehicles on regular basis & check the Fitness, Cleanliness & Hygiene of the vehicles. We also check and ensure that the vehicle is serviced timely to avoid unexpected breakdown of vehicles.',
+        },
+        {
+            title: 'Matching service with savings',
+            icon: <TrendingDown size={32} />,
+            desc: 'We deliver results in the form of measurable service and savings benefits for our customers, ensuring the highest standards at the best price. We guarantee a combination of innovative and established techniques to deliver satisfaction for corporate booker and traveler alike. Its clear people are choosing RCPL based on our proven competence.',
+        },
+        {
+            title: 'Safe & Secure',
+            icon: <Lock size={32} />,
+            desc: 'We always keep our client`s safety & security at top priority, we carry out a detailed background check of all the Drivers/staff members of RCPL by Bio-metric based Aadhar & Police verification. It is further enhanced by using chain system of employee hiring and arming all our cabs with GPS based Tracking device and Speed Governor.',
+        },
+        {
+            title: 'Customized Trips',
+            icon: <Map size={32} />,
+            desc: 'We allow complete customization of our existing tour packages. You can also send us your detailed plan for a vacation we can make all the arrangements right from the start to the end. Alternately, simply tell us your idea of a vacation and we will design your trips and itineraries as per your requirement.',
+        },
+        {
+            title: 'Backup Management',
+            icon: <RefreshCcw size={32} />,
+            desc: 'Backup Management is the activity of providing cab in case of breakdown or other catastrophe with regular cab. Backup is usually provided within the shortest possible time to ensure no disruption in travel.',
+        },
+    ];
+
+    return (
+        <section className="bg-white py-24">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="mb-16 text-center">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                        Why to prefer us
+                    </div>
+                    <h2 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
+                        Why people choose <span className="text-brand">Royal CorpTravel</span>
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    {points.map((point, i) => (
+                        <div
+                            key={`${point.title}-${i}`}
+                            className="group rounded-3xl border border-slate-100 bg-slate-50 p-8 transition-all hover:border-brand/20"
+                        >
+                            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand shadow-sm transition-all group-hover:bg-brand group-hover:text-white">
+                                {point.icon}
+                            </div>
+                            <h3 className="mb-4 text-xl font-bold text-corporate-blue transition-colors group-hover:text-brand">
+                                {point.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed text-slate-600">{point.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="relative mt-24 flex h-[400px] items-center justify-center overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1449156003053-c30670b96835?q=80&w=2070&auto=format&fit=crop"
+                    alt="Happy Travelers"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-corporate-blue/80 backdrop-blur-sm" />
+                <div className="relative z-10 px-6 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-block rounded-[3rem] border border-white/20 bg-white/10 p-12 text-white backdrop-blur-xl"
+                    >
+                        <div className="font-display mb-4 text-6xl font-bold text-brand md:text-8xl">
+                            +180,000
+                        </div>
+                        <div className="text-xl font-semibold uppercase tracking-[0.3em] md:text-2xl">
+                            Users who love us
+                        </div>
+                        <p className="mx-auto mt-4 max-w-lg text-slate-300">
+                            Delivering excellence across every mile, ensuring every journey is as safe as it is joyful.
+                        </p>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const TrainingSection = () => {
+    return (
+        <section className="bg-slate-50 py-24">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+                    <div className="order-2 lg:order-1">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                            Training session
+                        </div>
+                        <h2 className="font-display mb-6 text-4xl font-bold text-corporate-blue">
+                            Training of Staff
+                        </h2>
+                        <p className="mb-8 text-lg leading-relaxed text-slate-600">
+                            We do in-house training programs for our drivers and staff to help them understand requirements of driving and customer service. We recognize the value of motivation and continuous improvement.
+                        </p>
+                        <div className="space-y-4">
+                            {[
+                                'Customer Service Excellence',
+                                'Defensive Driving Skills',
+                                'Emergency Response Training',
+                                'Safety Protocols & Compliance',
+                            ].map((item, i) => (
+                                <div key={`${item}-${i}`} className="flex items-center gap-3">
+                                    <CheckCircle2 className="text-brand" size={20} />
+                                    <span className="font-semibold text-corporate-blue">{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                        <img
+                            src="https://picsum.photos/seed/training/800/600"
+                            className="rounded-3xl shadow-2xl"
+                            alt="Training Session"
+                            referrerPolicy="no-referrer"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const DetailedFleetInfo = () => {
+    const fleetData = [
+        {
+            category: 'Hatchback',
+            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva'],
+            img: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop',
+        },
+        {
+            category: 'Sedan',
+            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios'],
+            img: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=2072&auto=format&fit=crop',
+        },
+        {
+            category: 'SUV/MUV',
+            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova'],
+            img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop',
+        },
+        {
+            category: 'Bus',
+            models: ['Force Traveller', 'Mini Bus', 'Bus', 'Luxury Bus'],
+            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop',
+        },
+    ];
+
+    return (
+        <section className="bg-white py-24">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="mb-16 text-center">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                        Fleet Information
+                    </div>
+                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                        Our Extensive Fleet
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    {fleetData.map((fleet, i) => (
+                        <div
+                            key={`${fleet.category}-${i}`}
+                            className="group overflow-hidden rounded-3xl border border-slate-100 bg-slate-50"
+                        >
+                            <div className="h-48 overflow-hidden">
+                                <img
+                                    src={fleet.img}
+                                    alt={fleet.category}
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    referrerPolicy="no-referrer"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <h3 className="mb-6 border-b border-brand/20 pb-4 text-xl font-bold text-brand">
+                                    {fleet.category}
+                                </h3>
+                                <ul className="space-y-3">
+                                    {fleet.models.map((model, j) => (
+                                        <li
+                                            key={`${model}-${j}`}
+                                            className="flex items-center gap-2 font-medium text-corporate-blue"
+                                        >
+                                            <div className="h-1.5 w-1.5 rounded-full bg-brand" />
+                                            {model}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const AccessoriesSection = () => {
+    const accessories = [
+        { name: 'Newspaper', icon: <Calendar size={20} /> },
+        { name: 'Road Maps', icon: <MapPin size={20} /> },
+        { name: 'First Aid Kits', icon: <Shield size={20} /> },
+        { name: 'Wet Wipes', icon: <Zap size={20} /> },
+        { name: 'Umbrellas', icon: <Globe size={20} /> },
+        { name: 'Flashlight', icon: <Zap size={20} /> },
+        { name: 'Reading lights', icon: <Zap size={20} /> },
+        { name: 'Phone', icon: <Smartphone size={20} /> },
+    ];
+
+    return (
+        <section className="bg-slate-50 py-24">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="mb-16 text-center">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                        Accessories
+                    </div>
+                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                        Accessories provided in our vehicles
+                    </h2>
+                </div>
+                <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                    {accessories.map((item, i) => (
+                        <div
+                            key={`${item.name}-${i}`}
+                            className="group flex flex-col items-center rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-brand/20"
+                        >
+                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition-all group-hover:bg-brand group-hover:text-white">
+                                {item.icon}
+                            </div>
+                            <span className="font-bold text-corporate-blue">{item.name}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const BusinessProfileSection = () => {
+    return (
+        <section className="bg-white py-24">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
+                    <div className="rounded-[3rem] bg-corporate-blue p-12 text-white">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                            Business Profile
+                        </div>
+                        <h2 className="font-display mb-6 text-3xl font-bold">Our Commitment</h2>
+                        <p className="mb-8 text-lg leading-relaxed text-slate-300">
+                            The mission of Royal CorpTravel is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
+                        </p>
+                        <p className="text-lg leading-relaxed text-slate-300">
+                            We assure our esteemed customers better transport solutions in a professional way. Our services include corporate cabs, taxi service, inbound & outbound tours, pilgrimage & historical tours, etc.
+                        </p>
+                    </div>
+                    <div className="rounded-[3rem] border border-slate-100 bg-slate-50 p-12">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                            Future Plans
+                        </div>
+                        <h2 className="font-display mb-6 text-3xl font-bold text-corporate-blue">
+                            Expanding Horizons
+                        </h2>
+                        <p className="mb-8 text-lg leading-relaxed text-slate-600">
+                            Through robust business management, we plan to establish more offices in India catering to client needs. Apart from NCR, we have grown to a fleet of over 250 cars to date and formed a wide network of vendors to increase capacity at short notice.
+                        </p>
+                        <p className="text-lg leading-relaxed text-slate-600">
+                            This has been possible due to the goodwill created by the quality of our services and the vision of our core team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const HappyClientsSection = () => {
+    const clients = [
+        { name: 'DB Schenker', logo: 'DB' },
+        { name: 'Hines', logo: 'HI' },
+        { name: 'DLF', logo: 'DLF' },
+        { name: 'Jaquar', logo: 'JQ' },
+        { name: 'CGN', logo: 'CGN' },
+        { name: 'Kinapse', logo: 'KN' },
+        { name: 'PepperTap', logo: 'PT' },
+        { name: 'USG Boral', logo: 'USG' },
+        { name: 'Wunderman', logo: 'WM' },
+        { name: 'ZS', logo: 'ZS' },
+        { name: 'NuvoEx', logo: 'NX' },
+        { name: 'DRG', logo: 'DRG' },
+    ];
+
+    return (
+        <section className="overflow-hidden bg-slate-50 py-24">
+            <div className="mx-auto mb-16 max-w-7xl px-6">
+                <div className="text-center">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
+                        Our Happy Clients
+                    </div>
+                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                        Trusted by Global Brands
+                    </h2>
+                </div>
+            </div>
+
+            <div className="relative flex overflow-x-hidden">
+                <div className="animate-marquee flex items-center gap-12 whitespace-nowrap py-10">
+                    {[...clients, ...clients].map((client, i) => (
+                        <div
+                            key={`${client.name}-${i}`}
+                            className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
+                        >
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-corporate-blue text-xl font-bold text-white transition-colors group-hover:bg-brand">
+                                {client.logo}
+                            </div>
+                            <span className="font-display text-xl font-bold text-corporate-blue/80 transition-colors group-hover:text-corporate-blue">
+                                {client.name}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-3">
+                {[
+                    { label: 'Client Retention', value: '98%' },
+                    { label: 'Average Partnership', value: '7+ Years' },
+                    { label: 'Monthly Trips', value: '25,000+' },
+                ].map((stat, i) => (
+                    <div
+                        key={`${stat.label}-${i}`}
+                        className="flex items-center gap-6 rounded-[2rem] border border-slate-100 bg-white p-8"
+                    >
+                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                            <Award size={32} />
+                        </div>
+                        <div>
+                            <div className="font-display text-3xl font-bold text-corporate-blue">
+                                {stat.value}
+                            </div>
+                            <div className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+                                {stat.label}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+const BookingFormSection = () => {
+    return (
+        <section className="bg-white py-24">
+            <div className="mx-auto max-w-4xl px-6">
+                <div className="glass-card relative overflow-hidden rounded-[3rem] p-12">
+                    <div className="absolute right-0 top-0 p-8 text-6xl opacity-10">🚕</div>
+                    <h2 className="font-display mb-12 text-center text-4xl font-bold text-corporate-blue">
+                        Book Your Cab
+                    </h2>
+                    <form className="space-y-12">
+                        <div>
+                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
+                                <Users size={20} /> Booked By
+                            </h3>
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
+                                <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                                <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
+                                <Briefcase size={20} /> Booked For
+                            </h3>
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
+                                <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
+                                <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
+                                <Clock size={20} /> Scheduling
+                            </h3>
+                            <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+                                <input type="text" placeholder="DD-MM-YY" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                            </div>
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                <input type="text" placeholder="HH:MM AM/PM" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                                <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                                    <option>Select</option>
+                                    <option>Hatchback</option>
+                                    <option>Sedan</option>
+                                    <option>SUV/MUV</option>
+                                    <option>Bus</option>
+                                </select>
+                            </div>
+                        </div>
+                        <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                        <button type="button" className="electric-glow w-full rounded-2xl bg-brand py-5 text-lg font-bold text-white transition-all hover:bg-brand-dark">
+                            Submit Booking
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 function AboutSection({ setActivePage }) {
     return (
@@ -760,7 +1321,7 @@ function AboutSection({ setActivePage }) {
                                 referrerPolicy="no-referrer"
                             />
                         </div>
-                        <div className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-8 border-white bg-w5-brand text-white shadow-2xl">
+                        <div className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-8 border-white bg-w6-brand text-white shadow-2xl">
                             <div className="text-center">
                                 <div className="text-2xl font-bold">18+</div>
                                 <div className="text-[10px] font-bold uppercase">Years</div>
@@ -769,12 +1330,12 @@ function AboutSection({ setActivePage }) {
                     </div>
 
                     <div>
-                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Our Legacy
                         </div>
-                        <h2 className="mb-8 font-display text-4xl font-bold leading-tight text-w5-corporate-blue md:text-5xl">
+                        <h2 className="mb-8 font-display text-4xl font-bold leading-tight text-w6-corporate-blue md:text-5xl">
                             A Structured Partner in{' '}
-                            <span className="text-w5-brand">Corporate Mobility</span>
+                            <span className="text-w6-brand">Corporate Mobility</span>
                         </h2>
                         <p className="mb-6 text-lg leading-relaxed text-slate-600">
                             Founded in 2006 and incorporated in 2011, DTC Bharat is a
@@ -796,8 +1357,8 @@ function AboutSection({ setActivePage }) {
                                 '24/7 Control Room',
                             ].map((item) => (
                                 <div key={item} className="flex items-center gap-3">
-                                    <CheckCircle2 className="text-w5-brand" size={20} />
-                                    <span className="font-semibold text-w5-corporate-blue">
+                                    <CheckCircle2 className="text-w6-brand" size={20} />
+                                    <span className="font-semibold text-w6-corporate-blue">
                                         {item}
                                     </span>
                                 </div>
@@ -807,7 +1368,7 @@ function AboutSection({ setActivePage }) {
                         <button
                             type="button"
                             onClick={() => setActivePage('profile')}
-                            className="group flex items-center gap-2 font-bold text-w5-corporate-blue transition-colors hover:text-w5-brand"
+                            className="group flex items-center gap-2 font-bold text-w6-corporate-blue transition-colors hover:text-w6-brand"
                         >
                             Learn More About Our Profile{' '}
                             <ArrowRight
@@ -850,10 +1411,10 @@ function FleetSection() {
         <section className="bg-slate-50 py-24">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mx-auto mb-20 max-w-3xl text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                         Our Fleet
                     </div>
-                    <h2 className="mb-6 font-display text-4xl font-bold text-w5-corporate-blue md:text-5xl">
+                    <h2 className="mb-6 font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
                         Diverse Fleet for Every Need
                     </h2>
                     <p className="text-lg text-slate-500">
@@ -867,12 +1428,12 @@ function FleetSection() {
                         <motion.div
                             key={item.category}
                             whileHover={{ y: -10 }}
-                            className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-w5-brand/20"
+                            className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-w6-brand/20"
                         >
-                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-w5-brand transition-colors group-hover:bg-w5-brand group-hover:text-white">
+                            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-w6-brand transition-colors group-hover:bg-w6-brand group-hover:text-white">
                                 {item.icon}
                             </div>
-                            <h3 className="mb-3 text-xl font-bold text-w5-corporate-blue">
+                            <h3 className="mb-3 text-xl font-bold text-w6-corporate-blue">
                                 {item.category}
                             </h3>
                             <p className="text-sm leading-relaxed text-slate-500">
@@ -882,10 +1443,10 @@ function FleetSection() {
                     ))}
                 </div>
 
-                <div className="w5-glass-card mt-20 rounded-3xl p-10 md:p-16">
+                <div className="w6-glass-card mt-20 rounded-3xl p-10 md:p-16">
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                         <div>
-                            <h3 className="mb-6 font-display text-3xl font-bold text-w5-corporate-blue">
+                            <h3 className="mb-6 font-display text-3xl font-bold text-w6-corporate-blue">
                                 Premium Amenities
                             </h3>
                             <div className="grid grid-cols-2 gap-6">
@@ -919,35 +1480,35 @@ function FleetSection() {
                                         key={amenity.label}
                                         className="flex items-center gap-3 text-slate-600"
                                     >
-                                        <div className="text-w5-brand">{amenity.icon}</div>
+                                        <div className="text-w6-brand">{amenity.icon}</div>
                                         <span className="font-medium">{amenity.label}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="rounded-2xl bg-w5-corporate-blue p-8 text-white">
+                        <div className="rounded-2xl bg-w6-corporate-blue p-8 text-white">
                             <h4 className="mb-6 flex items-center gap-2 text-xl font-bold">
-                                <Shield className="text-w5-brand" /> Safety Compliance
+                                <Shield className="text-w6-brand" /> Safety Compliance
                             </h4>
                             <ul className="space-y-4 text-sm text-slate-300">
                                 <li className="flex gap-3">
-                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w5-brand" />
+                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w6-brand" />
                                     <span>Real-time GPS tracking for all vehicles</span>
                                 </li>
                                 <li className="flex gap-3">
-                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w5-brand" />
+                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w6-brand" />
                                     <span>
                                         Panic alert buttons integrated with central control
                                     </span>
                                 </li>
                                 <li className="flex gap-3">
-                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w5-brand" />
+                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w6-brand" />
                                     <span>
                                         Strict female safety protocols for night drops
                                     </span>
                                 </li>
                                 <li className="flex gap-3">
-                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w5-brand" />
+                                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-w6-brand" />
                                     <span>
                                         Regular preventive maintenance & health checks
                                     </span>
@@ -990,12 +1551,12 @@ function ServicesSection() {
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
                     <div className="max-w-2xl">
-                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Our Services
                         </div>
-                        <h2 className="font-display text-4xl font-bold text-w5-corporate-blue md:text-5xl">
+                        <h2 className="font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
                             Comprehensive{' '}
-                            <span className="text-w5-brand">Mobility Solutions</span>
+                            <span className="text-w6-brand">Mobility Solutions</span>
                         </h2>
                     </div>
                     <p className="max-w-xs text-sm text-slate-500">
@@ -1008,13 +1569,13 @@ function ServicesSection() {
                     {services.map((service) => (
                         <div
                             key={service.title}
-                            className="group relative overflow-hidden rounded-3xl border border-slate-100 p-10 transition-all hover:border-w5-brand/20"
+                            className="group relative overflow-hidden rounded-3xl border border-slate-100 p-10 transition-all hover:border-w6-brand/20"
                         >
-                            <div className="absolute right-0 top-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-colors group-hover:bg-w5-brand/5" />
-                            <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-w5-brand/10 text-w5-brand transition-all group-hover:bg-w5-brand group-hover:text-white">
+                            <div className="absolute right-0 top-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-colors group-hover:bg-w6-brand/5" />
+                            <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand transition-all group-hover:bg-w6-brand group-hover:text-white">
                                 {service.icon}
                             </div>
-                            <h3 className="mb-4 text-2xl font-bold text-w5-corporate-blue">
+                            <h3 className="mb-4 text-2xl font-bold text-w6-corporate-blue">
                                 {service.title}
                             </h3>
                             <p className="mb-8 leading-relaxed text-slate-500">
@@ -1022,7 +1583,7 @@ function ServicesSection() {
                             </p>
                             <button
                                 type="button"
-                                className="flex items-center gap-2 text-sm font-bold text-w5-brand transition-all group-hover:gap-4"
+                                className="flex items-center gap-2 text-sm font-bold text-w6-brand transition-all group-hover:gap-4"
                             >
                                 View Details <ArrowRight size={16} />
                             </button>
@@ -1039,18 +1600,18 @@ function ProfilePage() {
         <div className="pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-20 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                         Company Profile
                     </div>
-                    <h1 className="mb-8 font-display text-5xl font-bold text-w5-corporate-blue md:text-7xl">
-                        Our Journey & <span className="text-w5-brand">Vision</span>
+                    <h1 className="mb-8 font-display text-5xl font-bold text-w6-corporate-blue md:text-7xl">
+                        Our Journey & <span className="text-w6-brand">Vision</span>
                     </h1>
-                    <div className="w5-glass-card mx-auto max-w-4xl rounded-3xl border-l-8 border-l-w5-brand p-10">
-                        <p className="font-display text-2xl italic leading-relaxed text-w5-corporate-blue md:text-3xl">
+                    <div className="w6-glass-card mx-auto max-w-4xl rounded-3xl border-l-8 border-l-w6-brand p-10">
+                        <p className="font-display text-2xl italic leading-relaxed text-w6-corporate-blue md:text-3xl">
                             &quot;Ensure an environment that clients, cab users, and staff
                             are proud to be part of.&quot;
                         </p>
-                        <div className="mt-6 font-bold uppercase tracking-widest text-w5-brand">
+                        <div className="mt-6 font-bold uppercase tracking-widest text-w6-brand">
                             Our Mission
                         </div>
                     </div>
@@ -1058,7 +1619,7 @@ function ProfilePage() {
 
                 <div className="mb-32 grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
                     <div>
-                        <h2 className="mb-6 font-display text-3xl font-bold text-w5-corporate-blue">
+                        <h2 className="mb-6 font-display text-3xl font-bold text-w6-corporate-blue">
                             From Startup to Structured Leader
                         </h2>
                         <p className="mb-6 text-lg leading-relaxed text-slate-600">
@@ -1091,7 +1652,7 @@ function ProfilePage() {
                                     key={item.title}
                                     className="rounded-2xl border border-slate-100 bg-slate-50 p-6"
                                 >
-                                    <h4 className="mb-2 font-bold text-w5-corporate-blue">
+                                    <h4 className="mb-2 font-bold text-w6-corporate-blue">
                                         {item.title}
                                     </h4>
                                     <p className="text-sm text-slate-500">{item.desc}</p>
@@ -1106,7 +1667,7 @@ function ProfilePage() {
                             alt="Office"
                             referrerPolicy="no-referrer"
                         />
-                        <div className="absolute -bottom-10 -right-10 flex h-48 w-48 rotate-3 items-center justify-center rounded-3xl bg-w5-brand p-8 text-white shadow-2xl">
+                        <div className="absolute -bottom-10 -right-10 flex h-48 w-48 rotate-3 items-center justify-center rounded-3xl bg-w6-brand p-8 text-white shadow-2xl">
                             <div className="text-center">
                                 <Award size={40} className="mx-auto mb-2" />
                                 <div className="text-sm font-bold uppercase tracking-tighter">
@@ -1153,11 +1714,11 @@ function TeamPage() {
         <div className="bg-slate-50 pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-20 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                         Our Leadership
                     </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold text-w5-corporate-blue">
-                        The Minds Behind <span className="text-w5-brand">DTC Bharat</span>
+                    <h1 className="mb-6 font-display text-5xl font-bold text-w6-corporate-blue">
+                        The Minds Behind <span className="text-w6-brand">DTC Bharat</span>
                     </h1>
                     <p className="mx-auto max-w-2xl text-slate-500">
                         Our leadership team brings decades of combined experience in
@@ -1181,10 +1742,10 @@ function TeamPage() {
                                 />
                             </div>
                             <div className="p-8">
-                                <h3 className="mb-1 text-xl font-bold text-w5-corporate-blue">
+                                <h3 className="mb-1 text-xl font-bold text-w6-corporate-blue">
                                     {leader.name}
                                 </h3>
-                                <div className="mb-4 text-xs font-bold uppercase tracking-wider text-w5-brand">
+                                <div className="mb-4 text-xs font-bold uppercase tracking-wider text-w6-brand">
                                     {leader.role}
                                 </div>
                                 <p className="text-sm leading-relaxed text-slate-500">
@@ -1195,7 +1756,7 @@ function TeamPage() {
                     ))}
                 </div>
 
-                <div className="rounded-3xl bg-w5-corporate-blue p-12 text-center text-white">
+                <div className="rounded-3xl bg-w6-corporate-blue p-12 text-center text-white">
                     <h3 className="mb-4 text-2xl font-bold">Our Support Backbone</h3>
                     <p className="mx-auto mb-8 max-w-2xl text-slate-400">
                         Beyond our leadership, we are powered by a dedicated 24/7
@@ -1204,15 +1765,15 @@ function TeamPage() {
                     </p>
                     <div className="flex flex-wrap justify-center gap-8">
                         <div className="flex items-center gap-2">
-                            <Users className="text-w5-brand" />
+                            <Users className="text-w6-brand" />
                             <span className="font-semibold">200+ Professional Drivers</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Shield className="text-w5-brand" />
+                            <Shield className="text-w6-brand" />
                             <span className="font-semibold">50+ Operations Staff</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Clock className="text-w5-brand" />
+                            <Clock className="text-w6-brand" />
                             <span className="font-semibold">24/7 Support Desk</span>
                         </div>
                     </div>
@@ -1254,11 +1815,11 @@ function ToursPage() {
         <div className="pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-20 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                         Tour Packages
                     </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold text-w5-corporate-blue">
-                        Explore with <span className="text-w5-brand">Comfort</span>
+                    <h1 className="mb-6 font-display text-5xl font-bold text-w6-corporate-blue">
+                        Explore with <span className="text-w6-brand">Comfort</span>
                     </h1>
                     <p className="mx-auto max-w-2xl text-slate-500">
                         Premium outstation travel solutions for corporate retreats, family
@@ -1285,11 +1846,11 @@ function ToursPage() {
                                 </h3>
                                 <div className="mb-6 flex gap-6 text-sm text-white/80">
                                     <div className="flex items-center gap-2">
-                                        <Car size={16} className="text-w5-brand" /> Sedan:{' '}
+                                        <Car size={16} className="text-w6-brand" /> Sedan:{' '}
                                         <span className="font-bold text-white">{tour.price}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <Users size={16} className="text-w5-brand" /> Innova:{' '}
+                                        <Users size={16} className="text-w6-brand" /> Innova:{' '}
                                         <span className="font-bold text-white">
                                             {tour.priceInnova}
                                         </span>
@@ -1297,7 +1858,7 @@ function ToursPage() {
                                 </div>
                                 <button
                                     type="button"
-                                    className="rounded-full bg-w5-brand px-6 py-2 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-w5-brand-dark"
+                                    className="rounded-full bg-w6-brand px-6 py-2 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-w6-brand-dark"
                                 >
                                     Book This Tour
                                 </button>
@@ -1307,7 +1868,7 @@ function ToursPage() {
                 </div>
 
                 <div className="mt-20 rounded-3xl border border-slate-200 bg-slate-50 p-10">
-                    <h3 className="mb-6 text-xl font-bold text-w5-corporate-blue">
+                    <h3 className="mb-6 text-xl font-bold text-w6-corporate-blue">
                         Package Inclusions:
                     </h3>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
@@ -1318,7 +1879,7 @@ function ToursPage() {
                             '24/7 Roadside Assist',
                         ].map((item) => (
                             <div key={item} className="flex items-center gap-3">
-                                <CheckCircle2 className="text-w5-brand" size={18} />
+                                <CheckCircle2 className="text-w6-brand" size={18} />
                                 <span className="font-medium text-slate-700">{item}</span>
                             </div>
                         ))}
@@ -1335,11 +1896,11 @@ function ContactPage() {
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
                     <div>
-                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Contact Us
                         </div>
-                        <h1 className="mb-8 font-display text-5xl font-bold text-w5-corporate-blue">
-                            Get in <span className="text-w5-brand">Touch</span>
+                        <h1 className="mb-8 font-display text-5xl font-bold text-w6-corporate-blue">
+                            Get in <span className="text-w6-brand">Touch</span>
                         </h1>
                         <p className="mb-12 text-lg text-slate-500">
                             Have a question or need to book a fleet? Our team is available
@@ -1348,11 +1909,11 @@ function ContactPage() {
 
                         <div className="space-y-8">
                             <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w5-brand/10 text-w5-brand">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
                                     <MapPin size={28} />
                                 </div>
                                 <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w5-corporate-blue">
+                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
                                         Our Location
                                     </h4>
                                     <p className="text-slate-500">
@@ -1361,22 +1922,22 @@ function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w5-brand/10 text-w5-brand">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
                                     <Phone size={28} />
                                 </div>
                                 <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w5-corporate-blue">
+                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
                                         Hotline
                                     </h4>
                                     <p className="text-slate-500">+91 124 444 4444</p>
                                 </div>
                             </div>
                             <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w5-brand/10 text-w5-brand">
+                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
                                     <Mail size={28} />
                                 </div>
                                 <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w5-corporate-blue">
+                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
                                         Email Address
                                     </h4>
                                     <p className="text-slate-500">info@royalcorptravel.com</p>
@@ -1384,7 +1945,7 @@ function ContactPage() {
                             </div>
                         </div>
 
-                        <div className="mt-12 flex items-center justify-between rounded-3xl bg-w5-corporate-blue p-8 text-white">
+                        <div className="mt-12 flex items-center justify-between rounded-3xl bg-w6-corporate-blue p-8 text-white">
                             <div>
                                 <h4 className="mb-1 font-bold">Need Instant Support?</h4>
                                 <p className="text-sm text-slate-400">
@@ -1400,8 +1961,8 @@ function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="w5-glass-card rounded-3xl p-10">
-                        <h3 className="mb-8 text-2xl font-bold text-w5-corporate-blue">
+                    <div className="w6-glass-card rounded-3xl p-10">
+                        <h3 className="mb-8 text-2xl font-bold text-w6-corporate-blue">
                             Booking Inquiry
                         </h3>
                         <form className="space-y-6">
@@ -1412,7 +1973,7 @@ function ContactPage() {
                                     </label>
                                     <input
                                         type="text"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w5-brand focus:outline-none"
+                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
                                         placeholder="John Doe"
                                     />
                                 </div>
@@ -1422,7 +1983,7 @@ function ContactPage() {
                                     </label>
                                     <input
                                         type="tel"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w5-brand focus:outline-none"
+                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
                                         placeholder="+91 00000 00000"
                                     />
                                 </div>
@@ -1434,7 +1995,7 @@ function ContactPage() {
                                     </label>
                                     <input
                                         type="text"
-                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w5-brand focus:outline-none"
+                                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
                                         placeholder="Enterprise Inc."
                                     />
                                 </div>
@@ -1442,7 +2003,7 @@ function ContactPage() {
                                     <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
                                         Service Type
                                     </label>
-                                    <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w5-brand focus:outline-none">
+                                    <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none">
                                         <option>Employee Transportation</option>
                                         <option>Shuttle Service</option>
                                         <option>Spot Rental</option>
@@ -1456,13 +2017,13 @@ function ContactPage() {
                                 </label>
                                 <textarea
                                     rows={4}
-                                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w5-brand focus:outline-none"
+                                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors focus:border-w6-brand focus:outline-none"
                                     placeholder="Tell us about your requirements..."
                                 />
                             </div>
                             <button
                                 type="button"
-                                className="w5-electric-glow w-full rounded-2xl bg-w5-brand py-4 font-bold text-white transition-all hover:bg-w5-brand-dark"
+                                className="w6-electric-glow w-full rounded-2xl bg-w6-brand py-4 font-bold text-white transition-all hover:bg-w6-brand-dark"
                             >
                                 Submit Inquiry
                             </button>
@@ -1474,7 +2035,7 @@ function ContactPage() {
     );
 }
 
-export default function Website5App() {
+export default function Website6App() {
     const [activePage, setActivePage] = useState('home');
 
     useEffect(() => {
@@ -1482,7 +2043,7 @@ export default function Website5App() {
     }, [activePage]);
 
     return (
-        <div className="w5-root flex min-h-screen flex-col selection:bg-w5-brand selection:text-white">
+        <div className="w6-root flex min-h-screen flex-col selection:bg-w6-brand selection:text-white">
             <Navbar activePage={activePage} setActivePage={setActivePage} />
 
             <main className="flex-grow">
@@ -1497,15 +2058,21 @@ export default function Website5App() {
                         {activePage === 'home' && (
                             <>
                                 <Hero setActivePage={setActivePage} />
-                                <WhyPreferUsSection />
+                                <WhyPreferUs />
+                                <TrainingSection />
+                                <DetailedFleetInfo />
+                                <AccessoriesSection />
+                                <BusinessProfileSection />
+                                <HappyClientsSection />
+                                <BookingFormSection />
                                 <AboutSection setActivePage={setActivePage} />
                                 <ServicesSection />
                                 <FleetSection />
 
-                                <section className="overflow-hidden bg-w5-corporate-blue py-24 text-white">
+                                <section className="overflow-hidden bg-w6-corporate-blue py-24 text-white">
                                     <div className="mx-auto max-w-7xl px-6">
                                         <div className="mb-16 text-center">
-                                            <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w5-brand">
+                                            <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                                                 Testimonials
                                             </div>
                                             <h2 className="font-display text-4xl font-bold">
@@ -1518,7 +2085,7 @@ export default function Website5App() {
                                                     key={item}
                                                     className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg"
                                                 >
-                                                    <div className="mb-6 flex gap-1 text-w5-brand">
+                                                    <div className="mb-6 flex gap-1 text-w6-brand">
                                                         {[1, 2, 3, 4, 5].map((star) => (
                                                             <Star
                                                                 key={star}
@@ -1553,7 +2120,7 @@ export default function Website5App() {
 
                                 <section className="bg-white py-24">
                                     <div className="mx-auto max-w-3xl px-6">
-                                        <h2 className="mb-16 text-center font-display text-4xl font-bold text-w5-corporate-blue">
+                                        <h2 className="mb-16 text-center font-display text-4xl font-bold text-w6-corporate-blue">
                                             Frequently Asked Questions
                                         </h2>
                                         <div className="space-y-6">
@@ -1575,7 +2142,7 @@ export default function Website5App() {
                                                     key={faq.q}
                                                     className="rounded-2xl border border-slate-100 bg-slate-50 p-6"
                                                 >
-                                                    <h4 className="mb-2 font-bold text-w5-corporate-blue">
+                                                    <h4 className="mb-2 font-bold text-w6-corporate-blue">
                                                         {faq.q}
                                                     </h4>
                                                     <p className="text-sm text-slate-500">
@@ -1604,7 +2171,7 @@ export default function Website5App() {
                 animate={{ x: 0 }}
                 type="button"
                 onClick={() => setActivePage('contact')}
-                className="w5-electric-glow group fixed bottom-8 right-8 z-40 flex items-center gap-3 rounded-2xl bg-w5-brand px-6 py-4 font-bold text-white shadow-2xl"
+                className="w6-electric-glow group fixed bottom-8 right-8 z-40 flex items-center gap-3 rounded-2xl bg-w6-brand px-6 py-4 font-bold text-white shadow-2xl"
             >
                 <Car size={24} />
                 <span className="hidden md:inline">Book Now</span>
@@ -1615,3 +2182,4 @@ export default function Website5App() {
         </div>
     );
 }
+
