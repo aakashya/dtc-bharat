@@ -436,12 +436,12 @@ const WhyPreferUs = () => {
         {
             title: 'Matching service with savings',
             icon: <TrendingDown size={32} />,
-            desc: 'We deliver results in the form of measurable service and savings benefits for our customers, ensuring the highest standards at the best price. We guarantee a combination of innovative and established techniques to deliver satisfaction for corporate booker and traveler alike. Its clear people are choosing RCPL based on our proven competence.',
+            desc: 'We deliver results in the form of measurable service and savings benefits for our customers, ensuring the highest standards at the best price. We guarantee a combination of innovative and established techniques to deliver satisfaction for corporate booker and traveler alike. Its clear people are choosing DTC Bharat based on our proven competence.',
         },
         {
             title: 'Safe & Secure',
             icon: <Lock size={32} />,
-            desc: 'We always keep our client`s safety & security at top priority, we carry out a detailed background check of all the Drivers/staff members of RCPL by Bio-metric based Aadhar & Police verification. It is further enhanced by using chain system of employee hiring and arming all our cabs with GPS based Tracking device and Speed Governor.',
+            desc: 'We always keep our client`s safety & security at top priority, we carry out a detailed background check of all the Drivers/staff members of DTC Bharat by Bio-metric based Aadhar & Police verification. It is further enhanced by using chain system of employee hiring and arming all our cabs with GPS based Tracking device and Speed Governor.',
         },
         {
             title: 'Customized Trips',
@@ -463,7 +463,7 @@ const WhyPreferUs = () => {
                         Why to prefer us
                     </div>
                     <h2 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
-                        Why people choose <span className="text-brand">Royal CorpTravel</span>
+                        Why people choose <span className="text-brand">Delphinium CorpTravel</span>
                     </h2>
                 </div>
 
@@ -678,7 +678,7 @@ const BusinessProfileSection = () => {
                         </div>
                         <h2 className="font-display mb-6 text-3xl font-bold">Our Commitment</h2>
                         <p className="mb-8 text-lg leading-relaxed text-slate-300">
-                            The mission of Royal CorpTravel is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
+                            The mission of Delphinium CorpTravel is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
                         </p>
                         <p className="text-lg leading-relaxed text-slate-300">
                             We assure our esteemed customers better transport solutions in a professional way. Our services include corporate cabs, taxi service, inbound & outbound tours, pilgrimage & historical tours, etc.
@@ -1083,7 +1083,7 @@ function ServicesSection() {
                                     </div>
                                     <h3 className="text-3xl font-display font-bold text-corporate-blue mb-6">Employee Transportation</h3>
                                     <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                                        RCPL is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Royal CorpTravel (RCPL).
+                                        DTC Bharat is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Delphinium CorpTravel (DTC Bharat).
                                     </p>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -1102,7 +1102,7 @@ function ServicesSection() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-corporate-blue mb-4 flex items-center gap-2">
-                                                <Award className="text-brand" size={20} /> RCPL Advantage:
+                                                <Award className="text-brand" size={20} /> DTC Bharat Advantage:
                                             </h4>
                                             <ul className="space-y-3">
                                                 {[
@@ -1211,7 +1211,7 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Corptravel Pvt. Ltd. (RCPL)</span>.
+                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Corptravel Pvt. Ltd. (DTC Bharat)</span>.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                             As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
@@ -1322,7 +1322,7 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: 'Sushil Kumar',
+            name: 'Dr. Sushil Kumar',
             role: 'Director Business Development',
             desc: 'Technology-driven founder with a vision for digital mobility.',
             img: 'https://i.pravatar.cc/300?u=sushil',
