@@ -86,7 +86,7 @@ function Navbar({ activePage, setActivePage }) {
                                 isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
                             }`}
                         >
-                            DTC Bharat
+                            DTC Bharat a unit of Delphinium Travelcorp
                         </p>
                     </div>
                 </div>
