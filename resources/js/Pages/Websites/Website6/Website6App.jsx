@@ -71,7 +71,7 @@ function Navbar({ activePage, setActivePage }) {
                     <img
                         src="/images/logo/dtc-logo.JPG"
                         alt="Delphinium Travelcorp"
-                        className="h-12 w-auto rounded-xl object-cover ring-1 ring-white/20"
+                        className="h-14 w-auto rounded-xl object-cover ring-1 ring-white/20"
                     />
                     <div>
                         <h1
@@ -745,7 +745,7 @@ const HappyClientsSection = () => {
                                 src={client.logoSrc}
                                 alt={`${client.name} logo`}
                                 className="w-auto max-w-none object-contain"
-                                style={{ height: '36px' }}
+                                style={{ height: '44px' }}
                             />
                         </div>
                     ))}
