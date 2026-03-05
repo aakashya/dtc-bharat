@@ -358,29 +358,13 @@ function Hero({ setActivePage }) {
                     transition={{ duration: 1 }}
                     className="relative hidden lg:block"
                 >
-                    <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+                    <div className="relative z-10 overflow-hidden rounded-3xl bg-transparent ">
                         <img
-                            src="/images/innova-crysta-9-240.jpg"
+                            src="/images/innova-crysta.avif"
                             alt="Toyota Innova SUV"
-                            className="h-auto w-full"
+                            className="h-auto w-full object-contain"
                             referrerPolicy="no-referrer"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                        <div className="w6-glass-card absolute bottom-6 left-6 right-6 rounded-2xl p-6">
-                            <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-w6-brand text-white">
-                                    <Shield size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-w6-corporate-blue">
-                                        Innova Executive Module
-                                    </h4>
-                                    <p className="text-xs text-slate-500">
-                                        GPS Tracking, Speed Governor, Panic Alert Integrated
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div className="absolute -right-10 -top-10 h-40 w-40 animate-pulse rounded-full border border-w6-brand/30" />
                     <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full border border-white/10" />
