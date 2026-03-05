@@ -1061,7 +1061,7 @@ function ServicesSection() {
         <section className="pt-32 pb-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-16 text-center">
-                    <div className="mx-auto max-w-2xl">
+                    <div className="mx-auto max-w-5xl">
                         <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Services</div>
                         <h2 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue">
                             Comprehensive <span className="text-brand">Mobility Solutions</span>
