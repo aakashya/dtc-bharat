@@ -376,7 +376,7 @@ function Hero({ setActivePage }) {
                         {[
                             { label: 'Availability', value: '24/7' },
                             { label: 'Coverage', value: 'Delhi NCR' },
-                            { label: 'Corporate Clients', value: '100+' },
+                            { label: 'Users EveryDay', value: '600+' },
                             { label: 'Fleet Units', value: '300+' },
                         ].map((stat) => (
                             <div key={stat.label}>
