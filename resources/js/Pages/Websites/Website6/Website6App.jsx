@@ -1153,13 +1153,13 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by three young & dynamic Indians, <span className="font-bold text-corporate-blue">Sushil Yadav, Krishan Kumar & Sudesh Kumar</span>, who wanted to professionally manage Corporate Travel. They established Royal Travels and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Royal Corptravel Pvt. Ltd. (RCPL)</span>.
+                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Corptravel Pvt. Ltd. (RCPL)</span>.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            As a registered corporate cab company, RCPL works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
+                            As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
                         </p>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            RCPL is mainly Gurgaon based cab services providing Company and providing its cabs services to leading MNCs in Gurgaon.
+                            DTC Bharat is mainly Gurgaon based cab services providing Company and providing its cabs services to leading MNCs in Gurgaon.
                         </p>
                     </motion.div>
                     <div className="relative">
@@ -1181,10 +1181,10 @@ function ProfilePage() {
                             <h2 className="text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                                 <p className="text-slate-300 text-lg leading-relaxed">
-                                    The mission of Royal CorpTravel is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
+                                    The mission of Delphinium CorpTravel is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
                                 </p>
                                 <p className="text-slate-300 text-lg leading-relaxed">
-                                    RCPL is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
+                                    DTC Bharat is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
                                 </p>
                             </div>
                         </div>
@@ -1218,7 +1218,7 @@ function ProfilePage() {
                         <h3 className="text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
                             <Car className="text-brand" /> Our Fleet Consists of
                         </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
                                 { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Liva, Figo' },
                                 { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios' },
@@ -1264,28 +1264,10 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: 'Sushil Yadav',
+            name: 'Sushil Kumar',
             role: 'Director Business Development',
             desc: 'Technology-driven founder with a vision for digital mobility.',
             img: 'https://i.pravatar.cc/300?u=sushil',
-        },
-        {
-            name: 'Dr. Sudesh Yadav',
-            role: 'Director HR & Maintenance',
-            desc: 'Expert in preventive maintenance systems and human capital.',
-            img: 'https://i.pravatar.cc/300?u=sudesh',
-        },
-        {
-            name: 'Mahesh Kumar Yadav',
-            role: 'Director Operations',
-            desc: 'Specialist in structured deployment and fleet logistics.',
-            img: 'https://i.pravatar.cc/300?u=mahesh',
-        },
-        {
-            name: 'Amit Yadav',
-            role: 'Head Finance & BD',
-            desc: 'Strategist focusing on financial growth and business expansion.',
-            img: 'https://i.pravatar.cc/300?u=amit',
         },
     ];
 
@@ -1305,29 +1287,34 @@ function TeamPage() {
                     </p>
                 </div>
 
-                <div className="mb-24 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="mb-24 flex justify-center">
                     {leaders.map((leader) => (
                         <motion.div
                             key={leader.name}
-                            whileHover={{ y: -10 }}
-                            className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm"
+                            whileHover={{ y: -10, scale: 1.01 }}
+                            transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                            className="group w-full max-w-md overflow-hidden rounded-[2.25rem] border border-w6-brand/20 bg-gradient-to-b from-white to-slate-50 shadow-xl shadow-slate-200/60"
                         >
-                            <div className="h-64 overflow-hidden">
+                            <div className="relative h-72 overflow-hidden">
                                 <img
                                     src={leader.img}
                                     alt={leader.name}
-                                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                                    className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                                     referrerPolicy="no-referrer"
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                                <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-w6-brand">
+                                    Leadership
+                                </div>
                             </div>
-                            <div className="p-8">
-                                <h3 className="mb-1 text-xl font-bold text-w6-corporate-blue">
+                            <div className="space-y-3 p-8 text-center">
+                                <h3 className="mb-1 text-2xl font-bold text-w6-corporate-blue">
                                     {leader.name}
                                 </h3>
                                 <div className="mb-4 text-xs font-bold uppercase tracking-wider text-w6-brand">
                                     {leader.role}
                                 </div>
-                                <p className="text-sm leading-relaxed text-slate-500">
+                                <p className="text-sm leading-relaxed text-slate-600">
                                     {leader.desc}
                                 </p>
                             </div>
@@ -1656,5 +1643,3 @@ export default function Website6App() {
         </div>
     );
 }
-
-
