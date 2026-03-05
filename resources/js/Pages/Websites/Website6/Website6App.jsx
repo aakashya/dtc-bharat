@@ -1130,84 +1130,130 @@ function ServicesSection() {
 
 function ProfilePage() {
     return (
-        <div className="pb-24 pt-32">
-            <div className="mx-auto max-w-7xl px-6">
-                <div className="mb-20 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
-                        Company Profile
-                    </div>
-                    <h1 className="mb-8 font-display text-5xl font-bold text-w6-corporate-blue md:text-7xl">
-                        Our Journey & <span className="text-w6-brand">Vision</span>
+        <div className="pt-32 pb-24">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-20">
+                    <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Company Profile</div>
+                    <h1 className="text-5xl md:text-7xl font-display font-bold text-corporate-blue mb-8">
+                        Our Journey & <span className="text-brand">Vision</span>
                     </h1>
-                    <div className="w6-glass-card mx-auto max-w-4xl rounded-3xl border-l-8 border-l-w6-brand p-10">
-                        <p className="font-display text-2xl italic leading-relaxed text-w6-corporate-blue md:text-3xl">
-                            &quot;Ensure an environment that clients, cab users, and staff
-                            are proud to be part of.&quot;
+                    <div className="max-w-4xl mx-auto p-10 glass-card rounded-3xl border-l-8 border-l-brand">
+                        <p className="text-2xl md:text-3xl font-display italic text-corporate-blue leading-relaxed">
+                            "To ensure an environment that our Clients, Cab Users and Staff are proud to be a part of"
                         </p>
-                        <div className="mt-6 font-bold uppercase tracking-widest text-w6-brand">
-                            Our Mission
+                        <div className="mt-6 font-bold text-brand uppercase tracking-widest">- Our Philosophy</div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
+                        <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                            It was a startup in the year of 2006 by three young & dynamic Indians, <span className="font-bold text-corporate-blue">Sushil Yadav, Krishan Kumar & Sudesh Kumar</span>, who wanted to professionally manage Corporate Travel. They established Royal Travels and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Royal Corptravel Pvt. Ltd. (RCPL)</span>.
+                        </p>
+                        <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                            As a registered corporate cab company, RCPL works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
+                        </p>
+                        <p className="text-slate-600 text-lg leading-relaxed">
+                            RCPL is mainly Gurgaon based cab services providing Company and providing its cabs services to leading MNCs in Gurgaon.
+                        </p>
+                    </motion.div>
+                    <div className="relative">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" className="rounded-[3rem] shadow-2xl" alt="Corporate Office" referrerPolicy="no-referrer" />
+                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand rounded-[2rem] flex items-center justify-center text-white p-8 shadow-2xl rotate-3">
+                            <div className="text-center">
+                                <Clock size={40} className="mx-auto mb-2" />
+                                <div className="text-sm font-bold uppercase tracking-tighter">Established 2006</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="mb-32 grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
-                    <div>
-                        <h2 className="mb-6 font-display text-3xl font-bold text-w6-corporate-blue">
-                            From Startup to Structured Leader
-                        </h2>
-                        <p className="mb-6 text-lg leading-relaxed text-slate-600">
-                            DTC Bharat began its journey in 2006 as a focused transportation
-                            startup. Recognizing the need for professional, disciplined
-                            mobility in the corporate sector, we incorporated in 2011 to
-                            build a more structured organization.
-                        </p>
-                        <p className="mb-8 text-lg leading-relaxed text-slate-600">
-                            Today, we stand as a technology-enabled partner for over 100
-                            corporate clients, managing a fleet of 500+ vehicles with
-                            precision and care.
-                        </p>
-                        <div className="space-y-4">
+                <div className="mb-32">
+                    <div className="bg-corporate-blue rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-brand/10 rounded-full blur-[100px] -mr-48 -mt-48" />
+                        <div className="relative z-10">
+                            <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Business Profile</div>
+                            <h2 className="text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                <p className="text-slate-300 text-lg leading-relaxed">
+                                    The mission of Royal CorpTravel is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
+                                </p>
+                                <p className="text-slate-300 text-lg leading-relaxed">
+                                    RCPL is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
+                    <div className="p-12 bg-slate-50 rounded-[3rem] border border-slate-100">
+                        <h3 className="text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
+                            <Navigation className="text-brand" /> Cab Running Models
+                        </h3>
+                        <ul className="space-y-4">
                             {[
-                                {
-                                    title: 'Vision',
-                                    desc: "Become India's most trusted corporate transport partner through innovation and excellence.",
-                                },
-                                {
-                                    title: 'Strengths',
-                                    desc: 'Experienced leadership, disciplined maintenance, and seamless technology integration.',
-                                },
-                                {
-                                    title: 'Future',
-                                    desc: 'Expanding our footprint into all major metro cities across India.',
-                                },
-                            ].map((item) => (
-                                <div
-                                    key={item.title}
-                                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6"
-                                >
-                                    <h4 className="mb-2 font-bold text-w6-corporate-blue">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-sm text-slate-500">{item.desc}</p>
+                                'Fix Route based Cab Running Model',
+                                'Multiple Trip Based Cab running Model',
+                                'Adhoc Pickup & Drop',
+                                'Spot Rental',
+                                'Outstation Trips Packages'
+                            ].map((model, i) => (
+                                <li key={i} className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                                    <div className="w-8 h-8 bg-brand/10 rounded-full flex items-center justify-center text-brand">
+                                        <CheckCircle2 size={18} />
+                                    </div>
+                                    <span className="font-semibold text-corporate-blue">{model}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="p-12 bg-white rounded-[3rem] border border-slate-200 shadow-sm">
+                        <h3 className="text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
+                            <Car className="text-brand" /> Our Fleet Consists of
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            {[
+                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Liva, Figo' },
+                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios' },
+                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Xylo, Tavera, Innova' },
+                                { cat: 'Traveller', models: 'Force Traveller' },
+                                { cat: 'Luxury', models: 'Premium Executive Vehicles' },
+                                { cat: 'Buses', models: 'Mini & Luxury Coach Buses' }
+                            ].map((item, i) => (
+                                <div key={i} className="space-y-1">
+                                    <div className="font-bold text-corporate-blue">{item.cat}</div>
+                                    <div className="text-xs text-slate-500 italic">{item.models}</div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="relative">
-                        <img
-                            src="https://picsum.photos/seed/office/800/1000"
-                            className="rounded-3xl shadow-2xl"
-                            alt="Office"
-                            referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute -bottom-10 -right-10 flex h-48 w-48 rotate-3 items-center justify-center rounded-3xl bg-w6-brand p-8 text-white shadow-2xl">
-                            <div className="text-center">
-                                <Award size={40} className="mx-auto mb-2" />
-                                <div className="text-sm font-bold uppercase tracking-tighter">
-                                    Certified Excellence
-                                </div>
+                </div>
+
+                <div className="text-center">
+                    <div className="max-w-3xl mx-auto">
+                        <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Growth & Vision</h2>
+                        <p className="text-slate-600 text-lg mb-12 leading-relaxed">
+                            We have grown to a fleet of over <span className="text-brand font-bold">300+ cars</span> to date, and have formed a wide network of vendors to increase capacity at short notice. This has been possible due to the sheer goodwill created because of the <span className="font-bold">QUALITY</span> of our services and the <span className="font-bold">VISION</span> of our core team.
+                        </p>
+
+                        <div className="inline-block p-1 bg-brand rounded-full mb-8">
+                            <div className="bg-white px-10 py-4 rounded-full">
+                                <p className="text-xl md:text-2xl font-display font-bold text-corporate-blue italic">
+                                    "Safe & Joyful journey in excellent timings"
+                                </p>
                             </div>
                         </div>
+
+                        <p className="text-slate-500 text-sm max-w-2xl mx-auto">
+                            This is a commitment from the highest level of our management and its implementation and effectiveness is checked regularly to verify compliance.
+                        </p>
                     </div>
                 </div>
             </div>
