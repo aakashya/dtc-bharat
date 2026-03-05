@@ -359,7 +359,7 @@ function Hero({ setActivePage }) {
                 >
                     <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
                         <img
-                            src="/images/innova-crysta-9-240.jpg"
+                            src="/images/Inova-Highcross.jpeg"
                             alt="Toyota Innova SUV"
                             className="h-auto w-full"
                             referrerPolicy="no-referrer"
@@ -486,7 +486,7 @@ const WhyPreferUs = () => {
 
             <div className="relative mt-24 flex h-[400px] items-center justify-center overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1449156003053-c30670b96835?q=80&w=2070&auto=format&fit=crop"
+                    src="/images/crowd.jpg"
                     alt="Happy Travelers"
                     className="absolute inset-0 h-full w-full object-cover"
                     referrerPolicy="no-referrer"
@@ -563,17 +563,17 @@ const DetailedFleetInfo = () => {
         {
             category: 'Hatchback',
             models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva'],
-            img: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop',
+            img: '/images/maruti-suzuki-wagon-r.avif',
         },
         {
             category: 'Sedan',
             models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios'],
-            img: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=2072&auto=format&fit=crop',
+            img: '/images/swift-dezire.jpg',
         },
         {
             category: 'SUV/MUV',
             models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova'],
-            img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop',
+            img: '/images/Inova-Highcross.jpeg',
         },
         {
             category: 'Bus',
@@ -746,12 +746,12 @@ const HappyClientsSection = () => {
                             key={`${client.name}-${i}`}
                             className="group inline-flex cursor-default items-center gap-4 rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
                         >
-                            <div className="flex h-14 items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
+                            <div className="flex h-16 min-w-[110px] items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 transition-all group-hover:ring-brand/40">
                                 <img
                                     src={client.logoSrc}
                                     alt={`${client.name} logo`}
-                                    className="h-10 w-auto object-contain"
-                                    loading="lazy"
+                                    className="w-auto max-w-none object-contain"
+                                    style={{ height: '24px' }}
                                 />
                             </div>
                             <span className="font-display text-xl font-bold text-corporate-blue/80 transition-colors group-hover:text-corporate-blue">
@@ -1614,94 +1614,6 @@ export default function Website6App() {
                                 <BusinessProfileSection />
                                 <HappyClientsSection />
                                 <BookingFormSection />
-                                <AboutSection setActivePage={setActivePage} />
-                                <ServicesSection />
-                                <FleetSection />
-
-                                <section className="overflow-hidden bg-w6-corporate-blue py-24 text-white">
-                                    <div className="mx-auto max-w-7xl px-6">
-                                        <div className="mb-16 text-center">
-                                            <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
-                                                Testimonials
-                                            </div>
-                                            <h2 className="font-display text-4xl font-bold">
-                                                Trusted by Industry Leaders
-                                            </h2>
-                                        </div>
-                                        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                                            {[1, 2, 3].map((item) => (
-                                                <div
-                                                    key={item}
-                                                    className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg"
-                                                >
-                                                    <div className="mb-6 flex gap-1 text-w6-brand">
-                                                        {[1, 2, 3, 4, 5].map((star) => (
-                                                            <Star
-                                                                key={star}
-                                                                size={16}
-                                                                fill="currentColor"
-                                                            />
-                                                        ))}
-                                                    </div>
-                                                    <p className="mb-8 italic text-slate-300">
-                                                        &quot;DTC Bharat has been our
-                                                        mobility partner for over 5 years.
-                                                        Their commitment to safety and
-                                                        timeliness is unmatched in the
-                                                        industry.&quot;
-                                                    </p>
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="h-12 w-12 rounded-full bg-slate-700" />
-                                                        <div>
-                                                            <div className="font-bold">
-                                                                HR Director
-                                                            </div>
-                                                            <div className="text-xs text-slate-500">
-                                                                Fortune 500 Tech Firm
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <section className="bg-white py-24">
-                                    <div className="mx-auto max-w-3xl px-6">
-                                        <h2 className="mb-16 text-center font-display text-4xl font-bold text-w6-corporate-blue">
-                                            Frequently Asked Questions
-                                        </h2>
-                                        <div className="space-y-6">
-                                            {[
-                                                {
-                                                    q: 'What safety measures do you have for female employees?',
-                                                    a: 'We have strict female safety protocols including mandatory GPS tracking, panic buttons, and verified driver backgrounds for all night drops.',
-                                                },
-                                                {
-                                                    q: 'Do you provide real-time MIS reports?',
-                                                    a: 'Yes, our technology platform provides comprehensive real-time MIS reporting for billing, route optimization, and attendance.',
-                                                },
-                                                {
-                                                    q: 'What is your fleet availability?',
-                                                    a: 'We operate 24/7 with a dedicated control room to manage round-the-clock shift requirements.',
-                                                },
-                                            ].map((faq) => (
-                                                <div
-                                                    key={faq.q}
-                                                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6"
-                                                >
-                                                    <h4 className="mb-2 font-bold text-w6-corporate-blue">
-                                                        {faq.q}
-                                                    </h4>
-                                                    <p className="text-sm text-slate-500">
-                                                        {faq.a}
-                                                    </p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </section>
                             </>
                         )}
                         {activePage === 'profile' && <ProfilePage />}

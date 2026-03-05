@@ -1,0 +1,1 @@
+import{j as t,H as e}from"./app-DbL-K-Iy.js";import r from"./Website1App-BGBEoU9F.js";import"./proxy-CuM5wUKA.js";import"./x--RUoPMLv.js";import"./layers-C_f8jWhk.js";import"./shield-441DTqfM.js";import"./map-3m6G-FCx.js";function x(){return t.jsxs(t.Fragment,{children:[t.jsx(e,{title:"Website 1"}),t.jsx(r,{})]})}export{x as default};
