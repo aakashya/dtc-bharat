@@ -1324,7 +1324,7 @@ function TeamPage() {
         {
             name: "Dr. Sushil Kumar",
             role: "Founder & Director",
-            credentials: "Ph.D., MBA, LL.B., BCA, APDSE (Hons.), MCSE, OCP",
+            credentials: ["Ph.D.", "MBA", "LL.B.", "BCA", "APDSE (Hons.)", "MCSE", "OCP"],
             desc: "A visionary leader and the founder of Delphinium Corptravel, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Corptravel into a global benchmark for service excellence.",
             img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop"
         },
@@ -1355,7 +1355,16 @@ function TeamPage() {
                                 <div className="mb-6">
                                     <h3 className="text-3xl font-display font-bold text-corporate-blue mb-1">{leader.name}</h3>
                                     <div className="text-brand text-sm font-bold uppercase tracking-widest mb-2">{leader.role}</div>
-                                    <div className="text-slate-400 text-xs font-medium">{leader.credentials}</div>
+                                    <div className="mt-3 flex flex-wrap gap-2">
+                                        {leader.credentials.map((credential) => (
+                                            <span
+                                                key={credential}
+                                                className="rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-[11px] font-semibold text-corporate-blue"
+                                            >
+                                                {credential}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                                 <p className="text-slate-600 text-base leading-relaxed italic">
                                     "{leader.desc}"
