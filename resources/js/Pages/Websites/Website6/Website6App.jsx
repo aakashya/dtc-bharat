@@ -86,7 +86,7 @@ function Navbar({ activePage, setActivePage }) {
                                 isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
                             }`}
                         >
-                            A unit of Delphinium Travelcorp
+                            A unit of Delphinium Travelcorp PVT. LTD.
                         </p>
                     </div>
                 </div>
@@ -170,21 +170,26 @@ function Navbar({ activePage, setActivePage }) {
 
 function Footer({ setActivePage }) {
     return (
-        <footer className="bg-w6-corporate-blue pb-10 pt-20 text-white">
-            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-4">
-                <div className="col-span-1 md:col-span-1">
+        <footer className="relative isolate overflow-hidden pb-10 pt-20 text-white">
+            <div className="w6-hero-gradient pointer-events-none absolute inset-0 z-0" />
+            <div className="pointer-events-none absolute -right-20 top-10 z-0 h-80 w-80 rounded-full bg-orange-300/20 blur-3xl" />
+            <div className="pointer-events-none absolute -left-24 bottom-8 z-0 h-80 w-80 rounded-full bg-rose-300/20 blur-3xl" />
+            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.14),transparent_55%)]" />
+
+            <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-12">
+                <div className="col-span-1 md:col-span-4">
                     <div className="mb-6 flex flex-col items-start gap-3">
                         <img
-                            src="/images/logo/logo-footer.svg"
+                            src="/images/logo/full-logo-no-bg-icon.PNG"
                             alt="Delphinium Travelcorp"
-                            className="h-32 w-auto rounded-xl object-cover ring-1 ring-white/20"
+                            className="h-32 w-auto rounded-xl object-cover"
                         />
                         <div>
-                            <h2 className="font-display text-lg font-bold leading-none">
-                                Delphinium Travelcorp
+                            <h2 className="font-display text-4xl font-bold leading-none">
+                                DTC <span className="text-w6-brand">BHARAT</span>
                             </h2>
-                            <p className="text-[10px] font-semibold uppercase tracking-widest text-w6-brand">
-                                DTC Bharat
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-white/70">
+                                A unit of Delphinium Travelcorp PVT. LTD.
                             </p>
                         </div>
                     </div>
@@ -212,7 +217,7 @@ function Footer({ setActivePage }) {
                     </div>
                 </div>
 
-                <div>
+                <div className="md:col-span-3">
                     <h3 className="mb-6 text-lg font-bold">Quick Links</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>
@@ -263,7 +268,7 @@ function Footer({ setActivePage }) {
                     </ul>
                 </div>
 
-                <div>
+                <div className="md:col-span-2">
                     <h3 className="mb-6 text-lg font-bold">Our Services</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>Employee Transportation</li>
@@ -274,7 +279,7 @@ function Footer({ setActivePage }) {
                     </ul>
                 </div>
 
-                <div>
+                <div className="md:col-span-3">
                     <h3 className="mb-6 text-lg font-bold">Contact Us</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li className="flex gap-3">
@@ -293,7 +298,7 @@ function Footer({ setActivePage }) {
                 </div>
             </div>
 
-            <div className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 px-6 pt-8 md:flex-row">
+            <div className="relative z-10 mx-auto mt-20 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 px-6 pt-8 md:flex-row">
                 <p className="text-xs text-slate-500">
                     (c) 2017-2024 Delphinium Travelcorp. All Rights Reserved.
                 </p>
