@@ -1335,6 +1335,20 @@ function TeamPage() {
             img: "/images/team/sushil.jpeg"
         },
     ];
+    const additionalTeam = [
+        {
+            name: "Mrs. Pratibha Yadav",
+            role: "Senior Operations Manager",
+            desc: "Leads daily fleet coordination, shift planning, and service quality operations across key accounts.",
+            img: "https://i.pravatar.cc/600?img=32",
+        },
+        {
+            name: "Mr. Vikas Yadav",
+            role: "Client Relationship Lead",
+            desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
+            img: "https://i.pravatar.cc/600?img=12",
+        },
+    ];
 
     return (
         <div className="pt-32 pb-24 bg-slate-50">
@@ -1374,6 +1388,36 @@ function TeamPage() {
                                 </div>
                                 <p className="text-slate-600 text-base leading-relaxed italic">
                                     "{leader.desc}"
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="mb-24 mx-28 grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {additionalTeam.map((member, i) => (
+                        <motion.div
+                            key={`${member.name}-${i}`}
+                            whileHover={{ y: -8 }}
+                            className="overflow-hidden rounded-[2.25rem] border border-slate-100 bg-white shadow-xl"
+                        >
+                            <div className="h-72 overflow-hidden">
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                    referrerPolicy="no-referrer"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <h3 className="mb-1 text-2xl font-display font-bold text-corporate-blue">
+                                    {member.name}
+                                </h3>
+                                <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand">
+                                    {member.role}
+                                </p>
+                                <p className="text-sm leading-relaxed text-slate-600">
+                                    {member.desc}
                                 </p>
                             </div>
                         </motion.div>
