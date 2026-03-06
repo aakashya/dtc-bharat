@@ -279,7 +279,7 @@ function Footer({ setActivePage }) {
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li className="flex gap-3">
                             <MapPin size={18} className="shrink-0 text-w6-brand" />
-                            <span>Unit 705, Business Zone, TOWER-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018</span>
+                            <span>Unit 705, Business Zone, Tower-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018</span>
                         </li>
                         <li className="flex gap-3">
                             <Phone size={18} className="shrink-0 text-w6-brand" />
@@ -448,7 +448,7 @@ const WhyPreferUs = () => {
                     </div>
                     <h2 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
                         <span className="block">Why people choose</span>
-                        <span className="block text-brand">Delphinium Travelcorp</span>
+                        <span className="mt-2 block text-brand">Delphinium Travelcorp</span>
                     </h2>
                 </div>
 
@@ -663,7 +663,7 @@ const BusinessProfileSection = () => {
                         </div>
                         <h2 className="font-display mb-6 text-3xl font-bold">Our Commitment</h2>
                         <p className="mb-8 text-lg leading-relaxed text-slate-300">
-                            The mission of Delphinium CorpTravel is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
+                            The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
                         </p>
                         <p className="text-lg leading-relaxed text-slate-300">
                             We assure our esteemed customers better transport solutions in a professional way. Our services include corporate cabs, taxi service, inbound & outbound tours, pilgrimage & historical tours, etc.
@@ -711,7 +711,7 @@ const HappyClientsSection = () => {
             <div className="mx-auto mb-16 max-w-7xl px-6">
                 <div className="text-center">
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
-                        Our Happy Clients
+                        Clients We Have Served
                     </div>
                     <h2 className="font-display text-4xl font-bold text-corporate-blue">
                         Trusted by Global Brands
@@ -739,9 +739,9 @@ const HappyClientsSection = () => {
 
             <div className="mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-3">
                 {[
-                    { label: 'Client Retention', value: '98%' },
-                    { label: 'Average Partnership', value: '7+ Years' },
-                    { label: 'Monthly Trips', value: '36,000+' },
+                    { label: 'Customer Satisfaction', value: '100%' },
+                    { label: 'Serving Since', value: '2006' },
+                    { label: 'Yearly Trips', value: '40,000+' },
                 ].map((stat, i) => (
                     <div
                         key={`${stat.label}-${i}`}
@@ -1068,7 +1068,7 @@ function ServicesSection() {
                                     </div>
                                     <h3 className="text-3xl font-display font-bold text-corporate-blue mb-6">Employee Transportation</h3>
                                     <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                                        DTC Bharat is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Delphinium CorpTravel (DTC Bharat).
+                                        DTC Bharat is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Delphinium Travelcorp (DTC Bharat).
                                     </p>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -1196,7 +1196,7 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Corptravel Pvt. Ltd. (DTC Bharat)</span>.
+                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                             As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
@@ -1224,7 +1224,7 @@ function ProfilePage() {
                             <h2 className="text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                                 <p className="text-slate-300 text-lg leading-relaxed">
-                                    The mission of Delphinium CorpTravel is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
+                                    The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
                                 </p>
                                 <p className="text-slate-300 text-lg leading-relaxed">
                                     DTC Bharat is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
@@ -1309,8 +1309,8 @@ function TeamPage() {
         {
             name: "Dr. Sushil Kumar",
             role: "Founder & Director",
-            credentials: ["Ph.D.", "MBA", "LL.B.", "BCA", "APDSE (Hons.)", "MCSE", "OCP"],
-            desc: "A visionary leader and the founder of Delphinium Corptravel, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Corptravel into a global benchmark for service excellence.",
+            credentials: ["Ph.D.", "MBA", "LL.B.", "LL.M.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
+            desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
             img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop"
         },
     ];
@@ -1603,7 +1603,7 @@ function ContactPage() {
                                         Our Location
                                     </h4>
                                     <p className="text-slate-500">
-                                        Unit 705, Business Zone, TOWER-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018
+                                        Unit 705, Business Zone, Tower-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018
                                     </p>
                                 </div>
                             </div>

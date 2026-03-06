@@ -609,7 +609,7 @@ function WhyPreferUsSection() {
                         Why to prefer us
                     </p>
                     <h2 className="font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
-                        Why people choose Royal CorpTravel
+                        Why people choose Royal Travelcorp
                     </h2>
                 </div>
 
@@ -704,7 +704,7 @@ function WhyPreferUsSection() {
                             Business Profile
                         </h3>
                         <p className="text-sm leading-relaxed text-slate-600">
-                            The mission of Royal CorpTravel is to provide long-term,
+                            The mission of Royal Travelcorp is to provide long-term,
                             quality, and cost-effective transportation solutions and to be
                             recognized as a preferred business partner with a high standard
                             of safety and service. We provide corporate cabs, taxi service,
