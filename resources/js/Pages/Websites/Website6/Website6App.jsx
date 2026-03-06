@@ -86,7 +86,7 @@ function Navbar({ activePage, setActivePage }) {
                                 isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
                             }`}
                         >
-                            A unit of Delphinium Travelcorp PVT. LTD.
+                            Delphinium Travelcorp PVT. LTD.
                         </p>
                     </div>
                 </div>
@@ -1349,7 +1349,7 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Ranveer Singh</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
+                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                             As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
