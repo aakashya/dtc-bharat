@@ -75,7 +75,7 @@ function Navbar({ activePage, setActivePage }) {
                     />
                     <div>
                         <h1
-                            className={`font-display text-3xl font-bold leading-none ${
+                            className={`font-display text-4xl font-bold leading-none ${
                                 isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'
                             }`}
                         >
