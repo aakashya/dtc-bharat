@@ -620,7 +620,7 @@ const DetailedFleetInfo = () => {
 
 const AccessoriesSection = () => {
     const accessories = [
-        { name: 'Newspaper', icon: <Calendar size={20} /> },
+        { name: 'Newspaper', image: '/images/accessories/newspaper.png' },
         { name: 'Road Maps', icon: <MapPin size={20} /> },
         { name: 'First Aid Kits', icon: <Shield size={20} /> },
         { name: 'Wet Wipes', icon: <Zap size={20} /> },
@@ -647,8 +647,22 @@ const AccessoriesSection = () => {
                             key={`${item.name}-${i}`}
                             className="group flex flex-col items-center rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-brand/20"
                         >
-                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand transition-all group-hover:bg-brand group-hover:text-white">
-                                {item.icon}
+                            <div
+                                className={`mb-4 flex items-center justify-center rounded-2xl transition-all ${
+                                    item.image
+                                        ? 'h-32 w-32 bg-transparent'
+                                        : 'h-12 w-12 bg-brand/10 text-brand group-hover:bg-brand group-hover:text-white'
+                                }`}
+                            >
+                                {item.image ? (
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="h-full w-full object-contain"
+                                    />
+                                ) : (
+                                    item.icon
+                                )}
                             </div>
                             <span className="font-bold text-corporate-blue">{item.name}</span>
                         </div>
@@ -1189,7 +1203,7 @@ function ProfilePage() {
                     </h1>
                     <div className="max-w-4xl mx-auto p-10 glass-card rounded-3xl border-l-8 border-l-brand">
                         <p className="text-2xl md:text-3xl font-display italic text-corporate-blue leading-relaxed">
-                            "To ensure an environment that our Clients, Cab Users and Staff are proud to be a part of"
+                            “To ensure an environment that our Clients, Cab Users and Staff are proud to be a part of”
                         </p>
                         <div className="mt-6 font-bold text-brand uppercase tracking-widest">- Our Philosophy</div>
                     </div>
@@ -1296,7 +1310,7 @@ function ProfilePage() {
                         <div className="inline-block p-1 bg-brand rounded-full mb-8">
                             <div className="bg-white px-10 py-4 rounded-full">
                                 <p className="text-xl md:text-2xl font-display font-bold text-corporate-blue italic">
-                                    "Safe & Joyful journey in excellent timings"
+                                    “Safe & Joyful journey in excellent timings”
                                 </p>
                             </div>
                         </div>
