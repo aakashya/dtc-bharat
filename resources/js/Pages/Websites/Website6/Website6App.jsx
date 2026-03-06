@@ -1514,8 +1514,14 @@ function TeamPage() {
                             </div>
                             <div className="md:w-3/5 p-10 flex flex-col justify-center">
                                 <div className="mb-6">
-                                    <h3 className="text-3xl font-display font-bold text-corporate-blue mb-1">{leader.name}</h3>
-                                    <div className="text-brand text-sm font-bold uppercase tracking-widest mb-2">{leader.role}</div>
+                                    <div className="mb-2 inline-block">
+                                        <h3 className="text-3xl font-display font-bold text-corporate-blue">
+                                            {leader.name}
+                                        </h3>
+                                        <div className="mt-1 text-right text-brand text-sm font-bold uppercase tracking-widest">
+                                            {leader.role}
+                                        </div>
+                                    </div>
                                     <div className="mt-3 flex flex-wrap gap-2">
                                         {leader.credentials.map((credential) => (
                                             <span
