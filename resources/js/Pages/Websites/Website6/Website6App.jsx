@@ -1339,7 +1339,7 @@ function TeamPage() {
                             className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-3xl w-full flex flex-col md:flex-row"
                         >
                             <div className="md:w-2/5 h-80 md:h-auto overflow-hidden">
-                                <img src={leader.img} alt={leader.name} className="w-full h-full object-cover -scale-x-100" referrerPolicy="no-referrer" />
+                                <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="md:w-3/5 p-10 flex flex-col justify-center">
                                 <div className="mb-6">
