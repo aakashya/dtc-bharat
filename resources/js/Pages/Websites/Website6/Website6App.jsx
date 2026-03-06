@@ -1312,11 +1312,11 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: "Dr. Sushil Kumar",
+            name: "Dr. Sushil Ranveer Singh",
             role: "Founder & Director",
             credentials: ["Ph.D.", "MBA", "LL.B.", "LL.M.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
             desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
-            img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop"
+            img: "/images/team/sushil.jpeg"
         },
     ];
 
@@ -1336,7 +1336,7 @@ function TeamPage() {
                         <motion.div
                             key={i}
                             whileHover={{ y: -10 }}
-                            className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-2xl w-full flex flex-col md:flex-row"
+                            className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-3xl w-full flex flex-col md:flex-row"
                         >
                             <div className="md:w-2/5 h-80 md:h-auto overflow-hidden">
                                 <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
