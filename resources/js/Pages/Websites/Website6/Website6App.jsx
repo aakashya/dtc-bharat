@@ -1460,7 +1460,7 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: "Dr. Sushil Ranveer Singh",
+            name: "Dr. Sushil Ranvir Singh",
             role: "Founder & Director",
             credentials: ["Ph.D.", "MBA", "LL.B.", "LL.M.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
             desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Ranvir Singh has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
