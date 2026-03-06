@@ -1471,21 +1471,21 @@ function TeamPage() {
         {
             name: "Mrs. Pratibha Yadav",
             role: "Head of HR",
-            credentials: "MBA, Operations",
+            credentials: ["MBA", "Operations"],
             desc: "Leads daily fleet coordination, shift planning, and service quality operations across key accounts.",
             img: "https://i.pravatar.cc/600?img=32",
         },
         {
             name: "Mr. Vikas Yadav",
             role: "Client Relationship Lead",
-            credentials: "B.Com, MSc. Business Analytics and Decision Sciences",
+            credentials: ["B.Com", "MSc. Business Analytics and Decision Sciences"],
             desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
             img: "https://i.pravatar.cc/600?img=12",
         },
         {
             name: "Adv. Chirag Yadav",
             role: "Legal Advisor",
-            credentials: "BA.LLB.",
+            credentials: ["BA.LLB."],
             desc: "Advises on legal and compliance matters, contracts, and governance to support secure and structured operations.",
             img: "https://i.pravatar.cc/600?img=15",
         },
@@ -1557,9 +1557,16 @@ function TeamPage() {
                                 <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand">
                                     {member.role}
                                 </p>
-                                <p className="mb-4 text-[11px] font-semibold text-slate-500">
-                                    {member.credentials}
-                                </p>
+                                <div className="mb-4 mt-3 flex flex-wrap gap-2">
+                                    {member.credentials.map((credential) => (
+                                        <span
+                                            key={`${member.name}-${credential}`}
+                                            className="rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-[11px] font-semibold text-corporate-blue"
+                                        >
+                                            {credential}
+                                        </span>
+                                    ))}
+                                </div>
                                 <p className="text-sm leading-relaxed text-slate-600">
                                     {member.desc}
                                 </p>
