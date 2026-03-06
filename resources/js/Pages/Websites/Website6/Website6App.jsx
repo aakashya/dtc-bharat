@@ -620,7 +620,7 @@ const DetailedFleetInfo = () => {
 
 const AccessoriesSection = () => {
     const accessories = [
-        { name: 'Newspaper', image: '/images/accessories/newspaper2.png' },
+        { name: 'Newspaper', image: '/images/accessories/newspaper3.png' },
         { name: 'Road Maps', icon: <MapPin size={20} /> },
         { name: 'First Aid Kits', icon: <Shield size={20} /> },
         { name: 'Wet Wipes', icon: <Zap size={20} /> },
