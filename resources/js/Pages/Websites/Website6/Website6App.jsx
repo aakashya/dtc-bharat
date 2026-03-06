@@ -1480,7 +1480,7 @@ function TeamPage() {
             role: "Director of Global Brand & Digital Strategy",
             credentials: ["B.Com", "MSc. Business Analytics"],
             desc: "As Director of Brand & Digital Strategy, He is responsible for shaping and strengthening the organisation's brand identity, digital presence, and reputation. He leads the development of strategic initiatives that enhance visibility, credibility, and engagement across digital platforms. With a background in Business Analytics and experience in scaling international ventures, He brings a strategic and data-driven approach to brand building, aligning digital strategy, communications, and market positioning to support sustainable growth and long-term organisational impact.",
-            img: "/images/team/vikas-pic-n.JPG",
+            img: "/images/team/vi.JPG",
         },
         {
             name: "Adv. Chirag",
