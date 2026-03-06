@@ -1582,126 +1582,261 @@ function ToursPage() {
 }
 
 function ContactPage() {
+    const [formType, setFormType] = useState('customer');
+
+    const CustomerForm = () => (
+        <>
+            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+                Customer Booking Form
+            </h3>
+            <form className="space-y-6">
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Users size={18} /> Customer Information
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input
+                            type="text"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Full Name"
+                        />
+                        <input
+                            type="tel"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Contact No."
+                        />
+                        <input
+                            type="email"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Email"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Clock size={18} /> Scheduling
+                    </h4>
+                    <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input
+                            type="date"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <input
+                            type="text"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Reporting Place"
+                        />
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input
+                            type="time"
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                            <option>Select Cab Type</option>
+                            <option>Hatchback</option>
+                            <option>Sedan</option>
+                            <option>SUV/MUV</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea
+                    rows={4}
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                    placeholder="Special Instructions (if any)"
+                />
+                <button
+                    type="button"
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark"
+                >
+                    Book Now
+                </button>
+            </form>
+        </>
+    );
+
+    const ClientForm = () => (
+        <>
+            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+                Client Booking Form
+            </h3>
+            <form className="space-y-8">
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Users size={18} /> Booked By
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
+                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Briefcase size={18} /> Booked For
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
+                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
+                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Clock size={18} /> Scheduling
+                    </h4>
+                    <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                            <option>Select</option>
+                            <option>Hatchback</option>
+                            <option>Sedan</option>
+                            <option>SUV/MUV</option>
+                            <option>Bus</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                <button
+                    type="button"
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark"
+                >
+                    Submit Booking
+                </button>
+            </form>
+        </>
+    );
+
     return (
-        <div className="pb-24 pt-32">
+        <div className="relative min-h-screen bg-slate-50 pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="grid grid-cols-1 gap-20 lg:grid-cols-12">
-                    <div className="lg:col-span-5">
-                        <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
-                            Contact Us
-                        </div>
-                        <h1 className="mb-8 font-display text-5xl font-bold text-w6-corporate-blue">
-                            Get in <span className="text-w6-brand">Touch</span>
-                        </h1>
-                        <p className="mb-12 text-lg text-slate-500">
-                            Have a question or need to book a fleet? Our team is available
-                            24/7 to assist you with your mobility needs.
-                        </p>
+                <div className="mb-10 text-center">
+                    <div className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
+                        Contact Us
+                    </div>
+                    <h1 className="font-display text-4xl font-bold text-corporate-blue md:text-6xl">
+                        Get in <span className="text-brand">Touch</span>
+                    </h1>
+                </div>
 
-                        <div className="space-y-8">
-                            <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
-                                    <MapPin size={28} />
-                                </div>
-                                <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
-                                        Our Location
-                                    </h4>
-                                    <p className="text-slate-500">
-                                        Unit 705, Business Zone, Tower-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018
-                                    </p>
-                                </div>
+                <div className="mb-10 rounded-[2rem] border border-slate-100 bg-white p-6 shadow-lg md:p-8">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div className="flex items-center gap-4 p-4">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                                <MapPin size={24} />
                             </div>
-                            <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
-                                    <Phone size={28} />
-                                </div>
-                                <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
-                                        Hotline
-                                    </h4>
-                                    <p className="text-slate-500">+91 9899925362</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-6">
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-w6-brand/10 text-w6-brand">
-                                    <Mail size={28} />
-                                </div>
-                                <div>
-                                    <h4 className="mb-1 text-lg font-bold text-w6-corporate-blue">
-                                        Email Address
-                                    </h4>
-                                    <p className="text-slate-500">info@royalcorptravel.com</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-12 flex items-center justify-between rounded-3xl bg-w6-corporate-blue p-8 text-white">
                             <div>
-                                <h4 className="mb-1 font-bold">Need Instant Support?</h4>
-                                <p className="text-sm text-slate-400">
-                                    Chat with us on WhatsApp
+                                <h4 className="text-sm font-bold text-corporate-blue">Location</h4>
+                                <p className="text-xs text-slate-500">
+                                    Unit 705, Business Zone, Tower-C, Sector 50, Gurugram
                                 </p>
                             </div>
-                            <button
-                                type="button"
-                                className="flex items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3 font-bold text-white transition-all hover:bg-emerald-600"
-                            >
-                                <MessageSquare size={20} /> WhatsApp
-                            </button>
+                        </div>
+                        <div className="flex items-center gap-4 p-4">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                                <Phone size={24} />
+                            </div>
+                            <div>
+                                <h4 className="text-sm font-bold text-corporate-blue">Phone Number</h4>
+                                <p className="text-xs text-slate-500">+91 9899925362</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-4 p-4">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                                <Mail size={24} />
+                            </div>
+                            <div>
+                                <h4 className="text-sm font-bold text-corporate-blue">Email</h4>
+                                <p className="text-xs text-slate-500">info@royalcorptravel.com</p>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div className="w6-glass-card relative overflow-hidden rounded-[3rem] p-10 lg:col-span-7">
-                        <div className="absolute right-0 top-0 p-6 text-5xl opacity-10">🚕</div>
-                        <h3 className="font-display mb-8 text-center text-3xl font-bold text-corporate-blue">
-                            Book Your Cab
-                        </h3>
-                        <form className="space-y-10">
-                            <div>
-                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
-                                    <Users size={18} /> Booked By
-                                </h4>
-                                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
-                                    <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
-                                    <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
-                                </div>
+                <div className="relative mx-auto max-w-4xl">
+                    <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
+                        <button
+                            type="button"
+                            onClick={() => setFormType('customer')}
+                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
+                                formType === 'customer'
+                                    ? 'text-brand'
+                                    : 'text-slate-500 hover:text-corporate-blue'
+                            }`}
+                        >
+                            {formType === 'customer' && (
+                                <motion.div
+                                    layoutId="activeTab"
+                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                />
+                            )}
+                            For Customers
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setFormType('client')}
+                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
+                                formType === 'client'
+                                    ? 'text-brand'
+                                    : 'text-slate-500 hover:text-corporate-blue'
+                            }`}
+                        >
+                            {formType === 'client' && (
+                                <motion.div
+                                    layoutId="activeTab"
+                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                />
+                            )}
+                            For Clients
+                        </button>
+                    </div>
+
+                    <div className="relative h-[1040px] md:h-[820px]">
+                        <motion.div
+                            initial={false}
+                            animate={{
+                                x: formType === 'customer' ? 25 : 0,
+                                y: formType === 'customer' ? 25 : 0,
+                                rotate: formType === 'customer' ? 2 : 0,
+                                zIndex: formType === 'customer' ? 10 : 20,
+                                opacity: formType === 'customer' ? 0.6 : 1,
+                                scale: formType === 'customer' ? 0.98 : 1,
+                            }}
+                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            onClick={() => formType === 'customer' && setFormType('client')}
+                        >
+                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-corporate-blue/5 blur-3xl" />
+                            <div className="relative z-10">
+                                <ClientForm />
                             </div>
-                            <div>
-                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
-                                    <Briefcase size={18} /> Booked For
-                                </h4>
-                                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
-                                    <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
-                                    <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
-                                </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={false}
+                            animate={{
+                                x: formType === 'client' ? -25 : 0,
+                                y: formType === 'client' ? 25 : 0,
+                                rotate: formType === 'client' ? -2 : 0,
+                                zIndex: formType === 'client' ? 10 : 20,
+                                opacity: formType === 'client' ? 0.6 : 1,
+                                scale: formType === 'client' ? 0.98 : 1,
+                            }}
+                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            onClick={() => formType === 'client' && setFormType('customer')}
+                        >
+                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
+                            <div className="relative z-10">
+                                <CustomerForm />
                             </div>
-                            <div>
-                                <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
-                                    <Clock size={18} /> Scheduling
-                                </h4>
-                                <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                                    <input type="text" placeholder="DD-MM-YY" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                                    <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
-                                </div>
-                                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                                    <input type="text" placeholder="HH:MM AM/PM" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                                    <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                                        <option>Select</option>
-                                        <option>Hatchback</option>
-                                        <option>Sedan</option>
-                                        <option>SUV/MUV</option>
-                                        <option>Bus</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
-                            <button type="button" className="electric-glow w-full rounded-2xl bg-brand py-5 text-lg font-bold text-white transition-all hover:bg-brand-dark">
-                                Submit Booking
-                            </button>
-                        </form>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -1752,15 +1887,45 @@ export default function Website6App() {
 
             <Footer setActivePage={setActivePage} />
 
+            <AnimatePresence>
+                {activePage === 'contact' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                        className="w6-electric-glow fixed bottom-28 right-8 z-50 min-w-[240px] rounded-3xl border border-slate-100 bg-white p-5 text-corporate-blue shadow-2xl"
+                    >
+                        <div className="mb-1 text-[10px] font-bold uppercase tracking-widest text-brand">
+                            Need Instant Support?
+                        </div>
+                        <div className="text-sm font-bold leading-tight text-corporate-blue">
+                            Chat with us on WhatsApp
+                        </div>
+                        <div className="absolute -bottom-2 right-10 h-4 w-4 rotate-45 border-b border-r border-slate-100 bg-white" />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <motion.button
-                initial={{ x: 100 }}
-                animate={{ x: 0 }}
+                key={activePage === 'contact' ? 'whatsapp' : 'book'}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 type="button"
-                onClick={() => setActivePage('contact')}
-                className="w6-electric-glow group fixed bottom-8 right-8 z-40 flex items-center gap-3 rounded-2xl bg-w6-brand px-6 py-4 font-bold text-white shadow-2xl"
+                onClick={() => {
+                    if (activePage === 'contact') {
+                        window.open('https://wa.me/919899925362', '_blank');
+                    } else {
+                        setActivePage('contact');
+                    }
+                }}
+                className={`group fixed bottom-8 right-8 z-40 flex items-center gap-3 rounded-2xl px-6 py-4 font-bold text-white shadow-2xl transition-colors duration-300 ${
+                    activePage === 'contact' ? 'bg-emerald-500' : 'bg-w6-brand'
+                }`}
             >
-                <Car size={24} />
-                <span className="hidden md:inline">Book Now</span>
+                {activePage === 'contact' ? <MessageSquare size={24} /> : <Car size={24} />}
+                <span className="hidden md:inline">
+                    {activePage === 'contact' ? 'WhatsApp Support' : 'Book Now'}
+                </span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition-all group-hover:bg-white/30">
                     <ArrowRight size={16} />
                 </div>
