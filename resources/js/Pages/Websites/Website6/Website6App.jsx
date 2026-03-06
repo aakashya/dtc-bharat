@@ -673,7 +673,6 @@ const AccessoriesSection = () => {
     );
 };
 
-
 const BusinessProfileSection = () => {
     return (
         <section className="bg-white py-24">
