@@ -217,7 +217,7 @@ function Footer({ setActivePage }) {
                     </div>
                 </div>
 
-                <div className="md:col-span-3">
+                <div className="md:col-span-2">
                     <h3 className="mb-6 text-lg font-bold">Quick Links</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>
@@ -268,7 +268,7 @@ function Footer({ setActivePage }) {
                     </ul>
                 </div>
 
-                <div className="md:col-span-2">
+                <div className="md:col-span-3">
                     <h3 className="mb-6 text-lg font-bold">Our Services</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>Employee Transportation</li>
