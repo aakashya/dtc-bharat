@@ -1486,7 +1486,7 @@ function TeamPage() {
             name: "Adv. Chirag",
             role: "Legal Advisor",
             credentials: ["BA.LLB. Hons. (Gold Medalist)"],
-            desc: "She serves as the Legal Advisor to the company, bringing strong legal expertise and strategic insight to its operations. As the Founder of The LawXpert, she specialises in corporate advisory, dispute resolution, and regulatory compliance. Her guidance ensures the company’s operations remain legally sound, transparent, and aligned with industry standards. Known for her precision, integrity, and solution-oriented approach, she plays a key role in safeguarding the organisation’s interests and strengthening its governance framework, reflecting the company’s commitment to professionalism and legal excellence.",
+            desc: "She serves as the Legal Advisor to the company, bringing strong legal expertise and strategic insight to its operations. As the Founder of The LawXpert, she specialises in corporate advisory, dispute resolution, and regulatory compliance. Her guidance ensures the company’s operations remain legally sound, transparent, and aligned with industry standards. Known for her precision and solution-oriented approach, she plays a key role in safeguarding the organisation’s interests and strengthening its governance framework.",
             img: "/images/team/chirag-pic-n.JPG",
         },
     ];
