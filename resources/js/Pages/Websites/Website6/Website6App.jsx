@@ -170,7 +170,7 @@ function Navbar({ activePage, setActivePage }) {
 
 function Footer({ setActivePage }) {
     return (
-        <footer className="relative isolate overflow-hidden pb-10 pt-20 text-white">
+        <footer className="relative isolate overflow-hidden pb-4 pt-20 text-white">
             <div className="w6-hero-gradient pointer-events-none absolute inset-0 z-0" />
             <div className="pointer-events-none absolute -right-20 top-10 z-0 h-80 w-80 rounded-full bg-orange-300/20 blur-3xl" />
             <div className="pointer-events-none absolute -left-24 bottom-8 z-0 h-80 w-80 rounded-full bg-rose-300/20 blur-3xl" />
@@ -197,24 +197,6 @@ function Footer({ setActivePage }) {
                         Corporate travel managed with safety and excellence since 2006.
                         Precision-driven mobility solutions for the modern enterprise.
                     </p>
-                    <div className="flex gap-4">
-                        <Facebook
-                            size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
-                        />
-                        <Twitter
-                            size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
-                        />
-                        <Linkedin
-                            size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
-                        />
-                        <Instagram
-                            size={20}
-                            className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
-                        />
-                    </div>
                 </div>
 
                 <div className="md:col-span-2">
@@ -295,15 +277,35 @@ function Footer({ setActivePage }) {
                             <span>info@royalcorptravel.com</span>
                         </li>
                     </ul>
+                    <div className="mt-8">
+                        <h4 className="mb-4 text-sm font-semibold text-slate-300">
+                            Follow Us Online
+                        </h4>
+                        <div className="flex gap-4">
+                            <Facebook
+                                size={20}
+                                className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
+                            />
+                            <Twitter
+                                size={20}
+                                className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
+                            />
+                            <Linkedin
+                                size={20}
+                                className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
+                            />
+                            <Instagram
+                                size={20}
+                                className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="relative z-10 mx-auto mt-20 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 px-6 pt-8 md:flex-row">
-                <p className="text-xs text-slate-500">
-                    (c) 2017-2024 Delphinium Travelcorp. All Rights Reserved.
-                </p>
-                <p className="text-sm italic text-slate-400">
-                    &quot;Safe & Joyful Journey in Excellent Timings.&quot;
+            <div className="relative z-10 mx-auto mt-2 max-w-7xl border-t border-white/10 px-6 pt-5 text-center">
+                <p className="text-xs text-slate-400">
+                    (c) 2026 Delphinium Travelcorp. All Rights Reserved.
                 </p>
             </div>
         </footer>
