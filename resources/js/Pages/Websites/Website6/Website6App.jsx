@@ -732,10 +732,10 @@ const HappyClientsSection = () => {
             <div className="mx-auto mb-16 max-w-7xl px-6">
                 <div className="text-center">
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
-                        Clients We Have Served
+                        Trusted by Global Brands
                     </div>
                     <h2 className="font-display text-4xl font-bold text-corporate-blue">
-                        Trusted by Global Brands
+                        Clients We Have Served
                     </h2>
                 </div>
             </div>
