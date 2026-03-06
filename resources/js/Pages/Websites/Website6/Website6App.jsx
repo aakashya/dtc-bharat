@@ -1470,7 +1470,7 @@ function TeamPage() {
     const additionalTeam = [
         {
             name: "Mrs. Pratibha",
-            role: "Head of HR",
+            role: "Head - HR",
             credentials: ["MBA", "Operations"],
             desc: "Leads daily fleet coordination, shift planning, and service quality operations across key accounts.",
             img: "https://i.pravatar.cc/600?img=32",
@@ -1478,7 +1478,7 @@ function TeamPage() {
         {
             name: "Mr. Vikas",
             role: "Client Relationship Lead",
-            credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
+            credentials: ["B.Com", "MSc. Business Analytics"],
             desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
             img: "https://i.pravatar.cc/600?img=12",
         },
