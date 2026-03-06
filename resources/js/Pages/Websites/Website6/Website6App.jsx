@@ -1472,22 +1472,22 @@ function TeamPage() {
             name: "Mrs. Pratibha",
             role: "Head - HR",
             credentials: ["MBA", "Operations"],
-            desc: "Leads daily fleet coordination, shift planning, and service quality operations across key accounts.",
+            desc: "A dynamic leader in human resource management, she heads the company's HR function with a strong focus on organisational growth, people development, and operational discipline. She plays a vital role in building a professional, motivated, and high-performing workforce while ensuring smooth coordination across teams. With a keen understanding of talent management, employee relations, and workplace culture, she contributes significantly to strengthening the company's internal framework and long-term vision.",
             img: "https://i.pravatar.cc/600?img=32",
         },
         {
             name: "Mr. Vikas",
             role: "Director of Global Brand & Digital Strategy",
             credentials: ["B.Com", "MSc. Business Analytics"],
-            desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
-            img: "https://i.pravatar.cc/600?img=12",
+            desc: "As Director of Brand & Digital Strategy, He is responsible for shaping and strengthening the organisation's brand identity, digital presence, and reputation. He leads the development of strategic initiatives that enhance visibility, credibility, and engagement across digital platforms. With a background in Business Analytics and experience in scaling international ventures, He brings a strategic and data-driven approach to brand building, aligning digital strategy, communications, and market positioning to support sustainable growth and long-term organisational impact.",
+            img: "/images/team/vikas-pic-n.JPG",
         },
         {
             name: "Adv. Chirag",
             role: "Legal Advisor",
             credentials: ["BA.LLB. Hons. (Gold Medalist)"],
-            desc: "Advises on legal and compliance matters, contracts, and governance to support secure and structured operations.",
-            img: "https://i.pravatar.cc/600?img=15",
+            desc: "She serves as the Legal Advisor to the company, bringing sharp legal acumen and strategic insight to the organisation's operations. As the Founder of The LawXpert, she specialises in corporate advisory, dispute resolution, and regulatory compliance. Her guidance ensures that the company's operations remain legally robust, transparent, and aligned with industry standards. With a reputation for precision, integrity, and solution-oriented legal strategy, she plays a crucial role in safeguarding the company's interests and strengthening its governance framework. Her association reflects the company's commitment to professionalism, accountability, and legal excellence.",
+            img: "/images/team/chirag-pic-n.JPG",
         },
     ];
 
