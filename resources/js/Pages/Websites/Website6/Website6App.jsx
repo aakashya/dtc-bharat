@@ -367,9 +367,9 @@ function Hero({ setActivePage }) {
                 >
                     <div className="relative z-10 overflow-hidden rounded-3xl bg-transparent ">
                         <img
-                            src="/images/innova-crysta.avif"
+                            src="/images/innova-crystaa.webp"
                             alt="Toyota Innova SUV"
-                            className="h-auto w-full object-contain"
+                            className="h-[30rem] w-auto max-w-none object-contain xl:h-[26rem]"
                             referrerPolicy="no-referrer"
                         />
                     </div>
