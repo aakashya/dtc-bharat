@@ -447,7 +447,8 @@ const WhyPreferUs = () => {
                         Why to prefer us
                     </div>
                     <h2 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
-                        Why people choose <span className="text-brand">Delphinium CorpTravel</span>
+                        <span className="block">Why people choose</span>
+                        <span className="block text-brand">Delphinium Travelcorp</span>
                     </h2>
                 </div>
 
