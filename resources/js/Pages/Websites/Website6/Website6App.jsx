@@ -1201,7 +1201,7 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Yadav</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
+                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Ranveer Singh</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                             As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
@@ -1315,7 +1315,7 @@ function TeamPage() {
             name: "Dr. Sushil Ranveer Singh",
             role: "Founder & Director",
             credentials: ["Ph.D.", "MBA", "LL.B.", "LL.M.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
-            desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Kumar has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
+            desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Ranveer Singh has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
             img: "/images/team/sushil.jpeg"
         },
     ];

@@ -1244,7 +1244,7 @@ function ProfilePage() {
 function TeamPage() {
     const leaders = [
         {
-            name: 'Sushil Yadav',
+            name: 'Dr. Sushil Ranveer Singh',
             role: 'Director Business Development',
             desc: 'Technology-driven founder with a vision for digital mobility.',
             img: 'https://i.pravatar.cc/300?u=sushil',

@@ -595,7 +595,7 @@ function ServicesPage() {
 function TeamPage() {
     const team = [
         {
-            name: 'Sushil Yadav',
+            name: 'Dr. Sushil Ranveer Singh',
             role: 'Director - Business Development',
             quals: ['BCA', 'LL.B', 'MBA', 'MCSE', 'OCP'],
             img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800',
