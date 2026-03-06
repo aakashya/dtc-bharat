@@ -1469,23 +1469,23 @@ function TeamPage() {
     ];
     const additionalTeam = [
         {
-            name: "Mrs. Pratibha Yadav",
+            name: "Mrs. Pratibha",
             role: "Head of HR",
             credentials: ["MBA", "Operations"],
             desc: "Leads daily fleet coordination, shift planning, and service quality operations across key accounts.",
             img: "https://i.pravatar.cc/600?img=32",
         },
         {
-            name: "Mr. Vikas Yadav",
+            name: "Mr. Vikas",
             role: "Client Relationship Lead",
             credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
             desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
             img: "https://i.pravatar.cc/600?img=12",
         },
         {
-            name: "Adv. Chirag Yadav",
+            name: "Adv. Chirag",
             role: "Legal Advisor",
-            credentials: ["BA.LLB."],
+            credentials: ["BA.LLB. Hons. (Gold Medalist)"],
             desc: "Advises on legal and compliance matters, contracts, and governance to support secure and structured operations.",
             img: "https://i.pravatar.cc/600?img=15",
         },
