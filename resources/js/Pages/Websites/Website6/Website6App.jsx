@@ -1477,7 +1477,7 @@ function TeamPage() {
         },
         {
             name: "Mr. Vikas",
-            role: "Client Relationship Lead",
+            role: "Director of Global Brand & Digital Strategy",
             credentials: ["B.Com", "MSc. Business Analytics"],
             desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
             img: "https://i.pravatar.cc/600?img=12",
@@ -1546,13 +1546,13 @@ function TeamPage() {
                         <motion.div
                             key={`${member.name}-${i}`}
                             whileHover={{ y: -8 }}
-                            className="overflow-hidden rounded-[2.25rem] border border-slate-100 bg-white shadow-xl"
+                            className="group overflow-hidden rounded-[2.25rem] border border-slate-100 bg-white shadow-xl"
                         >
                             <div className="h-72 overflow-hidden">
                                 <img
                                     src={member.img}
                                     alt={member.name}
-                                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                                     referrerPolicy="no-referrer"
                                 />
                             </div>
