@@ -787,59 +787,191 @@ const HappyClientsSection = () => {
 };
 
 const BookingFormSection = () => {
+    const [formType, setFormType] = useState('customer');
+
+    const CustomerForm = () => (
+        <>
+            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+                Customer Booking Form
+            </h3>
+            <form className="space-y-6">
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Users size={18} /> Customer Information
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Full Name" />
+                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Email" />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Clock size={18} /> Scheduling
+                    </h4>
+                    <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                            <option>Select Cab Type</option>
+                            <option>Hatchback</option>
+                            <option>Sedan</option>
+                            <option>SUV/MUV</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                <button type="button" className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark">
+                    Book Now
+                </button>
+            </form>
+        </>
+    );
+
+    const ClientForm = () => (
+        <>
+            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+                Client Booking Form
+            </h3>
+            <form className="space-y-8">
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Users size={18} /> Booked By
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
+                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Briefcase size={18} /> Booked For
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
+                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
+                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
+                    </div>
+                </div>
+                <div>
+                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                        <Clock size={18} /> Scheduling
+                    </h4>
+                    <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                            <option>Select</option>
+                            <option>Hatchback</option>
+                            <option>Sedan</option>
+                            <option>SUV/MUV</option>
+                            <option>Bus</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                <button type="button" className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark">
+                    Submit Booking
+                </button>
+            </form>
+        </>
+    );
+
     return (
         <section className="bg-white py-24">
-            <div className="mx-auto max-w-4xl px-6">
-                <div className="glass-card relative overflow-hidden rounded-[3rem] p-12">
-                    <div className="absolute right-0 top-0 p-8 text-6xl opacity-10">🚕</div>
-                    <h2 className="font-display mb-12 text-center text-4xl font-bold text-corporate-blue">
-                        Book Your Cab
-                    </h2>
-                    <form className="space-y-12">
-                        <div>
-                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
-                                <Users size={20} /> Booked By
-                            </h3>
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
-                                <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
-                                <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
-                                <Briefcase size={20} /> Booked For
-                            </h3>
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
-                                <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
-                                <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="mb-6 flex items-center gap-2 text-xl font-bold text-brand">
-                                <Clock size={20} /> Scheduling
-                            </h3>
-                            <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-                                <input type="text" placeholder="DD-MM-YY" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                                <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
-                            </div>
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                <input type="text" placeholder="HH:MM AM/PM" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                                <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                                    <option>Select</option>
-                                    <option>Hatchback</option>
-                                    <option>Sedan</option>
-                                    <option>SUV/MUV</option>
-                                    <option>Bus</option>
-                                </select>
-                            </div>
-                        </div>
-                        <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
-                        <button type="button" className="electric-glow w-full rounded-2xl bg-brand py-5 text-lg font-bold text-white transition-all hover:bg-brand-dark">
-                            Submit Booking
+            <div className="mx-auto max-w-7xl px-6">
+                <h2 className="mb-12 text-center font-display text-4xl font-bold text-corporate-blue">
+                    Book Your Cab
+                </h2>
+
+                <div className="relative mx-auto max-w-4xl">
+                    <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
+                        <button
+                            type="button"
+                            onClick={() => setFormType('customer')}
+                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
+                                formType === 'customer'
+                                    ? 'text-brand'
+                                    : 'text-slate-500 hover:text-corporate-blue'
+                            }`}
+                        >
+                            {formType === 'customer' && (
+                                <motion.div
+                                    layoutId="homeActiveTab"
+                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                />
+                            )}
+                            For Customers
                         </button>
-                    </form>
+                        <button
+                            type="button"
+                            onClick={() => setFormType('client')}
+                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
+                                formType === 'client'
+                                    ? 'text-brand'
+                                    : 'text-slate-500 hover:text-corporate-blue'
+                            }`}
+                        >
+                            {formType === 'client' && (
+                                <motion.div
+                                    layoutId="homeActiveTab"
+                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                />
+                            )}
+                            For Clients
+                        </button>
+                    </div>
+
+                    <div className="relative h-[1040px] md:h-[820px]">
+                        <motion.div
+                            initial={false}
+                            animate={{
+                                x: formType === 'customer' ? 25 : 0,
+                                y: formType === 'customer' ? 25 : 0,
+                                rotate: formType === 'customer' ? 2 : 0,
+                                zIndex: formType === 'customer' ? 10 : 20,
+                                opacity: formType === 'customer' ? 0.6 : 1,
+                                scale: formType === 'customer' ? 0.98 : 1,
+                            }}
+                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            onClick={() => formType === 'customer' && setFormType('client')}
+                        >
+                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-corporate-blue/5 blur-3xl" />
+                            <div className="relative z-10">
+                                <ClientForm />
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={false}
+                            animate={{
+                                x: formType === 'client' ? -25 : 0,
+                                y: formType === 'client' ? 25 : 0,
+                                rotate: formType === 'client' ? -2 : 0,
+                                zIndex: formType === 'client' ? 10 : 20,
+                                opacity: formType === 'client' ? 0.6 : 1,
+                                scale: formType === 'client' ? 0.98 : 1,
+                            }}
+                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            onClick={() => formType === 'client' && setFormType('customer')}
+                        >
+                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
+                            <div className="relative z-10">
+                                <CustomerForm />
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
