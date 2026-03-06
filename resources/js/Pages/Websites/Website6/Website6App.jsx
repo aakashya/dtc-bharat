@@ -1557,16 +1557,9 @@ function TeamPage() {
                                 <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand">
                                     {member.role}
                                 </p>
-                                <div className="mb-4 mt-3 flex flex-wrap gap-2">
-                                    {member.credentials.split(',').map((credential) => (
-                                        <span
-                                            key={`${member.name}-${credential.trim()}`}
-                                            className="rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-[11px] font-semibold text-corporate-blue"
-                                        >
-                                            {credential.trim()}
-                                        </span>
-                                    ))}
-                                </div>
+                                <p className="mb-4 text-[11px] font-semibold text-slate-500">
+                                    {member.credentials}
+                                </p>
                                 <p className="text-sm leading-relaxed text-slate-600">
                                     {member.desc}
                                 </p>
