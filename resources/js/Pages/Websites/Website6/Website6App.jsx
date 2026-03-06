@@ -792,7 +792,7 @@ const BookingFormSection = () => {
     const CustomerForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
-                Customer Booking Form
+                Booking Form for Customers
             </h3>
             <form className="space-y-6">
                 <div>
@@ -834,7 +834,7 @@ const BookingFormSection = () => {
     const ClientForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
-                Client Booking Form
+                Booking Form for Clients
             </h3>
             <form className="space-y-8">
                 <div>
@@ -1478,7 +1478,7 @@ function TeamPage() {
         {
             name: "Mr. Vikas Yadav",
             role: "Client Relationship Lead",
-            credentials: ["B.Com", "MSc. Business Analytics and Decision Sciences"],
+            credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
             desc: "Drives corporate account success with proactive communication, reporting, and delivery assurance.",
             img: "https://i.pravatar.cc/600?img=12",
         },
@@ -1804,7 +1804,7 @@ function ContactPage() {
     const CustomerForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
-                Customer Booking Form
+                Booking Form for Customers
             </h3>
             <form className="space-y-6">
                 <div>
@@ -1875,7 +1875,7 @@ function ContactPage() {
     const ClientForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
-                Client Booking Form
+                Booking Form for Clients
             </h3>
             <form className="space-y-8">
                 <div>
