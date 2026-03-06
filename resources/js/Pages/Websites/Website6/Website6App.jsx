@@ -1483,7 +1483,7 @@ function TeamPage() {
             img: "https://i.pravatar.cc/600?img=12",
         },
         {
-            name: "ADV. Chirag Yadav",
+            name: "Adv. Chirag Yadav",
             role: "Legal Advisor",
             credentials: "BA.LLB.",
             desc: "Advises on legal and compliance matters, contracts, and governance to support secure and structured operations.",
