@@ -620,7 +620,7 @@ const DetailedFleetInfo = () => {
 
 const AccessoriesSection = () => {
     const accessories = [
-        { name: 'Newspaper', image: '/images/accessories/newspaper.png' },
+        { name: 'Newspaper', image: '/images/accessories/newspaper2.png' },
         { name: 'Road Maps', icon: <MapPin size={20} /> },
         { name: 'First Aid Kits', icon: <Shield size={20} /> },
         { name: 'Wet Wipes', icon: <Zap size={20} /> },
@@ -650,7 +650,7 @@ const AccessoriesSection = () => {
                             <div
                                 className={`mb-4 flex items-center justify-center rounded-2xl transition-all ${
                                     item.image
-                                        ? 'h-32 w-32 bg-transparent'
+                                        ? 'h-48 w-48 bg-transparent'
                                         : 'h-12 w-12 bg-brand/10 text-brand group-hover:bg-brand group-hover:text-white'
                                 }`}
                             >
