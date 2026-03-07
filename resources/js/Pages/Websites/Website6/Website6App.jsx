@@ -56,6 +56,16 @@ function Navbar({ activePage }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        return () => document.body.classList.remove('overflow-hidden');
+    }, [isMobileMenuOpen]);
+
     const navItems = [
         { label: 'Home', value: 'home' },
         { label: 'Profile', value: 'profile' },
@@ -68,7 +78,9 @@ function Navbar({ activePage }) {
     return (
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-                isScrolled
+                isMobileMenuOpen
+                    ? 'bg-transparent py-3'
+                    : isScrolled
                     ? 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
                     : 'bg-transparent py-6'
             }`}
@@ -82,11 +94,11 @@ function Navbar({ activePage }) {
                     <img
                         src="/images/logo/full-logo-no-bg-icon.PNG"
                         alt="Delphinium Travelcorp"
-                        className="h-16 w-auto rounded-xl object-cover"
+                        className="h-14 w-auto rounded-xl object-cover md:h-16"
                     />
                     <div>
                         <h1
-                            className={`font-display text-4xl font-bold leading-none ${
+                            className={`font-display text-3xl font-bold leading-none md:text-4xl ${
                                 isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'
                             }`}
                         >
@@ -123,7 +135,8 @@ function Navbar({ activePage }) {
 
                 <button
                     type="button"
-                    className={`${isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'} md:hidden`}
+                    aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    className={`${isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'} md:hidden rounded-xl border border-white/20 bg-white/10 p-2 backdrop-blur-md`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -133,34 +146,91 @@ function Navbar({ activePage }) {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute left-0 right-0 top-full flex flex-col gap-4 bg-white p-6 shadow-2xl md:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[80] md:hidden"
                     >
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.value}
-                                href={PAGE_URLS[item.value]}
-                                prefetch
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className={`text-left text-lg font-semibold ${
-                                    activePage === item.value
-                                        ? 'text-w6-brand'
-                                        : 'text-w6-corporate-blue'
-                                }`}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                        <Link
-                            href={PAGE_URLS.contact}
-                            prefetch
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-slate-950/65 backdrop-blur-md"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="mt-4 rounded-2xl bg-w6-brand py-4 font-bold text-white"
+                        />
+
+                        <motion.div
+                            initial={{ y: 24, opacity: 0.9 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 24, opacity: 0.9 }}
+                            transition={{ duration: 0.25 }}
+                            className="w6-hero-gradient absolute inset-0 flex flex-col"
                         >
-                            Book a Cab Now
-                        </Link>
+                            <div className="flex items-center justify-between px-6 pb-4 pt-6">
+                                <div className="flex items-center gap-3">
+                                    <img
+                                        src="/images/logo/full-logo-no-bg-icon.PNG"
+                                        alt="Delphinium Travelcorp"
+                                        className="h-12 w-auto rounded-lg object-cover"
+                                    />
+                                    <div className="font-display text-2xl font-bold text-white">
+                                        DTC <span className="text-w6-brand">BHARAT</span>
+                                    </div>
+                                </div>
+                                <button
+                                    type="button"
+                                    aria-label="Close menu"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="rounded-xl border border-white/25 bg-white/10 p-2 text-white backdrop-blur-md"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            <div className="flex flex-1 flex-col justify-center px-6">
+                                <div className="space-y-2">
+                                    {navItems.map((item, index) => (
+                                        <motion.div
+                                            key={item.value}
+                                            initial={{ opacity: 0, x: 12 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.05 * index }}
+                                        >
+                                            <Link
+                                                href={PAGE_URLS[item.value]}
+                                                prefetch
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className={`block rounded-2xl px-4 py-3 text-3xl font-bold transition-all ${
+                                                    activePage === item.value
+                                                        ? 'bg-white/15 text-w6-brand'
+                                                        : 'text-white hover:bg-white/10'
+                                                }`}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="space-y-4 border-t border-white/15 px-6 pb-8 pt-6">
+                                <div className="text-xs uppercase tracking-widest text-white/70">
+                                    Need assistance now?
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-white/85">
+                                    <Phone size={15} className="text-w6-brand" />
+                                    +91 9899925362
+                                </div>
+                                <Link
+                                    href={PAGE_URLS.contact}
+                                    prefetch
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="w6-electric-glow flex w-full items-center justify-center gap-2 rounded-2xl bg-w6-brand py-4 text-base font-bold text-white"
+                                >
+                                    Book a Cab Now <ArrowRight size={18} />
+                                </Link>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -301,21 +371,21 @@ function Hero({ setActivePage }) {
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
 
             <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-                <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
+                <div className="grid grid-cols-1 items-center gap-4 md:gap-12 lg:grid-cols-2">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                     className="text-center lg:text-left"
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
+                    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md md:mb-6 md:px-4 md:py-2 md:text-xs md:tracking-widest">
                         <Zap size={14} /> Fleet Command Since 2006
                     </div>
-                    <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">
+                    <h1 className="mb-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:mb-6 md:text-6xl xl:text-7xl">
                         On Time <br />
                         <span className="text-orange-200">Round the Clock</span>
                     </h1>
-                    <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-orange-50/90 md:text-xl lg:mx-0">
+                    <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-orange-50/90 md:mb-10 md:text-xl lg:mx-0">
                         On Time Round the Clock. Corporate cabs at their best.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
@@ -361,7 +431,7 @@ function Hero({ setActivePage }) {
                 </motion.div>
                 </div>
 
-                <div className="mt-10 w-full rounded-3xl border border-white/20 bg-white/10 px-6 py-8 backdrop-blur-md">
+                <div className="mt-10 mb-5 w-full rounded-3xl border border-white/20 bg-white/10 px-6 py-8 backdrop-blur-md md:mb-0">
                     <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
                         {[
                             { label: 'Availability', value: '24/7' },
@@ -370,10 +440,10 @@ function Hero({ setActivePage }) {
                             { label: 'Fleet Units', value: '300+' },
                         ].map((stat) => (
                             <div key={stat.label}>
-                                <div className="font-display text-3xl font-bold text-white md:text-5xl">
+                                <div className="font-display text-2xl font-bold text-white md:text-5xl">
                                     {stat.value}
                                 </div>
-                                <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-orange-100/80 md:text-sm">
+                                <div className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-orange-100/80 md:text-sm">
                                     {stat.label}
                                 </div>
                             </div>
@@ -436,7 +506,7 @@ const WhyPreferUs = () => {
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                         Why to prefer us
                     </div>
-                    <h2 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
+                    <h2 className="font-display text-3xl font-bold text-corporate-blue md:text-5xl">
                         <span className="block">Why people choose</span>
                         <span className="mt-2 block text-brand">Delphinium Travelcorp</span>
                     </h2>
@@ -451,7 +521,7 @@ const WhyPreferUs = () => {
                             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand shadow-sm transition-all group-hover:bg-brand group-hover:text-white">
                                 {point.icon}
                             </div>
-                            <h3 className="mb-4 text-xl font-bold text-corporate-blue transition-colors group-hover:text-brand">
+                            <h3 className="mb-4 text-lg font-bold text-corporate-blue transition-colors group-hover:text-brand md:text-xl">
                                 {point.title}
                             </h3>
                             <p className="text-sm leading-relaxed text-slate-600">{point.desc}</p>
@@ -473,15 +543,15 @@ const WhyPreferUs = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-block rounded-[3rem] border border-white/20 bg-white/10 p-12 text-white backdrop-blur-xl"
+                        className="mx-4 inline-block rounded-[3rem] border border-white/20 bg-white/10 p-8 text-white backdrop-blur-xl md:mx-0 md:p-12"
                     >
-                        <div className="font-display mb-4 text-6xl font-bold text-brand md:text-8xl">
+                        <div className="font-display mb-3 text-4xl font-bold text-brand sm:text-5xl md:mb-4 md:text-8xl">
                             +180,000
                         </div>
-                        <div className="text-xl font-semibold uppercase tracking-[0.3em] md:text-2xl">
+                        <div className="text-base font-semibold uppercase tracking-[0.2em] sm:text-lg md:text-2xl md:tracking-[0.3em]">
                             Users who love us
                         </div>
-                        <p className="mx-auto mt-4 max-w-lg text-slate-300">
+                        <p className="mx-auto mt-3 max-w-lg text-sm text-slate-300 md:mt-4 md:text-base">
                             Delivering excellence across every mile, ensuring every journey is as safe as it is joyful.
                         </p>
                     </motion.div>
@@ -518,10 +588,10 @@ const TrainingSection = () => {
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                             Training session
                         </div>
-                        <h2 className="font-display mb-6 text-4xl font-bold text-corporate-blue">
+                        <h2 className="font-display mb-6 text-3xl font-bold text-corporate-blue md:text-4xl">
                             Training of Staff
                         </h2>
-                        <p className="mb-8 text-lg leading-relaxed text-slate-600">
+                        <p className="mb-8 text-base leading-relaxed text-slate-600 md:text-lg">
                             We do in-house training programs for our drivers and staff to help them understand requirements of driving and customer service. We recognize the value of motivation and continuous improvement.
                         </p>
                         <div className="space-y-4">
@@ -539,7 +609,7 @@ const TrainingSection = () => {
                         </div>
                     </div>
                     <div className="order-1 lg:order-2">
-                        <div className="relative h-[420px] overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+                        <div className="relative h-[340px] overflow-hidden rounded-3xl bg-slate-900 shadow-2xl md:h-[420px]">
                             {trainingImages.map((src, i) => (
                                 <img
                                     key={`training-image-${i}`}
@@ -575,12 +645,12 @@ const DetailedFleetInfo = () => {
     const fleetData = [
         {
             category: 'Hatchback',
-            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva'],
+            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva', 'MG Windsor EV'],
             img: '/images/mg-windsor.png',
         },
         {
             category: 'Sedan',
-            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios'],
+            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios', 'Tata Tigor EV'],
             img: '/images/tigor-ev.avif',
         },
         {
@@ -597,7 +667,7 @@ const DetailedFleetInfo = () => {
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                         Fleet Information
                     </div>
-                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                    <h2 className="font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                         Our Extensive Fleet
                     </h2>
                 </div>
@@ -616,7 +686,7 @@ const DetailedFleetInfo = () => {
                                 />
                             </div>
                             <div className="p-8">
-                                <h3 className="mb-6 border-b border-brand/20 pb-4 text-xl font-bold text-brand">
+                                <h3 className="mb-6 border-b border-brand/20 pb-4 text-lg font-bold text-brand md:text-xl">
                                     {fleet.category}
                                 </h3>
                                 <ul className="space-y-3">
@@ -658,7 +728,7 @@ const AccessoriesSection = () => {
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                         Accessories
                     </div>
-                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                    <h2 className="font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                         Accessories provided in our vehicles
                     </h2>
                 </div>
@@ -671,7 +741,7 @@ const AccessoriesSection = () => {
                             <div
                                 className={`mb-4 flex items-center justify-center rounded-2xl transition-all ${
                                     item.image
-                                        ? 'h-48 w-48 bg-transparent'
+                                        ? 'h-24 w-full bg-transparent md:h-48 md:w-48'
                                         : 'h-12 w-12 bg-brand/10 text-brand group-hover:bg-brand group-hover:text-white'
                                 }`}
                             >
@@ -703,11 +773,11 @@ const BusinessProfileSection = () => {
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                             Business Profile
                         </div>
-                        <h2 className="font-display mb-6 text-3xl font-bold">Our Commitment</h2>
-                        <p className="mb-8 text-lg leading-relaxed text-slate-300">
+                        <h2 className="font-display mb-6 text-2xl font-bold md:text-3xl">Our Commitment</h2>
+                        <p className="mb-8 text-base leading-relaxed text-slate-300 md:text-lg">
                             The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
                         </p>
-                        <p className="text-lg leading-relaxed text-slate-300">
+                        <p className="text-base leading-relaxed text-slate-300 md:text-lg">
                             We assure our esteemed customers better transport solutions in a professional way. Our services include corporate cabs, taxi service, inbound & outbound tours, pilgrimage & historical tours, etc.
                         </p>
                     </div>
@@ -715,13 +785,13 @@ const BusinessProfileSection = () => {
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                             Future Plans
                         </div>
-                        <h2 className="font-display mb-6 text-3xl font-bold text-corporate-blue">
+                        <h2 className="font-display mb-6 text-2xl font-bold text-corporate-blue md:text-3xl">
                             Expanding Horizons
                         </h2>
-                        <p className="mb-8 text-lg leading-relaxed text-slate-600">
+                        <p className="mb-8 text-base leading-relaxed text-slate-600 md:text-lg">
                             Through robust business management, we plan to establish more offices in India catering to client needs. Apart from NCR, we have grown to a fleet of over 250 cars to date and formed a wide network of vendors to increase capacity at short notice.
                         </p>
-                        <p className="text-lg leading-relaxed text-slate-600">
+                        <p className="text-base leading-relaxed text-slate-600 md:text-lg">
                             This has been possible due to the goodwill created by the quality of our services and the vision of our core team.
                         </p>
                     </div>
@@ -761,7 +831,7 @@ const HappyClientsSection = () => {
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                         Trusted by Global Brands
                     </div>
-                    <h2 className="font-display text-4xl font-bold text-corporate-blue">
+                    <h2 className="font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                         Clients We Have Served
                     </h2>
                 </div>
@@ -823,7 +893,7 @@ const HappyClientsSection = () => {
                             <Award size={32} />
                         </div>
                         <div>
-                            <div className="font-display text-3xl font-bold text-corporate-blue">
+                            <div className="font-display text-2xl font-bold text-corporate-blue md:text-3xl">
                                 {stat.value}
                             </div>
                             <div className="text-sm font-semibold uppercase tracking-wider text-slate-500">
@@ -842,12 +912,12 @@ const BookingFormSection = () => {
 
     const CustomerForm = () => (
         <>
-            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+            <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
             <form className="space-y-6">
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Customer Information
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -857,7 +927,7 @@ const BookingFormSection = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -884,12 +954,12 @@ const BookingFormSection = () => {
 
     const ClientForm = () => (
         <>
-            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+            <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
             <form className="space-y-8">
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Booked By
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -899,7 +969,7 @@ const BookingFormSection = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Briefcase size={18} /> Booked For
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -909,7 +979,7 @@ const BookingFormSection = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -938,7 +1008,7 @@ const BookingFormSection = () => {
     return (
         <section className="bg-white py-24">
             <div className="mx-auto max-w-7xl px-6">
-                <h2 className="mb-12 text-center font-display text-4xl font-bold text-corporate-blue">
+                <h2 className="mb-12 text-center font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                     Book Your Cab
                 </h2>
 
@@ -1063,17 +1133,17 @@ function AboutSection({ setActivePage }) {
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                             Our Legacy
                         </div>
-                        <h2 className="mb-8 font-display text-4xl font-bold leading-tight text-w6-corporate-blue md:text-5xl">
+                        <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-w6-corporate-blue md:text-5xl">
                             A Structured Partner in{' '}
                             <span className="text-w6-brand">Corporate Mobility</span>
                         </h2>
-                        <p className="mb-6 text-lg leading-relaxed text-slate-600">
+                        <p className="mb-6 text-base leading-relaxed text-slate-600 md:text-lg">
                             Founded in 2006 and incorporated in 2011, DTC Bharat is a
                             structured, technology-enabled corporate transportation partner
                             delivering disciplined fleet management, real-time monitoring,
                             and enterprise reporting.
                         </p>
-                        <p className="mb-10 text-lg leading-relaxed text-slate-600">
+                        <p className="mb-10 text-base leading-relaxed text-slate-600 md:text-lg">
                             We ensure an environment that clients, cab users, and staff are
                             proud to be part of, focusing on safety, timeliness, and
                             professionalism.
@@ -1117,12 +1187,12 @@ function FleetSection() {
     const fleet = [
         {
             category: 'Hatchback',
-            models: 'Wagon-R, Ritz, Santro, Liva',
+            models: 'Wagon-R, Ritz, Santro, Liva, MG Windsor EV',
             icon: <Car size={32} />,
         },
         {
             category: 'Sedan',
-            models: 'Xcent, Swift Dzire, Etios',
+            models: 'Xcent, Swift Dzire, Etios, Tata Tigor EV',
             icon: <Car size={32} />,
         },
         {
@@ -1139,10 +1209,10 @@ function FleetSection() {
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-w6-brand">
                         Our Fleet
                     </div>
-                    <h2 className="mb-6 font-display text-4xl font-bold text-w6-corporate-blue md:text-5xl">
+                    <h2 className="mb-6 font-display text-3xl font-bold text-w6-corporate-blue md:text-5xl">
                         Diverse Fleet for Every Need
                     </h2>
-                    <p className="text-lg text-slate-500">
+                    <p className="text-base text-slate-500 md:text-lg">
                         From hatchbacks to executive SUVs, we maintain a high-quality fleet
                         equipped with modern safety and comfort features.
                     </p>
@@ -1158,7 +1228,7 @@ function FleetSection() {
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-w6-brand transition-colors group-hover:bg-w6-brand group-hover:text-white">
                                 {item.icon}
                             </div>
-                            <h3 className="mb-3 text-xl font-bold text-w6-corporate-blue">
+                            <h3 className="mb-3 text-lg font-bold text-w6-corporate-blue md:text-xl">
                                 {item.category}
                             </h3>
                             <p className="text-sm leading-relaxed text-slate-500">
@@ -1171,7 +1241,7 @@ function FleetSection() {
                 <div className="w6-glass-card mt-20 rounded-3xl p-10 md:p-16">
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                         <div>
-                            <h3 className="mb-6 font-display text-3xl font-bold text-w6-corporate-blue">
+                            <h3 className="mb-6 font-display text-2xl font-bold text-w6-corporate-blue md:text-3xl">
                                 Premium Amenities
                             </h3>
                             <div className="grid grid-cols-2 gap-6">
@@ -1212,7 +1282,7 @@ function FleetSection() {
                             </div>
                         </div>
                         <div className="rounded-2xl bg-w6-corporate-blue p-8 text-white">
-                            <h4 className="mb-6 flex items-center gap-2 text-xl font-bold">
+                            <h4 className="mb-6 flex items-center gap-2 text-lg font-bold md:text-xl">
                                 <Shield className="text-w6-brand" /> Safety Compliance
                             </h4>
                             <ul className="space-y-4 text-sm text-slate-300">
@@ -1254,7 +1324,7 @@ function ServicesSection() {
                 <div className="mb-16 text-center">
                     <div className="mx-auto max-w-5xl">
                         <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Services</div>
-                        <h2 className="text-5xl md:text-6xl font-display font-bold text-corporate-blue">
+                        <h2 className="text-4xl md:text-6xl font-display font-bold text-corporate-blue">
                             Comprehensive <span className="text-brand">Mobility Solutions</span>
                         </h2>
                         <p className="mt-4 text-slate-500 text-sm md:text-base">
@@ -1272,8 +1342,8 @@ function ServicesSection() {
                                     <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg">
                                         <Users size={32} />
                                     </div>
-                                    <h3 className="text-3xl font-display font-bold text-corporate-blue mb-6">Employee Transportation</h3>
-                                    <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue mb-6">Employee Transportation</h3>
+                                    <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8">
                                         DTC Bharat is one of the pioneers in providing Employee Transportation Solutions, expanding our service network at a PAN India level. We provide these solutions to large corporates with zero capital investment by them, allowing them to focus on their core area of business, leaving the operational hassles to an experienced service provider like Delphinium Travelcorp (DTC Bharat).
                                     </p>
 
@@ -1383,11 +1453,11 @@ function ProfilePage() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Company Profile</div>
-                    <h1 className="text-5xl md:text-7xl font-display font-bold text-corporate-blue mb-8">
+                    <h1 className="text-4xl md:text-7xl font-display font-bold text-corporate-blue mb-8">
                         Our Journey & <span className="text-brand">Vision</span>
                     </h1>
                     <div className="max-w-4xl mx-auto p-10 glass-card rounded-3xl border-l-8 border-l-brand">
-                        <p className="text-2xl md:text-3xl font-display italic text-corporate-blue leading-relaxed">
+                        <p className="text-xl md:text-3xl font-display italic text-corporate-blue leading-relaxed">
                             “To ensure an environment that our Clients, Cab Users and Staff are proud to be a part of”
                         </p>
                         <div className="mt-6 font-bold text-brand uppercase tracking-widest">- Our Philosophy</div>
@@ -1400,11 +1470,11 @@ function ProfilePage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
-                        <p className="text-slate-600 text-lg mb-6 leading-relaxed text-justify">
+                        <h2 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
+                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed text-justify">
                             Founded in 2006 as Royal Travels, the organisation began with a clear vision to deliver dependable, disciplined, and professional transportation solutions to the evolving corporate sector. Under the dynamic leadership and foresight of its founder, <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, the company established a strong foundation built on operational integrity, service reliability, and an unwavering commitment to client satisfaction. From its earliest days, the organisation distinguished itself through professionalism and a results-driven approach, fostering long-term relationships with its corporate partners.
                         </p>
-                        <p className="text-slate-600 text-lg mb-6 leading-relaxed text-justify">
+                        <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed text-justify">
                             With steady growth and expanding corporate trust, the enterprise was formally incorporated in 2011 as Royal Corptravel Private Limited, marking a significant milestone in its journey. This transition strengthened its corporate framework, enabling the company to scale its operations, streamline service standards, and effectively cater to the growing and sophisticated mobility requirements of corporate clients.
                         </p>
                     </motion.div>
@@ -1420,10 +1490,10 @@ function ProfilePage() {
                         </div>
                     </div>
                     <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-                        <p className="text-slate-600 text-lg leading-relaxed text-justify">
+                        <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify">
                             Driven by innovation and a forward-looking outlook, the organisation entered a new era in 2024 with its transformation into <span className="font-bold text-brand">DTC Bharat</span>. This evolution represents not merely a change of identity, but a strategic advancement towards adopting modern technology, enhanced compliance systems, and elevated standards of operational excellence in the corporate transportation sector.
                         </p>
-                        <p className="text-slate-600 text-lg leading-relaxed text-justify">
+                        <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify">
                             Today, <span className="font-bold text-brand">DTC Bharat</span>, under the visionary guidance of its founder <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, stands as a progressive and trusted name in corporate mobility. With nearly two decades of industry experience, the organisation continues to set higher benchmarks in delivering secure, efficient, and seamless transportation solutions, tailored to the dynamic and ever-evolving needs of corporate India.
                         </p>
                     </div>
@@ -1434,12 +1504,12 @@ function ProfilePage() {
                         <div className="absolute top-0 right-0 w-96 h-96 bg-brand/10 rounded-full blur-[100px] -mr-48 -mt-48" />
                         <div className="relative z-10">
                             <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Business Profile</div>
-                            <h2 className="text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
+                            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                                <p className="text-slate-300 text-lg leading-relaxed">
+                                <p className="text-slate-300 text-base md:text-lg leading-relaxed">
                                     The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
                                 </p>
-                                <p className="text-slate-300 text-lg leading-relaxed">
+                                <p className="text-slate-300 text-base md:text-lg leading-relaxed">
                                     DTC Bharat is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
                                 </p>
                             </div>
@@ -1449,7 +1519,7 @@ function ProfilePage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
                     <div className="p-12 bg-slate-50 rounded-[3rem] border border-slate-100">
-                        <h3 className="text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
+                        <h3 className="text-xl md:text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
                             <Navigation className="text-brand" /> Cab Running Models
                         </h3>
                         <ul className="space-y-4">
@@ -1471,13 +1541,13 @@ function ProfilePage() {
                     </div>
 
                     <div className="p-12 bg-white rounded-[3rem] border border-slate-200 shadow-sm">
-                        <h3 className="text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
+                        <h3 className="text-xl md:text-2xl font-display font-bold text-corporate-blue mb-8 flex items-center gap-3">
                             <Car className="text-brand" /> Our Fleet Consists of
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
-                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Liva, Figo' },
-                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios' },
+                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Liva, Figo, MG Windsor EV' },
+                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios, Tata Tigor EV' },
                                 { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Xylo, Tavera, Innova' },
                                 { cat: 'Traveller', models: 'Force Traveller' },
                                 { cat: 'Luxury', models: 'Premium Executive Vehicles' },
@@ -1494,14 +1564,14 @@ function ProfilePage() {
 
                 <div className="text-center">
                     <div className="max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Growth & Vision</h2>
-                        <p className="text-slate-600 text-lg mb-12 leading-relaxed">
+                        <h2 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue mb-6">Growth & Vision</h2>
+                        <p className="text-slate-600 text-base md:text-lg mb-12 leading-relaxed">
                             We have grown to a fleet of over <span className="text-brand font-bold">300+ cars</span> to date, and have formed a wide network of vendors to increase capacity at short notice. This has been possible due to the sheer goodwill created because of the <span className="font-bold">QUALITY</span> of our services and the <span className="font-bold">VISION</span> of our core team.
                         </p>
 
                         <div className="inline-block p-1 bg-brand rounded-full mb-8">
                             <div className="bg-white px-10 py-4 rounded-full">
-                                <p className="text-xl md:text-2xl font-display font-bold text-corporate-blue italic">
+                                <p className="text-lg md:text-2xl font-display font-bold text-corporate-blue italic">
                                     “Safe & Joyful journey in excellent timings”
                                 </p>
                             </div>
@@ -1567,7 +1637,7 @@ function TeamPage() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Leadership</div>
-                    <h1 className="text-5xl md:text-6xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
+                    <h1 className="text-4xl md:text-6xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
                     <p className="text-slate-500 max-w-2xl mx-auto">
                         Leading with academic excellence and a passion for technological innovation in the transportation industry.
                     </p>
@@ -1586,7 +1656,7 @@ function TeamPage() {
                             <div className="md:w-3/5 p-10 flex flex-col justify-center">
                                 <div className="mb-6">
                                     <div className="mb-2 inline-block">
-                                        <h3 className="text-3xl font-display font-bold text-corporate-blue">
+                                        <h3 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue">
                                             {leader.name}
                                         </h3>
                                         <div className="mt-1 text-left md:text-right text-brand text-sm font-bold uppercase tracking-widest">
@@ -1604,7 +1674,7 @@ function TeamPage() {
                                         ))}
                                     </div>
                                 </div>
-                                <p className="text-slate-600 text-base leading-relaxed text-justify italic">
+                                <p className="text-slate-600 text-base leading-relaxed text-left italic">
                                     {leader.desc}
                                 </p>
                             </div>
@@ -1628,7 +1698,7 @@ function TeamPage() {
                                 />
                             </div> 
                             <div className="p-8">
-                                <h3 className="mb-1 text-2xl font-display font-bold text-corporate-blue">
+                                <h3 className="mb-1 text-xl md:text-2xl font-display font-bold text-corporate-blue">
                                     {member.name}
                                 </h3>
                                 <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand">
@@ -1653,7 +1723,7 @@ function TeamPage() {
                 </div>
 
                 <div className="bg-corporate-blue rounded-3xl p-12 text-white text-center">
-                    <h3 className="text-2xl font-bold mb-4">Our Support Backbone</h3>
+                    <h3 className="text-xl md:text-2xl font-bold mb-4">Our Support Backbone</h3>
                     <p className="text-slate-400 max-w-2xl mx-auto mb-8">
                         Beyond our leadership, we are powered by a dedicated 24/7 operations desk, fleet supervisors, and certified professional drivers who ensure every journey is safe and on time.
                     </p>
@@ -1730,10 +1800,10 @@ function ToursPage({ setActivePage }) {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Special Tour Package</div>
-                    <h1 className="text-5xl md:text-7xl font-display font-bold text-corporate-blue mb-6">
+                    <h1 className="text-4xl md:text-7xl font-display font-bold text-corporate-blue mb-6">
                         Agra - <span className="text-brand">Mathura</span> - Vrindavan
                     </h1>
-                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+                    <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg">
                         Daily 16 Hours Tour (Dep. from 6.00 AM) starting from Gurgaon
                     </p>
                 </div>
@@ -1743,7 +1813,7 @@ function ToursPage({ setActivePage }) {
                         <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                             <div className="bg-corporate-blue p-8 text-white">
                                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                                    <h3 className="text-2xl font-bold flex items-center gap-3">
+                                    <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3">
                                         <Car className="text-brand" /> Fleet Pricing
                                     </h3>
                                     <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold tracking-wide text-slate-100">
@@ -1768,7 +1838,7 @@ function ToursPage({ setActivePage }) {
                                                 <td className="px-8 py-6 text-slate-500">{p.seater}</td>
                                                 <td className="px-8 py-6 text-right">
                                                     <span className="text-slate-400 line-through text-sm mr-2">{p.original}</span>
-                                                    <span className="text-xl font-bold text-brand">{p.price}</span>
+                                                    <span className="text-lg md:text-xl font-bold text-brand">{p.price}</span>
                                                 </td>
                                             </tr>
                                         ))}
@@ -1780,7 +1850,7 @@ function ToursPage({ setActivePage }) {
 
                     <div>
                         <div className="bg-brand/5 rounded-[2rem] p-8 border border-brand/10">
-                            <h3 className="text-xl font-bold text-corporate-blue mb-6 flex items-center gap-2">
+                            <h3 className="text-lg md:text-xl font-bold text-corporate-blue mb-6 flex items-center gap-2">
                                 <Info className="text-brand" /> Please Note
                             </h3>
                             <ul className="space-y-4">
@@ -1804,7 +1874,7 @@ function ToursPage({ setActivePage }) {
                 <div className="mb-32">
                     <div className="flex items-center gap-4 mb-12">
                         <div className="h-px flex-grow bg-slate-200" />
-                        <h2 className="text-3xl font-display font-bold text-corporate-blue px-4">Places Covered</h2>
+                        <h2 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue px-4">Places Covered</h2>
                         <div className="h-px flex-grow bg-slate-200" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1822,7 +1892,7 @@ function ToursPage({ setActivePage }) {
                                     </div>
                                 </div>
                                 <div className="p-8">
-                                    <h3 className="text-xl font-bold text-corporate-blue mb-4">{place.name}</h3>
+                                    <h3 className="text-lg md:text-xl font-bold text-corporate-blue mb-4">{place.name}</h3>
                                     <p className="text-slate-500 text-sm leading-relaxed">{place.desc}</p>
                                 </div>
                             </div>
@@ -1832,7 +1902,7 @@ function ToursPage({ setActivePage }) {
 
                 <div className="bg-slate-50 rounded-[3rem] p-12 md:p-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-display font-bold text-corporate-blue mb-4">Tour Itinerary</h2>
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-corporate-blue mb-4">Tour Itinerary</h2>
                         <p className="text-slate-500">Detailed schedule for the Agra - Mathura - Vrindavan experience</p>
                     </div>
 
@@ -1847,7 +1917,7 @@ function ToursPage({ setActivePage }) {
                                     <div className="md:w-1/2">
                                         <div className={`bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-brand/20 transition-all ${i % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
                                             <div className="text-brand font-bold text-sm mb-1">{item.time}</div>
-                                            <div className="text-lg font-bold text-corporate-blue mb-1">{item.location}</div>
+                                            <div className="text-base md:text-lg font-bold text-corporate-blue mb-1">{item.location}</div>
                                             <div className="text-slate-500 text-sm">{item.event}</div>
                                         </div>
                                     </div>
@@ -1862,7 +1932,7 @@ function ToursPage({ setActivePage }) {
                     <button
                         type="button"
                         onClick={() => setActivePage('contact')}
-                        className="bg-brand text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-xl hover:bg-brand-dark transition-all electric-glow"
+                        className="bg-brand text-white px-12 py-5 rounded-2xl font-bold text-base md:text-lg shadow-xl hover:bg-brand-dark transition-all electric-glow"
                     >
                         Book This Tour Package
                     </button>
@@ -1877,12 +1947,12 @@ function ContactPage() {
 
     const CustomerForm = () => (
         <>
-            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+            <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
             <form className="space-y-6">
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Customer Information
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -1904,7 +1974,7 @@ function ContactPage() {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -1948,12 +2018,12 @@ function ContactPage() {
 
     const ClientForm = () => (
         <>
-            <h3 className="mb-8 text-center font-display text-2xl font-bold text-corporate-blue">
+            <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
             <form className="space-y-8">
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Booked By
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -1963,7 +2033,7 @@ function ContactPage() {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Briefcase size={18} /> Booked For
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -1973,7 +2043,7 @@ function ContactPage() {
                     </div>
                 </div>
                 <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-brand">
+                    <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -2009,7 +2079,7 @@ function ContactPage() {
                     <div className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
                         Contact Us
                     </div>
-                    <h1 className="font-display text-4xl font-bold text-corporate-blue md:text-6xl">
+                    <h1 className="font-display text-3xl font-bold text-corporate-blue md:text-6xl">
                         Get in <span className="text-brand">Touch</span>
                     </h1>
                 </div>
