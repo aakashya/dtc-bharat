@@ -1830,27 +1830,53 @@ function ToursPage({ setActivePage }) {
                                 </div>
                             </div>
                             <div className="p-0">
-                                <table className="w-full text-left">
-                                    <thead>
-                                        <tr className="bg-slate-50 border-b border-slate-200">
-                                            <th className="px-8 py-4 font-bold text-corporate-blue">Cab Type</th>
-                                            <th className="px-8 py-4 font-bold text-corporate-blue">Capacity</th>
-                                            <th className="px-8 py-4 font-bold text-corporate-blue text-right">Special Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {pricing.map((p, i) => (
-                                            <tr key={i} className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-colors">
-                                                <td className="px-8 py-6 font-bold text-corporate-blue">{p.type}</td>
-                                                <td className="px-8 py-6 text-slate-500">{p.seater}</td>
-                                                <td className="px-8 py-6 text-right">
-                                                    <span className="text-slate-400 line-through text-sm mr-2">{p.original}</span>
-                                                    <span className="text-lg md:text-xl font-bold text-brand">{p.price}</span>
-                                                </td>
+                                <div className="space-y-3 p-4 md:hidden">
+                                    {pricing.map((p, i) => (
+                                        <div
+                                            key={`mobile-price-${i}`}
+                                            className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                                        >
+                                            <div className="mb-2 flex items-center justify-between">
+                                                <div className="text-base font-bold text-corporate-blue">
+                                                    {p.type}
+                                                </div>
+                                                <div className="text-xs font-semibold text-slate-500">
+                                                    {p.seater}
+                                                </div>
+                                            </div>
+                                            <div className="flex items-end justify-between">
+                                                <span className="text-xs text-slate-400 line-through">
+                                                    {p.original}
+                                                </span>
+                                                <span className="text-xl font-bold text-brand">{p.price}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="hidden md:block">
+                                    <table className="w-full text-left">
+                                        <thead>
+                                            <tr className="bg-slate-50 border-b border-slate-200">
+                                                <th className="px-8 py-4 font-bold text-corporate-blue">Cab Type</th>
+                                                <th className="px-8 py-4 font-bold text-corporate-blue">Capacity</th>
+                                                <th className="px-8 py-4 font-bold text-corporate-blue text-right">Special Price</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {pricing.map((p, i) => (
+                                                <tr key={i} className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-colors">
+                                                    <td className="px-8 py-6 font-bold text-corporate-blue">{p.type}</td>
+                                                    <td className="px-8 py-6 text-slate-500">{p.seater}</td>
+                                                    <td className="px-8 py-6 text-right">
+                                                        <span className="text-slate-400 line-through text-sm mr-2">{p.original}</span>
+                                                        <span className="text-lg md:text-xl font-bold text-brand">{p.price}</span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1914,12 +1940,12 @@ function ToursPage({ setActivePage }) {
                     </div>
 
                     <div className="max-w-4xl mx-auto relative">
-                        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2 hidden md:block" />
+                        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2" />
 
                         <div className="space-y-12">
                             {itinerary.map((item, i) => (
-                                <div key={i} className={`relative flex flex-col md:flex-row gap-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                                    <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-brand rounded-full -translate-x-1/2 z-10 border-4 border-white shadow-sm hidden md:block" />
+                                <div key={i} className={`relative flex flex-col gap-8 pl-10 md:pl-0 md:flex-row ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className="absolute left-4 md:left-1/2 top-6 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-brand shadow-sm z-10" />
 
                                     <div className="md:w-1/2">
                                         <div className={`bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-brand/20 transition-all ${i % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
