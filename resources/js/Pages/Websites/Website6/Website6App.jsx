@@ -81,13 +81,6 @@ function Navbar({ activePage, setActivePage }) {
                         >
                             DTC <span className="text-w6-brand">BHARAT</span>
                         </h1>
-                        <p
-                            className={`text-[10px] font-semibold uppercase tracking-widest ${
-                                isHomePage && !isScrolled ? 'text-white/70' : 'opacity-70'
-                            }`}
-                        >
-                            Delphinium Travelcorp PVT. LTD.
-                        </p>
                     </div>
                 </div>
 
@@ -1503,7 +1496,7 @@ function TeamPage() {
         {
             name: "Mrs. Pratibha",
             role: "Head - HR",
-            credentials: ["MBA", "Operations"],
+            credentials: ["Management", "Operations"],
             desc: "A dynamic leader in human resource management, she heads the company's HR function with a strong focus on organisational growth, people development, and operational discipline. She plays a vital role in building a professional, motivated, and high-performing workforce while ensuring smooth coordination across teams. With a keen understanding of talent management, employee relations, and workplace culture, she contributes significantly to strengthening the company's internal framework and long-term vision.",
             img: "/images/team/bhuaji.jpg",
         },
