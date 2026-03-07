@@ -332,13 +332,37 @@ function Footer() {
                 </div>
 
                 <div className="hidden text-center md:col-span-3 md:block md:text-left">
-                    <h3 className="mb-6 text-lg font-bold">Our Services</h3>
+                    <h3 className="mb-6 text-lg font-bold">
+                        <Link href={PAGE_URLS.services} prefetch className="transition-colors hover:text-w6-brand">
+                            Our Services
+                        </Link>
+                    </h3>
                     <ul className="space-y-4 text-sm text-slate-400">
-                        <li>Employee Transportation</li>
-                        <li>Shuttle Services</li>
-                        <li>Spot Rental</li>
-                        <li>Outstation Travel</li>
-                        <li>VIP Airport Transfers</li>
+                        <li>
+                            <a href={`${PAGE_URLS.services}#employee-transportation`} className="transition-colors hover:text-w6-brand">
+                                Employee Transportation
+                            </a>
+                        </li>
+                        <li>
+                            <a href={`${PAGE_URLS.services}#shuttle-services`} className="transition-colors hover:text-w6-brand">
+                                Shuttle Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href={`${PAGE_URLS.services}#spot-rental`} className="transition-colors hover:text-w6-brand">
+                                Spot Rental
+                            </a>
+                        </li>
+                        <li>
+                            <a href={`${PAGE_URLS.services}#outstation-trip-packages`} className="transition-colors hover:text-w6-brand">
+                                Outstation Travel
+                            </a>
+                        </li>
+                        <li>
+                            <a href={`${PAGE_URLS.services}#vip-airport-transfers`} className="transition-colors hover:text-w6-brand">
+                                VIP Airport Transfers
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -599,7 +623,11 @@ const WhyPreferUs = () => {
 };
 
 const TrainingSection = () => {
-    const trainingImages = ['/images/training/IMG_8316.jpeg', '/images/training/IMG_8317.jpeg'];
+    const trainingImages = [
+        '/images/training/IMG_8316.jpeg',
+        '/images/training.jpg',
+        '/images/training/IMG_8317.jpeg',
+    ];
     const [activeTrainingSlide, setActiveTrainingSlide] = useState(0);
 
     useEffect(() => {
@@ -992,6 +1020,16 @@ const BookingFormSection = () => {
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
+            {successMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                    {successMessage}
+                </p>
+            )}
+            {errorMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                    {errorMessage}
+                </p>
+            )}
             <form className="space-y-6" onSubmit={submitCustomerForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
@@ -1082,6 +1120,16 @@ const BookingFormSection = () => {
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
+            {successMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                    {successMessage}
+                </p>
+            )}
+            {errorMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                    {errorMessage}
+                </p>
+            )}
             <form className="space-y-8" onSubmit={submitClientForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
@@ -1201,17 +1249,6 @@ const BookingFormSection = () => {
                 <h2 className="mb-12 text-center font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                     Book Your Cab
                 </h2>
-                {successMessage && (
-                    <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
-                        {successMessage}
-                    </p>
-                )}
-                {errorMessage && (
-                    <p className="mb-6 text-center text-sm font-semibold text-rose-600">
-                        {errorMessage}
-                    </p>
-                )}
-
                 <div className="relative mx-auto max-w-4xl">
                     <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
                         <button
@@ -1533,7 +1570,7 @@ function ServicesSection() {
                     </div>
                 </div>
 
-                <div className="mb-20">
+                <div id="employee-transportation" className="mb-20 scroll-mt-32">
                     <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100 overflow-hidden relative">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -mr-32 -mt-32" />
                         <div className="relative z-10">
@@ -1599,28 +1636,42 @@ function ServicesSection() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {[
                         {
                             title: 'Shuttle Services',
+                            anchor: 'shuttle-services',
                             desc: 'A Fix cab used as per Company requirement. Ideal for fixed working hours with a minimum running guarantee.',
                             icon: <RefreshCcw size={24} />,
                             img: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop'
                         },
                         {
                             title: 'Spot Rental',
+                            anchor: 'spot-rental',
                             desc: 'On-the-spot or unscheduled cab requests entertained with premium vehicles for VIPs and events.',
                             icon: <Car size={24} />,
                             img: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=2072&auto=format&fit=crop'
                         },
                         {
                             title: 'Outstation Trip Packages',
+                            anchor: 'outstation-trip-packages',
                             desc: 'Professional outstation trip packages beyond Delhi NCR, tailored for corporate and individual needs.',
                             icon: <MapPin size={24} />,
                             img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop'
+                        },
+                        {
+                            title: 'VIP Airport Transfers',
+                            anchor: 'vip-airport-transfers',
+                            desc: 'Priority airport pickups and drop-offs with professional chauffeurs, flight tracking, and premium vehicle options.',
+                            icon: <Navigation size={24} />,
+                            img: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=2070&auto=format&fit=crop'
                         }
                     ].map((service, i) => (
-                        <div key={i} className="group bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden hover:shadow-xl transition-all">
+                        <div
+                            key={i}
+                            id={service.anchor}
+                            className="group bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden hover:shadow-xl transition-all scroll-mt-32"
+                        >
                             <div className="h-48 overflow-hidden">
                                 <img
                                     src={service.img}
@@ -2216,6 +2267,16 @@ function ContactPage() {
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
+            {successMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                    {successMessage}
+                </p>
+            )}
+            {errorMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                    {errorMessage}
+                </p>
+            )}
             <form className="space-y-6" onSubmit={submitCustomerForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
@@ -2306,6 +2367,16 @@ function ContactPage() {
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
+            {successMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                    {successMessage}
+                </p>
+            )}
+            {errorMessage && (
+                <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                    {errorMessage}
+                </p>
+            )}
             <form className="space-y-8" onSubmit={submitClientForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
@@ -2368,17 +2439,6 @@ function ContactPage() {
                         Get in <span className="text-brand">Touch</span>
                     </h1>
                 </div>
-                {successMessage && (
-                    <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
-                        {successMessage}
-                    </p>
-                )}
-                {errorMessage && (
-                    <p className="mb-6 text-center text-sm font-semibold text-rose-600">
-                        {errorMessage}
-                    </p>
-                )}
-
                 <div className="mb-10 rounded-[2rem] border border-slate-100 bg-white p-6 shadow-lg md:p-8">
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                         <div className="flex items-center gap-4 p-4">
