@@ -77,7 +77,7 @@ function Navbar({ activePage }) {
 
     return (
         <nav
-            className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+            className={`fixed left-0 right-0 top-0 ${isMobileMenuOpen ? 'z-[120]' : 'z-50'} transition-all duration-300 ${
                 isMobileMenuOpen
                     ? 'bg-transparent py-3 !transition-none'
                     : isScrolled
@@ -995,7 +995,6 @@ const BookingFormSection = () => {
                             <option>Hatchback</option>
                             <option>Sedan</option>
                             <option>SUV/MUV</option>
-                            <option>Bus</option>
                         </select>
                     </div>
                 </div>
@@ -1054,7 +1053,7 @@ const BookingFormSection = () => {
                         </button>
                     </div>
 
-                    <div className="relative h-[1040px] md:h-[820px]">
+                    <div className="relative h-[1160px] md:h-[820px]">
                         <motion.div
                             initial={false}
                             animate={{
@@ -1652,7 +1651,7 @@ function TeamPage() {
                             whileHover={{ y: -10 }}
                             className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-3xl w-full flex flex-col md:flex-row"
                         >
-                            <div className="md:w-2/5 h-80 md:h-auto overflow-hidden">
+                            <div className="md:w-2/5 h-[22rem] md:h-auto overflow-hidden">
                                 <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="md:w-3/5 p-10 flex flex-col justify-center">
@@ -2059,7 +2058,6 @@ function ContactPage() {
                             <option>Hatchback</option>
                             <option>Sedan</option>
                             <option>SUV/MUV</option>
-                            <option>Bus</option>
                         </select>
                     </div>
                 </div>
@@ -2154,7 +2152,7 @@ function ContactPage() {
                         </button>
                     </div>
 
-                    <div className="relative h-[1040px] md:h-[820px]">
+                    <div className="relative h-[1160px] md:h-[820px]">
                         <motion.div
                             initial={false}
                             animate={{
