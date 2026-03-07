@@ -502,6 +502,24 @@ const WhyPreferUs = () => {
 };
 
 const TrainingSection = () => {
+    const trainingImages = ['/images/training/IMG_8316.jpeg', '/images/training/IMG_8317.jpeg'];
+    const [activeTrainingSlide, setActiveTrainingSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveTrainingSlide((prev) => (prev + 1) % trainingImages.length);
+        }, 4000);
+
+        return () => clearInterval(timer);
+    }, [trainingImages.length]);
+
+    useEffect(() => {
+        trainingImages.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
+
     return (
         <section className="bg-slate-50 py-24">
             <div className="mx-auto max-w-7xl px-6">
@@ -531,11 +549,31 @@ const TrainingSection = () => {
                         </div>
                     </div>
                     <div className="order-1 lg:order-2">
-                        <img
-                            src="/images/training.jpg"
-                            className="rounded-3xl shadow-2xl"
-                            alt="Training Session"
-                        />
+                        <div className="relative h-[420px] overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+                            {trainingImages.map((src, i) => (
+                                <img
+                                    key={`training-image-${i}`}
+                                    src={src}
+                                    alt={`Training Session ${i + 1}`}
+                                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+                                        activeTrainingSlide === i ? 'opacity-100' : 'opacity-0'
+                                    }`}
+                                />
+                            ))}
+
+                            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/25 px-3 py-2 backdrop-blur-sm">
+                                {trainingImages.map((_, i) => (
+                                    <button
+                                        key={`training-dot-${i}`}
+                                        onClick={() => setActiveTrainingSlide(i)}
+                                        className={`h-2.5 rounded-full transition-all ${
+                                            activeTrainingSlide === i ? 'w-7 bg-white' : 'w-2.5 bg-white/60'
+                                        }`}
+                                        aria-label={`Go to training image ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -619,8 +657,8 @@ const AccessoriesSection = () => {
         { name: 'Wet Wipes', image: '/images/accessories/wet-wipes.png' },
         { name: 'Umbrellas', image: '/images/accessories/umbrella.avif' },
         { name: 'Flashlight', image: '/images/accessories/flashlight.png' },
-        { name: 'Reading lights', icon: <Zap size={20} /> },
-        { name: 'Phone', icon: <Smartphone size={20} /> },
+        { name: 'Reading lights', image: '/images/accessories/reading-light.png' },
+        { name: 'Phone', image: '/images/accessories/phone.png' },
     ];
 
     return (
@@ -709,12 +747,12 @@ const HappyClientsSection = () => {
         { name: 'DLF', logoSrc: '/images/client-logos/new/DLF_logo.svg' },
         { name: 'Hines', logoSrc: '/images/client-logos/new/hines.png' },
         { name: 'Jaquar', logoSrc: '/images/client-logos/new/Jaquar_logo.svg.png' },
-        { name: 'Kinapse', logoSrc: '/images/client-logos/new/kinapse.avif' },
-        { name: 'CGN', logoSrc: '/images/client-logos/new/logo-new.png' },
+        { name: 'Kinapse', logoSrc: '/images/client-logos/new/kinapse.PNG' },
+        { name: 'CGN', logoSrc: '/images/client-logos/new/cng.png' },
         { name: 'NuvoEx', logoSrc: '/images/client-logos/new/nuvoex.png' },
         { name: 'PepperTap', logoSrc: '/images/client-logos/new/peppertap.webp' },
         { name: 'The Retirement Plan Company', logoSrc: '/images/client-logos/new/TRPC-Logo-rgb.png' },
-        { name: 'USG', logoSrc: '/images/client-logos/new/usg.png' },
+        { name: 'USG', logoSrc: '/images/client-logos/new/ugs.png' },
         { name: 'Wunderman', logoSrc: '/images/client-logos/new/Wunderman_Logo_2015.png' },
         { name: 'ZS Associates', logoSrc: '/images/client-logos/new/ZS_Associates.svg' },
     ];
