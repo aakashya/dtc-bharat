@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\BookingRequestController;
 
 $renderWebsite6 = fn (string $activePage, string $pageTitle) => Inertia::render(
     'Websites/Website6/Index',
@@ -17,6 +18,7 @@ Route::get('/services', fn () => $renderWebsite6('services', 'Services'))->name(
 Route::get('/team', fn () => $renderWebsite6('team', 'Team'))->name('team');
 Route::get('/tours', fn () => $renderWebsite6('tours', 'Tours'))->name('tours');
 Route::get('/contact', fn () => $renderWebsite6('contact', 'Contact'))->name('contact');
+Route::post('/booking-requests', [BookingRequestController::class, 'store'])->name('booking-requests.store');
 
 Route::get('/sitemap.xml', function () {
     $urls = [

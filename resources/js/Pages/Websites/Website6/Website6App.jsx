@@ -1,4 +1,4 @@
-import { Link, router } from '@inertiajs/react';
+import { Link, router, useForm } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import {
@@ -43,6 +43,35 @@ const PAGE_URLS = {
     team: '/team',
     tours: '/tours',
     contact: '/contact',
+};
+
+const CUSTOMER_BOOKING_DEFAULTS = {
+    form_type: 'customer',
+    source_page: 'home',
+    booked_by_name: '',
+    booked_by_phone: '',
+    booked_by_email: '',
+    reporting_date: '',
+    reporting_place: '',
+    reporting_time: '',
+    cab_type: '',
+    special_instructions: '',
+};
+
+const CLIENT_BOOKING_DEFAULTS = {
+    form_type: 'client',
+    source_page: 'home',
+    booked_by_name: '',
+    booked_by_phone: '',
+    booked_by_email: '',
+    client_name: '',
+    client_phone: '',
+    client_email: '',
+    reporting_date: '',
+    reporting_place: '',
+    reporting_time: '',
+    cab_type: '',
+    special_instructions: '',
 };
 
 function Navbar({ activePage }) {
@@ -917,21 +946,66 @@ const HappyClientsSection = () => {
 
 const BookingFormSection = () => {
     const [formType, setFormType] = useState('customer');
+    const [successMessage, setSuccessMessage] = useState('');
+    const customerForm = useForm({ ...CUSTOMER_BOOKING_DEFAULTS, source_page: 'home' });
+    const clientForm = useForm({ ...CLIENT_BOOKING_DEFAULTS, source_page: 'home' });
 
-    const CustomerForm = () => (
+    const submitCustomerForm = (e) => {
+        e.preventDefault();
+        customerForm.post('/booking-requests', {
+            preserveScroll: true,
+            onSuccess: () => {
+                customerForm.reset();
+                setSuccessMessage('Booking request submitted successfully.');
+            },
+            onError: () => setSuccessMessage(''),
+        });
+    };
+
+    const submitClientForm = (e) => {
+        e.preventDefault();
+        clientForm.post('/booking-requests', {
+            preserveScroll: true,
+            onSuccess: () => {
+                clientForm.reset();
+                setSuccessMessage('Booking request submitted successfully.');
+            },
+            onError: () => setSuccessMessage(''),
+        });
+    };
+
+    const renderCustomerForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={submitCustomerForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Customer Information
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Full Name" />
-                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
-                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Email" />
+                        <input
+                            type="text"
+                            value={customerForm.data.booked_by_name}
+                            onChange={(e) => customerForm.setData('booked_by_name', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Full Name"
+                        />
+                        <input
+                            type="tel"
+                            value={customerForm.data.booked_by_phone}
+                            onChange={(e) => customerForm.setData('booked_by_phone', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Contact No."
+                        />
+                        <input
+                            type="email"
+                            value={customerForm.data.booked_by_email}
+                            onChange={(e) => customerForm.setData('booked_by_email', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Email"
+                        />
                     </div>
                 </div>
                 <div>
@@ -939,41 +1013,89 @@ const BookingFormSection = () => {
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                        <input
+                            type="date"
+                            value={customerForm.data.reporting_date}
+                            onChange={(e) => customerForm.setData('reporting_date', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <input
+                            type="text"
+                            value={customerForm.data.reporting_place}
+                            onChange={(e) => customerForm.setData('reporting_place', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Reporting Place"
+                        />
                     </div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                            <option>Select Cab Type</option>
-                            <option>Hatchback</option>
-                            <option>Sedan</option>
-                            <option>SUV/MUV</option>
+                        <input
+                            type="time"
+                            value={customerForm.data.reporting_time}
+                            onChange={(e) => customerForm.setData('reporting_time', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <select
+                            value={customerForm.data.cab_type}
+                            onChange={(e) => customerForm.setData('cab_type', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        >
+                            <option value="">Select Cab Type</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV/MUV">SUV/MUV</option>
                         </select>
                     </div>
                 </div>
-                <textarea rows={4} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
-                <button type="button" className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark">
-                    Book Now
+                <textarea
+                    rows={4}
+                    value={customerForm.data.special_instructions}
+                    onChange={(e) => customerForm.setData('special_instructions', e.target.value)}
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                    placeholder="Special Instructions (if any)"
+                />
+                <button
+                    type="submit"
+                    disabled={customerForm.processing}
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                    {customerForm.processing ? 'Submitting...' : 'Book Now'}
                 </button>
             </form>
         </>
     );
 
-    const ClientForm = () => (
+    const renderClientForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
-            <form className="space-y-8">
+            <form className="space-y-8" onSubmit={submitClientForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Booked By
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
-                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
-                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
+                        <input
+                            type="text"
+                            value={clientForm.data.booked_by_name}
+                            onChange={(e) => clientForm.setData('booked_by_name', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Your Name"
+                        />
+                        <input
+                            type="tel"
+                            value={clientForm.data.booked_by_phone}
+                            onChange={(e) => clientForm.setData('booked_by_phone', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Contact No."
+                        />
+                        <input
+                            type="email"
+                            value={clientForm.data.booked_by_email}
+                            onChange={(e) => clientForm.setData('booked_by_email', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Your Email"
+                        />
                     </div>
                 </div>
                 <div>
@@ -981,9 +1103,27 @@ const BookingFormSection = () => {
                         <Briefcase size={18} /> Booked For
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
-                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
-                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
+                        <input
+                            type="text"
+                            value={clientForm.data.client_name}
+                            onChange={(e) => clientForm.setData('client_name', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Client Name"
+                        />
+                        <input
+                            type="tel"
+                            value={clientForm.data.client_phone}
+                            onChange={(e) => clientForm.setData('client_phone', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Client Contact No."
+                        />
+                        <input
+                            type="email"
+                            value={clientForm.data.client_email}
+                            onChange={(e) => clientForm.setData('client_email', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Client Email"
+                        />
                     </div>
                 </div>
                 <div>
@@ -991,22 +1131,52 @@ const BookingFormSection = () => {
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                        <input
+                            type="date"
+                            value={clientForm.data.reporting_date}
+                            onChange={(e) => clientForm.setData('reporting_date', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <input
+                            type="text"
+                            value={clientForm.data.reporting_place}
+                            onChange={(e) => clientForm.setData('reporting_place', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                            placeholder="Reporting Place"
+                        />
                     </div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                            <option>Select</option>
-                            <option>Hatchback</option>
-                            <option>Sedan</option>
-                            <option>SUV/MUV</option>
+                        <input
+                            type="time"
+                            value={clientForm.data.reporting_time}
+                            onChange={(e) => clientForm.setData('reporting_time', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        />
+                        <select
+                            value={clientForm.data.cab_type}
+                            onChange={(e) => clientForm.setData('cab_type', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        >
+                            <option value="">Select</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV/MUV">SUV/MUV</option>
                         </select>
                     </div>
                 </div>
-                <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
-                <button type="button" className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark">
-                    Submit Booking
+                <textarea
+                    rows={3}
+                    value={clientForm.data.special_instructions}
+                    onChange={(e) => clientForm.setData('special_instructions', e.target.value)}
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                    placeholder="Special Instructions (if any)"
+                />
+                <button
+                    type="submit"
+                    disabled={clientForm.processing}
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                    {clientForm.processing ? 'Submitting...' : 'Submit Booking'}
                 </button>
             </form>
         </>
@@ -1018,6 +1188,11 @@ const BookingFormSection = () => {
                 <h2 className="mb-12 text-center font-display text-3xl font-bold text-corporate-blue md:text-4xl">
                     Book Your Cab
                 </h2>
+                {successMessage && (
+                    <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                        {successMessage}
+                    </p>
+                )}
 
                 <div className="relative mx-auto max-w-4xl">
                     <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
@@ -1077,7 +1252,7 @@ const BookingFormSection = () => {
                         >
                             <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-corporate-blue/5 blur-3xl" />
                             <div className="relative z-10">
-                                <ClientForm />
+                                {renderClientForm()}
                             </div>
                         </motion.div>
 
@@ -1098,7 +1273,7 @@ const BookingFormSection = () => {
                         >
                             <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
                             <div className="relative z-10">
-                                <CustomerForm />
+                                {renderCustomerForm()}
                             </div>
                         </motion.div>
                     </div>
@@ -1977,13 +2152,40 @@ function ToursPage({ setActivePage }) {
 
 function ContactPage() {
     const [formType, setFormType] = useState('customer');
+    const [successMessage, setSuccessMessage] = useState('');
+    const customerForm = useForm({ ...CUSTOMER_BOOKING_DEFAULTS, source_page: 'contact' });
+    const clientForm = useForm({ ...CLIENT_BOOKING_DEFAULTS, source_page: 'contact' });
 
-    const CustomerForm = () => (
+    const submitCustomerForm = (e) => {
+        e.preventDefault();
+        customerForm.post('/booking-requests', {
+            preserveScroll: true,
+            onSuccess: () => {
+                customerForm.reset();
+                setSuccessMessage('Booking request submitted successfully.');
+            },
+            onError: () => setSuccessMessage(''),
+        });
+    };
+
+    const submitClientForm = (e) => {
+        e.preventDefault();
+        clientForm.post('/booking-requests', {
+            preserveScroll: true,
+            onSuccess: () => {
+                clientForm.reset();
+                setSuccessMessage('Booking request submitted successfully.');
+            },
+            onError: () => setSuccessMessage(''),
+        });
+    };
+
+    const renderCustomerForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Customers
             </h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={submitCustomerForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Customer Information
@@ -1991,16 +2193,22 @@ function ContactPage() {
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                         <input
                             type="text"
+                            value={customerForm.data.booked_by_name}
+                            onChange={(e) => customerForm.setData('booked_by_name', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                             placeholder="Full Name"
                         />
                         <input
                             type="tel"
+                            value={customerForm.data.booked_by_phone}
+                            onChange={(e) => customerForm.setData('booked_by_phone', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                             placeholder="Contact No."
                         />
                         <input
                             type="email"
+                            value={customerForm.data.booked_by_email}
+                            onChange={(e) => customerForm.setData('booked_by_email', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                             placeholder="Email"
                         />
@@ -2013,10 +2221,14 @@ function ContactPage() {
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
                         <input
                             type="date"
+                            value={customerForm.data.reporting_date}
+                            onChange={(e) => customerForm.setData('reporting_date', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                         />
                         <input
                             type="text"
+                            value={customerForm.data.reporting_place}
+                            onChange={(e) => customerForm.setData('reporting_place', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                             placeholder="Reporting Place"
                         />
@@ -2024,45 +2236,54 @@ function ContactPage() {
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <input
                             type="time"
+                            value={customerForm.data.reporting_time}
+                            onChange={(e) => customerForm.setData('reporting_time', e.target.value)}
                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                         />
-                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                            <option>Select Cab Type</option>
-                            <option>Hatchback</option>
-                            <option>Sedan</option>
-                            <option>SUV/MUV</option>
+                        <select
+                            value={customerForm.data.cab_type}
+                            onChange={(e) => customerForm.setData('cab_type', e.target.value)}
+                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
+                        >
+                            <option value="">Select Cab Type</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV/MUV">SUV/MUV</option>
                         </select>
                     </div>
                 </div>
                 <textarea
                     rows={4}
+                    value={customerForm.data.special_instructions}
+                    onChange={(e) => customerForm.setData('special_instructions', e.target.value)}
                     className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none"
                     placeholder="Special Instructions (if any)"
                 />
                 <button
-                    type="button"
-                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark"
+                    type="submit"
+                    disabled={customerForm.processing}
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                    Book Now
+                    {customerForm.processing ? 'Submitting...' : 'Book Now'}
                 </button>
             </form>
         </>
     );
 
-    const ClientForm = () => (
+    const renderClientForm = () => (
         <>
             <h3 className="mb-8 text-center font-display text-xl font-bold text-corporate-blue md:text-2xl">
                 Booking Form for Clients
             </h3>
-            <form className="space-y-8">
+            <form className="space-y-8" onSubmit={submitClientForm}>
                 <div>
                     <h4 className="mb-4 flex items-center gap-2 text-base font-bold text-brand md:text-lg">
                         <Users size={18} /> Booked By
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
-                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
-                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
+                        <input type="text" value={clientForm.data.booked_by_name} onChange={(e) => clientForm.setData('booked_by_name', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Name" />
+                        <input type="tel" value={clientForm.data.booked_by_phone} onChange={(e) => clientForm.setData('booked_by_phone', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Contact No." />
+                        <input type="email" value={clientForm.data.booked_by_email} onChange={(e) => clientForm.setData('booked_by_email', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Your Email" />
                     </div>
                 </div>
                 <div>
@@ -2070,9 +2291,9 @@ function ContactPage() {
                         <Briefcase size={18} /> Booked For
                     </h4>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
-                        <input type="tel" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
-                        <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
+                        <input type="text" value={clientForm.data.client_name} onChange={(e) => clientForm.setData('client_name', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Name" />
+                        <input type="tel" value={clientForm.data.client_phone} onChange={(e) => clientForm.setData('client_phone', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Contact No." />
+                        <input type="email" value={clientForm.data.client_email} onChange={(e) => clientForm.setData('client_email', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Client Email" />
                     </div>
                 </div>
                 <div>
@@ -2080,25 +2301,26 @@ function ContactPage() {
                         <Clock size={18} /> Scheduling
                     </h4>
                     <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
+                        <input type="date" value={clientForm.data.reporting_date} onChange={(e) => clientForm.setData('reporting_date', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <input type="text" value={clientForm.data.reporting_place} onChange={(e) => clientForm.setData('reporting_place', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Reporting Place" />
                     </div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <input type="time" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
-                        <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
-                            <option>Select</option>
-                            <option>Hatchback</option>
-                            <option>Sedan</option>
-                            <option>SUV/MUV</option>
+                        <input type="time" value={clientForm.data.reporting_time} onChange={(e) => clientForm.setData('reporting_time', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" />
+                        <select value={clientForm.data.cab_type} onChange={(e) => clientForm.setData('cab_type', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none">
+                            <option value="">Select</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV/MUV">SUV/MUV</option>
                         </select>
                     </div>
                 </div>
-                <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
+                <textarea rows={3} value={clientForm.data.special_instructions} onChange={(e) => clientForm.setData('special_instructions', e.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:border-brand focus:outline-none" placeholder="Special Instructions (if any)" />
                 <button
-                    type="button"
-                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark"
+                    type="submit"
+                    disabled={clientForm.processing}
+                    className="electric-glow w-full rounded-xl bg-brand py-4 text-base font-bold text-white shadow-lg shadow-brand/20 transition-all hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                    Submit Booking
+                    {clientForm.processing ? 'Submitting...' : 'Submit Booking'}
                 </button>
             </form>
         </>
@@ -2115,6 +2337,11 @@ function ContactPage() {
                         Get in <span className="text-brand">Touch</span>
                     </h1>
                 </div>
+                {successMessage && (
+                    <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
+                        {successMessage}
+                    </p>
+                )}
 
                 <div className="mb-10 rounded-[2rem] border border-slate-100 bg-white p-6 shadow-lg md:p-8">
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -2206,7 +2433,7 @@ function ContactPage() {
                         >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-corporate-blue/5 rounded-full blur-3xl -mr-32 -mt-32" />
                             <div className="relative z-10">
-                                <ClientForm />
+                                {renderClientForm()}
                             </div>
                         </motion.div>
 
@@ -2231,7 +2458,7 @@ function ContactPage() {
                         >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -mr-32 -mt-32" />
                             <div className="relative z-10">
-                                <CustomerForm />
+                                {renderCustomerForm()}
                             </div>
                         </motion.div>
                     </div>
