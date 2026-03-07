@@ -621,11 +621,11 @@ const DetailedFleetInfo = () => {
 const AccessoriesSection = () => {
     const accessories = [
         { name: 'Newspaper', image: '/images/accessories/newspaper3.png' },
-        { name: 'Road Maps', icon: <MapPin size={20} /> }, 
-        { name: 'First Aid Kits', icon: <Shield size={20} /> },
-        { name: 'Wet Wipes', icon: <Zap size={20} /> },
-        { name: 'Umbrellas', icon: <Globe size={20} /> },
-        { name: 'Flashlight', icon: <Zap size={20} /> },
+        { name: 'Road Maps', image: '/images/accessories/map.avif' },
+        { name: 'First Aid Kits', image: '/images/accessories/firstaid-kit.jpg' },
+        { name: 'Wet Wipes', image: '/images/accessories/wet-wipes.png' },
+        { name: 'Umbrellas', image: '/images/accessories/umbrella.avif' },
+        { name: 'Flashlight', image: '/images/accessories/flashlight.png' },
         { name: 'Reading lights', icon: <Zap size={20} /> },
         { name: 'Phone', icon: <Smartphone size={20} /> },
     ];
@@ -712,23 +712,29 @@ const BusinessProfileSection = () => {
 
 const HappyClientsSection = () => {
     const clients = [
-        { name: 'CGN', logoSrc: '/images/client-logos/cgn.jpg' },
-        { name: 'DB Schenker', logoSrc: '/images/client-logos/db_schemker.webp' },
-        { name: 'DLF', logoSrc: '/images/client-logos/dlf2.png' },
-        { name: 'DRG', logoSrc: '/images/client-logos/drg.webp' },
-        { name: 'Hines', logoSrc: '/images/client-logos/hines.webp' },
-        { name: 'Jaquar', logoSrc: '/images/client-logos/jaguar.png' },
-        { name: 'Kinapse', logoSrc: '/images/client-logos/kinapse.avif' },
-        { name: 'NuvoEx', logoSrc: '/images/client-logos/nuvoex.png' },
-        { name: 'PepperTap', logoSrc: '/images/client-logos/peppertap.webp' },
-        { name: 'The Retirement Plan Company, LLC', logoSrc: '/images/client-logos/retirement.webp' },
-        { name: 'USG Boral', logoSrc: '/images/client-logos/usgboral.webp' },
-        { name: 'Wunderman', logoSrc: '/images/client-logos/wunderman.webp' },
-        { name: 'ZS', logoSrc: '/images/client-logos/zs.webp' },
+        { name: 'DB Schenker', logoSrc: '/images/client-logos/new/DB_Schenker.png' },
+        { name: 'DLF', logoSrc: '/images/client-logos/new/DLF_logo.svg' },
+        { name: 'Hines', logoSrc: '/images/client-logos/new/hines.png' },
+        { name: 'Jaquar', logoSrc: '/images/client-logos/new/Jaquar_logo.svg.png' },
+        { name: 'Kinapse', logoSrc: '/images/client-logos/new/kinapse.avif' },
+        { name: 'CGN', logoSrc: '/images/client-logos/new/logo-new.png' },
+        { name: 'NuvoEx', logoSrc: '/images/client-logos/new/nuvoex.png' },
+        { name: 'PepperTap', logoSrc: '/images/client-logos/new/peppertap.webp' },
+        { name: 'The Retirement Plan Company', logoSrc: '/images/client-logos/new/TRPC-Logo-rgb.png' },
+        { name: 'USG', logoSrc: '/images/client-logos/new/usg.png' },
+        { name: 'Wunderman', logoSrc: '/images/client-logos/new/Wunderman_Logo_2015.png' },
+        { name: 'ZS Associates', logoSrc: '/images/client-logos/new/ZS_Associates.svg' },
     ];
+    const rowOne = clients.filter((_, i) => i % 2 === 0);
+    const rowTwo = clients.filter((_, i) => i % 2 === 1);
 
     return (
-        <section className="overflow-hidden bg-slate-50 py-24">
+        <section className="relative overflow-hidden bg-slate-50 py-24">
+            <div className="pointer-events-none absolute inset-0">
+                <div className="absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-brand/10 blur-3xl" />
+                <div className="absolute -bottom-24 right-1/4 h-64 w-64 rounded-full bg-corporate-blue/10 blur-3xl" />
+            </div>
+
             <div className="mx-auto mb-16 max-w-7xl px-6">
                 <div className="text-center">
                     <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
@@ -740,21 +746,45 @@ const HappyClientsSection = () => {
                 </div>
             </div>
 
-            <div className="relative flex overflow-x-hidden">
-                <div className="animate-marquee flex items-center gap-12 whitespace-nowrap py-10">
-                    {[...clients, ...clients].map((client, i) => (
-                        <div
-                            key={`${client.name}-${i}`}
-                            className="group inline-flex cursor-default items-center justify-center rounded-3xl border border-slate-100 bg-white px-10 py-6 shadow-sm transition-all hover:border-brand/30"
-                        >
-                            <img
-                                src={client.logoSrc}
-                                alt={`${client.name} logo`}
-                                className="w-auto max-w-none object-contain"
-                                style={{ height: '44px' }}
-                            />
+            <div className="relative mx-auto max-w-7xl px-6">
+                <div className="rounded-[2.5rem] border border-slate-200/70 bg-white/85 p-6 shadow-xl backdrop-blur-sm md:p-10">
+                    <div className="space-y-5">
+                        <div className="relative flex overflow-x-hidden">
+                            <div className="animate-marquee flex items-center gap-5 whitespace-nowrap py-1">
+                                {[...rowOne, ...rowOne].map((client, i) => (
+                                    <div
+                                        key={`r1-${client.name}-${i}`}
+                                        className="group inline-flex h-28 w-[220px] items-center justify-center rounded-2xl border border-slate-100 bg-white px-8 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-lg"
+                                    >
+                                        <img
+                                            src={client.logoSrc}
+                                            alt={`${client.name} logo`}
+                                            className="h-12 w-auto max-w-[170px] object-contain transition-all duration-300"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    ))}
+                        <div className="relative flex overflow-x-hidden">
+                            <div className="animate-marquee flex items-center gap-5 whitespace-nowrap py-1 [animation-direction:reverse]">
+                                {[...rowTwo, ...rowTwo].map((client, i) => (
+                                    <div
+                                        key={`r2-${client.name}-${i}`}
+                                        className="group inline-flex h-28 w-[220px] items-center justify-center rounded-2xl border border-slate-100 bg-white px-8 shadow-sm transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-lg"
+                                    >
+                                        <img
+                                            src={client.logoSrc}
+                                            alt={`${client.name} logo`}
+                                            className="h-12 w-auto max-w-[170px] object-contain transition-all duration-300"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <p className="mt-8 text-center text-sm font-medium text-slate-500">
+                        Long-term partnerships built on punctuality, safety, and enterprise-grade service standards.
+                    </p>
                 </div>
             </div>
 
@@ -1475,7 +1505,7 @@ function TeamPage() {
             role: "Head - HR",
             credentials: ["MBA", "Operations"],
             desc: "A dynamic leader in human resource management, she heads the company's HR function with a strong focus on organisational growth, people development, and operational discipline. She plays a vital role in building a professional, motivated, and high-performing workforce while ensuring smooth coordination across teams. With a keen understanding of talent management, employee relations, and workplace culture, she contributes significantly to strengthening the company's internal framework and long-term vision.",
-            img: "https://i.pravatar.cc/600?img=32",
+            img: "/images/team/bhuaji.jpg",
         },
         {
             name: "Mr. Vikas",
