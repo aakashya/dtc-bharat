@@ -79,7 +79,7 @@ function Navbar({ activePage }) {
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
                 isMobileMenuOpen
-                    ? 'bg-transparent py-3'
+                    ? 'bg-transparent py-3 !transition-none'
                     : isScrolled
                     ? 'bg-white/80 py-3 shadow-md backdrop-blur-lg'
                     : 'bg-transparent py-6'
@@ -146,21 +146,23 @@ function Navbar({ activePage }) {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0 }}
+                        initial={false}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        transition={{ duration: 0.12 }}
                         className="fixed inset-0 z-[80] md:hidden"
                     >
                         <motion.div
-                            initial={{ opacity: 0 }}
+                            initial={false}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.12 }}
                             className="absolute inset-0 bg-slate-950/65 backdrop-blur-md"
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
 
                         <motion.div
-                            initial={{ y: 24, opacity: 0.9 }}
+                            initial={false}
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: 24, opacity: 0.9 }}
                             transition={{ duration: 0.25 }}
