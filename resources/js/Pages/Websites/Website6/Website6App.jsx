@@ -1398,10 +1398,10 @@ function ProfilePage() {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
-                        <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                        <p className="text-slate-600 text-lg mb-6 leading-relaxed text-justify">
                             Founded in 2006 as Royal Travels, the organisation began with a clear vision to deliver dependable, disciplined, and professional transportation solutions to the evolving corporate sector. Under the dynamic leadership and foresight of its founder, <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, the company established a strong foundation built on operational integrity, service reliability, and an unwavering commitment to client satisfaction. From its earliest days, the organisation distinguished itself through professionalism and a results-driven approach, fostering long-term relationships with its corporate partners.
                         </p>
-                        <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                        <p className="text-slate-600 text-lg mb-6 leading-relaxed text-justify">
                             With steady growth and expanding corporate trust, the enterprise was formally incorporated in 2011 as Royal Corptravel Private Limited, marking a significant milestone in its journey. This transition strengthened its corporate framework, enabling the company to scale its operations, streamline service standards, and effectively cater to the growing and sophisticated mobility requirements of corporate clients.
                         </p>
                     </motion.div>
@@ -1417,10 +1417,10 @@ function ProfilePage() {
                         </div>
                     </div>
                     <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-                        <p className="text-slate-600 text-lg leading-relaxed">
+                        <p className="text-slate-600 text-lg leading-relaxed text-justify">
                             Driven by innovation and a forward-looking outlook, the organisation entered a new era in 2024 with its transformation into DTC Bharat. This evolution represents not merely a change of identity, but a strategic advancement towards adopting modern technology, enhanced compliance systems, and elevated standards of operational excellence in the corporate transportation sector.
                         </p>
-                        <p className="text-slate-600 text-lg leading-relaxed">
+                        <p className="text-slate-600 text-lg leading-relaxed text-justify">
                             Today, DTC Bharat, under the visionary guidance of its founder <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, stands as a progressive and trusted name in corporate mobility. With nearly two decades of industry experience, the organisation continues to set higher benchmarks in delivering secure, efficient, and seamless transportation solutions, tailored to the dynamic and ever-evolving needs of corporate India.
                         </p>
                     </div>
