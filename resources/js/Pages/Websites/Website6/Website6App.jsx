@@ -1,3 +1,4 @@
+import { router } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import {
@@ -34,6 +35,15 @@ import {
     X,
     Zap,
 } from 'lucide-react';
+
+const PAGE_URLS = {
+    home: '/',
+    profile: '/profile',
+    services: '/services',
+    team: '/team',
+    tours: '/tours',
+    contact: '/contact',
+};
 
 function Navbar({ activePage, setActivePage }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -586,7 +596,7 @@ const DetailedFleetInfo = () => {
         {
             category: 'Hatchback',
             models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva'],
-            img: '/images/new-wagonR.jpg',
+            img: '/images/mg-windsor.png',
         },
         {
             category: 'Sedan',
@@ -2142,8 +2152,24 @@ function ContactPage() {
     );
 }
 
-export default function Website6App() {
-    const [activePage, setActivePage] = useState('home');
+export default function Website6App({ activePage = 'home' }) {
+    const setActivePage = (nextPage) => {
+        const nextUrl = PAGE_URLS[nextPage];
+
+        if (!nextUrl) {
+            return;
+        }
+
+        if (nextPage === activePage) {
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        router.visit(nextUrl, {
+            preserveScroll: false,
+            preserveState: false,
+        });
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
