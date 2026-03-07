@@ -55,11 +55,6 @@ function Navbar({ activePage, setActivePage }) {
         { label: 'Contact', value: 'contact' },
     ];
 
-    const additionalTeamDisplayOrder = ["Mrs. Pratibha", "Adv. Chirag", "Mr. Vikas", "Mr. Vishal"];
-    const orderedAdditionalTeam = [...additionalTeam].sort(
-        (a, b) => additionalTeamDisplayOrder.indexOf(a.name) - additionalTeamDisplayOrder.indexOf(b.name)
-    );
-
     return (
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
@@ -1503,19 +1498,19 @@ function TeamPage() {
             role: "Head - HR",
             credentials: ["BA", "DCM"],
             desc: "A dynamic leader in human resource management, she heads the company's HR function with a strong focus on organisational growth, people development, and operational discipline. She plays a vital role in building a professional, motivated, and high-performing workforce while ensuring smooth coordination across teams. With a keen understanding of talent management, employee relations, and workplace culture, she contributes significantly to strengthening the company's internal framework and long-term vision.",
-            img: "/images/team/bhuaji.jpg",
+            img: "/images/team/bhuaji-n.JPG",
         },
         {
             name: "Mr. Vikas",
             role: "Director of Global Brand & Digital Strategy",
-            credentials: ["B.Com", "MSc. Business Analytics"],
+            credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
             desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
             img: "/images/team/vi.jpg",
         },
         {
             name: "Mr. Vishal",
             role: "Transport Lead",
-            credentials: ["Fleet Operations", "Route Planning"],
+            credentials: ["Fleet Operations", "Route Planning", "Site Management"],
             desc: "As Transport Lead, he manages day-to-day movement planning with strong focus on punctuality, driver coordination, and route efficiency. He ensures smooth deployment across shifts and helps maintain safe, reliable, and on-time transport service standards for every trip.",
             img: "/images/team/vishal.jpg",
         },
@@ -1524,9 +1519,13 @@ function TeamPage() {
             role: "Legal Advisor",
             credentials: ["BA.LLB. Hons. (Gold Medalist)"],
             desc: "She serves as the Legal Advisor to the company, bringing strong legal expertise and strategic insight to its operations. As the Founder of The LawXpert, she specialises in corporate advisory, dispute resolution, and regulatory compliance. Her guidance ensures the company’s operations remain legally sound, transparent, and aligned with industry standards. Known for her precision and solution-oriented approach, she plays a key role in safeguarding the organisation’s interests and strengthening its governance framework.",
-            img: "/images/team/chirag-pic-n.JPG",
+            img: "/images/team/chirag-n.JPG",
         },
     ];
+    const additionalTeamDisplayOrder = ["Mrs. Pratibha", "Adv. Chirag", "Mr. Vikas", "Mr. Vishal"];
+    const orderedAdditionalTeam = [...additionalTeam].sort(
+        (a, b) => additionalTeamDisplayOrder.indexOf(a.name) - additionalTeamDisplayOrder.indexOf(b.name)
+    );
 
     return (
         <div className="pt-32 pb-24 bg-slate-50">
@@ -1578,7 +1577,7 @@ function TeamPage() {
                     ))}
                 </div>
 
-                <div className="mb-24 grid grid-cols-1 gap-8 md:grid-cols-2">
+                <div className="mb-24 mx-28 grid grid-cols-1 gap-8 md:grid-cols-2">
                     {orderedAdditionalTeam.map((member, i) => (
                         <motion.div
                             key={`${member.name}-${i}`}
@@ -1589,10 +1588,10 @@ function TeamPage() {
                                 <img
                                     src={member.img}
                                     alt={member.name}
-                                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                                    className="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                                     referrerPolicy="no-referrer"
                                 />
-                            </div>
+                            </div> 
                             <div className="p-8">
                                 <h3 className="mb-1 text-2xl font-display font-bold text-corporate-blue">
                                     {member.name}
