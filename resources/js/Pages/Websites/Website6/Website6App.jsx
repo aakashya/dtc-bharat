@@ -1554,7 +1554,7 @@ function TeamPage() {
                                         <h3 className="text-3xl font-display font-bold text-corporate-blue">
                                             {leader.name}
                                         </h3>
-                                        <div className="mt-1 text-right text-brand text-sm font-bold uppercase tracking-widest">
+                                        <div className="mt-1 text-left md:text-right text-brand text-sm font-bold uppercase tracking-widest">
                                             {leader.role}
                                         </div>
                                     </div>
@@ -1577,7 +1577,7 @@ function TeamPage() {
                     ))}
                 </div>
 
-                <div className="mb-24 mx-28 grid grid-cols-1 gap-8 md:grid-cols-2">
+                <div className="mb-24 mx-0 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mx-28">
                     {orderedAdditionalTeam.map((member, i) => (
                         <motion.div
                             key={`${member.name}-${i}`}
