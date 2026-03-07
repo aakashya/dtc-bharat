@@ -136,7 +136,7 @@ function Navbar({ activePage }) {
                     </div>
                 </Link>
 
-                <div className="hidden items-center gap-8 md:flex">
+                <div className="hidden items-center gap-8 min-[1001px]:flex">
                     {navItems.map((item) => (
                         <Link
                             key={item.value}
@@ -165,7 +165,7 @@ function Navbar({ activePage }) {
                 <button
                     type="button"
                     aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                    className={`${isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'} md:hidden rounded-xl border border-white/20 bg-white/10 p-2 backdrop-blur-md`}
+                    className={`${isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'} min-[1001px]:hidden rounded-xl border border-white/20 bg-white/10 p-2 backdrop-blur-md`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -179,7 +179,7 @@ function Navbar({ activePage }) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.12 }}
-                        className="fixed inset-0 z-[80] md:hidden"
+                        className="fixed inset-0 z-[80] min-[1001px]:hidden"
                     >
                         <motion.div
                             initial={false}
@@ -573,7 +573,7 @@ const WhyPreferUs = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                     {points.map((point, i) => (
                         <div
                             key={`${point.title}-${i}`}
@@ -1686,8 +1686,12 @@ function ServicesSection() {
                                 </div>
                                 <h3 className="text-xl font-bold text-corporate-blue mb-4">{service.title}</h3>
                                 <p className="text-slate-500 text-sm leading-relaxed mb-6">{service.desc}</p>
-                                <button type="button" className="flex items-center gap-2 text-brand font-bold text-xs group-hover:gap-4 transition-all">
-                                    Learn More <ArrowRight size={14} />
+                                <button
+                                    type="button"
+                                    onClick={() => router.visit(PAGE_URLS.contact)}
+                                    className="flex items-center gap-2 text-brand font-bold text-xs group-hover:gap-4 transition-all"
+                                >
+                                    Book Now <ArrowRight size={14} />
                                 </button>
                             </div>
                         </div>
