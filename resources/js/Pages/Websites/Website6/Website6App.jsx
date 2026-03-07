@@ -249,8 +249,8 @@ function Footer() {
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.14),transparent_55%)]" />
 
             <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-12">
-                <div className="col-span-1 md:col-span-4">
-                    <div className="mb-6 flex flex-col items-start gap-3">
+                <div className="col-span-1 text-center md:col-span-4 md:text-left">
+                    <div className="mb-6 flex flex-col items-center gap-3 md:items-start">
                         <img
                             src="/images/logo/full-logo-no-bg-icon.PNG"
                             alt="Delphinium Travelcorp"
@@ -271,7 +271,7 @@ function Footer() {
                     </p>
                 </div>
 
-                <div className="md:col-span-2">
+                <div className="text-center md:col-span-2 md:text-left">
                     <h3 className="mb-6 text-lg font-bold">Quick Links</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>
@@ -302,7 +302,7 @@ function Footer() {
                     </ul>
                 </div>
 
-                <div className="md:col-span-3">
+                <div className="hidden text-center md:col-span-3 md:block md:text-left">
                     <h3 className="mb-6 text-lg font-bold">Our Services</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>Employee Transportation</li>
@@ -313,18 +313,24 @@ function Footer() {
                     </ul>
                 </div>
 
-                <div className="md:col-span-3">
+                <div className="text-center md:col-span-3 md:text-left">
                     <h3 className="mb-6 text-lg font-bold">Contact Us</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
-                        <li className="flex gap-3">
+                        <li className="mx-auto flex max-w-sm items-start justify-center gap-3 text-left md:mx-0 md:max-w-none md:justify-start">
                             <MapPin size={18} className="shrink-0 text-w6-brand" />
-                            <span>Unit 705, Business Zone, Tower-C, Nirvana Country, Sector 50, Gurugram, Haryana 122018</span>
+                            <span>
+                                Unit 705, Business Zone, Tower-C
+                                <br />
+                                Nirvana Country, Sector 50
+                                <br />
+                                Gurugram, Haryana 122018
+                            </span>
                         </li>
-                        <li className="flex gap-3">
+                        <li className="flex items-center justify-center gap-3 md:justify-start">
                             <Phone size={18} className="shrink-0 text-w6-brand" />
                             <span>+91 9899925362</span>
                         </li>
-                        <li className="flex gap-3">
+                        <li className="flex items-center justify-center gap-3 md:justify-start">
                             <Mail size={18} className="shrink-0 text-w6-brand" />
                             <span>info@dtcbharat.com</span>
                         </li>
@@ -333,7 +339,7 @@ function Footer() {
                         <h4 className="mb-4 text-sm font-semibold text-slate-300">
                             Follow Us Online
                         </h4>
-                        <div className="flex gap-4">
+                        <div className="flex justify-center gap-4 md:justify-start">
                             <Facebook
                                 size={20}
                                 className="cursor-pointer text-slate-400 transition-colors hover:text-w6-brand"
