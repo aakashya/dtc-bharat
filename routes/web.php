@@ -18,6 +18,24 @@ Route::get('/team', fn () => $renderWebsite6('team', 'Team'))->name('team');
 Route::get('/tours', fn () => $renderWebsite6('tours', 'Tours'))->name('tours');
 Route::get('/contact', fn () => $renderWebsite6('contact', 'Contact'))->name('contact');
 
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        route('home'),
+        route('profile'),
+        route('services'),
+        route('team'),
+        route('tours'),
+        route('contact'),
+    ];
+
+    return response()
+        ->view('sitemap', [
+            'urls' => $urls,
+            'lastmod' => now()->toDateString(),
+        ])
+        ->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
 foreach (['1', '2', '3', '4', '5', '6'] as $legacyPath) {
     Route::redirect("/{$legacyPath}", '/', 301);
 }
