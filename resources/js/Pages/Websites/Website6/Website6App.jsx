@@ -456,7 +456,7 @@ function Hero({ setActivePage }) {
                     <div className="relative z-10 mx-auto w-full max-w-[640px] overflow-hidden rounded-3xl bg-transparent">
                         <img
                             src="/images/innova-crystaaa.webp"
-                            alt="Toyota Innova SUV"
+                            alt="Toyota Innova Crysta"
                             className="mx-auto h-auto w-full object-contain [filter:drop-shadow(0_20px_35px_rgba(0,0,0,0.45))]"
                             loading="eager"
                             decoding="async"
@@ -583,7 +583,7 @@ const WhyPreferUs = () => {
                         className="mx-4 inline-block rounded-[3rem] border border-white/20 bg-white/10 p-8 text-white backdrop-blur-xl md:mx-0 md:p-12"
                     >
                         <div className="font-display mb-3 text-4xl font-bold text-brand sm:text-5xl md:mb-4 md:text-8xl">
-                            +180,000
+                            +1,80,000
                         </div>
                         <div className="text-base font-semibold uppercase tracking-[0.2em] sm:text-lg md:text-2xl md:tracking-[0.3em]">
                             Users who love us
@@ -682,7 +682,7 @@ const DetailedFleetInfo = () => {
     const fleetData = [
         {
             category: 'Hatchback',
-            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'Toyota Liva', 'MG Windsor EV'],
+            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'MG Windsor EV'],
             img: '/images/mg-windsor.png',
         },
         {
@@ -692,7 +692,7 @@ const DetailedFleetInfo = () => {
         },
         {
             category: 'SUV/MUV',
-            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova'],
+            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
             img: '/images/innova.webp',
         },
     ];
@@ -947,6 +947,7 @@ const HappyClientsSection = () => {
 const BookingFormSection = () => {
     const [formType, setFormType] = useState('customer');
     const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const customerForm = useForm({ ...CUSTOMER_BOOKING_DEFAULTS, source_page: 'home' });
     const clientForm = useForm({ ...CLIENT_BOOKING_DEFAULTS, source_page: 'home' });
 
@@ -957,8 +958,14 @@ const BookingFormSection = () => {
             onSuccess: () => {
                 customerForm.reset();
                 setSuccessMessage('Booking request submitted successfully.');
+                setErrorMessage('');
             },
-            onError: () => setSuccessMessage(''),
+            onError: (errors) => {
+                setSuccessMessage('');
+                setErrorMessage(
+                    Object.values(errors || {})[0] || 'Failed to submit booking request. Please check your details.'
+                );
+            },
         });
     };
 
@@ -969,8 +976,14 @@ const BookingFormSection = () => {
             onSuccess: () => {
                 clientForm.reset();
                 setSuccessMessage('Booking request submitted successfully.');
+                setErrorMessage('');
             },
-            onError: () => setSuccessMessage(''),
+            onError: (errors) => {
+                setSuccessMessage('');
+                setErrorMessage(
+                    Object.values(errors || {})[0] || 'Failed to submit booking request. Please check your details.'
+                );
+            },
         });
     };
 
@@ -1193,6 +1206,11 @@ const BookingFormSection = () => {
                         {successMessage}
                     </p>
                 )}
+                {errorMessage && (
+                    <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                        {errorMessage}
+                    </p>
+                )}
 
                 <div className="relative mx-auto max-w-4xl">
                     <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
@@ -1369,17 +1387,17 @@ function FleetSection() {
     const fleet = [
         {
             category: 'Hatchback',
-            models: 'Wagon-R, Ritz, Santro, Liva, MG Windsor EV',
+            models: 'Wagon-R, Ritz, Santro, MG Windsor EV',
             icon: <Car size={32} />,
         },
         {
             category: 'Sedan',
-            models: 'Xcent, Swift Dzire, Etios, Tata Tigor EV',
+            models: 'Xcent, Swift Dzire, Liva, Etios, Tata Tigor EV',
             icon: <Car size={32} />,
         },
         {
             category: 'SUV/MUV',
-            models: 'Ertiga, Enjoy, Xylo, Innova',
+            models: 'Ertiga, Enjoy, Xylo, Toyota Innova Crysta, Toyota Innova Hycross',
             icon: <Car size={32} />,
         },
     ];
@@ -1728,9 +1746,9 @@ function ProfilePage() {
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
-                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Liva, Figo, MG Windsor EV' },
-                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios, Tata Tigor EV' },
-                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Xylo, Tavera, Innova' },
+                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Figo, MG Windsor EV' },
+                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Liva, Etios, Tata Tigor EV' },
+                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Xylo, Tavera, Innova Crysta, Innova Hycross' },
                                 { cat: 'Traveller', models: 'Force Traveller' },
                                 { cat: 'Luxury', models: 'Premium Executive Vehicles' },
                                 { cat: 'Buses', models: 'Mini & Luxury Coach Buses' }
@@ -1933,7 +1951,7 @@ function ToursPage({ setActivePage }) {
     const pricing = [
         { type: "Hatchback", seater: "4 Seater Cab", price: "₹7,500", original: "₹9,000" },
         { type: "Sedan", seater: "4 Seater Cab", price: "₹10,000", original: "₹12,000" },
-        { type: "Innova", seater: "6 Seater Cab", price: "₹12,500", original: "₹15,000" },
+        { type: "SUV/MUV", seater: "6 Seater Cab", price: "₹12,500", original: "₹15,000" },
     ];
 
     const places = [
@@ -2153,6 +2171,7 @@ function ToursPage({ setActivePage }) {
 function ContactPage() {
     const [formType, setFormType] = useState('customer');
     const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const customerForm = useForm({ ...CUSTOMER_BOOKING_DEFAULTS, source_page: 'contact' });
     const clientForm = useForm({ ...CLIENT_BOOKING_DEFAULTS, source_page: 'contact' });
 
@@ -2163,8 +2182,14 @@ function ContactPage() {
             onSuccess: () => {
                 customerForm.reset();
                 setSuccessMessage('Booking request submitted successfully.');
+                setErrorMessage('');
             },
-            onError: () => setSuccessMessage(''),
+            onError: (errors) => {
+                setSuccessMessage('');
+                setErrorMessage(
+                    Object.values(errors || {})[0] || 'Failed to submit booking request. Please check your details.'
+                );
+            },
         });
     };
 
@@ -2175,8 +2200,14 @@ function ContactPage() {
             onSuccess: () => {
                 clientForm.reset();
                 setSuccessMessage('Booking request submitted successfully.');
+                setErrorMessage('');
             },
-            onError: () => setSuccessMessage(''),
+            onError: (errors) => {
+                setSuccessMessage('');
+                setErrorMessage(
+                    Object.values(errors || {})[0] || 'Failed to submit booking request. Please check your details.'
+                );
+            },
         });
     };
 
@@ -2340,6 +2371,11 @@ function ContactPage() {
                 {successMessage && (
                     <p className="mb-6 text-center text-sm font-semibold text-emerald-600">
                         {successMessage}
+                    </p>
+                )}
+                {errorMessage && (
+                    <p className="mb-6 text-center text-sm font-semibold text-rose-600">
+                        {errorMessage}
                     </p>
                 )}
 

@@ -1,6 +1,6 @@
 {
   "resources/js/Pages/Websites/Website6/Index.jsx": {
-    "file": "assets/Index-xpBPHLSa.js",
+    "file": "assets/Index-CIY2QAx6.js",
     "name": "Index",
     "src": "resources/js/Pages/Websites/Website6/Index.jsx",
     "isDynamicEntry": true,
@@ -13,7 +13,7 @@
     ]
   },
   "resources/js/Pages/Websites/Website6/Website6App.jsx": {
-    "file": "assets/Website6App-CR0zbw6s.js",
+    "file": "assets/Website6App-VYXV9gTl.js",
     "name": "Website6App",
     "src": "resources/js/Pages/Websites/Website6/Website6App.jsx",
     "isDynamicEntry": true,
@@ -22,7 +22,7 @@
     ]
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-Blyb7-6M.js",
+    "file": "assets/Welcome-Pk5Ge7m2.js",
     "name": "Welcome",
     "src": "resources/js/Pages/Welcome.jsx",
     "isDynamicEntry": true,
@@ -31,7 +31,7 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-BFAAz5hY.js",
+    "file": "assets/app-BJJRYTm4.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -41,7 +41,7 @@
       "resources/js/Pages/Welcome.jsx"
     ],
     "css": [
-      "assets/app-B2HcxeH8.css"
+      "assets/app-wd-M7ukv.css"
     ]
   }
 }
