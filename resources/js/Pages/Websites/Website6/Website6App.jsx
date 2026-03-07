@@ -1418,10 +1418,10 @@ function ProfilePage() {
                     </div>
                     <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                         <p className="text-slate-600 text-lg leading-relaxed text-justify">
-                            Driven by innovation and a forward-looking outlook, the organisation entered a new era in 2024 with its transformation into DTC Bharat. This evolution represents not merely a change of identity, but a strategic advancement towards adopting modern technology, enhanced compliance systems, and elevated standards of operational excellence in the corporate transportation sector.
+                            Driven by innovation and a forward-looking outlook, the organisation entered a new era in 2024 with its transformation into <span className="font-bold text-brand">DTC Bharat</span>. This evolution represents not merely a change of identity, but a strategic advancement towards adopting modern technology, enhanced compliance systems, and elevated standards of operational excellence in the corporate transportation sector.
                         </p>
                         <p className="text-slate-600 text-lg leading-relaxed text-justify">
-                            Today, DTC Bharat, under the visionary guidance of its founder <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, stands as a progressive and trusted name in corporate mobility. With nearly two decades of industry experience, the organisation continues to set higher benchmarks in delivering secure, efficient, and seamless transportation solutions, tailored to the dynamic and ever-evolving needs of corporate India.
+                            Today, <span className="font-bold text-brand">DTC Bharat</span>, under the visionary guidance of its founder <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, stands as a progressive and trusted name in corporate mobility. With nearly two decades of industry experience, the organisation continues to set higher benchmarks in delivering secure, efficient, and seamless transportation solutions, tailored to the dynamic and ever-evolving needs of corporate India.
                         </p>
                     </div>
                 </div>

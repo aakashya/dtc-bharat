@@ -1,6 +1,6 @@
 {
   "resources/js/Pages/Websites/Website6/Index.jsx": {
-    "file": "assets/Index-vjKN-HOP.js",
+    "file": "assets/Index-DKgNnQ-r.js",
     "name": "Index",
     "src": "resources/js/Pages/Websites/Website6/Index.jsx",
     "isDynamicEntry": true,
@@ -13,7 +13,7 @@
     ]
   },
   "resources/js/Pages/Websites/Website6/Website6App.jsx": {
-    "file": "assets/Website6App-1hxI3kzU.js",
+    "file": "assets/Website6App-CJ9m5vfd.js",
     "name": "Website6App",
     "src": "resources/js/Pages/Websites/Website6/Website6App.jsx",
     "isDynamicEntry": true,
@@ -22,7 +22,7 @@
     ]
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-Buw7HT_t.js",
+    "file": "assets/Welcome-BqyLZ_w7.js",
     "name": "Welcome",
     "src": "resources/js/Pages/Welcome.jsx",
     "isDynamicEntry": true,
@@ -31,7 +31,7 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-BXqA6lXu.js",
+    "file": "assets/app-hdYpJ3RY.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
