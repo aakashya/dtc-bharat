@@ -1511,7 +1511,7 @@ function TeamPage() {
             name: "Mr. Vishal",
             role: "Transport Lead",
             credentials: ["Fleet Operations", "Route Planning", "Site Management"],
-            desc: "As Transport Lead, he manages day-to-day movement planning with strong focus on punctuality, driver coordination, and route efficiency. He ensures smooth deployment across shifts and helps maintain safe, reliable, and on-time transport service standards for every trip.",
+            desc: "A performance-focused operations professional, He leads transport execution with strong command over Fleet Operations, Route Planning, and Site Management. As Transport Lead, he aligns vehicles, drivers, and shift schedules to ensure dependable service across locations. With a structured and proactive approach, he improves punctuality, on-ground coordination, and commuter experience while upholding safe and efficient transportation standards.",
             img: "/images/team/vishal.jpg",
         },
         {
