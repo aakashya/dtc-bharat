@@ -45,7 +45,7 @@ const PAGE_URLS = {
     contact: '/contact',
 };
 
-function Navbar({ activePage, setActivePage }) {
+function Navbar({ activePage, setActivePage, prefetchPage }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isHomePage = activePage === 'home';
@@ -100,6 +100,7 @@ function Navbar({ activePage, setActivePage }) {
                             key={item.value}
                             type="button"
                             onClick={() => setActivePage(item.value)}
+                            onMouseEnter={() => prefetchPage(item.value)}
                             className={`text-sm font-semibold transition-colors hover:text-w6-brand ${
                                 activePage === item.value
                                     ? 'text-w6-brand'
@@ -114,6 +115,7 @@ function Navbar({ activePage, setActivePage }) {
                     <button
                         type="button"
                         onClick={() => setActivePage('contact')}
+                        onMouseEnter={() => prefetchPage('contact')}
                         className="flex items-center gap-2 rounded-full bg-w6-brand px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-w6-brand-dark w6-electric-glow"
                     >
                         Book a Cab Now
@@ -755,7 +757,7 @@ const HappyClientsSection = () => {
     const clients = [
         { name: 'DB Schenker', logoSrc: '/images/client-logos/new/DB_Schenker.png' },
         { name: 'DLF', logoSrc: '/images/client-logos/new/DLF_logo.svg' },
-        { name: 'Hines', logoSrc: '/images/client-logos/new/hines.png' },
+        { name: 'Hines', logoSrc: '/images/client-logos/new/Hines.png' },
         { name: 'Jaquar', logoSrc: '/images/client-logos/new/Jaquar_logo.svg.png' },
         { name: 'Kinapse', logoSrc: '/images/client-logos/new/kinapse.PNG' },
         { name: 'CGN', logoSrc: '/images/client-logos/new/cng.png' },
@@ -2153,6 +2155,16 @@ function ContactPage() {
 }
 
 export default function Website6App({ activePage = 'home' }) {
+    const prefetchPage = (nextPage) => {
+        const nextUrl = PAGE_URLS[nextPage];
+
+        if (!nextUrl || nextPage === activePage) {
+            return;
+        }
+
+        router.prefetch(nextUrl);
+    };
+
     const setActivePage = (nextPage) => {
         const nextUrl = PAGE_URLS[nextPage];
 
@@ -2175,9 +2187,21 @@ export default function Website6App({ activePage = 'home' }) {
         window.scrollTo(0, 0);
     }, [activePage]);
 
+    useEffect(() => {
+        Object.keys(PAGE_URLS).forEach((pageKey) => {
+            if (pageKey !== activePage) {
+                prefetchPage(pageKey);
+            }
+        });
+    }, [activePage]);
+
     return (
         <div className="w6-root flex min-h-screen flex-col selection:bg-w6-brand selection:text-white">
-            <Navbar activePage={activePage} setActivePage={setActivePage} />
+            <Navbar
+                activePage={activePage}
+                setActivePage={setActivePage}
+                prefetchPage={prefetchPage}
+            />
 
             <main className="flex-grow">
                 <AnimatePresence mode="wait">
