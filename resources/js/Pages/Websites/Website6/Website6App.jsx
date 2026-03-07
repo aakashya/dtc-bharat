@@ -392,7 +392,7 @@ const WhyPreferUs = () => {
         {
             title: 'Satisfied Clients',
             icon: <Heart size={32} />,
-            desc: 'In our journey of 11 years we have created a long list of satisfied customers & end users who are our ambassadors and they speak about our services. All our clients have been associated with us for a commendable period which speaks of our ability, stability & capability.',
+            desc: 'In our journey of 20 years we have created a long list of satisfied customers & end users who are our ambassadors and they speak about our services. All our clients have been associated with us for a commendable period which speaks of our ability, stability & capability.',
         },
         {
             title: 'Round the Clock Service',
