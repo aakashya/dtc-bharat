@@ -294,30 +294,31 @@ function Footer() {
 
 function Hero({ setActivePage }) {
     return (
-        <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-20">
+        <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-24 md:pt-28">
             <div className="w6-hero-gradient pointer-events-none absolute inset-0 z-0" />
             <div className="pointer-events-none absolute -right-20 top-24 z-0 h-96 w-96 rounded-full bg-orange-300/20 blur-3xl" />
             <div className="pointer-events-none absolute -left-24 bottom-16 z-0 h-[26rem] w-[26rem] rounded-full bg-rose-300/20 blur-3xl" />
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.18),transparent_55%)]" />
 
             <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-                <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
+                    className="text-center lg:text-left"
                 >
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
                         <Zap size={14} /> Fleet Command Since 2006
                     </div>
-                    <h1 className="mb-6 font-display text-5xl font-bold leading-tight text-white md:text-7xl">
+                    <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">
                         On Time <br />
                         <span className="text-orange-200">Round the Clock</span>
                     </h1>
-                    <p className="mb-10 max-w-xl text-lg leading-relaxed text-orange-50/90 md:text-xl">
+                    <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-orange-50/90 md:text-xl lg:mx-0">
                         On Time Round the Clock. Corporate cabs at their best.
                     </p>
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
                         <button
                             type="button"
                             onClick={() => setActivePage('contact')}
@@ -343,18 +344,20 @@ function Hero({ setActivePage }) {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
-                    className="relative hidden lg:block"
+                    className="relative"
                 >
-                    <div className="relative z-10 overflow-hidden rounded-3xl bg-transparent ">
+                    <div className="relative z-10 mx-auto w-full max-w-[640px] overflow-hidden rounded-3xl bg-transparent">
                         <img
                             src="/images/innova-crystaaa.webp"
                             alt="Toyota Innova SUV"
-                            className="h-[30rem] w-auto max-w-none object-contain xl:h-[26rem]"
+                            className="mx-auto h-auto w-full object-contain [filter:drop-shadow(0_20px_35px_rgba(0,0,0,0.45))]"
+                            loading="eager"
+                            decoding="async"
                             referrerPolicy="no-referrer"
                         />
                     </div>
-                    <div className="absolute -right-10 -top-10 h-40 w-40 animate-pulse rounded-full border border-w6-brand/30" />
-                    <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full border border-white/10" />
+                    <div className="absolute -right-10 -top-10 hidden h-40 w-40 animate-pulse rounded-full border border-w6-brand/30 lg:block" />
+                    <div className="absolute -bottom-10 -left-10 hidden h-60 w-60 rounded-full border border-white/10 lg:block" />
                 </motion.div>
                 </div>
 
@@ -363,7 +366,7 @@ function Hero({ setActivePage }) {
                         {[
                             { label: 'Availability', value: '24/7' },
                             { label: 'Coverage', value: 'Delhi NCR' },
-                            { label: 'Users EveryDay', value: '600+' },
+                            { label: 'Daily Users', value: '600+' },
                             { label: 'Fleet Units', value: '300+' },
                         ].map((stat) => (
                             <div key={stat.label}>
@@ -1551,7 +1554,7 @@ function TeamPage() {
             role: "Legal Advisor",
             credentials: ["BA.LLB. Hons. (Gold Medalist)"],
             desc: "She serves as the Legal Advisor to the company, bringing strong legal expertise and strategic insight to its operations. As the Founder of The LawXpert, she specialises in corporate advisory, dispute resolution, and regulatory compliance. Her guidance ensures the company’s operations remain legally sound, transparent, and aligned with industry standards. Known for her precision and solution-oriented approach, she plays a key role in safeguarding the organisation’s interests and strengthening its governance framework.",
-            img: "/images/team/chirag-n.JPG",
+            img: "/images/team/chirag-neww.jpg",
         },
     ];
     const additionalTeamDisplayOrder = ["Mr. Vikas", "Adv. Chirag", "Mrs. Pratibha", "Mr. Vishal"];
