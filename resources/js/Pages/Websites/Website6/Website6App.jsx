@@ -715,7 +715,7 @@ const DetailedFleetInfo = () => {
         },
         {
             category: 'Sedan',
-            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Etios', 'Tata Tigor EV'],
+            models: ['Hyundai Aura', 'Suzuki Swift Dzire', 'Tata Tigor EV'],
             img: '/images/tigor-ev.avif',
         },
         {
@@ -1429,7 +1429,7 @@ function FleetSection() {
         },
         {
             category: 'Sedan',
-            models: 'Xcent, Swift Dzire, Etios, Tata Tigor EV',
+            models: 'Aura, Swift Dzire, Tata Tigor EV',
             icon: <Car size={32} />,
         },
         {
@@ -1798,7 +1798,7 @@ function ProfilePage() {
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
                                 { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Figo, MG Windsor EV' },
-                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios, Tata Tigor EV' },
+                                { cat: 'Sedan', models: 'Indigo, Dzire, Aura, Tata Tigor EV' },
                                 { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Tavera, Innova Crysta, Innova Hycross' },
                                 { cat: 'Traveller', models: 'Force Traveller' },
                                 { cat: 'Luxury', models: 'Premium Executive Vehicles' },
