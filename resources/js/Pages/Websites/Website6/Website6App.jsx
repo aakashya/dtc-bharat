@@ -715,12 +715,12 @@ const DetailedFleetInfo = () => {
         },
         {
             category: 'Sedan',
-            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios', 'Tata Tigor EV'],
+            models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Etios', 'Tata Tigor EV'],
             img: '/images/tigor-ev.avif',
         },
         {
             category: 'SUV/MUV',
-            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Mahindra Xylo', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
+            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
             img: '/images/innova.webp',
         },
     ];
@@ -1429,12 +1429,12 @@ function FleetSection() {
         },
         {
             category: 'Sedan',
-            models: 'Xcent, Swift Dzire, Liva, Etios, Tata Tigor EV',
+            models: 'Xcent, Swift Dzire, Etios, Tata Tigor EV',
             icon: <Car size={32} />,
         },
         {
             category: 'SUV/MUV',
-            models: 'Ertiga, Enjoy, Xylo, Innova Crysta, Innova Hycross',
+            models: 'Ertiga, Enjoy, Innova Crysta, Innova Hycross',
             icon: <Car size={32} />,
         },
     ];
@@ -1798,8 +1798,8 @@ function ProfilePage() {
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
                                 { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Figo, MG Windsor EV' },
-                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Liva, Etios, Tata Tigor EV' },
-                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Xylo, Tavera, Innova Crysta, Innova Hycross' },
+                                { cat: 'Sedan', models: 'Indigo, Dzire, Xcent, Etios, Tata Tigor EV' },
+                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Tavera, Innova Crysta, Innova Hycross' },
                                 { cat: 'Traveller', models: 'Force Traveller' },
                                 { cat: 'Luxury', models: 'Premium Executive Vehicles' },
                                 { cat: 'Buses', models: 'Mini & Luxury Coach Buses' }
