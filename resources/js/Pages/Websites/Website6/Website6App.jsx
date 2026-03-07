@@ -1397,7 +1397,7 @@ function FleetSection() {
         },
         {
             category: 'SUV/MUV',
-            models: 'Ertiga, Enjoy, Xylo, Toyota Innova Crysta, Toyota Innova Hycross',
+            models: 'Ertiga, Enjoy, Xylo, Innova Crysta, Innova Hycross',
             icon: <Car size={32} />,
         },
     ];
