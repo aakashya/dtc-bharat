@@ -55,6 +55,11 @@ function Navbar({ activePage, setActivePage }) {
         { label: 'Contact', value: 'contact' },
     ];
 
+    const additionalTeamDisplayOrder = ["Mrs. Pratibha", "Adv. Chirag", "Mr. Vikas", "Mr. Vishal"];
+    const orderedAdditionalTeam = [...additionalTeam].sort(
+        (a, b) => additionalTeamDisplayOrder.indexOf(a.name) - additionalTeamDisplayOrder.indexOf(b.name)
+    );
+
     return (
         <nav
             className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
@@ -1496,7 +1501,7 @@ function TeamPage() {
         {
             name: "Mrs. Pratibha",
             role: "Head - HR",
-            credentials: ["Management", "Operations"],
+            credentials: ["BA", "DCM"],
             desc: "A dynamic leader in human resource management, she heads the company's HR function with a strong focus on organisational growth, people development, and operational discipline. She plays a vital role in building a professional, motivated, and high-performing workforce while ensuring smooth coordination across teams. With a keen understanding of talent management, employee relations, and workplace culture, she contributes significantly to strengthening the company's internal framework and long-term vision.",
             img: "/images/team/bhuaji.jpg",
         },
@@ -1506,6 +1511,13 @@ function TeamPage() {
             credentials: ["B.Com", "MSc. Business Analytics"],
             desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
             img: "/images/team/vi.jpg",
+        },
+        {
+            name: "Mr. Vishal",
+            role: "Transport Lead",
+            credentials: ["Fleet Operations", "Route Planning"],
+            desc: "As Transport Lead, he manages day-to-day movement planning with strong focus on punctuality, driver coordination, and route efficiency. He ensures smooth deployment across shifts and helps maintain safe, reliable, and on-time transport service standards for every trip.",
+            img: "/images/team/vishal.jpg",
         },
         {
             name: "Adv. Chirag",
@@ -1566,8 +1578,8 @@ function TeamPage() {
                     ))}
                 </div>
 
-                <div className="mb-24 grid grid-cols-1 gap-8 lg:grid-cols-3">
-                    {additionalTeam.map((member, i) => (
+                <div className="mb-24 grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {orderedAdditionalTeam.map((member, i) => (
                         <motion.div
                             key={`${member.name}-${i}`}
                             whileHover={{ y: -8 }}
