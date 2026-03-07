@@ -1,4 +1,4 @@
-import { router } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import {
@@ -45,7 +45,7 @@ const PAGE_URLS = {
     contact: '/contact',
 };
 
-function Navbar({ activePage, setActivePage, prefetchPage }) {
+function Navbar({ activePage }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isHomePage = activePage === 'home';
@@ -74,9 +74,10 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
             }`}
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-                <div
+                <Link
+                    href={PAGE_URLS.home}
+                    prefetch
                     className="flex cursor-pointer items-center gap-3"
-                    onClick={() => setActivePage('home')}
                 >
                     <img
                         src="/images/logo/full-logo-no-bg-icon.PNG"
@@ -92,15 +93,14 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
                             DTC <span className="text-w6-brand">BHARAT</span>
                         </h1>
                     </div>
-                </div>
+                </Link>
 
                 <div className="hidden items-center gap-8 md:flex">
                     {navItems.map((item) => (
-                        <button
+                        <Link
                             key={item.value}
-                            type="button"
-                            onClick={() => setActivePage(item.value)}
-                            onMouseEnter={() => prefetchPage(item.value)}
+                            href={PAGE_URLS[item.value]}
+                            prefetch
                             className={`text-sm font-semibold transition-colors hover:text-w6-brand ${
                                 activePage === item.value
                                     ? 'text-w6-brand'
@@ -110,16 +110,15 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
                             }`}
                         >
                             {item.label}
-                        </button>
+                        </Link>
                     ))}
-                    <button
-                        type="button"
-                        onClick={() => setActivePage('contact')}
-                        onMouseEnter={() => prefetchPage('contact')}
+                    <Link
+                        href={PAGE_URLS.contact}
+                        prefetch
                         className="flex items-center gap-2 rounded-full bg-w6-brand px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-w6-brand-dark w6-electric-glow"
                     >
                         Book a Cab Now
-                    </button>
+                    </Link>
                 </div>
 
                 <button
@@ -140,13 +139,11 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
                         className="absolute left-0 right-0 top-full flex flex-col gap-4 bg-white p-6 shadow-2xl md:hidden"
                     >
                         {navItems.map((item) => (
-                            <button
+                            <Link
                                 key={item.value}
-                                type="button"
-                                onClick={() => {
-                                    setActivePage(item.value);
-                                    setIsMobileMenuOpen(false);
-                                }}
+                                href={PAGE_URLS[item.value]}
+                                prefetch
+                                onClick={() => setIsMobileMenuOpen(false)}
                                 className={`text-left text-lg font-semibold ${
                                     activePage === item.value
                                         ? 'text-w6-brand'
@@ -154,18 +151,16 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
                                 }`}
                             >
                                 {item.label}
-                            </button>
+                            </Link>
                         ))}
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setActivePage('contact');
-                                setIsMobileMenuOpen(false);
-                            }}
+                        <Link
+                            href={PAGE_URLS.contact}
+                            prefetch
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="mt-4 rounded-2xl bg-w6-brand py-4 font-bold text-white"
                         >
                             Book a Cab Now
-                        </button>
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -173,7 +168,7 @@ function Navbar({ activePage, setActivePage, prefetchPage }) {
     );
 }
 
-function Footer({ setActivePage }) {
+function Footer() {
     return (
         <footer className="relative isolate overflow-hidden pb-4 pt-20 text-white">
             <div className="w6-hero-gradient pointer-events-none absolute inset-0 z-0" />
@@ -208,49 +203,29 @@ function Footer({ setActivePage }) {
                     <h3 className="mb-6 text-lg font-bold">Quick Links</h3>
                     <ul className="space-y-4 text-sm text-slate-400">
                         <li>
-                            <button
-                                type="button"
-                                onClick={() => setActivePage('home')}
-                                className="transition-colors hover:text-w6-brand"
-                            >
+                            <Link href={PAGE_URLS.home} prefetch className="transition-colors hover:text-w6-brand">
                                 Home
-                            </button>
+                            </Link>
                         </li>
                         <li>
-                            <button
-                                type="button"
-                                onClick={() => setActivePage('profile')}
-                                className="transition-colors hover:text-w6-brand"
-                            >
+                            <Link href={PAGE_URLS.profile} prefetch className="transition-colors hover:text-w6-brand">
                                 Our Profile
-                            </button>
+                            </Link>
                         </li>
                         <li>
-                            <button
-                                type="button"
-                                onClick={() => setActivePage('services')}
-                                className="transition-colors hover:text-w6-brand"
-                            >
+                            <Link href={PAGE_URLS.services} prefetch className="transition-colors hover:text-w6-brand">
                                 Services
-                            </button>
+                            </Link>
                         </li>
                         <li>
-                            <button
-                                type="button"
-                                onClick={() => setActivePage('team')}
-                                className="transition-colors hover:text-w6-brand"
-                            >
+                            <Link href={PAGE_URLS.team} prefetch className="transition-colors hover:text-w6-brand">
                                 Our Team
-                            </button>
+                            </Link>
                         </li>
                         <li>
-                            <button
-                                type="button"
-                                onClick={() => setActivePage('tours')}
-                                className="transition-colors hover:text-w6-brand"
-                            >
+                            <Link href={PAGE_URLS.tours} prefetch className="transition-colors hover:text-w6-brand">
                                 Tour Packages
-                            </button>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -279,7 +254,7 @@ function Footer({ setActivePage }) {
                         </li>
                         <li className="flex gap-3">
                             <Mail size={18} className="shrink-0 text-w6-brand" />
-                            <span>info@royalcorptravel.com</span>
+                            <span>info@dtcbharat.com</span>
                         </li>
                     </ul>
                     <div className="mt-8">
@@ -603,7 +578,7 @@ const DetailedFleetInfo = () => {
         {
             category: 'Sedan',
             models: ['Hyundai Xcent', 'Suzuki Swift Dzire', 'Toyota Liva', 'Toyota Etios'],
-            img: '/images/desire-taxi.avif',
+            img: '/images/tigor-ev.avif',
         },
         {
             category: 'SUV/MUV',
@@ -2057,7 +2032,7 @@ function ContactPage() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-bold text-corporate-blue md:text-base">Email</h4>
-                                <p className="text-xs text-slate-500 md:text-sm">info@royalcorptravel.com</p>
+                                <p className="text-xs text-slate-500 md:text-sm">info@dtcbharat.com</p>
                             </div>
                         </div>
                     </div>
@@ -2155,16 +2130,6 @@ function ContactPage() {
 }
 
 export default function Website6App({ activePage = 'home' }) {
-    const prefetchPage = (nextPage) => {
-        const nextUrl = PAGE_URLS[nextPage];
-
-        if (!nextUrl || nextPage === activePage) {
-            return;
-        }
-
-        router.prefetch(nextUrl);
-    };
-
     const setActivePage = (nextPage) => {
         const nextUrl = PAGE_URLS[nextPage];
 
@@ -2187,21 +2152,9 @@ export default function Website6App({ activePage = 'home' }) {
         window.scrollTo(0, 0);
     }, [activePage]);
 
-    useEffect(() => {
-        Object.keys(PAGE_URLS).forEach((pageKey) => {
-            if (pageKey !== activePage) {
-                prefetchPage(pageKey);
-            }
-        });
-    }, [activePage]);
-
     return (
         <div className="w6-root flex min-h-screen flex-col selection:bg-w6-brand selection:text-white">
-            <Navbar
-                activePage={activePage}
-                setActivePage={setActivePage}
-                prefetchPage={prefetchPage}
-            />
+            <Navbar activePage={activePage} />
 
             <main className="flex-grow">
                 <AnimatePresence mode="wait">
@@ -2233,7 +2186,7 @@ export default function Website6App({ activePage = 'home' }) {
                 </AnimatePresence>
             </main>
 
-            <Footer setActivePage={setActivePage} />
+            <Footer />
 
             <AnimatePresence>
                 {activePage === 'contact' && (
@@ -2261,7 +2214,7 @@ export default function Website6App({ activePage = 'home' }) {
                 type="button"
                 onClick={() => {
                     if (activePage === 'contact') {
-                        window.open('https://wa.me/919899925362', '_blank');
+                        window.open('https://wa.me/919899925362', '_blank', 'noopener,noreferrer');
                     } else {
                         setActivePage('contact');
                     }
