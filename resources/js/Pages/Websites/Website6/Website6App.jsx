@@ -935,16 +935,17 @@ const BookingFormSection = () => {
                         <motion.div
                             initial={false}
                             animate={{
-                                x: formType === 'customer' ? 25 : 0,
-                                y: formType === 'customer' ? 25 : 0,
-                                rotate: formType === 'customer' ? 2 : 0,
+                                x: formType === 'customer' ? 24 : 0,
+                                y: formType === 'customer' ? 24 : 0,
+                                rotate: 0,
                                 zIndex: formType === 'customer' ? 10 : 20,
-                                opacity: formType === 'customer' ? 0.6 : 1,
-                                scale: formType === 'customer' ? 0.98 : 1,
+                                opacity: formType === 'customer' ? 0.4 : 1,
+                                scale: 1,
                             }}
-                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                             className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
                             onClick={() => formType === 'customer' && setFormType('client')}
+                            whileHover={formType === 'customer' ? { x: 12, y: 12, opacity: 0.6 } : {}}
                         >
                             <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-corporate-blue/5 blur-3xl" />
                             <div className="relative z-10">
@@ -955,16 +956,17 @@ const BookingFormSection = () => {
                         <motion.div
                             initial={false}
                             animate={{
-                                x: formType === 'client' ? -25 : 0,
-                                y: formType === 'client' ? 25 : 0,
-                                rotate: formType === 'client' ? -2 : 0,
+                                x: formType === 'client' ? 24 : 0,
+                                y: formType === 'client' ? 24 : 0,
+                                rotate: 0,
                                 zIndex: formType === 'client' ? 10 : 20,
-                                opacity: formType === 'client' ? 0.6 : 1,
-                                scale: formType === 'client' ? 0.98 : 1,
+                                opacity: formType === 'client' ? 0.4 : 1,
+                                scale: 1,
                             }}
-                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                             className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
                             onClick={() => formType === 'client' && setFormType('customer')}
+                            whileHover={formType === 'client' ? { x: 12, y: 12, opacity: 0.6 } : {}}
                         >
                             <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
                             <div className="relative z-10">
@@ -1606,38 +1608,38 @@ function TeamPage() {
     );
 }
 
-function ToursPage() {
+function ToursPage({ setActivePage }) {
     const pricing = [
-        { type: "Hatchback", seater: "4 Seater Cab", price: "₹5,000", original: "₹6,000" },
-        { type: "Sedan", seater: "4 Seater Cab", price: "₹6,000", original: "₹7,000" },
-        { type: "Innova", seater: "6 Seater Cab", price: "₹7,500", original: "₹8,500" },
+        { type: "Hatchback", seater: "4 Seater Cab", price: "₹7,500", original: "₹9,000" },
+        { type: "Sedan", seater: "4 Seater Cab", price: "₹10,000", original: "₹12,000" },
+        { type: "Innova", seater: "6 Seater Cab", price: "₹12,500", original: "₹15,000" },
     ];
 
     const places = [
         {
             name: "Agra Fort",
             desc: "Agra Fort in Agra is a UNESCO World Heritage site was built by Mughal Empire Akbar. It is located nearly 2 km from Historic Taj Mahal. The fort built by splendid red stone so it is also known as Lal Qila. The fort contains many palaces built by both red and white marble. Some palaces were built with traditional Gujarati and Bengali designs is a major tourist destiny of India.",
-            img: "https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?q=80&w=2070&auto=format&fit=crop"
+            img: "/images/tours/agra-fort.jpg"
         },
         {
             name: "Taj Mahal",
             desc: "Taj Mahal is one of the Seven Wonders of the World built by Saha Jahan for his beloved wife Mamtaz Mahal. Taj displays its different moods throughout the day through its varied shades, pinkish in the morning, milky white in the evening, golden when the moon shines. The tomb represents the house of the queen paradise and it is based on the palace garden of the great nobles on the both sides of river Yamuna in Agra. The Taj made up with white marble is a great attraction of India and is considered as a symbol of love.",
-            img: "https://images.unsplash.com/photo-1564507592333-c60657ece523?q=80&w=2070&auto=format&fit=crop"
+            img: "/images/tours/taj-mahal.webp"
         },
         {
             name: "Sikandra",
             desc: "Sikandra the Mausoleum of Mughal Emperor Akbar, is located in the city of Agra. The Monument was started by the Emperor himself. A visit to Sikandra opens before the tourists a complete lifestyle and personality of Empire Akbar including the arts, literature, philosophy & science during his period. The Construction of the pyramidal tomb was completed by Akbar’s son Jahangir.",
-            img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop"
+            img: "/images/tours/sikandra-agra.jpg"
         },
         {
             name: "Mathura",
             desc: "Mathura or Brij- Bhoomi is popularly known as the birthplace of Lord Krishna. The place is known as a holy place by Hindus and is one of the most religious place of India. Mathura is situated in 145km from Delhi. The city is known for its many temples dedicated to Hindu God & Goddesses. Many religious places like Vrindavan, Govardhan, Kusum Sarovar, Barsana and Nandgaon are surrounded to the holy city Mathura. Dwarkadesh temple of Mathura with beautiful, ethereal pictures depicting the entire life of Krishna. Mathura is a must visit place for Hindu devotees.",
-            img: "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f9a?q=80&w=2070&auto=format&fit=crop"
+            img: "/images/tours/mathura.jpg"
         },
         {
             name: "Vrindavan",
             desc: "Vrindavan, just 15km from Mathura is a sacred place for Hindu Religion. Vrindavan is the place where Lord Krishna spent his childhood days. This notable place is famous for its lovable characteristics of Lord Krishna with his beloved Radha. Vrindavan attracts Hindu deities for its numerous temples like Guru Govinda temple, Madon Mohan Temple. Millions of devotees visit Vrindavan in a number of festivals relates to the life of Krishna On earth. The Vrindavan Ashram for the devotees is also a great attraction for the Hindu pilgrims.",
-            img: "https://images.unsplash.com/photo-1616038242814-a6eac7845d88?q=80&w=2070&auto=format&fit=crop"
+            img: "/images/tours/vrindavan.jpg"
         }
     ];
 
@@ -1660,7 +1662,7 @@ function ToursPage() {
                 <div className="text-center mb-20">
                     <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Special Tour Package</div>
                     <h1 className="text-5xl md:text-7xl font-display font-bold text-corporate-blue mb-6">
-                        Agra - Mathura - <span className="text-brand">Vrindavan</span>
+                        Agra - <span className="text-brand">Mathura</span> - Vrindavan
                     </h1>
                     <p className="text-slate-500 max-w-2xl mx-auto text-lg">
                         Daily 16 Hours Tour (Dep. from 6.00 AM) starting from Gurgaon
@@ -1671,9 +1673,15 @@ function ToursPage() {
                     <div className="lg:col-span-2">
                         <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                             <div className="bg-corporate-blue p-8 text-white">
-                                <h3 className="text-2xl font-bold flex items-center gap-3">
-                                    <Car className="text-brand" /> Fleet Pricing
-                                </h3>
+                                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                                    <h3 className="text-2xl font-bold flex items-center gap-3">
+                                        <Car className="text-brand" /> Fleet Pricing
+                                    </h3>
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold tracking-wide text-slate-100">
+                                        <Clock size={14} className="text-brand" />
+                                        16+ Hours | 06:00 AM - 11:30 PM
+                                    </div>
+                                </div>
                             </div>
                             <div className="p-0">
                                 <table className="w-full text-left">
@@ -1701,7 +1709,7 @@ function ToursPage() {
                         </div>
                     </div>
 
-                    <div className="space-y-6">
+                    <div>
                         <div className="bg-brand/5 rounded-[2rem] p-8 border border-brand/10">
                             <h3 className="text-xl font-bold text-corporate-blue mb-6 flex items-center gap-2">
                                 <Info className="text-brand" /> Please Note
@@ -1720,13 +1728,6 @@ function ToursPage() {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
-                        <div className="bg-corporate-blue rounded-[2rem] p-8 text-white">
-                            <div className="text-sm font-bold text-brand uppercase tracking-widest mb-2">Total Duration</div>
-                            <div className="text-3xl font-display font-bold mb-4">16+ Hours</div>
-                            <div className="flex items-center gap-2 text-slate-400 text-sm">
-                                <Clock size={16} /> 06:00 AM to 11:30 PM
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1789,7 +1790,11 @@ function ToursPage() {
                 </div>
 
                 <div className="mt-24 text-center">
-                    <button type="button" className="bg-brand text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-xl hover:bg-brand-dark transition-all electric-glow">
+                    <button
+                        type="button"
+                        onClick={() => setActivePage('contact')}
+                        className="bg-brand text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-xl hover:bg-brand-dark transition-all electric-glow"
+                    >
                         Book This Tour Package
                     </button>
                 </div>
@@ -1947,8 +1952,8 @@ function ContactPage() {
                                 <MapPin size={24} />
                             </div>
                             <div>
-                                <h4 className="text-sm font-bold text-corporate-blue">Location</h4>
-                                <p className="text-xs text-slate-500">
+                                <h4 className="text-sm font-bold text-corporate-blue md:text-base">Location</h4>
+                                <p className="text-xs text-slate-500 md:text-sm">
                                     Unit 705, Business Zone, Tower-C, Sector 50, Gurugram
                                 </p>
                             </div>
@@ -1958,8 +1963,8 @@ function ContactPage() {
                                 <Phone size={24} />
                             </div>
                             <div>
-                                <h4 className="text-sm font-bold text-corporate-blue">Phone Number</h4>
-                                <p className="text-xs text-slate-500">+91 9899925362</p>
+                                <h4 className="text-sm font-bold text-corporate-blue md:text-base">Phone Number</h4>
+                                <p className="text-xs text-slate-500 md:text-sm">+91 9899925362</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-4 p-4">
@@ -1967,46 +1972,40 @@ function ContactPage() {
                                 <Mail size={24} />
                             </div>
                             <div>
-                                <h4 className="text-sm font-bold text-corporate-blue">Email</h4>
-                                <p className="text-xs text-slate-500">info@royalcorptravel.com</p>
+                                <h4 className="text-sm font-bold text-corporate-blue md:text-base">Email</h4>
+                                <p className="text-xs text-slate-500 md:text-sm">info@royalcorptravel.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="relative mx-auto max-w-4xl">
-                    <div className="relative z-30 mx-auto mb-12 flex w-fit justify-center rounded-2xl bg-slate-200 p-1">
+                <div className="max-w-4xl mx-auto relative">
+                    <div className="flex justify-center mb-12 p-1 bg-slate-200 rounded-2xl w-fit mx-auto relative z-30">
                         <button
-                            type="button"
                             onClick={() => setFormType('customer')}
-                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
-                                formType === 'customer'
-                                    ? 'text-brand'
-                                    : 'text-slate-500 hover:text-corporate-blue'
+                            className={`px-8 py-3 rounded-xl font-bold text-sm transition-all relative z-10 ${
+                                formType === 'customer' ? 'text-brand' : 'text-slate-500 hover:text-corporate-blue'
                             }`}
                         >
                             {formType === 'customer' && (
                                 <motion.div
                                     layoutId="activeTab"
-                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    className="absolute inset-0 bg-white rounded-xl shadow-sm -z-10"
                                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                                 />
                             )}
                             For Customers
                         </button>
                         <button
-                            type="button"
                             onClick={() => setFormType('client')}
-                            className={`relative z-10 rounded-xl px-8 py-3 text-sm font-bold transition-all ${
-                                formType === 'client'
-                                    ? 'text-brand'
-                                    : 'text-slate-500 hover:text-corporate-blue'
+                            className={`px-8 py-3 rounded-xl font-bold text-sm transition-all relative z-10 ${
+                                formType === 'client' ? 'text-brand' : 'text-slate-500 hover:text-corporate-blue'
                             }`}
                         >
                             {formType === 'client' && (
                                 <motion.div
                                     layoutId="activeTab"
-                                    className="absolute inset-0 -z-10 rounded-xl bg-white shadow-sm"
+                                    className="absolute inset-0 bg-white rounded-xl shadow-sm -z-10"
                                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                                 />
                             )}
@@ -2018,18 +2017,23 @@ function ContactPage() {
                         <motion.div
                             initial={false}
                             animate={{
-                                x: formType === 'customer' ? 25 : 0,
-                                y: formType === 'customer' ? 25 : 0,
-                                rotate: formType === 'customer' ? 2 : 0,
+                                x: formType === 'customer' ? 24 : 0,
+                                y: formType === 'customer' ? 24 : 0,
+                                rotate: 0,
                                 zIndex: formType === 'customer' ? 10 : 20,
-                                opacity: formType === 'customer' ? 0.6 : 1,
-                                scale: formType === 'customer' ? 0.98 : 1,
+                                opacity: formType === 'customer' ? 0.4 : 1,
+                                scale: 1,
                             }}
-                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            transition={{
+                                type: 'spring',
+                                stiffness: 300,
+                                damping: 30,
+                            }}
+                            className="absolute inset-0 bg-white rounded-[3rem] shadow-2xl border border-slate-100 p-10 md:p-12 overflow-hidden cursor-pointer md:cursor-default"
                             onClick={() => formType === 'customer' && setFormType('client')}
+                            whileHover={formType === 'customer' ? { x: 12, y: 12, opacity: 0.6 } : {}}
                         >
-                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-corporate-blue/5 blur-3xl" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-corporate-blue/5 rounded-full blur-3xl -mr-32 -mt-32" />
                             <div className="relative z-10">
                                 <ClientForm />
                             </div>
@@ -2038,18 +2042,23 @@ function ContactPage() {
                         <motion.div
                             initial={false}
                             animate={{
-                                x: formType === 'client' ? -25 : 0,
-                                y: formType === 'client' ? 25 : 0,
-                                rotate: formType === 'client' ? -2 : 0,
+                                x: formType === 'client' ? 24 : 0,
+                                y: formType === 'client' ? 24 : 0,
+                                rotate: 0,
                                 zIndex: formType === 'client' ? 10 : 20,
-                                opacity: formType === 'client' ? 0.6 : 1,
-                                scale: formType === 'client' ? 0.98 : 1,
+                                opacity: formType === 'client' ? 0.4 : 1,
+                                scale: 1,
                             }}
-                            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                            className="absolute inset-0 cursor-pointer overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 shadow-2xl md:cursor-default md:p-12"
+                            transition={{
+                                type: 'spring',
+                                stiffness: 300,
+                                damping: 30,
+                            }}
+                            className="absolute inset-0 bg-white rounded-[3rem] shadow-2xl border border-slate-100 p-10 md:p-12 overflow-hidden cursor-pointer md:cursor-default"
                             onClick={() => formType === 'client' && setFormType('customer')}
+                            whileHover={formType === 'client' ? { x: 12, y: 12, opacity: 0.6 } : {}}
                         >
-                            <div className="absolute -mr-32 -mt-32 h-64 w-64 rounded-full bg-brand/5 blur-3xl" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -mr-32 -mt-32" />
                             <div className="relative z-10">
                                 <CustomerForm />
                             </div>
@@ -2096,7 +2105,7 @@ export default function Website6App() {
                         {activePage === 'profile' && <ProfilePage />}
                         {activePage === 'services' && <ServicesSection />}
                         {activePage === 'team' && <TeamPage />}
-                        {activePage === 'tours' && <ToursPage />}
+                        {activePage === 'tours' && <ToursPage setActivePage={setActivePage} />}
                         {activePage === 'contact' && <ContactPage />}
                     </motion.div>
                 </AnimatePresence>
