@@ -1539,7 +1539,7 @@ function TeamPage() {
             name: "Mr. Vikas",
             role: "Director of Global Brand & Digital Strategy",
             credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
-            desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
+            desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics & Decision Sciences from University of Leeds, UK, and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
             img: "/images/team/vi.jpg",
         },
         {
@@ -1604,8 +1604,8 @@ function TeamPage() {
                                         ))}
                                     </div>
                                 </div>
-                                <p className="text-slate-600 text-base leading-relaxed italic">
-                                    "{leader.desc}"
+                                <p className="text-slate-600 text-base leading-relaxed text-justify italic">
+                                    {leader.desc}
                                 </p>
                             </div>
                         </motion.div>
@@ -1644,7 +1644,7 @@ function TeamPage() {
                                         </span>
                                     ))}
                                 </div>
-                                <p className="text-sm leading-relaxed text-slate-600">
+                                <p className="text-sm leading-relaxed text-justify text-slate-600">
                                     {member.desc}
                                 </p>
                             </div>
