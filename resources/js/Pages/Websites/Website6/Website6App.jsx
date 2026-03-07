@@ -387,12 +387,12 @@ const WhyPreferUs = () => {
         {
             title: 'Statutory Compliance',
             icon: <ShieldCheck size={32} />,
-            desc: 'We ensure 100% Legal compliance relevant to our business which includes compliances related to Our Company, Fleet vehicles, fleet drivers and Employees. This gives us and our Customers “Freedom to Operate” from governmental, Social & other liabilities.',
+            desc: 'We ensure 100% legal compliance relevant to our business, including compliances related to our company, fleet vehicles, fleet drivers, and employees. This gives us and our customers “freedom to operate” from governmental, social, and other liabilities.',
         },
         {
             title: 'Satisfied Clients',
             icon: <Heart size={32} />,
-            desc: 'In our journey of 11 years we have created a long list of satisfied Customers & end users who are our Ambassadors and they speak about our services. All our clients have been associated with us for a commendable period which speaks of our ability, stability & capability.',
+            desc: 'In our journey of 11 years we have created a long list of satisfied customers & end users who are our ambassadors and they speak about our services. All our clients have been associated with us for a commendable period which speaks of our ability, stability & capability.',
         },
         {
             title: 'Round the Clock Service',
@@ -402,17 +402,17 @@ const WhyPreferUs = () => {
         {
             title: 'Proactive Management',
             icon: <Settings size={32} />,
-            desc: 'We understand the importance of time and comfort of our customers, hence we proactively do physical inspections of our vehicles on regular basis & check the Fitness, Cleanliness & Hygiene of the vehicles. We also check and ensure that the vehicle is serviced timely to avoid unexpected breakdown of vehicles.',
+            desc: 'We understand the importance of time and comfort of our customers, hence we proactively do physical inspections of our vehicles on regular basis & check the fitness, cleanliness & hygiene of the vehicles. We also check and ensure that the vehicle is serviced timely to avoid unexpected breakdown of vehicles.',
         },
         {
             title: 'Matching service with savings',
             icon: <TrendingDown size={32} />,
-            desc: 'We deliver results in the form of measurable service and savings benefits for our customers, ensuring the highest standards at the best price. We guarantee a combination of innovative and established techniques to deliver satisfaction for corporate booker and traveler alike. Its clear people are choosing DTC Bharat based on our proven competence.',
+            desc: 'We deliver results in the form of measurable service and savings benefits for our customers, ensuring the highest standards at the best price. We guarantee a combination of innovative and established techniques to deliver satisfaction for corporate booker and traveler alike. Its clear that people are choosing DTC Bharat based on our proven competence.',
         },
         {
             title: 'Safe & Secure',
             icon: <Lock size={32} />,
-            desc: 'We always keep our client`s safety & security at top priority, we carry out a detailed background check of all the Drivers/staff members of DTC Bharat by Bio-metric based Aadhar & Police verification. It is further enhanced by using chain system of employee hiring and arming all our cabs with GPS based Tracking device and Speed Governor.',
+            desc: 'We always keep our client`s safety & security at top priority, we carry out a detailed background check of all the Drivers/staff members of DTC Bharat by Bio-metric based Aadhar & Police verification. It is further enhanced by using chain system of employee hiring and arming all our cabs with GPS based tracking device and speed governor.',
         },
         {
             title: 'Customized Trips',
@@ -1391,7 +1391,7 @@ function ProfilePage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-4 items-center mb-32">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -1399,23 +1399,30 @@ function ProfilePage() {
                     >
                         <h2 className="text-3xl font-display font-bold text-corporate-blue mb-6">Profile Summary</h2>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            It was a startup in the year of 2006 by a young & dynamic Indian, <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, who wanted to professionally manage Corporate Travel. He established DTC Bharat and later on 21st April of 2011, it was incorporated as <span className="font-bold text-brand">Delphinium Travelcorp Pvt. Ltd. (DTC Bharat)</span>.
+                            Founded in 2006 as Royal Travels, the organisation began with a clear vision to deliver dependable, disciplined, and professional transportation solutions to the evolving corporate sector. Under the dynamic leadership and foresight of its founder, <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, the company established a strong foundation built on operational integrity, service reliability, and an unwavering commitment to client satisfaction. From its earliest days, the organisation distinguished itself through professionalism and a results-driven approach, fostering long-term relationships with its corporate partners.
                         </p>
                         <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                            As a registered corporate cab company, DTC Bharat works in different arenas of tours & travels to provide all solutions under one roof to its corporate as well as individual customers.
-                        </p>
-                        <p className="text-slate-600 text-lg leading-relaxed">
-                            DTC Bharat is mainly Gurgaon based cab services providing Company and providing its cabs services to leading MNCs in Gurgaon.
+                            With steady growth and expanding corporate trust, the enterprise was formally incorporated in 2011 as Royal Corptravel Private Limited, marking a significant milestone in its journey. This transition strengthened its corporate framework, enabling the company to scale its operations, streamline service standards, and effectively cater to the growing and sophisticated mobility requirements of corporate clients.
                         </p>
                     </motion.div>
-                    <div className="relative">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" className="rounded-[3rem] shadow-2xl" alt="Corporate Office" referrerPolicy="no-referrer" />
-                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand rounded-[2rem] flex items-center justify-center text-white p-8 shadow-2xl rotate-3">
-                            <div className="text-center">
-                                <Clock size={40} className="mx-auto mb-2" />
-                                <div className="text-sm font-bold uppercase tracking-tighter">Established 2006</div>
+                    <div>
+                        <div className="relative">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" className="rounded-[3rem] shadow-2xl" alt="Corporate Office" referrerPolicy="no-referrer" />
+                            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand rounded-[2rem] flex items-center justify-center text-white p-8 shadow-2xl rotate-3">
+                                <div className="text-center">
+                                    <Clock size={40} className="mx-auto mb-2" />
+                                    <div className="text-sm font-bold uppercase tracking-tighter">Established 2006</div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                        <p className="text-slate-600 text-lg leading-relaxed">
+                            Driven by innovation and a forward-looking outlook, the organisation entered a new era in 2024 with its transformation into DTC Bharat. This evolution represents not merely a change of identity, but a strategic advancement towards adopting modern technology, enhanced compliance systems, and elevated standards of operational excellence in the corporate transportation sector.
+                        </p>
+                        <p className="text-slate-600 text-lg leading-relaxed">
+                            Today, DTC Bharat, under the visionary guidance of its founder <span className="font-bold text-corporate-blue">Dr. Sushil Ranvir Singh</span>, stands as a progressive and trusted name in corporate mobility. With nearly two decades of industry experience, the organisation continues to set higher benchmarks in delivering secure, efficient, and seamless transportation solutions, tailored to the dynamic and ever-evolving needs of corporate India.
+                        </p>
                     </div>
                 </div>
 
