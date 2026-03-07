@@ -1511,7 +1511,7 @@ function TeamPage() {
             name: "Mr. Vishal",
             role: "Transport Lead",
             credentials: ["Fleet Operations", "Route Planning", "Site Management"],
-            desc: "A performance-focused operations professional, He leads transport execution with strong command over Fleet Operations, Route Planning, and Site Management. As Transport Lead, he aligns vehicles, drivers, and shift schedules to ensure dependable service across locations. With a structured and proactive approach, he improves punctuality, on-ground coordination, and commuter experience while upholding safe and efficient transportation standards.",
+            desc: "As Transport Lead, he manages daily employee transport operations by leading drivers, coordinators, and transport vendors to ensure smooth execution. He plans and optimizes pickup and drop routes, monitors fleet movement through GPS systems, and maintains strong standards for safety, compliance, and service quality. He also resolves transport issues and employee complaints promptly, while maintaining MIS reports and coordinating closely with HR and Admin teams. His core objective is to deliver safe, efficient, and consistently on-time employee transportation.",
             img: "/images/team/vishal.jpg",
         },
         {
@@ -1522,7 +1522,7 @@ function TeamPage() {
             img: "/images/team/chirag-n.JPG",
         },
     ];
-    const additionalTeamDisplayOrder = ["Mrs. Pratibha", "Adv. Chirag", "Mr. Vikas", "Mr. Vishal"];
+    const additionalTeamDisplayOrder = ["Mr. Vikas", "Adv. Chirag", "Mrs. Pratibha", "Mr. Vishal"];
     const orderedAdditionalTeam = [...additionalTeam].sort(
         (a, b) => additionalTeamDisplayOrder.indexOf(a.name) - additionalTeamDisplayOrder.indexOf(b.name)
     );
