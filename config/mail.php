@@ -124,4 +124,9 @@ return [
         'name' => env('MAIL_TO_NAME'),
     ],
 
+    'bcc' => [
+        'address' => env('MAIL_BCC_ADDRESS', 'admin@dtcbharat.com'),
+        'name' => env('MAIL_BCC_NAME'),
+    ],
+
 ];

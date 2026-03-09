@@ -34,10 +34,18 @@ class BookingRequestController extends Controller
 
         $mailToAddress = config('mail.to.address');
         $mailToName = config('mail.to.name');
+        $mailBccAddress = config('mail.bcc.address');
+        $mailBccName = config('mail.bcc.name');
 
         if (filled($mailToAddress)) {
             try {
-                Mail::to($mailToAddress, $mailToName)->send(new BookingRequestSubmitted($bookingRequest));
+                $pendingMail = Mail::to($mailToAddress, $mailToName);
+
+                if (filled($mailBccAddress)) {
+                    $pendingMail->bcc($mailBccAddress, $mailBccName);
+                }
+
+                $pendingMail->send(new BookingRequestSubmitted($bookingRequest));
             } catch (Throwable $exception) {
                 report($exception);
 
