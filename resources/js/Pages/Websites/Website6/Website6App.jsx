@@ -711,7 +711,7 @@ const DetailedFleetInfo = () => {
         {
             category: 'Hatchback',
             models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro'],
-            img: '/images/mg-windsor.png',
+            img: '/images/new-wagonR.jpg',
         },
         {
             category: 'Sedan',
@@ -2703,3 +2703,4 @@ export default function Website6App({ activePage = 'home' }) {
         </div>
     );
 }
+
