@@ -372,7 +372,7 @@ function Footer() {
                         <li className="mx-auto flex max-w-sm items-start justify-center gap-3 text-left md:mx-0 md:max-w-none md:justify-start">
                             <MapPin size={18} className="shrink-0 text-w6-brand" />
                             <span>
-                                Unit 705, Business Zone, Tower-C
+                                Unit 705, Tower-C, Business Zone
                                 <br />
                                 Nirvana Country, Sector 50
                                 <br />
@@ -607,7 +607,7 @@ const WhyPreferUs = () => {
                         className="mx-4 inline-block rounded-[3rem] border border-white/20 bg-white/10 p-8 text-white backdrop-blur-xl md:mx-0 md:p-12"
                     >
                         <div className="font-display mb-3 text-4xl font-bold text-brand sm:text-5xl md:mb-4 md:text-8xl">
-                            +1,80,000
+                            1,80,000+
                         </div>
                         <div className="text-base font-semibold uppercase tracking-[0.2em] sm:text-lg md:text-2xl md:tracking-[0.3em]">
                             Users who love us
@@ -710,7 +710,7 @@ const DetailedFleetInfo = () => {
     const fleetData = [
         {
             category: 'Hatchback',
-            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro', 'MG Windsor EV'],
+            models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro'],
             img: '/images/mg-windsor.png',
         },
         {
@@ -719,9 +719,14 @@ const DetailedFleetInfo = () => {
             img: '/images/tigor-ev.avif',
         },
         {
-            category: 'SUV/MUV',
-            models: ['Suzuki Ertiga', 'Chevrolet Enjoy', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
+            category: 'SUV/MUV (CUV)',
+            models: ['Suzuki Ertiga', 'MG Windsor', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
             img: '/images/innova.webp',
+        },
+        {
+            category: 'Bus',
+            models: ['Force Traveller', 'Force Urbania'],
+            img: '/images/force-bus.jpg',
         },
     ];
 
@@ -736,7 +741,7 @@ const DetailedFleetInfo = () => {
                         Our Extensive Fleet
                     </h2>
                 </div>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {fleetData.map((fleet, i) => (
                         <div
                             key={`${fleet.category}-${i}`}
@@ -782,8 +787,6 @@ const AccessoriesSection = () => {
         { name: 'Wet Wipes', image: '/images/accessories/wet-wipes.png' },
         { name: 'Umbrellas', image: '/images/accessories/umbrella.avif' },
         { name: 'Flashlight', image: '/images/accessories/flashlight.png' },
-        { name: 'Reading lights', image: '/images/accessories/reading-light.png' },
-        { name: 'Phone', image: '/images/accessories/phone.png' },
     ];
 
     return (
@@ -797,7 +800,7 @@ const AccessoriesSection = () => {
                         Accessories provided in our vehicles
                     </h2>
                 </div>
-                <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                     {accessories.map((item, i) => (
                         <div
                             key={`${item.name}-${i}`}
@@ -1093,7 +1096,8 @@ const BookingFormSection = () => {
                             <option value="">Select Cab Type</option>
                             <option value="Hatchback">Hatchback</option>
                             <option value="Sedan">Sedan</option>
-                            <option value="SUV/MUV">SUV/MUV</option>
+                            <option value="SUV/MUV">SUV/MUV (CUV)</option>
+                            <option value="Bus">Bus</option>
                         </select>
                     </div>
                 </div>
@@ -1221,7 +1225,8 @@ const BookingFormSection = () => {
                             <option value="">Select</option>
                             <option value="Hatchback">Hatchback</option>
                             <option value="Sedan">Sedan</option>
-                            <option value="SUV/MUV">SUV/MUV</option>
+                            <option value="SUV/MUV">SUV/MUV (CUV)</option>
+                            <option value="Bus">Bus</option>
                         </select>
                     </div>
                 </div>
@@ -1424,7 +1429,7 @@ function FleetSection() {
     const fleet = [
         {
             category: 'Hatchback',
-            models: 'Wagon-R, Ritz, Santro, MG Windsor EV',
+            models: 'Wagon-R, Ritz, Santro',
             icon: <Car size={32} />,
         },
         {
@@ -1433,9 +1438,14 @@ function FleetSection() {
             icon: <Car size={32} />,
         },
         {
-            category: 'SUV/MUV',
-            models: 'Ertiga, Enjoy, Innova Crysta, Innova Hycross',
+            category: 'SUV/MUV (CUV)',
+            models: 'Ertiga, MG Windsor, Innova Crysta, Innova Hycross',
             icon: <Car size={32} />,
+        },
+        {
+            category: 'Bus',
+            models: 'Force Traveller, Force Urbania',
+            icon: <Users size={32} />,
         },
     ];
 
@@ -1450,12 +1460,12 @@ function FleetSection() {
                         Diverse Fleet for Every Need
                     </h2>
                     <p className="text-base text-slate-500 md:text-lg">
-                        From hatchbacks to executive SUVs, we maintain a high-quality fleet
+                        From hatchbacks and executive SUVs to staff buses, we maintain a high-quality fleet
                         equipped with modern safety and comfort features.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {fleet.map((item) => (
                         <motion.div
                             key={item.category}
@@ -1801,16 +1811,34 @@ function ProfilePage() {
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                             {[
-                                { cat: 'Hatchback', models: 'WagonR, Ritz, Indica, Figo, MG Windsor EV' },
-                                { cat: 'Sedan', models: 'Indigo, Dzire, Aura, Tata Tigor EV' },
-                                { cat: 'SUV/MUV', models: 'Ertiga, Enjoy, Tavera, Innova Crysta, Innova Hycross' },
-                                { cat: 'Traveller', models: 'Force Traveller' },
-                                { cat: 'Luxury', models: 'Premium Executive Vehicles' },
-                                { cat: 'Buses', models: 'Mini & Luxury Coach Buses' }
+                                {
+                                    cat: 'Hatchback',
+                                    models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro'],
+                                },
+                                {
+                                    cat: 'Sedan',
+                                    models: ['Hyundai Aura', 'Suzuki Swift Dzire', 'Tata Tigor EV'],
+                                },
+                                {
+                                    cat: 'SUV/MUV (CUV)',
+                                    models: ['Suzuki Ertiga', 'MG Windsor', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
+                                },
+                                { cat: 'Bus', models: ['Force Traveller', 'Force Urbania'] }
                             ].map((item, i) => (
-                                <div key={i} className="space-y-1">
-                                    <div className="font-bold text-corporate-blue">{item.cat}</div>
-                                    <div className="text-xs text-slate-500 italic">{item.models}</div>
+                                <div key={i} className="space-y-2">
+                                    <div className="inline-flex items-center border-l-4 border-brand pl-3 text-sm font-bold uppercase tracking-wider text-corporate-blue md:text-[15px]">
+                                        {item.cat}
+                                    </div>
+                                    <div className="mt-2 flex flex-wrap gap-2">
+                                        {item.models.map((model) => (
+                                            <span
+                                                key={`${item.cat}-${model}`}
+                                                className="rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-[11px] font-semibold text-corporate-blue"
+                                            >
+                                                {model}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -1906,9 +1934,9 @@ function TeamPage() {
                             className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 group max-w-3xl w-full flex flex-col md:flex-row"
                         >
                             <div className="md:w-2/5 h-[22rem] md:h-auto overflow-hidden">
-                                <img src={leader.img} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                                <img src={leader.img} alt={leader.name} className="w-full h-full object-cover object-top" referrerPolicy="no-referrer" />
                             </div>
-                            <div className="md:w-3/5 p-10 flex flex-col justify-center">
+                            <div className="md:w-3/5 p-10 flex flex-col justify-start">
                                 <div className="mb-6">
                                     <div className="mb-2 inline-block">
                                         <h3 className="text-2xl md:text-3xl font-display font-bold text-corporate-blue">
@@ -2006,7 +2034,7 @@ function ToursPage({ setActivePage }) {
     const pricing = [
         { type: "Hatchback", seater: "4 Seater Cab", price: "₹7,500", original: "₹9,000" },
         { type: "Sedan", seater: "4 Seater Cab", price: "₹10,000", original: "₹12,000" },
-        { type: "SUV/MUV", seater: "6 Seater Cab", price: "₹12,500", original: "₹15,000" },
+        { type: "SUV/MUV (CUV)", seater: "6 Seater Cab", price: "₹12,500", original: "₹15,000" },
     ];
 
     const places = [
@@ -2344,7 +2372,8 @@ function ContactPage() {
                             <option value="">Select Cab Type</option>
                             <option value="Hatchback">Hatchback</option>
                             <option value="Sedan">Sedan</option>
-                            <option value="SUV/MUV">SUV/MUV</option>
+                            <option value="SUV/MUV">SUV/MUV (CUV)</option>
+                            <option value="Bus">Bus</option>
                         </select>
                     </div>
                 </div>
@@ -2416,7 +2445,8 @@ function ContactPage() {
                             <option value="">Select</option>
                             <option value="Hatchback">Hatchback</option>
                             <option value="Sedan">Sedan</option>
-                            <option value="SUV/MUV">SUV/MUV</option>
+                            <option value="SUV/MUV">SUV/MUV (CUV)</option>
+                            <option value="Bus">Bus</option>
                         </select>
                     </div>
                 </div>
@@ -2452,7 +2482,7 @@ function ContactPage() {
                             <div>
                                 <h4 className="text-sm font-bold text-corporate-blue md:text-base">Location</h4>
                                 <p className="text-xs text-slate-500 md:text-sm">
-                                    Unit 705, Business Zone, Tower-C, Sector 50, Gurugram
+                                    Unit 705, Tower-C, Business Zone, Sector 50, Gurugram
                                 </p>
                             </div>
                         </div>
