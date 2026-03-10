@@ -479,7 +479,7 @@ function Hero({ setActivePage }) {
                 >
                     <div className="relative z-10 mx-auto w-full max-w-[640px] overflow-hidden rounded-3xl bg-transparent">
                         <img
-                            src="/images/innova-crystaaa.webp"
+                            src="/images/hero/innova-crysta-hero.webp"
                             alt="Toyota Innova Crysta"
                             className="mx-auto h-auto w-full object-contain [filter:drop-shadow(0_20px_35px_rgba(0,0,0,0.45))]"
                             loading="eager"
@@ -624,9 +624,9 @@ const WhyPreferUs = () => {
 
 const TrainingSection = () => {
     const trainingImages = [
-        '/images/training/IMG_8316.jpeg',
-        '/images/training.jpg',
-        '/images/training/IMG_8317.jpeg',
+        '/images/training/IMG_8316.jpg',
+        '/images/training/training.webp',
+        '/images/training/IMG_8317.jpg',
     ];
     const [activeTrainingSlide, setActiveTrainingSlide] = useState(0);
 
@@ -711,22 +711,22 @@ const DetailedFleetInfo = () => {
         {
             category: 'Hatchback',
             models: ['Suzuki Wagon-R', 'Suzuki Ritz', 'Hyundai Santro'],
-            img: '/images/new-wagonR.jpg',
+            img: '/images/fleet/new-wagonR.jpg',
         },
         {
             category: 'Sedan',
             models: ['Hyundai Aura', 'Suzuki Swift Dzire', 'Tata Tigor EV'],
-            img: '/images/tigor-ev.avif',
+            img: '/images/fleet/tigor-ev.avif',
         },
         {
             category: 'SUV/MUV (CUV)',
             models: ['Suzuki Ertiga', 'MG Windsor', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
-            img: '/images/innova.webp',
+            img: '/images/fleet/innova.webp',
         },
         {
             category: 'Bus',
             models: ['Force Traveller', 'Force Urbania'],
-            img: '/images/force-bus.jpg',
+            img: '/images/fleet/force-bus.jpg',
         },
     ];
 
@@ -781,10 +781,10 @@ const DetailedFleetInfo = () => {
 
 const AccessoriesSection = () => {
     const accessories = [
-        { name: 'Newspaper', image: '/images/accessories/newspaper3.png' },
+        { name: 'Newspaper', image: '/images/accessories/newspaper3.webp' },
         { name: 'Road Maps', image: '/images/accessories/map.avif' },
-        { name: 'First Aid Kits', image: '/images/accessories/firstaid-kit.jpg' },
-        { name: 'Wet Wipes', image: '/images/accessories/wet-wipes.png' },
+        { name: 'First Aid Kits', image: '/images/accessories/firstaid-kit.webp' },
+        { name: 'Wet Wipes', image: '/images/accessories/wet-wipes.webp' },
         { name: 'Umbrellas', image: '/images/accessories/umbrella.avif' },
         { name: 'Flashlight', image: '/images/accessories/flashlight.png' },
     ];
