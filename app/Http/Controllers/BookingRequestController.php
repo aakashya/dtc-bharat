@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\BookingRequestSubmitted;
 use App\Models\BookingRequest;
+use Illuminate\Support\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -32,20 +33,44 @@ class BookingRequestController extends Controller
 
         $bookingRequest = BookingRequest::create($validated);
 
-        $mailToAddress = config('mail.to.address');
-        $mailToName = config('mail.to.name');
-        $mailBccAddress = config('mail.bcc.address');
-        $mailBccName = config('mail.bcc.name');
+        $mailToAddresses = $this->parseMailAddresses(config('mail.booking.to.address'));
+        $mailToName = config('mail.booking.to.name');
+        $mailBccAddresses = $this->parseMailAddresses(config('mail.booking.bcc.address'));
+        $mailBccName = config('mail.booking.bcc.name');
 
-        if (filled($mailToAddress)) {
+        if ($mailToAddresses->isNotEmpty() || $mailBccAddresses->isNotEmpty()) {
             try {
-                $pendingMail = Mail::to($mailToAddress, $mailToName);
+                $dispatched = collect();
 
-                if (filled($mailBccAddress)) {
-                    $pendingMail->bcc($mailBccAddress, $mailBccName);
+                if ($mailToAddresses->isNotEmpty()) {
+                    $primaryTo = $mailToAddresses->shift();
+                    $pendingMail = Mail::to($primaryTo, $mailToName);
+
+                    foreach ($mailToAddresses as $additionalTo) {
+                        $pendingMail->to($additionalTo);
+                    }
+
+                    $pendingMail->send(
+                        new BookingRequestSubmitted($bookingRequest)
+                    );
+
+                    $dispatched->push(strtolower((string) $primaryTo));
+                    foreach ($mailToAddresses as $additionalTo) {
+                        $dispatched->push(strtolower((string) $additionalTo));
+                    }
                 }
 
-                $pendingMail->send(new BookingRequestSubmitted($bookingRequest));
+                // Send separate hidden copies for BCC recipients to avoid provider-side BCC suppression.
+                foreach ($mailBccAddresses as $bccAddress) {
+                    $normalizedBcc = strtolower((string) $bccAddress);
+                    if ($dispatched->contains($normalizedBcc)) {
+                        continue;
+                    }
+
+                    Mail::to($bccAddress, $mailBccName)->send(
+                        new BookingRequestSubmitted($bookingRequest)
+                    );
+                }
             } catch (Throwable $exception) {
                 report($exception);
 
@@ -56,5 +81,26 @@ class BookingRequestController extends Controller
         }
 
         return back(303)->with('success', 'Booking request submitted successfully.');
+    }
+
+    /**
+     * @param  mixed  $value
+     */
+    private function parseMailAddresses($value): Collection
+    {
+        if (is_array($value)) {
+            return collect($value)
+                ->flatten()
+                ->map(static fn ($address) => trim((string) $address))
+                ->filter()
+                ->unique()
+                ->values();
+        }
+
+        return collect(preg_split('/[,;]+/', (string) $value))
+            ->map(static fn ($address) => trim((string) $address))
+            ->filter()
+            ->unique()
+            ->values();
     }
 }

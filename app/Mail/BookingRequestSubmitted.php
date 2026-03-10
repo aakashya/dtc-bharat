@@ -46,4 +46,3 @@ class BookingRequestSubmitted extends Mailable
         );
     }
 }
-

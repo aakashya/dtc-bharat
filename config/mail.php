@@ -119,14 +119,27 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    // Global "to" override (keep empty in production unless intentionally forcing all emails).
     'to' => [
-        'address' => env('MAIL_TO_ADDRESS'),
-        'name' => env('MAIL_TO_NAME'),
+        'address' => env('MAIL_GLOBAL_TO_ADDRESS'),
+        'name' => env('MAIL_GLOBAL_TO_NAME'),
     ],
 
     'bcc' => [
         'address' => env('MAIL_BCC_ADDRESS', 'admin@dtcbharat.com'),
         'name' => env('MAIL_BCC_NAME'),
+    ],
+
+    // Booking form notification recipients.
+    'booking' => [
+        'to' => [
+            'address' => env('BOOKING_MAIL_TO_ADDRESS', env('MAIL_TO_ADDRESS')),
+            'name' => env('BOOKING_MAIL_TO_NAME', env('MAIL_TO_NAME')),
+        ],
+        'bcc' => [
+            'address' => env('BOOKING_MAIL_BCC_ADDRESS', env('MAIL_BCC_ADDRESS', 'admin@dtcbharat.com')),
+            'name' => env('BOOKING_MAIL_BCC_NAME', env('MAIL_BCC_NAME')),
+        ],
     ],
 
 ];

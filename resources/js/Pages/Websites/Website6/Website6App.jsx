@@ -124,6 +124,7 @@ function Navbar({ activePage }) {
                         src="/images/logo/full-logo-no-bg-icon.PNG"
                         alt="Delphinium Travelcorp"
                         className="h-14 w-auto rounded-xl object-cover md:h-16"
+                        loading="eager"
                     />
                     <div>
                         <h1
@@ -203,6 +204,7 @@ function Navbar({ activePage }) {
                                         src="/images/logo/full-logo-no-bg-icon.PNG"
                                         alt="Delphinium Travelcorp"
                                         className="h-12 w-auto rounded-lg object-cover"
+                                        loading="eager"
                                     />
                                     <div className="font-display text-2xl font-bold text-white">
                                         DTC <span className="text-w6-brand">BHARAT</span>
@@ -284,6 +286,7 @@ function Footer() {
                             src="/images/logo/full-logo-no-bg-icon.PNG"
                             alt="Delphinium Travelcorp"
                             className="h-32 w-auto rounded-xl object-cover"
+                            loading="eager"
                         />
                         <div>
                             <h2 className="font-display text-4xl font-bold leading-none">
@@ -818,6 +821,8 @@ const AccessoriesSection = () => {
                                         src={item.image}
                                         alt={item.name}
                                         className="h-full w-full object-contain"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 ) : (
                                     item.icon
