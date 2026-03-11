@@ -3,9 +3,7 @@ import { Head, Link } from '@inertiajs/react';
 export default function NotFound() {
     return (
         <>
-            <Head title="404 | Page Not Found">
-                <meta name="robots" content="noindex, nofollow" head-key="robots" />
-            </Head>
+            <Head title="404 | Page Not Found" />
 
             <main className="flex min-h-screen items-center justify-center bg-slate-950 px-6 py-20 text-white">
                 <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-2xl backdrop-blur md:p-12">
@@ -34,4 +32,3 @@ export default function NotFound() {
         </>
     );
 }
-

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @php
+            $siteUrl = 'https://dtcbharat.com';
             $seoMap = [
                 'home' => [
                     'title' => 'Home',
@@ -36,31 +37,53 @@
                     'path' => '/contact',
                 ],
             ];
+            $component = data_get($page ?? [], 'component');
+            $isNotFound = $component === 'Errors/NotFound';
             $activePage = data_get($page ?? [], 'props.activePage', 'home');
             $pageTitle = data_get($page ?? [], 'props.pageTitle');
             $resolvedSeo = $seoMap[$activePage] ?? $seoMap['home'];
-            $resolvedTitle = $pageTitle ?: $resolvedSeo['title'];
-            $fullTitle = "DTC Bharat | {$resolvedTitle}";
-            $canonicalUrl = url($resolvedSeo['path']);
+            $resolvedTitle = $isNotFound ? '404 | Page Not Found' : ($pageTitle ?: $resolvedSeo['title']);
+            $fullTitle = $isNotFound ? $resolvedTitle : "DTC Bharat | {$resolvedTitle}";
+            $currentPath = request()->getPathInfo();
+            $canonicalPath = $isNotFound ? $currentPath : $resolvedSeo['path'];
+            $canonicalUrl = $siteUrl.($canonicalPath === '/' ? '' : $canonicalPath);
+            $description = $isNotFound
+                ? 'The page you requested could not be found.'
+                : $resolvedSeo['description'];
+            $robots = $isNotFound
+                ? 'noindex, nofollow'
+                : 'index, follow, max-image-preview:large';
             $defaultImage = asset('images/logo/full-logo-no-bg.png');
+            $organizationSchema = json_encode([
+                '@context' => 'https://schema.org',
+                '@type' => 'Organization',
+                'name' => 'DTC Bharat',
+                'url' => $siteUrl,
+                'logo' => "{$siteUrl}/images/logo/full-logo-no-bg.png",
+                'email' => 'info@dtcbharat.com',
+                'telephone' => '+91-9899925362',
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         @endphp
 
         <meta name="theme-color" content="#0A192F">
-        <meta name="description" content="{{ $resolvedSeo['description'] }}">
-        <meta name="robots" content="index, follow, max-image-preview:large">
+        <meta name="description" content="{{ $description }}">
+        <meta name="robots" content="{{ $robots }}">
         <meta property="og:locale" content="en_IN">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="DTC Bharat">
         <meta property="og:title" content="{{ $fullTitle }}">
-        <meta property="og:description" content="{{ $resolvedSeo['description'] }}">
+        <meta property="og:description" content="{{ $description }}">
         <meta property="og:url" content="{{ $canonicalUrl }}">
         <meta property="og:image" content="{{ $defaultImage }}">
         <meta property="og:image:alt" content="DTC Bharat logo">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $fullTitle }}">
-        <meta name="twitter:description" content="{{ $resolvedSeo['description'] }}">
+        <meta name="twitter:description" content="{{ $description }}">
         <meta name="twitter:image" content="{{ $defaultImage }}">
         <link rel="canonical" href="{{ $canonicalUrl }}">
+        <script type="application/ld+json">
+            {!! $organizationSchema !!}
+        </script>
 
         <title inertia>{{ $fullTitle }}</title>
 
