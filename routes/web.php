@@ -41,3 +41,9 @@ Route::get('/sitemap.xml', function () {
 foreach (['1', '2', '3', '4', '5', '6'] as $legacyPath) {
     Route::redirect("/{$legacyPath}", '/', 301);
 }
+
+Route::fallback(function () {
+    return Inertia::render('Errors/NotFound')
+        ->toResponse(request())
+        ->setStatusCode(404);
+});
