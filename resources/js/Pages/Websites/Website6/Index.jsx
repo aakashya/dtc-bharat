@@ -6,7 +6,7 @@ const PAGE_META = {
     home: {
         title: 'Home',
         description:
-            'DTC Bharat provides reliable corporate mobility solutions including employee transport, shuttle services, and outstation travel.',
+            'DTC Bharat provides reliable corporate mobility solutions, including employee transportation, shuttle services, spot rental, and outstation travel with a strong focus on safety, punctuality, and professional service standards.',
         path: '/',
     },
     profile: {
@@ -44,7 +44,9 @@ const PAGE_META = {
 export default function Website6Index({ activePage = 'home', pageTitle = null }) {
     const resolvedMeta = PAGE_META[activePage] ?? PAGE_META.home;
     const resolvedTitle = pageTitle ?? resolvedMeta.title;
-    const fullTitle = `DTC Bharat | ${resolvedTitle}`;
+    const fullTitle = activePage === 'home'
+        ? 'DTC Bharat - A unit of Delphinium Travelcorp PVT. LTD.'
+        : `DTC Bharat | ${resolvedTitle}`;
 
     return (
         <>

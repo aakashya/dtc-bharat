@@ -8,7 +8,7 @@
             $seoMap = [
                 'home' => [
                     'title' => 'Home',
-                    'description' => 'DTC Bharat provides reliable corporate mobility solutions including employee transport, shuttle services, and outstation travel.',
+                    'description' => 'DTC Bharat provides reliable corporate mobility solutions, including employee transportation, shuttle services, spot rental, and outstation travel with a strong focus on safety, punctuality, and professional service standards.',
                     'path' => '/',
                 ],
                 'profile' => [
@@ -40,10 +40,13 @@
             $component = data_get($page ?? [], 'component');
             $isNotFound = $component === 'Errors/NotFound';
             $activePage = data_get($page ?? [], 'props.activePage', 'home');
+            $isHome = ! $isNotFound && $activePage === 'home';
             $pageTitle = data_get($page ?? [], 'props.pageTitle');
             $resolvedSeo = $seoMap[$activePage] ?? $seoMap['home'];
             $resolvedTitle = $isNotFound ? '404 | Page Not Found' : ($pageTitle ?: $resolvedSeo['title']);
-            $fullTitle = $isNotFound ? $resolvedTitle : "DTC Bharat | {$resolvedTitle}";
+            $fullTitle = $isNotFound
+                ? $resolvedTitle
+                : ($isHome ? 'DTC Bharat - A unit of Delphinium Travelcorp PVT. LTD.' : "DTC Bharat | {$resolvedTitle}");
             $currentPath = request()->getPathInfo();
             $canonicalPath = $isNotFound ? $currentPath : $resolvedSeo['path'];
             $canonicalUrl = $siteUrl.($canonicalPath === '/' ? '' : $canonicalPath);
