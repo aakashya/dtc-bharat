@@ -66,6 +66,13 @@
         @endphp
 
         <meta name="theme-color" content="#0A192F">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JL8BGC42X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1JL8BGC42X');
+        </script>
         <meta name="description" content="{{ $description }}">
         <meta name="robots" content="{{ $robots }}">
         <meta property="og:locale" content="en_IN">
