@@ -17,6 +17,7 @@ Route::get('/profile', fn () => $renderWebsite6('profile', 'Profile'))->name('pr
 Route::get('/services', fn () => $renderWebsite6('services', 'Services'))->name('services');
 Route::get('/team', fn () => $renderWebsite6('team', 'Team'))->name('team');
 Route::get('/tours', fn () => $renderWebsite6('tours', 'Tours'))->name('tours');
+Route::get('/blogs', fn () => $renderWebsite6('blogs', 'Blogs'))->name('blogs');
 Route::get('/contact', fn () => $renderWebsite6('contact', 'Contact'))->name('contact');
 Route::post('/booking-requests', [BookingRequestController::class, 'store'])->name('booking-requests.store');
 
@@ -27,6 +28,7 @@ Route::get('/sitemap.xml', function () {
         route('services'),
         route('team'),
         route('tours'),
+        route('blogs'),
         route('contact'),
     ];
 

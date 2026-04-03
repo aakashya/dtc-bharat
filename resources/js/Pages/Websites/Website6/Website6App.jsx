@@ -42,6 +42,7 @@ const PAGE_URLS = {
     services: '/services',
     team: '/team',
     tours: '/tours',
+    blogs: '/blogs',
     contact: '/contact',
 };
 
@@ -329,6 +330,11 @@ function Footer() {
                         <li>
                             <Link href={PAGE_URLS.tours} prefetch className="transition-colors hover:text-w6-brand">
                                 Tour Packages
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href={PAGE_URLS.blogs} prefetch className="transition-colors hover:text-w6-brand">
+                                Blogs
                             </Link>
                         </li>
                     </ul>
@@ -1574,12 +1580,14 @@ const loadProfilePage = () => import('./pages/ProfilePage');
 const loadServicesPage = () => import('./pages/ServicesPage');
 const loadTeamPage = () => import('./pages/TeamPage');
 const loadToursPage = () => import('./pages/ToursPage');
+const loadBlogsPage = () => import('./pages/BlogsPage');
 const loadContactPage = () => import('./pages/ContactPage');
 
 const LazyProfilePage = lazy(loadProfilePage);
 const LazyServicesPage = lazy(loadServicesPage);
 const LazyTeamPage = lazy(loadTeamPage);
 const LazyToursPage = lazy(loadToursPage);
+const LazyBlogsPage = lazy(loadBlogsPage);
 const LazyContactPage = lazy(loadContactPage);
 
 const LAZY_PAGE_LOADERS = {
@@ -1587,6 +1595,7 @@ const LAZY_PAGE_LOADERS = {
     services: loadServicesPage,
     team: loadTeamPage,
     tours: loadToursPage,
+    blogs: loadBlogsPage,
     contact: loadContactPage,
 };
 
@@ -1666,6 +1675,11 @@ export default function Website6App({ activePage = 'home' }) {
                         {activePage === 'tours' && (
                             <Suspense fallback={lazyPageFallback}>
                                 <LazyToursPage setActivePage={setActivePage} />
+                            </Suspense>
+                        )}
+                        {activePage === 'blogs' && (
+                            <Suspense fallback={lazyPageFallback}>
+                                <LazyBlogsPage />
                             </Suspense>
                         )}
                         {activePage === 'contact' && (

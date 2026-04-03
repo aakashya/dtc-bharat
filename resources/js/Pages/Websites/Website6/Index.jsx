@@ -33,6 +33,12 @@ const PAGE_META = {
             'Discover curated tour packages by DTC Bharat with transparent pricing, planned itineraries, and comfortable travel options.',
         path: '/tours',
     },
+    blogs: {
+        title: 'Blogs',
+        description:
+            'Read mobility insights from DTC Bharat on corporate travel, fleet operations, safety standards, and transport technology.',
+        path: '/blogs',
+    },
     contact: {
         title: 'Contact',
         description:
