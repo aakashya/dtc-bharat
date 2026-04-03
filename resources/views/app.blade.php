@@ -31,6 +31,11 @@
                     'description' => 'Discover curated tour packages by DTC Bharat with transparent pricing, planned itineraries, and comfortable travel options.',
                     'path' => '/tours',
                 ],
+                'blogs' => [
+                    'title' => 'Blogs',
+                    'description' => 'Read mobility insights from DTC Bharat on corporate travel, fleet operations, safety standards, and transport technology.',
+                    'path' => '/blogs',
+                ],
                 'contact' => [
                     'title' => 'Contact',
                     'description' => 'Get in touch with DTC Bharat for customer bookings and corporate transport inquiries across Gurugram and beyond.',
@@ -42,7 +47,16 @@
             $activePage = data_get($page ?? [], 'props.activePage', 'home');
             $isHome = ! $isNotFound && $activePage === 'home';
             $pageTitle = data_get($page ?? [], 'props.pageTitle');
-            $resolvedSeo = $seoMap[$activePage] ?? $seoMap['home'];
+            $blogMeta = data_get($page ?? [], 'props.blogMeta');
+            $resolvedSeo = is_array($blogMeta)
+                ? array_merge([
+                    'title' => $pageTitle ?: 'Blog',
+                    'description' => $seoMap['blogs']['description'],
+                    'path' => request()->getPathInfo(),
+                    'image' => asset('images/logo/full-logo-no-bg.png'),
+                    'type' => 'article',
+                ], $blogMeta)
+                : ($seoMap[$activePage] ?? $seoMap['home']);
             $resolvedTitle = $isNotFound ? '404 | Page Not Found' : ($pageTitle ?: $resolvedSeo['title']);
             $fullTitle = $isNotFound
                 ? $resolvedTitle
@@ -57,6 +71,8 @@
                 ? 'noindex, nofollow'
                 : 'index, follow, max-image-preview:large';
             $defaultImage = asset('images/logo/full-logo-no-bg.png');
+            $seoImage = $resolvedSeo['image'] ?? $defaultImage;
+            $ogType = $resolvedSeo['type'] ?? 'website';
             $organizationSchema = json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'Organization',
@@ -79,17 +95,17 @@
         <meta name="description" content="{{ $description }}">
         <meta name="robots" content="{{ $robots }}">
         <meta property="og:locale" content="en_IN">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="{{ $ogType }}">
         <meta property="og:site_name" content="DTC Bharat">
         <meta property="og:title" content="{{ $fullTitle }}">
         <meta property="og:description" content="{{ $description }}">
         <meta property="og:url" content="{{ $canonicalUrl }}">
-        <meta property="og:image" content="{{ $defaultImage }}">
-        <meta property="og:image:alt" content="DTC Bharat logo">
+        <meta property="og:image" content="{{ $seoImage }}">
+        <meta property="og:image:alt" content="{{ $resolvedTitle }}">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $fullTitle }}">
         <meta name="twitter:description" content="{{ $description }}">
-        <meta name="twitter:image" content="{{ $defaultImage }}">
+        <meta name="twitter:image" content="{{ $seoImage }}">
         <link rel="canonical" href="{{ $canonicalUrl }}">
         <script type="application/ld+json">
             {!! $organizationSchema !!}

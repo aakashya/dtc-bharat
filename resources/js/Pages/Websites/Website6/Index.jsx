@@ -47,17 +47,39 @@ const PAGE_META = {
     },
 };
 
-export default function Website6Index({ activePage = 'home', pageTitle = null }) {
-    const resolvedMeta = PAGE_META[activePage] ?? PAGE_META.home;
+export default function Website6Index({ activePage = 'home', pageTitle = null, blogSlug = null, blogMeta = null }) {
+    const siteUrl = 'https://dtcbharat.com';
+    const resolvedMeta = blogMeta ?? PAGE_META[activePage] ?? PAGE_META.home;
     const resolvedTitle = pageTitle ?? resolvedMeta.title;
     const fullTitle = activePage === 'home'
         ? 'DTC Bharat - A unit of Delphinium Travelcorp PVT. LTD.'
         : `DTC Bharat | ${resolvedTitle}`;
+    const canonicalUrl = `${siteUrl}${resolvedMeta.path === '/' ? '' : resolvedMeta.path}`;
+    const imageUrl = resolvedMeta.image?.startsWith('http')
+        ? resolvedMeta.image
+        : `${siteUrl}${resolvedMeta.image ?? '/images/logo/full-logo-no-bg.png'}`;
+    const ogType = resolvedMeta.type ?? 'website';
 
     return (
         <>
-            <Head title={fullTitle} />
-            <Website6App activePage={activePage} />
+            <Head title={fullTitle}>
+                <meta name="description" content={resolvedMeta.description} />
+                <meta name="robots" content="index, follow, max-image-preview:large" />
+                <meta property="og:locale" content="en_IN" />
+                <meta property="og:type" content={ogType} />
+                <meta property="og:site_name" content="DTC Bharat" />
+                <meta property="og:title" content={fullTitle} />
+                <meta property="og:description" content={resolvedMeta.description} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content={imageUrl} />
+                <meta property="og:image:alt" content={resolvedTitle} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={fullTitle} />
+                <meta name="twitter:description" content={resolvedMeta.description} />
+                <meta name="twitter:image" content={imageUrl} />
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
+            <Website6App activePage={activePage} blogSlug={blogSlug} />
         </>
     );
 }

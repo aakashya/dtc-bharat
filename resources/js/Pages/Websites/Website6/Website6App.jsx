@@ -1599,7 +1599,7 @@ const LAZY_PAGE_LOADERS = {
     contact: loadContactPage,
 };
 
-export default function Website6App({ activePage = 'home' }) {
+export default function Website6App({ activePage = 'home', blogSlug = null }) {
     const setActivePage = (nextPage) => {
         const nextUrl = PAGE_URLS[nextPage];
 
@@ -1679,7 +1679,7 @@ export default function Website6App({ activePage = 'home' }) {
                         )}
                         {activePage === 'blogs' && (
                             <Suspense fallback={lazyPageFallback}>
-                                <LazyBlogsPage />
+                                <LazyBlogsPage blogSlug={blogSlug} />
                             </Suspense>
                         )}
                         {activePage === 'contact' && (
