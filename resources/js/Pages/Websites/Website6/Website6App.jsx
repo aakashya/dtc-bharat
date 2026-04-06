@@ -381,9 +381,9 @@ function Footer() {
                         <li className="mx-auto flex max-w-sm items-start justify-center gap-3 text-left md:mx-0 md:max-w-none md:justify-start">
                             <MapPin size={18} className="shrink-0 text-w6-brand" />
                             <span>
-                                Unit 705, Tower-C, Business Zone
+                                Unit 705, Tower-C
                                 <br />
-                                Nirvana Country, Sector 50
+                                Business Zone, Sector 50
                                 <br />
                                 Gurugram, Haryana 122018
                             </span>
@@ -1740,4 +1740,3 @@ export default function Website6App({ activePage = 'home', blogSlug = null }) {
         </div>
     );
 }
-
