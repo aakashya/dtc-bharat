@@ -136,9 +136,9 @@ function TeamPage() {
                     ))}
                 </div>
 
-                <div className="bg-corporate-blue rounded-3xl p-12 text-white text-center">
+                <div className="rounded-3xl border border-slate-200 bg-slate-100 p-12 text-center text-corporate-blue">
                     <h3 className="text-xl md:text-2xl font-bold mb-4">Our Support Backbone</h3>
-                    <p className="text-slate-400 max-w-2xl mx-auto mb-8">
+                    <p className="mx-auto mb-8 max-w-2xl text-slate-600">
                         Beyond our leadership, we are powered by a dedicated 24/7 operations desk, fleet supervisors, and certified professional drivers who ensure every journey is safe and on time.
                     </p>
                     <div className="flex flex-wrap justify-center gap-8">

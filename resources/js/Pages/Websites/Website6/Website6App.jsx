@@ -849,15 +849,15 @@ const BusinessProfileSection = () => {
         <section className="bg-white py-24">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
-                    <div className="rounded-[3rem] bg-corporate-blue p-12 text-white">
+                    <div className="rounded-[3rem] border border-slate-200 bg-slate-100 p-12 text-corporate-blue">
                         <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">
                             Business Profile
                         </div>
                         <h2 className="font-display mb-6 text-2xl font-bold md:text-3xl">Our Commitment</h2>
-                        <p className="mb-8 text-base leading-relaxed text-slate-300 md:text-lg">
+                        <p className="mb-8 text-base leading-relaxed text-slate-600 md:text-lg">
                             The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost-effective with the objective to be recognized as a preferred business partner with a high standard of safety and service.
                         </p>
-                        <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+                        <p className="text-base leading-relaxed text-slate-600 md:text-lg">
                             We assure our esteemed customers better transport solutions in a professional way. Our services include corporate cabs, taxi service, inbound & outbound tours, pilgrimage & historical tours, etc.
                         </p>
                     </div>

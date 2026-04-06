@@ -64,12 +64,12 @@ function ToursPage({ setActivePage }) {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-32">
                     <div className="lg:col-span-2">
                         <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
-                            <div className="bg-corporate-blue p-8 text-white">
+                            <div className="border-b border-slate-200 bg-slate-100 p-8 text-corporate-blue">
                                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                                     <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3">
                                         <Car className="text-brand" /> Fleet Pricing
                                     </h3>
-                                    <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold tracking-wide text-slate-100">
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold tracking-wide text-slate-600">
                                         <Clock size={14} className="text-brand" />
                                         16+ Hours | 06:00 AM - 11:30 PM
                                     </div>

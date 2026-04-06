@@ -54,16 +54,16 @@ function ProfilePage() {
                 </div>
 
                 <div className="mb-32">
-                    <div className="bg-corporate-blue rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
+                    <div className="relative overflow-hidden rounded-[3rem] border border-slate-200 bg-slate-100 p-12 text-corporate-blue md:p-20">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-brand/10 rounded-full blur-[100px] -mr-48 -mt-48" />
                         <div className="relative z-10">
                             <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Business Profile</div>
                             <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">Our Mission & Commitment</h2>
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                                <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+                                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
                                     The mission of Delphinium Travelcorp is to provide customers with long-term quality transportation solutions, which are cost effective with the objective to be recognized as a preferred business partner with a high standard of safety of service. We assure our esteemed customers for best transport solution available in a professional way.
                                 </p>
-                                <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+                                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
                                     DTC Bharat is committed to maintaining the highest standard of safety, security and environmental protection always. This is achieved by investing in the training and future of all our employees. We operate a diverse fleet of vehicles however, these have one thing in common, that is they all operate to the same high standard.
                                 </p>
                             </div>
