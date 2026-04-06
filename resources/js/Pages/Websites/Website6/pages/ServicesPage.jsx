@@ -21,8 +21,8 @@ function ServicesSection() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-16 text-center">
                     <div className="mx-auto max-w-5xl">
-                        <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Services</div>
-                        <h2 className="text-4xl md:text-6xl font-display font-bold text-corporate-blue">
+                        <div className="text-brand font-bold tracking-widest uppercase text-base mb-4">Our Services</div>
+                        <h2 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue">
                             Comprehensive <span className="text-brand">Mobility Solutions</span>
                         </h2>
                         <p className="mt-4 text-slate-500 text-sm md:text-base">
@@ -51,7 +51,7 @@ function ServicesSection() {
                                                 <Briefcase className="text-brand" size={20} /> Industries Catered To:
                                             </h4>
                                             <ul className="space-y-3">
-                                                {['BPOs & KPOs', 'IT, ITES & Consulting Companies', 'Real Estate', 'Telecom Companies', 'Banking and Financial Services'].map((item, i) => (
+                                                {['BPOs & KPOs', 'IT, ITES & Consulting Companies', 'Real Estate', 'Telecom Companies', 'Banking and Financial Sector'].map((item, i) => (
                                                     <li key={i} className="flex items-center gap-3 text-slate-600 text-sm">
                                                         <div className="w-1.5 h-1.5 bg-brand rounded-full" />
                                                         {item}

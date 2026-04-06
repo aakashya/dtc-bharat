@@ -247,10 +247,10 @@ function ContactPage() {
         <div className="relative min-h-screen bg-slate-50 pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-10 text-center">
-                    <div className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">
+                    <div className="mb-4 text-base font-bold uppercase tracking-widest text-brand">
                         Contact Us
                     </div>
-                    <h1 className="font-display text-3xl font-bold text-corporate-blue md:text-6xl">
+                    <h1 className="font-display text-4xl font-bold text-corporate-blue md:text-5xl">
                         Get in <span className="text-brand">Touch</span>
                     </h1>
                 </div>

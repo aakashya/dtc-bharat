@@ -6,8 +6,8 @@ function ProfilePage() {
         <div className="pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
-                    <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Company Profile</div>
-                    <h1 className="text-4xl md:text-7xl font-display font-bold text-corporate-blue mb-8">
+                    <div className="text-brand font-bold tracking-widest uppercase text-base mb-4">Company Profile</div>
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue mb-8">
                         Our Journey & <span className="text-brand">Vision</span>
                     </h1>
                     <div className="max-w-4xl mx-auto p-10 glass-card rounded-3xl border-l-8 border-l-brand">
@@ -110,7 +110,7 @@ function ProfilePage() {
                                 },
                                 {
                                     cat: 'SUV/MUV (CUV)',
-                                    models: ['Suzuki Ertiga', 'MG Windsor', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
+                                    models: ['Suzuki Ertiga', 'MG Windsor EV', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
                                 },
                                 { cat: 'Bus', models: ['Force Traveller', 'Force Urbania'] }
                             ].map((item, i) => (

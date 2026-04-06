@@ -452,8 +452,9 @@ function Hero({ setActivePage }) {
                         <Zap size={14} /> Fleet Command Since 2006
                     </div>
                     <h1 className="mb-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:mb-6 md:text-6xl xl:text-7xl">
-                        On Time <br />
-                        <span className="text-orange-200">Round the Clock</span>
+                        <span className="whitespace-nowrap">Driving Excellence.</span>
+                        <br />
+                        <span className="whitespace-nowrap text-orange-200">Delivering Trust.</span>
                     </h1>
                     <p className="mx-auto mb-6 max-w-xl text-base leading-relaxed text-orange-50/90 md:mb-10 md:text-xl lg:mx-0">
                         On Time Round the Clock. Corporate cabs at their best.
@@ -729,7 +730,7 @@ const DetailedFleetInfo = () => {
         },
         {
             category: 'SUV/MUV (CUV)',
-            models: ['Suzuki Ertiga', 'MG Windsor', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
+            models: ['Suzuki Ertiga', 'MG Windsor EV', 'Toyota Innova Crysta', 'Toyota Innova Hycross'],
             img: '/images/fleet/innova.webp',
         },
         {
@@ -1450,7 +1451,7 @@ function FleetSection() {
         },
         {
             category: 'SUV/MUV (CUV)',
-            models: 'Ertiga, MG Windsor, Innova Crysta, Innova Hycross',
+            models: 'Ertiga, MG Windsor EV, Innova Crysta, Innova Hycross',
             icon: <Car size={32} />,
         },
         {

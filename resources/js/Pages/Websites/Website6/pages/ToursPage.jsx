@@ -52,8 +52,8 @@ function ToursPage({ setActivePage }) {
         <div className="pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
-                    <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Special Tour Package</div>
-                    <h1 className="text-4xl md:text-7xl font-display font-bold text-corporate-blue mb-6">
+                    <div className="text-brand font-bold tracking-widest uppercase text-base mb-4">Special Tour Package</div>
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue mb-6">
                         Agra - <span className="text-brand">Mathura</span> - Vrindavan
                     </h1>
                     <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg">

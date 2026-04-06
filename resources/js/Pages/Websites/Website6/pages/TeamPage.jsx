@@ -6,7 +6,7 @@ function TeamPage() {
         {
             name: "Dr. Sushil Ranvir Singh",
             role: "Founder & Director",
-            credentials: ["Ph.D.", "MBA", "LL.B.", "LL.M.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
+            credentials: ["Ph.D.", "MBA", "LL.M.", "LL.B.", "BCA", "APDSE (Hons.)", "MCSE", "OCP", "DSM"],
             desc: "A visionary leader and the founder of Delphinium Travelcorp, Dr. Sushil Ranvir Singh has nurtured the organization from its inception. With a multi-faceted academic background and deep expertise in technology integration, he has been the driving force behind the company's phenomenal growth. He is committed to positioning India as Asia's premier travel destination while transforming Delphinium Travelcorp into a global benchmark for service excellence.",
             img: "/images/team/sushil.jpeg"
         },
@@ -21,7 +21,7 @@ function TeamPage() {
         },
         {
             name: "Mr. Vikas",
-            role: "Director of Global Brand & Digital Strategy",
+            role: "Director of Business Development",
             credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
             desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics & Decision Sciences from University of Leeds, UK, and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
             img: "/images/team/vi.jpg",
@@ -50,8 +50,8 @@ function TeamPage() {
         <div className="pt-32 pb-24 bg-slate-50">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
-                    <div className="text-brand font-bold tracking-widest uppercase text-sm mb-4">Our Leadership</div>
-                    <h1 className="text-4xl md:text-6xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
+                    <div className="text-brand font-bold tracking-widest uppercase text-base mb-4">Our Leadership</div>
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-corporate-blue mb-6">The Visionary Behind <span className="text-brand">DTC Bharat</span></h1>
                     <p className="text-slate-500 max-w-2xl mx-auto">
                         Leading with academic excellence and a passion for technological innovation in the transportation industry.
                     </p>

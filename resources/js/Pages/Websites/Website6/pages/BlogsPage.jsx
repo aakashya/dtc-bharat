@@ -283,8 +283,8 @@ function BlogsPage({ blogSlug = null }) {
         <div className="min-h-screen bg-slate-50 pb-24 pt-32">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="mb-16 text-center">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand">Our Blog</div>
-                    <h1 className="mb-6 font-display text-5xl font-bold text-corporate-blue md:text-7xl">
+                    <div className="mb-4 text-base font-bold uppercase tracking-widest text-brand">Our Blog</div>
+                    <h1 className="mb-6 font-display text-4xl font-bold text-corporate-blue md:text-5xl">
                         Insights & <span className="text-brand">Innovation</span>
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg text-slate-500">
