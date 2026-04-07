@@ -369,7 +369,7 @@ function Footer() {
                         </li>
                         <li>
                             <a href={`${PAGE_URLS.services}#vip-airport-transfers`} className="transition-colors hover:text-w6-brand">
-                                VIP Airport Transfers
+                                Airport Transfers
                             </a>
                         </li>
                     </ul>

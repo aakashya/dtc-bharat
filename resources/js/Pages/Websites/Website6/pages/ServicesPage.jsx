@@ -94,10 +94,9 @@ function ServicesSection() {
                                 <div className="lg:w-1/3">
                                     <div className="h-full rounded-3xl overflow-hidden shadow-2xl">
                                         <img
-                                            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop"
+                                            src="/images/services/employee-transportation.png"
                                             alt="Employee Transport"
-                                            className="w-full h-full object-cover"
-                                            referrerPolicy="no-referrer"
+                                            className="w-full h-full object-cover object-[10%_center]"
                                         />
                                     </div>
                                 </div>
@@ -120,7 +119,8 @@ function ServicesSection() {
                             anchor: 'spot-rental',
                             desc: 'On-the-spot or unscheduled cab requests entertained with premium vehicles for VIPs and events.',
                             icon: <Car size={24} />,
-                            img: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=2072&auto=format&fit=crop'
+                            img: '/images/services/mg-windsor.avif',
+                            imgClassName: 'object-contain'
                         },
                         {
                             title: 'Outstation Trip Packages',
@@ -130,11 +130,11 @@ function ServicesSection() {
                             img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop'
                         },
                         {
-                            title: 'VIP Airport Transfers',
+                            title: 'Airport Transfers',
                             anchor: 'vip-airport-transfers',
                             desc: 'Priority airport pickups and drop-offs with professional chauffeurs, flight tracking, and premium vehicle options.',
                             icon: <Navigation size={24} />,
-                            img: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=2070&auto=format&fit=crop'
+                            img: '/images/services/airport-cab-web-c.jpg'
                         }
                     ].map((service, i) => (
                         <div
@@ -146,7 +146,7 @@ function ServicesSection() {
                                 <img
                                     src={service.img}
                                     alt={service.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    className={`w-full h-full ${service.imgClassName ?? 'object-cover'} group-hover:scale-110 transition-transform duration-500`}
                                     referrerPolicy="no-referrer"
                                 />
                             </div>
