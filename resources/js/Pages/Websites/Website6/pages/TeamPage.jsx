@@ -24,7 +24,7 @@ function TeamPage() {
             role: "Director of Business Development",
             credentials: ["B.Com", "MSc. Business Analytics & Decision Sciences"],
             desc: "A strategic leader in brand development and digital innovation, He leads the organisation’s brand positioning, digital presence, and reputation strategy as Director of Brand & Digital Strategy. With a background in Business Analytics & Decision Sciences from University of Leeds, UK, and experience in scaling international ventures, he drives brand growth through data-driven marketing, digital engagement, and strategic storytelling, strengthening the organisation’s global visibility and long-term market impact.",
-            img: "/images/team/vi.jpg",
+            img: "/images/team/vikk.png",
         },
         {
             name: "Mr. Vishal",
