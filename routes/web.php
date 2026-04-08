@@ -13,35 +13,30 @@ $renderWebsite6 = fn (string $activePage, string $pageTitle, array $props = []) 
 );
 
 $blogPosts = [
-    'future-of-corporate-mobility-2024' => [
-        'title' => 'The Future of Corporate Mobility in 2024',
-        'description' => 'How AI and sustainable energy are reshaping the way enterprises manage employee transportation.',
-        'image' => 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop',
+    'are-we-pushing-ev-adoption-too-early-in-indias-transport-ecosystem' => [
+        'title' => 'Are We Pushing EV Adoption Too Early in India’s Transport Ecosystem?',
+        'description' => 'On paper, EVs look perfect. On Indian roads, the reality is very different.',
+        'image' => '/images/blogs/blog_ev.jpeg',
     ],
-    'female-safety-our-top-priority' => [
-        'title' => 'Female Safety: Our Top Priority',
-        'description' => 'A deep dive into the protocols and technology we use to ensure every night drop is 100% safe.',
-        'image' => 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2070&auto=format&fit=crop',
+    'ev-push-by-mncs-green-vision-vs-ground-reality' => [
+        'title' => 'EV Push by MNCs: Green Vision vs Ground Reality',
+        'description' => 'The EV shift in employee transportation is progressive in intent, but the on-ground challenges for transport partners remain significant.',
+        'image' => '/images/blogs/ev_push.jpeg',
     ],
-    'optimizing-fleet-efficiency-with-ai' => [
-        'title' => 'Optimizing Fleet Efficiency with AI',
-        'description' => 'How our proprietary routing algorithms reduce travel time by up to 25% for our corporate partners.',
-        'image' => 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop',
+    'womens-safety-in-corporate-transportation' => [
+        'title' => 'Women’s Safety in Corporate Transportation',
+        'description' => 'A safe journey is not a privilege for women. It is a necessity and a responsibility every company must uphold.',
+        'image' => '/images/blogs/women_safety.jpeg',
     ],
-    'choosing-the-right-fleet-for-your-office' => [
-        'title' => 'Choosing the Right Fleet for Your Office',
-        'description' => 'A guide to selecting between hatchbacks, sedans, and buses based on employee density and routes.',
-        'image' => 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop',
+    'what-keeps-a-modern-company-moving-efficiently' => [
+        'title' => 'What Keeps a Modern Company Moving Efficiently?',
+        'description' => 'A modern business runs better with mobility systems that are safe, reliable, and professionally managed.',
+        'image' => '/images/blogs/cabs.jpeg',
     ],
-    'rise-of-electric-vehicles-in-corporate-travel' => [
-        'title' => 'The Rise of Electric Vehicles in Corporate Travel',
-        'description' => 'Why DTC Bharat is investing heavily in EV infrastructure for a greener tomorrow.',
-        'image' => 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2072&auto=format&fit=crop',
-    ],
-    'maintaining-professionalism-driver-training' => [
-        'title' => 'Maintaining Professionalism: Driver Training',
-        'description' => 'Behind the scenes of our rigorous in-house training programs for our mobility partners.',
-        'image' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2070&auto=format&fit=crop',
+    'why-driver-training-is-the-foundation-of-safe-mobility' => [
+        'title' => 'Why Driver Training Is the Foundation of Safe Mobility',
+        'description' => 'In corporate transportation, safety begins long before the vehicle starts moving. It begins with a well trained driver.',
+        'image' => '/images/blogs/team_training.jpeg',
     ],
 ];
 

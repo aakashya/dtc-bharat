@@ -11,156 +11,386 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
-const categories = ['All', 'Corporate Travel', 'Safety', 'Fleet', 'Technology', 'Travel Tips'];
+const categories = ['All', 'EV Mobility', 'Women Safety', 'Corporate Mobility'];
 
 const articleContent = {
-    'future-of-corporate-mobility-2024': {
-        intro: 'Corporate mobility is becoming more data-driven, more visible, and more accountable.',
-        heading: 'Technology Is Reshaping Operations',
-        paragraphs: [
-            'AI-assisted planning helps reduce idle time, improve route selection, and give operations teams better control over changing trip conditions.',
-            'For enterprise clients, this means stronger punctuality, clearer reporting, and a transport program that scales with less friction.',
+    'are-we-pushing-ev-adoption-too-early-in-indias-transport-ecosystem': {
+        heading: 'Ground Reality vs EV Promise',
+        blocks: [
+            {
+                type: 'paragraph',
+                text: 'Let’s keep it real.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Even today, CNG stations in India still have long queues, waiting times, and availability issues. Drivers lose time. Routes get disrupted. Operations suffer.',
+            },
+            {
+                type: 'paragraph',
+                text: 'And this is a system that has existed for years. Now look at EVs:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Limited charging stations (many non-functional)',
+                    'Long charging hours',
+                    'Uncertain real-world range',
+                    'Uncertain power supply in summer season',
+                    'Overload power grid/Power-cut',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'For a transporter, this is not inconvenience.',
+            },
+            {
+                type: 'paragraph',
+                text: 'It is a direct hit on efficiency and profitability.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Now let’s talk numbers.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Charging costs (India 2025–26):',
+            },
+            {
+                type: 'list',
+                items: [
+                    '₹12–₹25 per unit (public charging)',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'Yes, running cost is low: ₹2.5 per km, but here is the real problem:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'EVs are expensive to buy',
+                    'Higher capital investment',
+                    'Same route payouts',
+                    'Lower returns per km for transporters',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'So while EVs look economical, the business model does not always work on ground.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Now the part most people ignore:',
+            },
+            {
+                type: 'paragraph',
+                text: 'EVs are not completely clean.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Vehicle Whole Life Carbon Emissions Analysis:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Gasoline - 24 | 23% | 5.6',
+                    'Hybrid - 21 | 31% | 6.5',
+                    'EV - 19 | 46% | 8.8',
+                ],
+            },
+            {
+                type: 'list',
+                items: [
+                    'Up to 46% emissions come from production',
+                    'Battery manufacturing adds high carbon load',
+                    'Production emissions (~8.8t CO2e) > gasoline (~5.6t CO2e)',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: '(Source: earth.org)',
+            },
+            {
+                type: 'paragraph',
+                text: 'So the real question is:',
+            },
+            {
+                type: 'paragraph',
+                text: 'Are we evaluating EVs fully, or just focusing on tailpipe emissions? And this is not just India.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Globally, some of the biggest names have already started stepping back:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Honda reviewing its EV plans after major losses',
+                    'Volvo moving away from full EV commitments',
+                    'Apple shutting down its EV project',
+                    'Dyson exiting due to lack of commercial viability',
+                    'Ford, Nissan, Stellantis slowing down investments',
+                    'Mercedes-Benz and Porsche shifting focus back to hybrids',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'If global players are recalibrating, are we moving too fast without infrastructure?',
+            },
+            {
+                type: 'paragraph',
+                text: 'For Indian transporters:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Limited options (mostly Tata EVs)',
+                    'High upfront cost',
+                    'Range challenges',
+                    'Charging downtime',
+                    'Weak infrastructure',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'At DTC BHARAT - Delphinium Travelcorp Private Limited), we believe EV is the future. But the transition must be practical, scalable, and sustainable. Because in transportation, decisions are not made on trends. They are made on what works every single day on Indian roads.',
+            },
         ],
-        takeaways: [
-            'Real-time visibility improves both service quality and safety.',
-            'Smarter routing reduces delays and unnecessary operating cost.',
-            'Better reporting helps clients measure transport performance clearly.',
-        ],
-        closing: 'The future belongs to transport partners who combine safety, discipline, and technology in one operating model.',
     },
-    'female-safety-our-top-priority': {
-        intro: 'Female safety depends on process discipline, not verbal assurance.',
-        heading: 'Structured Safety Matters',
-        paragraphs: [
-            'Night-drop transport requires escort protocols, monitored closures, and clear escalation rules that are followed every time.',
-            'Technology supports this through GPS visibility, alert workflows, and faster intervention from the control room when needed.',
+    'ev-push-by-mncs-green-vision-vs-ground-reality': {
+        heading: 'Challenges Behind the EV Transition',
+        blocks: [
+            {
+                type: 'paragraph',
+                text: 'The shift towards electric vehicles (EVs) in employee transportation by MNCs in India is a welcome step in the direction of sustainability and reduced carbon footprint. The transition to EVs for their transport partners, while the intent is progressive, the ground reality presents several challenges that need careful consideration as observed by DTC BHARAT - Delphinium Travelcorp Private Limited) Management.',
+            },
+            {
+                type: 'paragraph',
+                text: '1. High Initial Investment:EVs come with a significantly higher upfront cost compared to CNG vehicles. For transport vendors and fleet operators, especially small and mid-sized businesses, this becomes a major financial burden without adequate subsidies or assured long-term contracts.',
+            },
+            {
+                type: 'paragraph',
+                text: '2. Charging Infrastructure Constraints:The availability of reliable and fast-charging infrastructure is still limited in many cities. Unlike CNG, where refuelling is relatively quicker and more accessible, EV charging requires time, planning, and infrastructure support—which is not yet uniformly available across operational zones.',
+            },
+            {
+                type: 'paragraph',
+                text: '3. Operational Downtime:Charging time directly impacts fleet utilization. A vehicle that spends several hours charging reduces daily trip capacity, affecting overall productivity and revenue for vendors.',
+            },
+            {
+                type: 'paragraph',
+                text: '4. Tariff Mismatch:One of the biggest concerns is that transport rates have not been revised proportionately to justify the higher cost of EV procurement and operations. Vendors are expected to invest more but are compensated at rates designed for traditional fuel vehicles.',
+            },
+            {
+                type: 'paragraph',
+                text: '5. Uncertain Residual Value & Battery Life: Unlike CNG or diesel vehicles, EVs have uncertainties around battery life, replacement costs, and resale value. This adds to the financial risk for fleet owners.',
+            },
+            {
+                type: 'paragraph',
+                text: '6. Policy vs Practicality Gap: While ESG goals and green initiatives are being aggressively pursued at the corporate level, the implementation often overlooks operational challenges faced by on-ground partners.',
+            },
+            {
+                type: 'paragraph',
+                text: 'The Way Forward:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Revision of transport rates aligned with EV economics',
+                    'Long-term contracts to ensure ROI for vendors',
+                    'Investment support or leasing models for EV adoption',
+                    'Development of dedicated charging hubs at client locations',
+                    'Incentives and subsidies passed effectively to fleet operators',
+                    'Sustainability is a shared responsibility.',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'For MNCs, transport partners, and policymakers, the goal should not just be to adopt EVs—but to build an ecosystem where the transition is practical, viable, and beneficial for all stakeholders involved.',
+            },
         ],
-        takeaways: [
-            'Night-drop SOPs must be consistent and auditable.',
-            'Monitoring systems improve response time and oversight.',
-            'Driver verification and training remain essential.',
-        ],
-        closing: 'Safe mobility is built through repeatable systems and zero compromise on passenger security.',
     },
-    'optimizing-fleet-efficiency-with-ai': {
-        intro: 'Fleet efficiency improves when route planning is based on live operating data instead of static assumptions.',
-        heading: 'Efficiency Starts with Better Allocation',
-        paragraphs: [
-            'Dynamic routing helps align pickup order, vehicle type, and travel flow with real-world traffic conditions.',
-            'That improves seat utilization, reduces travel time, and gives employees a more consistent transport experience.',
+    'womens-safety-in-corporate-transportation': {
+        heading: 'Safety, Respect, and Responsibility',
+        blocks: [
+            {
+                type: 'paragraph',
+                text: 'A safe journey is not a privilege for women. It is a necessity and a responsibility that every company must uphold.',
+            },
+            {
+                type: 'paragraph',
+                text: 'In today’s corporate environment, thousands of women professionals travel to and from workplaces every day, often during early morning or late night hours. Ensuring that these journeys are safe, secure, and reliable is not just a service requirement, it is a critical responsibility.',
+            },
+            {
+                type: 'paragraph',
+                text: 'At DTC BHARAT - Delphinium Travelcorp Private Limited), women’s safety is a fundamental priority in the way we design and manage our corporate transportation services.',
+            },
+            {
+                type: 'paragraph',
+                text: 'We believe that every woman professional should feel confident, respected, and protected during her commute, regardless of the time of travel.',
+            },
+            {
+                type: 'paragraph',
+                text: 'To strengthen this commitment, we regularly conduct awareness and training sessions focused on women safety, professional conduct, and strict zero tolerance policies for all operational staff and drivers.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Our approach focuses on key safety principles:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Promoting respectful and professional conduct at all times.',
+                    'Ensuring heightened awareness and accountability among drivers and staff.',
+                    'Enforcing strict zero tolerance towards any form of misconduct.',
+                    'Building a transportation culture where safety, dignity, and trust are always prioritized.',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'For us, corporate mobility is not only about efficiency and punctuality. It is about creating an environment where women professionals can travel to work with complete peace of mind.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Because a truly progressive workplace is one where every woman feels safe on her journey to success.',
+            },
         ],
-        takeaways: [
-            'Dynamic routing reduces route overlap.',
-            'Better utilization lowers fleet strain.',
-            'Data-driven dispatch helps teams scale more reliably.',
-        ],
-        closing: 'An efficient fleet is not the largest fleet. It is the fleet allocated with precision.',
     },
-    'choosing-the-right-fleet-for-your-office': {
-        intro: 'Fleet planning should reflect route density, rider expectations, and day-to-day utilization.',
-        heading: 'The Right Mix Matters',
-        paragraphs: [
-            'Choosing between hatchbacks, sedans, SUVs, and buses affects both service quality and cost efficiency.',
-            'The strongest operating model usually comes from reviewing route patterns regularly and adjusting the fleet mix accordingly.',
+    'what-keeps-a-modern-company-moving-efficiently': {
+        heading: 'Corporate Mobility That Keeps Business Moving',
+        blocks: [
+            {
+                type: 'paragraph',
+                text: 'What keeps a modern company moving efficiently every single day? A mobility system that is safe, reliable, and professionally managed.',
+            },
+            {
+                type: 'paragraph',
+                text: 'In today’s fast paced corporate environment, transportation is no longer just a logistical requirement. It is a critical element that supports employee safety, operational continuity, punctuality, and overall productivity.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Companies today require mobility solutions that are structured, dependable, and aligned with the expectations of modern business operations.',
+            },
+            {
+                type: 'paragraph',
+                text: 'At DTC BHARAT - Delphinium Travelcorp Private Limited), we provide professionally managed corporate mobility solutions designed to support the diverse transportation needs of organizations.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Our key service offerings include:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Corporate / Employee Transportation Services (ETS) - Structured and dependable employee commute programs designed to ensure safe, timely, and efficient workforce mobility while supporting seamless daily operations.',
+                    'Spot Rental Services - Flexible on demand vehicle solutions designed to support business meetings, corporate visits, and immediate travel requirements with efficiency and professionalism.',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'With nearly two decades of experience in the corporate transportation sector, DTC BHARAT - Delphinium Travelcorp Private Limited) continues to deliver mobility solutions built on safety, operational discipline, and service excellence.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Our focus is simple. To support Corporates with transportation systems that enhance efficiency, reliability, and employee convenience, enabling businesses to move forward with confidence in a rapidly evolving corporate landscape.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Because when mobility works seamlessly, businesses move forward without disruption.',
+            },
         ],
-        takeaways: [
-            'Vehicle choice should follow route density.',
-            'Comfort and utilization need to be balanced together.',
-            'Periodic reviews prevent long-term inefficiency.',
-        ],
-        closing: 'Fleet selection works best as an ongoing strategy rather than a one-time decision.',
     },
-    'rise-of-electric-vehicles-in-corporate-travel': {
-        intro: 'Electric vehicles are becoming a practical part of corporate transport where routes and charging windows support them.',
-        heading: 'EV Adoption Needs Planning',
-        paragraphs: [
-            'A useful EV program depends on more than vehicle procurement. Charging access, route stability, and standby time all matter.',
-            'When aligned correctly, EV deployment supports cleaner operations and a more future-ready fleet strategy.',
+    'why-driver-training-is-the-foundation-of-safe-mobility': {
+        heading: 'Training Builds Safer Journeys',
+        blocks: [
+            {
+                type: 'paragraph',
+                text: 'In corporate transportation, safety begins long before the vehicle starts moving. It begins with a well trained driver.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Drivers are the most critical link in delivering safe, reliable, and professional mobility services. Every journey reflects not only driving skills but also the discipline, responsibility, and professionalism of the person behind the wheel.',
+            },
+            {
+                type: 'paragraph',
+                text: 'At DTC BHARAT - Delphinium Travelcorp Private Limited), we place strong emphasis on structured driver training and continuous skill development, ensuring that every driver represents our standards of safety, professionalism, and service excellence.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Our driver training programs focus on:',
+            },
+            {
+                type: 'list',
+                items: [
+                    'Defensive driving and road safety practices',
+                    'Professional behaviour and passenger etiquette',
+                    'Corporate safety protocols and compliance awareness',
+                    'Emergency preparedness and responsible decision making',
+                    'Punctuality, route discipline, and service reliability',
+                ],
+            },
+            {
+                type: 'paragraph',
+                text: 'Through continuous training, monitoring, and operational guidance, we ensure that every driver representing DTC BHARAT understands the responsibility of transporting corporate professionals safely and respectfully.',
+            },
+            {
+                type: 'paragraph',
+                text: 'Because in corporate mobility, a well trained driver is the foundation of every safe and dependable journey.',
+            },
         ],
-        takeaways: [
-            'EVs fit best on predictable route patterns.',
-            'Charging readiness is as important as vehicle selection.',
-            'A mixed fleet often offers the best transition path.',
-        ],
-        closing: 'Sustainable transport works when it is integrated into operations, not treated as a branding exercise.',
-    },
-    'maintaining-professionalism-driver-training': {
-        intro: 'Professional transport service depends heavily on the quality of driver behavior and training.',
-        heading: 'Training Protects Service Standards',
-        paragraphs: [
-            'Punctuality, conduct, communication, and escalation awareness all shape how passengers experience the service.',
-            'Refresher training and operational audits are what keep those standards intact over time.',
-        ],
-        takeaways: [
-            'Professional behavior should be trained and reinforced.',
-            'Refresher programs help maintain consistency at scale.',
-            'Driver quality strongly influences client trust.',
-        ],
-        closing: 'Strong driver training is one of the clearest signs of a disciplined mobility partner.',
     },
 };
 
 const posts = [
     {
         id: 1,
-        slug: 'future-of-corporate-mobility-2024',
-        title: 'The Future of Corporate Mobility in 2024',
-        excerpt: 'How AI and sustainable energy are reshaping the way enterprises manage employee transportation.',
-        category: 'Technology',
-        date: 'May 15, 2024',
-        readTime: '5 min read',
-        image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop',
+        slug: 'are-we-pushing-ev-adoption-too-early-in-indias-transport-ecosystem',
+        title: 'Are We Pushing EV Adoption Too Early in India’s Transport Ecosystem?',
+        excerpt: 'On paper, EVs look perfect. On Indian roads, the reality is very different.',
+        category: 'EV Mobility',
+        date: 'April 8, 2026',
+        readTime: '4 min read',
+        image: '/images/blogs/blog_ev.jpeg',
         featured: true,
     },
     {
         id: 2,
-        slug: 'female-safety-our-top-priority',
-        title: 'Female Safety: Our Top Priority',
-        excerpt: 'A deep dive into the protocols and technology we use to ensure every night drop is 100% safe.',
-        category: 'Safety',
-        date: 'May 12, 2024',
+        slug: 'ev-push-by-mncs-green-vision-vs-ground-reality',
+        title: 'EV Push by MNCs: Green Vision vs Ground Reality',
+        excerpt: 'The EV shift in employee transportation is progressive in intent, but the on-ground challenges for transport partners remain significant.',
+        category: 'EV Mobility',
+        date: 'April 8, 2026',
         readTime: '4 min read',
-        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2070&auto=format&fit=crop',
+        image: '/images/blogs/ev_push.jpeg',
     },
     {
         id: 3,
-        slug: 'optimizing-fleet-efficiency-with-ai',
-        title: 'Optimizing Fleet Efficiency with AI',
-        excerpt: 'How our proprietary routing algorithms reduce travel time by up to 25% for our corporate partners.',
-        category: 'Technology',
-        date: 'May 10, 2024',
-        readTime: '6 min read',
-        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop',
+        slug: 'womens-safety-in-corporate-transportation',
+        title: 'Women’s Safety in Corporate Transportation',
+        excerpt: 'A safe journey is not a privilege for women. It is a necessity and a responsibility every company must uphold.',
+        category: 'Women Safety',
+        date: 'April 8, 2026',
+        readTime: '3 min read',
+        image: '/images/blogs/women_safety.jpeg',
     },
     {
         id: 4,
-        slug: 'choosing-the-right-fleet-for-your-office',
-        title: 'Choosing the Right Fleet for Your Office',
-        excerpt: 'A guide to selecting between hatchbacks, sedans, and buses based on employee density and routes.',
-        category: 'Fleet',
-        date: 'May 08, 2024',
+        slug: 'what-keeps-a-modern-company-moving-efficiently',
+        title: 'What Keeps a Modern Company Moving Efficiently?',
+        excerpt: 'A modern business runs better with mobility systems that are safe, reliable, and professionally managed.',
+        category: 'Corporate Mobility',
+        date: 'April 8, 2026',
         readTime: '3 min read',
-        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop',
+        image: '/images/blogs/cabs.jpeg',
     },
     {
         id: 5,
-        slug: 'rise-of-electric-vehicles-in-corporate-travel',
-        title: 'The Rise of Electric Vehicles in Corporate Travel',
-        excerpt: 'Why DTC Bharat is investing heavily in EV infrastructure for a greener tomorrow.',
-        category: 'Corporate Travel',
-        date: 'May 05, 2024',
-        readTime: '7 min read',
-        image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2072&auto=format&fit=crop',
-    },
-    {
-        id: 6,
-        slug: 'maintaining-professionalism-driver-training',
-        title: 'Maintaining Professionalism: Driver Training',
-        excerpt: 'Behind the scenes of our rigorous in-house training programs for our mobility partners.',
-        category: 'Corporate Travel',
-        date: 'May 01, 2024',
-        readTime: '4 min read',
-        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2070&auto=format&fit=crop',
+        slug: 'why-driver-training-is-the-foundation-of-safe-mobility',
+        title: 'Why Driver Training Is the Foundation of Safe Mobility',
+        excerpt: 'In corporate transportation, safety begins long before the vehicle starts moving. It begins with a well trained driver.',
+        category: 'Corporate Mobility',
+        date: 'April 8, 2026',
+        readTime: '3 min read',
+        image: '/images/blogs/team_training.jpeg',
     },
 ];
 
@@ -233,30 +463,36 @@ function BlogsPage({ blogSlug = null }) {
                     </div>
 
                     <div className="mb-16 h-[400px] overflow-hidden rounded-[3rem] shadow-2xl md:h-[500px]">
-                        <img src={selectedPost.image} alt={selectedPost.title} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+                        <img src={selectedPost.image} alt={selectedPost.title} className="h-full w-full object-cover" />
                     </div>
 
                     <div className="space-y-8 text-slate-600">
                         <p className="border-l-4 border-brand py-2 pl-6 text-xl font-medium italic text-corporate-blue/80">
                             {selectedPost.excerpt}
                         </p>
-                        <p className="text-lg leading-relaxed">{content.intro}</p>
                         <h3 className="font-display text-2xl font-bold text-corporate-blue">{content.heading}</h3>
-                        {content.paragraphs.map((paragraph) => (
-                            <p key={paragraph} className="text-lg leading-relaxed">{paragraph}</p>
-                        ))}
-                        <div className="rounded-[2.5rem] border border-slate-100 bg-slate-50 p-10">
-                            <h4 className="mb-4 text-xl font-bold text-corporate-blue">Key Takeaways:</h4>
-                            <ul className="space-y-4">
-                                {content.takeaways.map((takeaway) => (
-                                    <li key={takeaway} className="flex items-start gap-3">
-                                        <CheckCircle2 className="mt-1 shrink-0 text-brand" size={20} />
-                                        <span>{takeaway}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <p className="text-lg leading-relaxed">{content.closing}</p>
+                        {content.blocks.map((block, index) => {
+                            if (block.type === 'list') {
+                                return (
+                                    <div key={`${selectedPost.slug}-list-${index}`} className="rounded-[2.5rem] border border-slate-100 bg-slate-50 p-10">
+                                        <ul className="space-y-4">
+                                            {block.items.map((item) => (
+                                                <li key={item} className="flex items-start gap-3">
+                                                    <CheckCircle2 className="mt-1 shrink-0 text-brand" size={20} />
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                            }
+
+                            return (
+                                <p key={`${selectedPost.slug}-paragraph-${index}`} className="text-lg leading-relaxed">
+                                    {block.text}
+                                </p>
+                            );
+                        })}
                     </div>
 
                     <div className="mt-20 flex flex-col items-center justify-between gap-8 border-t border-slate-100 pt-12 md:flex-row">
@@ -296,7 +532,7 @@ function BlogsPage({ blogSlug = null }) {
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="group mb-20 cursor-pointer" onClick={() => openPost(featuredPost)}>
                         <div className="flex flex-col overflow-hidden rounded-[3rem] border border-slate-100 bg-white shadow-2xl lg:flex-row">
                             <div className="h-[400px] overflow-hidden lg:h-auto lg:w-1/2">
-                                <img src={featuredPost.image} alt={featuredPost.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
+                                <img src={featuredPost.image} alt={featuredPost.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                             </div>
                             <div className="flex flex-col justify-center p-10 md:p-16 lg:w-1/2">
                                 <div className="mb-6 flex items-center gap-4">
@@ -346,7 +582,7 @@ function BlogsPage({ blogSlug = null }) {
                         {visiblePosts.map((post) => (
                             <motion.article key={post.id} layout initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} onClick={() => openPost(post)} className="group flex cursor-pointer flex-col overflow-hidden rounded-[2.5rem] border border-slate-100 bg-white transition-all hover:shadow-2xl">
                                 <div className="relative h-64 overflow-hidden">
-                                    <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                                    <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                     <div className="absolute left-6 top-6">
                                         <span className="rounded-full bg-white/90 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-corporate-blue shadow-sm backdrop-blur-md">
                                             {post.category}
