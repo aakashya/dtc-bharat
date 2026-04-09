@@ -11,6 +11,21 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
+function WhatsAppIcon({ size = 18 }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+        >
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.52 0 .2 5.32.2 11.86c0 2.09.55 4.14 1.6 5.94L0 24l6.36-1.67a11.8 11.8 0 0 0 5.7 1.45h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.41-8.44Zm-8.45 18.3h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.77.99 1-3.67-.23-.38a9.84 9.84 0 0 1-1.5-5.28c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.1 1.02 6.96 2.88a9.79 9.79 0 0 1 2.87 6.96c0 5.42-4.41 9.83-9.83 9.83Zm5.39-7.36c-.3-.15-1.8-.89-2.08-.99-.28-.1-.49-.15-.69.15-.2.3-.79.99-.96 1.19-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.39-1.48a8.97 8.97 0 0 1-1.66-2.06c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.7-1.69-.96-2.31-.25-.6-.51-.52-.69-.53h-.59c-.2 0-.53.08-.81.38-.28.3-1.06 1.03-1.06 2.5 0 1.47 1.08 2.88 1.23 3.08.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.8-.73 2.05-1.43.25-.71.25-1.31.18-1.43-.08-.13-.28-.2-.58-.35Z" />
+        </svg>
+    );
+}
+
 const categories = ['All', 'EV Mobility', 'Women Safety', 'Corporate Mobility'];
 
 const articleContent = {
@@ -430,6 +445,44 @@ function BlogsPage({ blogSlug = null }) {
         setNewsletterEmail('');
     };
 
+    const openShareWindow = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer,width=640,height=640');
+    };
+
+    const getShareLinks = (post) => {
+        const articleUrl = `${window.location.origin}/blogs/${post.slug}`;
+        const encodedUrl = encodeURIComponent(articleUrl);
+        const encodedTitle = encodeURIComponent(post.title);
+        const encodedText = encodeURIComponent(`${post.title} ${articleUrl}`);
+
+        return [
+            {
+                key: 'facebook',
+                label: 'Share on Facebook',
+                Icon: Facebook,
+                url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+            },
+            {
+                key: 'twitter',
+                label: 'Share on X',
+                Icon: Twitter,
+                url: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+            },
+            {
+                key: 'linkedin',
+                label: 'Share on LinkedIn',
+                Icon: Linkedin,
+                url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+            },
+            {
+                key: 'whatsapp',
+                label: 'Share on WhatsApp',
+                Icon: WhatsAppIcon,
+                url: `https://wa.me/?text=${encodedText}`,
+            },
+        ];
+    };
+
     if (selectedPost) {
         const content = articleContent[selectedPost.slug];
 
@@ -499,9 +552,15 @@ function BlogsPage({ blogSlug = null }) {
                         <div className="flex flex-col items-center gap-4 md:flex-row">
                             <span className="text-sm font-bold uppercase tracking-widest text-slate-400">Share this article:</span>
                             <div className="flex gap-3">
-                                {[Facebook, Twitter, Linkedin].map((Icon, index) => (
-                                    <button key={index} type="button" className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition-all hover:bg-brand hover:text-white">
-                                        <Icon size={18} />
+                                {getShareLinks(selectedPost).map((shareItem) => (
+                                    <button
+                                        key={shareItem.key}
+                                        type="button"
+                                        aria-label={shareItem.label}
+                                        onClick={() => openShareWindow(shareItem.url)}
+                                        className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition-all hover:bg-brand hover:text-white"
+                                    >
+                                        <shareItem.Icon size={18} />
                                     </button>
                                 ))}
                             </div>

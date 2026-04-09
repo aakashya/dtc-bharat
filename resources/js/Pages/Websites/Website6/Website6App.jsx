@@ -102,6 +102,7 @@ function Navbar({ activePage }) {
         { label: 'Services', value: 'services' },
         { label: 'Team', value: 'team' },
         { label: 'Tours', value: 'tours' },
+        { label: 'Blogs', value: 'blogs' },
         { label: 'Contact', value: 'contact' },
     ];
 
