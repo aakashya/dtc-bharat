@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Bungee&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 .w6-root {
     @apply bg-slate-50 text-slate-900 min-h-screen;
@@ -7,6 +7,14 @@
 
 .w6-root .font-display {
     font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+.w6-root .font-brand-delphinium {
+    font-family: 'Alice', serif;
+}
+
+.w6-root .font-brand-travelcorp {
+    font-family: 'Bungee', sans-serif;
 }
 
 .w6-glass-card {
@@ -45,4 +53,3 @@
 .w6-root .animate-marquee {
     animation: w6-marquee 40s linear infinite;
 }
-

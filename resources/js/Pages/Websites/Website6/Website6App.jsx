@@ -75,6 +75,23 @@ const CLIENT_BOOKING_DEFAULTS = {
     special_instructions: '',
 };
 
+function BrandWordmark({ light = false, compact = false, mobileCompact = false }) {
+    const sizeClass = compact
+        ? 'h-10'
+        : mobileCompact
+        ? 'h-10 md:h-14 md:pt-2'
+        : 'h-14 md:h-16';
+
+    return (
+        <img
+            src="/images/logo/dtc.png"
+            alt="Delphimium Travelcorp"
+            className={`w-auto object-contain pt-2 ${sizeClass} ${light ? 'brightness-0 invert' : ''}`}
+            loading="eager"
+        />
+    );
+}
+
 function Navbar({ activePage }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -125,18 +142,10 @@ function Navbar({ activePage }) {
                     <img
                         src="/images/logo/full-logo-no-bg-icon.PNG"
                         alt="Delphinium Travelcorp"
-                        className="h-14 w-auto rounded-xl object-cover md:h-16"
+                        className="h-12 w-auto rounded-xl object-cover md:h-16"
                         loading="eager"
                     />
-                    <div>
-                        <h1
-                            className={`font-display text-3xl font-bold leading-none md:text-4xl ${
-                                isHomePage && !isScrolled ? 'text-white' : 'text-w6-corporate-blue'
-                            }`}
-                        >
-                            DTC <span className="text-w6-brand">BHARAT</span>
-                        </h1>
-                    </div>
+                    <BrandWordmark light={isHomePage && !isScrolled} mobileCompact />
                 </Link>
 
                 <div className="hidden items-center gap-8 min-[1001px]:flex">
@@ -208,9 +217,7 @@ function Navbar({ activePage }) {
                                         className="h-12 w-auto rounded-lg object-cover"
                                         loading="eager"
                                     />
-                                    <div className="font-display text-2xl font-bold text-white">
-                                        DTC <span className="text-w6-brand">BHARAT</span>
-                                    </div>
+                                    <BrandWordmark light compact />
                                 </div>
                                 <button
                                     type="button"
@@ -291,12 +298,7 @@ function Footer() {
                             loading="eager"
                         />
                         <div>
-                            <h2 className="font-display text-4xl font-bold leading-none">
-                                DTC <span className="text-w6-brand">BHARAT</span>
-                            </h2>
-                            <p className="text-[10px] font-semibold uppercase tracking-widest text-white/70">
-                                A unit of Delphinium Travelcorp PVT. LTD.
-                            </p>
+                            <BrandWordmark light />
                         </div>
                     </div>
                     <p className="mb-6 text-sm leading-relaxed text-slate-400">
