@@ -4,6 +4,7 @@ import './bootstrap';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
+import { AuthProvider } from './context/AuthContext';
 
 createInertiaApp({
     title: (title) => title,
@@ -15,7 +16,11 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            <AuthProvider>
+                <App {...props} />
+            </AuthProvider>,
+        );
     },
     progress: {
         delay: 350,

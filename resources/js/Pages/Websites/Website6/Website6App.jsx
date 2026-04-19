@@ -166,11 +166,11 @@ function Navbar({ activePage }) {
                         </Link>
                     ))}
                     <Link
-                        href={PAGE_URLS.contact}
+                        href="/admin/login"
                         prefetch
                         className="flex items-center gap-2 rounded-full bg-w6-brand px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-w6-brand-dark w6-electric-glow"
                     >
-                        Book a Cab Now
+                        Login
                     </Link>
                 </div>
 
@@ -264,12 +264,12 @@ function Navbar({ activePage }) {
                                     +91 9899925362
                                 </div>
                                 <Link
-                                    href={PAGE_URLS.contact}
+                                    href="/admin/login"
                                     prefetch
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className="w6-electric-glow flex w-full items-center justify-center gap-2 rounded-2xl bg-w6-brand py-4 text-base font-bold text-white"
                                 >
-                                    Book a Cab Now <ArrowRight size={18} />
+                                    Login <ArrowRight size={18} />
                                 </Link>
                             </div>
                         </motion.div>
@@ -1603,7 +1603,7 @@ const LAZY_PAGE_LOADERS = {
     contact: loadContactPage,
 };
 
-export default function Website6App({ activePage = 'home', blogSlug = null }) {
+export default function Website6App({ activePage = 'home', blogSlug = null, blogPosts = [] }) {
     const setActivePage = (nextPage) => {
         const nextUrl = PAGE_URLS[nextPage];
 
@@ -1683,7 +1683,7 @@ export default function Website6App({ activePage = 'home', blogSlug = null }) {
                         )}
                         {activePage === 'blogs' && (
                             <Suspense fallback={lazyPageFallback}>
-                                <LazyBlogsPage blogSlug={blogSlug} />
+                                <LazyBlogsPage blogSlug={blogSlug} blogPosts={blogPosts} />
                             </Suspense>
                         )}
                         {activePage === 'contact' && (

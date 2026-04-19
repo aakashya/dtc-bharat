@@ -47,7 +47,13 @@ const PAGE_META = {
     },
 };
 
-export default function Website6Index({ activePage = 'home', pageTitle = null, blogSlug = null, blogMeta = null }) {
+export default function Website6Index({
+    activePage = 'home',
+    pageTitle = null,
+    blogSlug = null,
+    blogMeta = null,
+    blogPosts = [],
+}) {
     const siteUrl = 'https://dtcbharat.com';
     const resolvedMeta = blogMeta ?? PAGE_META[activePage] ?? PAGE_META.home;
     const resolvedTitle = pageTitle ?? resolvedMeta.title;
@@ -79,7 +85,7 @@ export default function Website6Index({ activePage = 'home', pageTitle = null, b
                 <meta name="twitter:image" content={imageUrl} />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
-            <Website6App activePage={activePage} blogSlug={blogSlug} />
+            <Website6App activePage={activePage} blogSlug={blogSlug} blogPosts={blogPosts} />
         </>
     );
 }
