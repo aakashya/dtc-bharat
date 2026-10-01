@@ -27,13 +27,6 @@ function TeamPage() {
             img: "/images/team/vikk.png",
         },
         {
-            name: "Mr. Vishal",
-            role: "Transport Lead",
-            credentials: ["Fleet Operations", "Route Planning", "Site Management"],
-            desc: "As Transport Lead, he manages daily employee transport operations by leading drivers, coordinators, and transport vendors to ensure smooth execution. He plans and optimizes pickup and drop routes, monitors fleet movement through GPS systems, and maintains strong standards for safety, compliance, and service quality. He also resolves transport issues and employee complaints promptly, while maintaining MIS reports and coordinating closely with HR and Admin teams. His core objective is to deliver safe, efficient, and consistently on-time employee transportation.",
-            img: "/images/team/vishal.jpg",
-        },
-        {
             name: "Adv. Chirag",
             role: "Legal Advisor",
             credentials: ["BA.LLB. Hons. (Gold Medalist)"],
